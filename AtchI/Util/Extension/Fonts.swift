@@ -10,7 +10,7 @@ import SwiftUI
 
 extension Font {
     static let titleLarge: Font = system(size: 34, weight: .bold)
-    static let titleMedium: Font = system(size: 22, weight: .semibold)
+    static let titleMedium: Font = system(size: 22, weight: .bold)
     static let titleSmall: Font = system(size: 20, weight: .semibold)
     
     static let bodyLarge: Font = system(size: 18, weight: .semibold)
