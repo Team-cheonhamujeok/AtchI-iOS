@@ -12,10 +12,7 @@ struct HomeView: View {
         ScrollView{
             AppTitleBar()
             
-            Spacer(minLength: 20)
-            
-            Image(systemName: "home")
-            
+            Spacer(minLength: 30)
             VStack(alignment: .leading){
                 Text("AI 진단 결과")
                     .font(.titleMedium)
@@ -23,15 +20,28 @@ struct HomeView: View {
             }
             
             Spacer(minLength: 50)
-            
             VStack(alignment: .leading){
                 Text("바로가기")
                     .font(.titleMedium)
-                AIDiagnosisCard()
+                HStack{
+                    SelfDiagnosisShortcutCard()
+                    QuizShortcutCard()
+                }
             }
-
+            
+            Spacer(minLength: 50)
+            VStack(alignment: .leading){
+                Text("치매 정보")
+                    .font(.titleMedium)
+                HStack{
+                    SelfDiagnosisShortcutCard()
+                }
+            }
+        
+            Spacer(minLength: 30)
         }
-        .padding(30)
+        .scrollIndicators(.hidden)
+        .padding(.horizontal, 30)
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
                alignment: .leading)

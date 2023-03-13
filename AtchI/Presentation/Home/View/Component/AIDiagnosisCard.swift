@@ -26,6 +26,7 @@ struct AIDiagnosisCard: View {
         .padding(30)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .background(Color.mainBlueLight)
+        .cornerRadius(20)
         
     }
 }
