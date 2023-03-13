@@ -13,6 +13,11 @@
 		BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */; };
 		BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551529B9957900FAA6E3 /* Colors.swift */; };
 		BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551729B9959100FAA6E3 /* Fonts.swift */; };
+		BCE394B629BF096C00FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B529BF096C00FEE178 /* Sample.swift */; };
+		BCE394B829BF097200FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B729BF097200FEE178 /* Sample.swift */; };
+		BCE394BA29BF097D00FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B929BF097D00FEE178 /* Sample.swift */; };
+		BCE394BC29BF098300FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394BB29BF098300FEE178 /* Sample.swift */; };
+		BCE394BE29BF098B00FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394BD29BF098B00FEE178 /* Sample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,11 @@
 		BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC8D551529B9957900FAA6E3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BC8D551729B9959100FAA6E3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BCE394B529BF096C00FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sample.swift; path = ../../../../../../../../Documents/Sample.swift; sourceTree = "<group>"; };
+		BCE394B729BF097200FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		BCE394B929BF097D00FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		BCE394BB29BF098300FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		BCE394BD29BF098B00FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,7 @@
 		BC8D550F29B9949D00FAA6E3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BCE394BD29BF098B00FEE178 /* Sample.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -128,6 +139,7 @@
 		BC8D552029B99A9100FAA6E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BCE394B529BF096C00FEE178 /* Sample.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +147,7 @@
 		BC8D552129B99A9600FAA6E3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BCE394B729BF097200FEE178 /* Sample.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -142,6 +155,7 @@
 		BC8D552229B99A9C00FAA6E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BCE394B929BF097D00FEE178 /* Sample.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +163,7 @@
 		BC8D552329B99AA200FAA6E3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BCE394BB29BF098300FEE178 /* Sample.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -223,9 +238,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE394B629BF096C00FEE178 /* Sample.swift in Sources */,
+				BCE394BE29BF098B00FEE178 /* Sample.swift in Sources */,
+				BCE394BC29BF098300FEE178 /* Sample.swift in Sources */,
+				BCE394B829BF097200FEE178 /* Sample.swift in Sources */,
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
+				BCE394BA29BF097D00FEE178 /* Sample.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
