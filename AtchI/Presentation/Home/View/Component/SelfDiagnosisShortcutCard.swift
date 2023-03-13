@@ -11,11 +11,9 @@ import SwiftUI
 
 struct SelfDiagnosisShortcutCard: View {
     var body: some View {
-        VStack(){
-            ShortcutCard(
-                title: "자가진단",
-                content: "혹시 치매일까\n의심된다면")
-        }
+        ShortcutCard(
+            title: "자가진단",
+            content: "혹시 치매일까\n의심된다면")
     }
 }
 

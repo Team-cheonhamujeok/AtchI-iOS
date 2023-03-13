@@ -20,6 +20,7 @@ struct ShortcutCard: View {
             Text(content)
                 .font(.bodySmall)
                 .foregroundColor(.mainText)
+            Spacer(minLength: 10)
             HStack {
                 Text("바로가기")
                     .font(.bodyLarge)
@@ -27,7 +28,7 @@ struct ShortcutCard: View {
                 Image(systemName: "arrow.forward").foregroundColor(.mainText)
             }
         }
-        .padding(30)
+        .padding(25)
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
                alignment: .leading)

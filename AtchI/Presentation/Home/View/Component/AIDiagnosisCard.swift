@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AIDiagnosisCard: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 7) {
             Text("치매 진단 결과")
                 .font(.titleMedium)
                 .foregroundColor(.mainBlue)
@@ -21,9 +21,9 @@ struct AIDiagnosisCard: View {
                 .foregroundColor(.mainText)
             Text("*AI 진단 정보는 참고용입니다. 정확한 진단은 의사와 상담하세요.")
                 .font(.bodyTiny)
-                .foregroundColor(.grayDisabled)
+                .foregroundColor(.grayTextLight)
         }
-        .padding(30)
+        .padding(25)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .background(Color.mainBlueLight)
         .cornerRadius(20)
