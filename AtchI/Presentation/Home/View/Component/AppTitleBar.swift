@@ -17,7 +17,6 @@ struct AppTitleBar: View {
                 .foregroundColor(.grayTextLight)
         }
         .frame(maxWidth: .infinity,
-                        maxHeight: .infinity,
-                        alignment: .leading)
+               alignment: .leading)
     }
 }
