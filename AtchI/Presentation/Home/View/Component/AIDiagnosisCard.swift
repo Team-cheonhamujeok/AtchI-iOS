@@ -30,9 +30,3 @@ struct AIDiagnosisCard: View {
         
     }
 }
-
-struct AIDiagnosisCard_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}

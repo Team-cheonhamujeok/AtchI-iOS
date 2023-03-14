@@ -10,6 +10,9 @@
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
+		BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C529C0886D0094333B /* InformationCardList.swift */; };
+		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
+		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
 		BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D550129B9909C00FAA6E3 /* ContentView.swift */; };
 		BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550329B9909D00FAA6E3 /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
+		BC4317C529C0886D0094333B /* InformationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardList.swift; sourceTree = "<group>"; };
+		BC4317C829C094530094333B /* AlzheimerInformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformationType.swift; sourceTree = "<group>"; };
+		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
 		BC8D54FC29B9909C00FAA6E3 /* AtchI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtchI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIApp.swift; sourceTree = "<group>"; };
 		BC8D550129B9909C00FAA6E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +66,22 @@
 				BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BC4317C729C094220094333B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				BC4317C829C094530094333B /* AlzheimerInformationType.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		BC4317CA29C094EE0094333B /* Structure */ = {
+			isa = PBXGroup;
+			children = (
+				BC4317CB29C095020094333B /* AlzheimerInformation.swift */,
+			);
+			path = Structure;
 			sourceTree = "<group>";
 		};
 		BC8D54F329B9909C00FAA6E3 = {
@@ -102,6 +124,8 @@
 		BC8D551329B9951400FAA6E3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BC4317CA29C094EE0094333B /* Structure */,
+				BC4317C729C094220094333B /* Constant */,
 				BC8D551929B995A200FAA6E3 /* Extension */,
 			);
 			path = Util;
@@ -150,6 +174,7 @@
 				BCDDE0C129BE286C003E364C /* AppTitleBar.swift */,
 				BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */,
 				BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */,
+				BC4317C529C0886D0094333B /* InformationCardList.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -238,12 +263,15 @@
 				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
+				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
+				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
 				BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */,
 				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
+				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,

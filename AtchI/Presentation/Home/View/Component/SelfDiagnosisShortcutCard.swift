@@ -16,9 +16,3 @@ struct SelfDiagnosisShortcutCard: View {
             content: "혹시 치매일까\n의심된다면")
     }
 }
-
-struct SelfDiagnosisShortcutCard_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
