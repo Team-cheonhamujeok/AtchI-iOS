@@ -15,29 +15,32 @@ struct InformationDetailModal: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
+            // image
             VStack{
                 Image(pictureName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: .infinity)
             }.frame(maxWidth: .infinity,
-                    maxHeight: 140,
+                    maxHeight: 200,
                     alignment: .leading)
             .background(Color.white)
             
-            VStack(alignment: .leading){
+            // title
+            VStack(alignment: .leading, spacing: 10){
                 Text("\(title)")
-                    .font(.titleSmall)
-                Spacer()
+                    .font(.titleMedium)
                 Text("\(content)")
-                    .font(.bodySmall)
-                    .lineLimit(2)
+                    .font(.bodyMedium)
             }.frame(maxWidth: .infinity,
                     minHeight: 40,
                     alignment: .leading)
             .padding(.horizontal, 25)
             .padding(.vertical, 15)
             .background(Color.white)
+            
+            // 컨텐츠 위로 밀려고 Spacer
+             Spacer()
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
