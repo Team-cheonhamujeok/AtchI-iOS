@@ -12,7 +12,7 @@ import Foundation
 /// AlzheimerInformation 구조체를 static let으로 갖습니다.
 /// - Author: doyeon
 /// - SeeAlso: AlzheimerInformation
-enum AlzheimerInformationType {
+enum AlzheimerInformationType: CaseIterable {
     static let whatIsAlzheimer = AlzheimerInformation(
         pictureName: "picture1",
         title: "치매란 무엇인가요",

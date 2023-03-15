@@ -12,13 +12,13 @@ import SwiftUI
 /// 사진과 타이틀, 본문 미리보기를 가진 카드를 여러장 리스트로 출력합니다.
 struct InformationCardList: View {
     
+    // dy TODO: 이거 allCases할 수 없나?
     var alzheimerInformations = [ AlzheimerInformationType.whatIsAlzheimer, AlzheimerInformationType.howMuchTreatment]
     
     var body: some View {
         VStack(alignment: .leading){
             Text("치매 정보")
                 .font(.titleMedium)
-            // TODO: Information Card 추상화, gesture 다시 정리
             VStack(spacing: 20) {
                 ForEach(alzheimerInformations, id: \.title) {
                     InformationCard(

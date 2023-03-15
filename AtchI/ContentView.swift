@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        // dy TODO: TabBar 커스텀 해야함
         TabView {
             //2. 여기에tabview안에 subview를 만들어주시면 됩니다.
             HomeView()
