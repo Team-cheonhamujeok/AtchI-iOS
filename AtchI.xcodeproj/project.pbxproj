@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
+		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
+		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
+		BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C529C0886D0094333B /* InformationCardList.swift */; };
+		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
+		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
 		BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D550129B9909C00FAA6E3 /* ContentView.swift */; };
 		BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550329B9909D00FAA6E3 /* Assets.xcassets */; };
 		BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */; };
 		BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551529B9957900FAA6E3 /* Colors.swift */; };
 		BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551729B9959100FAA6E3 /* Fonts.swift */; };
-		BCE394B829BF097200FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B729BF097200FEE178 /* Sample.swift */; };
-		BCE394BA29BF097D00FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B929BF097D00FEE178 /* Sample.swift */; };
-		BCE394BC29BF098300FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394BB29BF098300FEE178 /* Sample.swift */; };
-		BCE394BE29BF098B00FEE178 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394BD29BF098B00FEE178 /* Sample.swift */; };
+		BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BC29BDE613003E364C /* HomeView.swift */; };
+		BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */; };
+		BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0C129BE286C003E364C /* AppTitleBar.swift */; };
+		BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */; };
+		BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */; };
+		BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B329BEF99600FEE178 /* ShortcutCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
+		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
+		BC4317C529C0886D0094333B /* InformationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardList.swift; sourceTree = "<group>"; };
+		BC4317C829C094530094333B /* AlzheimerInformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformationType.swift; sourceTree = "<group>"; };
+		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
 		BC8D54FC29B9909C00FAA6E3 /* AtchI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtchI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIApp.swift; sourceTree = "<group>"; };
 		BC8D550129B9909C00FAA6E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,10 +41,12 @@
 		BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC8D551529B9957900FAA6E3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BC8D551729B9959100FAA6E3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		BCE394B729BF097200FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
-		BCE394B929BF097D00FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
-		BCE394BB29BF098300FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
-		BCE394BD29BF098B00FEE178 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		BCDDE0BC29BDE613003E364C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDiagnosisCard.swift; sourceTree = "<group>"; };
+		BCDDE0C129BE286C003E364C /* AppTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleBar.swift; sourceTree = "<group>"; };
+		BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfDiagnosisShortcutCard.swift; sourceTree = "<group>"; };
+		BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizShortcutCard.swift; sourceTree = "<group>"; };
+		BCE394B329BEF99600FEE178 /* ShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +60,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC3CA1A829BF664800C8AE3D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BC4317C729C094220094333B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				BC4317C829C094530094333B /* AlzheimerInformationType.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		BC4317CA29C094EE0094333B /* Structure */ = {
+			isa = PBXGroup;
+			children = (
+				BC4317CB29C095020094333B /* AlzheimerInformation.swift */,
+			);
+			path = Structure;
+			sourceTree = "<group>";
+		};
 		BC8D54F329B9909C00FAA6E3 = {
 			isa = PBXGroup;
 			children = (
@@ -65,7 +105,6 @@
 			children = (
 				BC8D551C29B99A4A00FAA6E3 /* Presentation */,
 				BC8D551329B9951400FAA6E3 /* Util */,
-				BC8D550F29B9949D00FAA6E3 /* Service */,
 				BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */,
 				BC8D550129B9909C00FAA6E3 /* ContentView.swift */,
 				BC8D550329B9909D00FAA6E3 /* Assets.xcassets */,
@@ -82,17 +121,11 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BC8D550F29B9949D00FAA6E3 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				BCE394BD29BF098B00FEE178 /* Sample.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		BC8D551329B9951400FAA6E3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BC4317CA29C094EE0094333B /* Structure */,
+				BC4317C729C094220094333B /* Constant */,
 				BC8D551929B995A200FAA6E3 /* Extension */,
 			);
 			path = Util;
@@ -110,7 +143,6 @@
 		BC8D551C29B99A4A00FAA6E3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BC8D551F29B99A7400FAA6E3 /* Prevent */,
 				BC8D551E29B99A6D00FAA6E3 /* Home */,
 			);
 			path = Presentation;
@@ -119,42 +151,42 @@
 		BC8D551E29B99A6D00FAA6E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BC8D552129B99A9600FAA6E3 /* ViewModel */,
+				BC3CA1A829BF664800C8AE3D /* ViewModel */,
+				BC8D552029B99A9100FAA6E3 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		BC8D551F29B99A7400FAA6E3 /* Prevent */ = {
+		BC8D552029B99A9100FAA6E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC8D552329B99AA200FAA6E3 /* ViewModel */,
-				BC8D552229B99A9C00FAA6E3 /* View */,
-			);
-			path = Prevent;
-			sourceTree = "<group>";
-		};
-		BC8D552129B99A9600FAA6E3 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BCE394B729BF097200FEE178 /* Sample.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		BC8D552229B99A9C00FAA6E3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BCE394B929BF097D00FEE178 /* Sample.swift */,
+				BCE394B229BEF94900FEE178 /* Reusable */,
+				BCDDE0BE29BE17D0003E364C /* Component */,
+				BCDDE0BC29BDE613003E364C /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		BC8D552329B99AA200FAA6E3 /* ViewModel */ = {
+		BCDDE0BE29BE17D0003E364C /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				BCE394BB29BF098300FEE178 /* Sample.swift */,
+				BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */,
+				BCDDE0C129BE286C003E364C /* AppTitleBar.swift */,
+				BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */,
+				BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */,
+				BC4317C529C0886D0094333B /* InformationCardList.swift */,
 			);
-			path = ViewModel;
+			path = Component;
+			sourceTree = "<group>";
+		};
+		BCE394B229BEF94900FEE178 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				BCE394B329BEF99600FEE178 /* ShortcutCard.swift */,
+				BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */,
+				BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,10 +263,22 @@
 				BCE394BC29BF098300FEE178 /* Sample.swift in Sources */,
 				BCE394B829BF097200FEE178 /* Sample.swift in Sources */,
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
+				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
+				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
+				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
+				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
+				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
+				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
+				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
+				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
+				BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */,
+				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
+				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				BCE394BA29BF097D00FEE178 /* Sample.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
+				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
