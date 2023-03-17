@@ -9,46 +9,45 @@ import SwiftUI
 
 struct SingupView: View {
     var body: some View {
-        NavigationView {
-            VStack {
-                // 로고 + 앱이름
-                AppTitleBar()
-                
-                ScrollView {
-                    // AI 진단 결과 카드
-                    Spacer(minLength: 30)
-                    VStack(alignment: .leading){
-                        Text("AI 진단 결과")
-                            .font(.titleMedium)
-                        AIDiagnosisCard()
-                    }
+        VStack {
+            ScrollView {
+                VStack (alignment: .leading, spacing: 40) {
+                    Text("회원가입")
+                        .font(.titleLarge)
                     
-                    // 바로가기 카드
-                    Spacer(minLength: 50)
-                    VStack(alignment: .leading){
-                        Text("바로가기")
-                            .font(.titleMedium)
-                        HStack{
-                            SelfDiagnosisShortcutCard()
-                            QuizShortcutCard()
-                        }
-                    }
-                    
-                    // 치매 정보 카드 리스트
-                    Spacer(minLength: 50)
-                    InformationCardList()
-                    
-                    // 바닥 여백
-                    Spacer(minLength: 40)
+                    // Input list
+                    TextInput(title: "이름", placeholder: "이름을 입력해주세요")
+                    TextInput(title: "이메일", placeholder: "예) junjongsul@gmail.com")
+                    ToogleInput(title:
+                                    "성별", options: ["남", "여"])
+                    TextInput(title: "생년월일", placeholder: "8자리 생년월일 ex.230312")
+                    TextInput(title: "비밀번호", placeholder: "예) 비밀번호를 입력해주세요")
+                    TextInput(title: "비밀번호 확인", placeholder: "비밀번호를 한번 더 입력해주세요")
                 }
+                
+                // Complete Button
+                Spacer(minLength: 50)
+                RoundedButton(title: "회원가입하기") {
+                    print("click")
+                }
+                
+                Spacer(minLength: 50)
             }
-            .scrollIndicators(.hidden)
             .padding(.horizontal, 30)
-            .frame(maxWidth: .infinity,
-                   maxHeight: .infinity,
-                   alignment: .leading)
+            .scrollIndicators(.hidden)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onTapGesture {
+            hideKeyboard()
         }
     }
+    
+    
+    // This function hides the keyboard when called by sending the 'resignFirstResponder' action to the shared UIApplication.
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
 }
 
 struct SingupView_Previews: PreviewProvider {

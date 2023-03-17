@@ -11,10 +11,23 @@ struct IntroView: View {
     
     var body: some View {
         VStack (alignment: .leading, spacing: 20) {
-            VStack (alignment: .leading){
+            // 윗여백
+            VStack {} .frame(height: 80)
+            
+            // 로고 및 환영 문구
+            VStack (alignment: .leading, spacing: 5){
                 Image("logo_purple")
                 
-                Text("안녕하세요\n치매 진단 및 예방 솔루션")
+                HStack {
+                    Text("안녕하세요")
+                        .font(.titleLarge)
+                    Spacer()
+                    Text("AI")
+                        .font(.titleMedium)
+                        .foregroundColor(.mainPurple)
+                    Spacer()
+                }
+                Text("치매 진단 및 예방 솔루션")
                     .font(.titleLarge)
                 HStack (spacing: 0) {
                     Text("엣치")
@@ -25,14 +38,14 @@ struct IntroView: View {
                 }
             }
             
-            
-            
+            // 주의사항 문구
             Text("*AI 진단 정보는 참고용입니다. \n정확한 진단은 의사와 상담하세요.")
                 .font(.bodyTiny)
                 .foregroundColor(.grayTextLight)
             
             Spacer()
             
+            // 회원가입 및 로그인 버튼
             VStack (spacing: 15){
                 Button(action: {
                     // 버튼을 눌렀을 때 수행할 액션

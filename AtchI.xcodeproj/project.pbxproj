@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
@@ -27,9 +28,14 @@
 		BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */; };
 		BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */; };
 		BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B329BEF99600FEE178 /* ShortcutCard.swift */; };
+		BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */; };
+		BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3929C42D1C00E1ACBF /* View.swift */; };
+		BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3B29C42D3200E1ACBF /* RoundedCorner.swift */; };
+		BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3D29C4344F00E1ACBF /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -52,6 +58,10 @@
 		BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfDiagnosisShortcutCard.swift; sourceTree = "<group>"; };
 		BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizShortcutCard.swift; sourceTree = "<group>"; };
 		BCE394B329BEF99600FEE178 /* ShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutCard.swift; sourceTree = "<group>"; };
+		BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleInput.swift; sourceTree = "<group>"; };
+		BCF6DA3929C42D1C00E1ACBF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		BCF6DA3B29C42D3200E1ACBF /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		BCF6DA3D29C4344F00E1ACBF /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				BC4317CB29C095020094333B /* AlzheimerInformation.swift */,
+				BCF6DA3B29C42D3200E1ACBF /* RoundedCorner.swift */,
 			);
 			path = Structure;
 			sourceTree = "<group>";
@@ -102,6 +113,9 @@
 		BC4E1EBE29C237DD00915AB6 /* Resuable */ = {
 			isa = PBXGroup;
 			children = (
+				BC00906529C2CA5D008D6F0C /* TextInput.swift */,
+				BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */,
+				BCF6DA3D29C4344F00E1ACBF /* RoundedButton.swift */,
 			);
 			path = Resuable;
 			sourceTree = "<group>";
@@ -159,6 +173,7 @@
 			children = (
 				BC8D551529B9957900FAA6E3 /* Colors.swift */,
 				BC8D551729B9959100FAA6E3 /* Fonts.swift */,
+				BCF6DA3929C42D1C00E1ACBF /* View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -285,9 +300,13 @@
 			files = (
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
 				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
+				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
+				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
+				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
+				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
@@ -300,6 +319,7 @@
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
+				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
