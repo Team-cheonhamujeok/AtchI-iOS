@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct SelfTestView: View {
-    @State var isTest: Bool = false
-    @StateObject var viewModel = SelfTestViewModel()
+    @StateObject var viewModel: SelfTestViewModel
     
     //MARK: - Body
     var body: some View {
-        if isTest {
+        if viewModel.isTest {
             testView
         } else {
             noTestView
@@ -23,7 +22,10 @@ struct SelfTestView: View {
     //MARK: - 자가진단을 안했을 때
     var noTestView: some View {
         VStack {
-            explainTestView
+            HStack {
+                ExplainTestView()
+                Spacer()
+            }
             DefaultButton(buttonSize: .large,
                           buttonStyle: .filled,
                           buttonColor: .mainPurple,
@@ -39,10 +41,10 @@ struct SelfTestView: View {
     
     //MARK: - 자가진단을 했을 때
     var testView: some View {
-        VStack {
+        VStack(alignment: .leading) {
             // 1️⃣ 자가진단 다시하기 버튼
             VStack(alignment: .leading) {
-                explainTestView
+                ExplainTestView()
                 DefaultButton(buttonSize: .small,
                               buttonStyle: .filled,
                               buttonColor: .mainPurple,
@@ -55,7 +57,6 @@ struct SelfTestView: View {
                 }
                 Divider()
             }
-            .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
             
             // 2️⃣ 자가진단 리스트
             //TODO: 테이블뷰 넣기, 최대 2개, 전체보기
@@ -82,10 +83,12 @@ struct SelfTestView: View {
             }
         }
     }
-    
-    //MARK: - Other View
-    /// 자가진단 설명 Label
-    var explainTestView: some View {
+}
+
+//MARK: - Other View
+/// 자가진단 설명 Label
+struct ExplainTestView: View {
+    var body: some View {
         VStack(alignment: .leading) {
             Text("치매 자가진단 해보세요!")
                 .font(.titleMedium)
@@ -97,9 +100,9 @@ struct SelfTestView: View {
     }
 }
 
-
+//MARK: - Preview
 struct SelfTestView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestView()
+        SelfTestView(viewModel: SelfTestViewModel())
     }
 }

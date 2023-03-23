@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct DiagnosisView: View {
+    let selfTestViewModel = SelfTestViewModel()
+    let watchInfoViewModel = WatchInfoViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack {
-                SelfTestView()
-                    .padding()
+                SelfTestView(viewModel: selfTestViewModel)
+                    .padding(.all, 20)
                 
                 Rectangle()
                     .frame(height: 15)
                     .foregroundColor(.grayBoldLine)
                 
-                WatchInfoView()
-                    .padding()
+                WatchInfoView(viewModel: watchInfoViewModel)
+                    .padding(.all, 20)
                 
                 Spacer()
             }
