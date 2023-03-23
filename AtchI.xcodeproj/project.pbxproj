@@ -11,10 +11,10 @@
 		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
 		049ADE9E29C6EB44009B9B62 /* ButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */; };
 		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
-		049ADEA729C98371009B9B62 /* SelfTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA629C98371009B9B62 /* SelfTestView.swift */; };
+		049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */; };
 		049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA829C9837C009B9B62 /* WatchInfoView.swift */; };
-		049ADEAB29C9BB62009B9B62 /* SelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAA29C9BB62009B9B62 /* SelfTestViewModel.swift */; };
-		049ADEAE29C9BE56009B9B62 /* SelfTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAD29C9BE56009B9B62 /* SelfTest.swift */; };
+		049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */; };
+		049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAD29C9BE56009B9B62 /* SelfTestResult.swift */; };
 		049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */; };
 		049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */; };
 		049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB529CC1C81009B9B62 /* WatchInfo.swift */; };
@@ -44,10 +44,10 @@
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
 		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
-		049ADEA629C98371009B9B62 /* SelfTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestView.swift; sourceTree = "<group>"; };
+		049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoView.swift; sourceTree = "<group>"; };
 		049ADEA829C9837C009B9B62 /* WatchInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoView.swift; sourceTree = "<group>"; };
-		049ADEAA29C9BB62009B9B62 /* SelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestViewModel.swift; sourceTree = "<group>"; };
-		049ADEAD29C9BE56009B9B62 /* SelfTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTest.swift; sourceTree = "<group>"; };
+		049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoViewModel.swift; sourceTree = "<group>"; };
+		049ADEAD29C9BE56009B9B62 /* SelfTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResult.swift; sourceTree = "<group>"; };
 		049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestRow.swift; sourceTree = "<group>"; };
 		049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoViewModel.swift; sourceTree = "<group>"; };
 		049ADEB529CC1C81009B9B62 /* WatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfo.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		049ADEA029C95D05009B9B62 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				049ADEA529C98349009B9B62 /* SelfTest */,
+				049ADEA529C98349009B9B62 /* SelfTestInfo */,
 				049ADEA429C98326009B9B62 /* WatchInfo */,
 				049ADEA229C97003009B9B62 /* DiagnosisView.swift */,
 			);
@@ -125,7 +125,7 @@
 		049ADEA129C95D09009B9B62 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				049ADEAA29C9BB62009B9B62 /* SelfTestViewModel.swift */,
+				049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */,
 				049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */,
 			);
 			path = ViewModel;
@@ -140,19 +140,19 @@
 			path = WatchInfo;
 			sourceTree = "<group>";
 		};
-		049ADEA529C98349009B9B62 /* SelfTest */ = {
+		049ADEA529C98349009B9B62 /* SelfTestInfo */ = {
 			isa = PBXGroup;
 			children = (
-				049ADEA629C98371009B9B62 /* SelfTestView.swift */,
+				049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */,
 				049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */,
 			);
-			path = SelfTest;
+			path = SelfTestInfo;
 			sourceTree = "<group>";
 		};
 		049ADEAC29C9BE4B009B9B62 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				049ADEAD29C9BE56009B9B62 /* SelfTest.swift */,
+				049ADEAD29C9BE56009B9B62 /* SelfTestResult.swift */,
 				049ADEB529CC1C81009B9B62 /* WatchInfo.swift */,
 			);
 			path = Model;
@@ -377,15 +377,15 @@
 				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
-				049ADEAB29C9BB62009B9B62 /* SelfTestViewModel.swift in Sources */,
+				049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
-				049ADEAE29C9BE56009B9B62 /* SelfTest.swift in Sources */,
+				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
 				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
 				049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */,
-				049ADEA729C98371009B9B62 /* SelfTestView.swift in Sources */,
+				049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */,
 				049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

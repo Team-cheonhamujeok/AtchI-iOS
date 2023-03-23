@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelfTestRow: View {
-    var selfTest: SelfTest
+    var selfTestResult: SelfTestResult
     var index: Int
     
     var body: some View {
@@ -21,14 +21,14 @@ struct SelfTestRow: View {
                     if index == 0 {
                         Text("최근")
                     }
-                    Text(selfTest.day)
+                    Text(selfTestResult.day)
                         .foregroundColor(.grayTextLight)
                 }
                 .font(.bodyLarge)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                 HStack {
-                    Text("\(selfTest.point)점 /")
-                    Text(selfTest.level)
+                    Text("\(selfTestResult.point)점 /")
+                    Text(selfTestResult.level)
                 }
                 .font(.bodySmall)
             }
@@ -38,6 +38,6 @@ struct SelfTestRow: View {
 
 struct SelfTestRow_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestRow(selfTest: SelfTest(day: "23년 01월 5일", point: 1, level: "치매 위험단계"), index: 0)
+        SelfTestRow(selfTestResult: SelfTestResult(day: "23년 01월 5일", point: 1, level: "치매 위험단계"), index: 0)
     }
 }

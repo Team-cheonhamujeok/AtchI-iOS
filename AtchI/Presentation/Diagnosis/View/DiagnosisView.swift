@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct DiagnosisView: View {
-    let selfTestViewModel = SelfTestViewModel()
+    let selfTestViewModel = SelfTestInfoViewModel()
     let watchInfoViewModel = WatchInfoViewModel()
     
     var body: some View {
         NavigationStack {
             VStack {
-                SelfTestView(viewModel: selfTestViewModel)
+                SelfTestInfoView(viewModel: selfTestViewModel)
                     .padding(.all, 20)
                 
                 Rectangle()
