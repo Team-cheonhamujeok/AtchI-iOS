@@ -101,7 +101,7 @@ struct ExplainTestView: View {
 }
 
 //MARK: - Preview
-struct SelfTestView_Previews: PreviewProvider {
+struct SelfTestInfoView_Previews: PreviewProvider {
     static var previews: some View {
         SelfTestInfoView(viewModel: SelfTestInfoViewModel())
     }

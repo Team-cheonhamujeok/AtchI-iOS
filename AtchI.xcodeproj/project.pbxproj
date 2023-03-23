@@ -19,6 +19,7 @@
 		049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */; };
 		049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB529CC1C81009B9B62 /* WatchInfo.swift */; };
 		049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB729CC209D009B9B62 /* WatchInfoRow.swift */; };
+		049ADEBB29CC4A92009B9B62 /* SelfTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEBA29CC4A92009B9B62 /* SelfTestView.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
@@ -52,6 +53,7 @@
 		049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoViewModel.swift; sourceTree = "<group>"; };
 		049ADEB529CC1C81009B9B62 /* WatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfo.swift; sourceTree = "<group>"; };
 		049ADEB729CC209D009B9B62 /* WatchInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoRow.swift; sourceTree = "<group>"; };
+		049ADEBA29CC4A92009B9B62 /* SelfTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestView.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		049ADEA029C95D05009B9B62 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				049ADEB929CC493A009B9B62 /* SelfTest */,
 				049ADEA529C98349009B9B62 /* SelfTestInfo */,
 				049ADEA429C98326009B9B62 /* WatchInfo */,
 				049ADEA229C97003009B9B62 /* DiagnosisView.swift */,
@@ -156,6 +159,14 @@
 				049ADEB529CC1C81009B9B62 /* WatchInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		049ADEB929CC493A009B9B62 /* SelfTest */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEBA29CC4A92009B9B62 /* SelfTestView.swift */,
+			);
+			path = SelfTest;
 			sourceTree = "<group>";
 		};
 		BC3CA1A829BF664800C8AE3D /* ViewModel */ = {
@@ -360,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
+				049ADEBB29CC4A92009B9B62 /* SelfTestView.swift in Sources */,
 				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
