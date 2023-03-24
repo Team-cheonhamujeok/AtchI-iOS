@@ -12,6 +12,8 @@ struct ButtonTest: View {
         VStack{
             DefaultButton(
                 buttonSize: .large,
+                width: 300,
+                height: 50,
                 buttonStyle: .filled,
                 buttonColor: .mainPurple,
                 isIndicate: false,
@@ -22,9 +24,12 @@ struct ButtonTest: View {
                     Text("Button")
                 }
             )
+            
             DefaultButton(
-                buttonSize: .large,
-                buttonStyle: .unfilled,
+                buttonSize: .small,
+                width: 85,
+                height: 35,
+                buttonStyle: .filled,
                 buttonColor: .mainPurple,
                 isIndicate: false,
                 action: {
@@ -34,6 +39,7 @@ struct ButtonTest: View {
                     Text("Button")
                 }
             )
+            
         }
     }
 }
