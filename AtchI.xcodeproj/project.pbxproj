@@ -10,6 +10,7 @@
 		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
 		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
 		049ADE9E29C6EB44009B9B62 /* ButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */; };
+		049ADEC329CD79BE009B9B62 /* ButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC229CD79BE009B9B62 /* ButtonSize.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
@@ -34,6 +35,7 @@
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
+		049ADEC229CD79BE009B9B62 /* ButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSize.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				BC4317C829C094530094333B /* AlzheimerInformationType.swift */,
+				049ADEC229CD79BE009B9B62 /* ButtonSize.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
 				BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */,
 				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
+				049ADEC329CD79BE009B9B62 /* ButtonSize.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
