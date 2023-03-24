@@ -9,11 +9,12 @@ import SwiftUI
 
 struct DefaultButton<Content>: View where Content: View {
     let buttonSize: ControlSize
+    var width: CGFloat?
+    var height: CGFloat?
     let buttonStyle: ButtonStyle
     let buttonColor: Color
     let isIndicate: Bool
-    var width: CGFloat
-    var height: CGFloat
+ 
     
     let action: () -> Void
     @ViewBuilder let content: Content
@@ -84,13 +85,15 @@ struct DefaultButton<Content>: View where Content: View {
                         .font(.system(size: 30))
                 }
             }
-            .frame(width: width, height: height)
+            .frame(width: width == nil ? 300 : width,
+                   height: height == nil ? 50 : height)
             
         // 그 외는 작은 버튼으로 취급
         default:
             content
                 .font(.bodySmall)
-                .frame(width: width, height: height)
+                .frame(width: width == nil ? 85 : width,
+                       height: height == nil ? 35 : height)
         }
     }
 }
