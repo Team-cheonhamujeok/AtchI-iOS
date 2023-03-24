@@ -46,6 +46,8 @@ struct SelfTestInfoView: View {
             VStack(alignment: .leading) {
                 ExplainTestView()
                 DefaultButton(buttonSize: .small,
+                              width: 140,
+                              height: 25,
                               buttonStyle: .filled,
                               buttonColor: .mainPurple,
                               isIndicate: false)
@@ -71,15 +73,21 @@ struct SelfTestInfoView: View {
             .listStyle(.inset)
             
             // 3️⃣ 전체보기 버튼
-            DefaultButton(buttonSize: .small,
-                          buttonStyle: .unfilled,
-                          buttonColor: .grayDisabled,
-                          isIndicate: false)
-            {
-                //TODO: Navigation 넣기
-                print("HI")
-            } content: {
-                Text("전체보기")
+            HStack{
+                Spacer()
+                DefaultButton(buttonSize: .small,
+                              width: 80,
+                              height: 23,
+                              buttonStyle: .unfilled,
+                              buttonColor: .grayDisabled,
+                              isIndicate: false)
+                {
+                    //TODO: Navigation 넣기
+                    print("HI")
+                } content: {
+                    Text("전체보기")
+                }
+                Spacer()
             }
         }
     }

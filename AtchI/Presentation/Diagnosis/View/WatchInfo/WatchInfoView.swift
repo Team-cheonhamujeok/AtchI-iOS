@@ -111,7 +111,7 @@ struct ReConnectCardView: View {
 struct WatchListView: View {
     var viewModel: WatchInfoViewModel
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             WatchInfoRow(text: "👟 걸음수", value: viewModel.getWalk())
             WatchInfoRow(text: "❤️ 심박 평균", value: viewModel.getHeart())
             WatchInfoRow(text: "💤 수면 시간", value: viewModel.getSleep())

@@ -13,7 +13,7 @@ struct DiagnosisView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
+            ScrollView {
                 SelfTestInfoView(viewModel: selfTestViewModel)
                     .padding(.all, 20)
                 
