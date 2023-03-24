@@ -5,9 +5,6 @@
 //  Created by 강민규 on 2023/03/23.
 //
 
-// 1. Spacer() 힘을 더 세게 할 방법이 있을까?
-//    카드뷰의 높이를 짜부 시키기 위해
-// 2. 스크롤 뷰를 사용하면 뷰가 짜부되는 이유가 뭘까?
 
 import SwiftUI
 
@@ -69,6 +66,7 @@ struct SelfTestExplainCardView: View {
     }
 }
 
+//MARK: -  Preview
 struct SelfTestStartView_Previews: PreviewProvider {
     static var previews: some View {
         SelfTestStartView()

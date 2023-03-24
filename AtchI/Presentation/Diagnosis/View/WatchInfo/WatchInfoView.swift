@@ -87,6 +87,8 @@ struct ReConnectCardView: View {
                 .foregroundColor(.mainText)
             
             DefaultButton(buttonSize: .small,
+                          width: 60,
+                          height: 23,
                           buttonStyle: .filled,
                           buttonColor: .mainPurple,
                           isIndicate: false)

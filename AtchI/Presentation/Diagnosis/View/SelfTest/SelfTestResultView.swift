@@ -44,6 +44,7 @@ struct SelfTestResultView: View {
     }
 }
 
+//MARK: - Other View
 /// 설명 Card View
 struct SelfTestResultExplainCardView: View {
     var body: some View {
@@ -72,6 +73,7 @@ struct SelfTestResultExplainCardView: View {
     }
 }
 
+//MARK: - Preview
 struct SelfTestResultView_Previews: PreviewProvider {
     static var previews: some View {
         SelfTestResultView()
