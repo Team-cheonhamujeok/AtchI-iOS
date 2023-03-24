@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+/// 앱에 사용되는 기본 버튼
+/// - Parameters:
+///     - buttonSize: 버튼의 사이즈에 따른 형태 결정
+///     - width : 가로 길이를 커스텀
+///     - height : 세로 길이를 커스텀
+///     - buttonStyle : Filled or unFilled
+///     - buttonColor : 버튼의 색
+///     - isIndicate : 방향 지시 아이콘을 넣을 것인가?
+///
 struct DefaultButton<Content>: View where Content: View {
     let buttonSize: ControlSize
     var width: CGFloat?
