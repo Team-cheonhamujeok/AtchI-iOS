@@ -4,7 +4,6 @@
 //
 //  Created by DOYEON LEE on 2023/03/09.
 //
-
 import SwiftUI
 
 struct ContentView: View {
@@ -17,7 +16,7 @@ struct ContentView: View {
                     Image(systemName: "house")
                     Text("홈")
                 }
-            DiagnosisView()
+            Text("글쓰기")
                 .tabItem{
                     Image(systemName: "square.and.pencil")
                     Text("글쓰기")

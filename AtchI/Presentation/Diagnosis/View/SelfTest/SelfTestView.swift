@@ -70,7 +70,7 @@ struct SelfTestQuestionCardView: View {
             // 문제
             VStack(alignment: .leading){
                 Text("\(SelfTestQuestions.questions[id].index)")
-                    .padding(.bottom, 6)
+                    .padding(.bottom, 7)
                     .foregroundColor(.mainPurple)
                     .fontWeight(.bold)
                 HStack {
@@ -84,6 +84,11 @@ struct SelfTestQuestionCardView: View {
             /// - Note:
             ///     - 초기에 전부 light로 할까요?
             ///     - 선택시 vivid 해지게?
+            ///     - 아무것도 안했을땐 연한색으로
+            ///     - 버튼 위치 수정
+            ///     - 패딩 디테일 고치기
+            ///     - 프로그레스 사용해보기
+            ///     
             VStack(spacing: 10) {
                 DefaultButton(buttonSize: .small,
                               width: 300,
