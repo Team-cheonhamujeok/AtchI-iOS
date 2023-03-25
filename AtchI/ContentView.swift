@@ -17,10 +17,10 @@ struct ContentView: View {
                     Image(systemName: "house")
                     Text("홈")
                 }
-            Text("글쓰기")
+            PreventView()
                 .tabItem{
-                    Image(systemName: "square.and.pencil")
-                    Text("글쓰기")
+                    Image(systemName: "brain.head.profile")
+                    Text("예방")
                 }
             Text("설정")
                 .tabItem{
