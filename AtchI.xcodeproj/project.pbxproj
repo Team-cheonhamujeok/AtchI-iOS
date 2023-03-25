@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
+		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
+		049ADE9E29C6EB44009B9B62 /* ButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */; };
+		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
+		049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */; };
+		049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA829C9837C009B9B62 /* WatchInfoView.swift */; };
+		049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */; };
+		049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAD29C9BE56009B9B62 /* SelfTestResult.swift */; };
+		049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */; };
+		049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */; };
+		049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB529CC1C81009B9B62 /* WatchInfo.swift */; };
+		049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB729CC209D009B9B62 /* WatchInfoRow.swift */; };
+		049ADEBB29CC4A92009B9B62 /* SelfTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEBA29CC4A92009B9B62 /* SelfTestView.swift */; };
+		049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEBC29CC4C7C009B9B62 /* SelfTestStartView.swift */; };
+		049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEBE29CD4183009B9B62 /* SelfTestResultView.swift */; };
+		049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */; };
+		049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
@@ -35,7 +52,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
+		049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
+		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
+		049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoView.swift; sourceTree = "<group>"; };
+		049ADEA829C9837C009B9B62 /* WatchInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoView.swift; sourceTree = "<group>"; };
+		049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoViewModel.swift; sourceTree = "<group>"; };
+		049ADEAD29C9BE56009B9B62 /* SelfTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResult.swift; sourceTree = "<group>"; };
+		049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestRow.swift; sourceTree = "<group>"; };
+		049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoViewModel.swift; sourceTree = "<group>"; };
+		049ADEB529CC1C81009B9B62 /* WatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfo.swift; sourceTree = "<group>"; };
+		049ADEB729CC209D009B9B62 /* WatchInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoRow.swift; sourceTree = "<group>"; };
+		049ADEBA29CC4A92009B9B62 /* SelfTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestView.swift; sourceTree = "<group>"; };
+		049ADEBC29CC4C7C009B9B62 /* SelfTestStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestStartView.swift; sourceTree = "<group>"; };
+		049ADEBE29CD4183009B9B62 /* SelfTestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResultView.swift; sourceTree = "<group>"; };
+		049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestion.swift; sourceTree = "<group>"; };
+		049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestQuestions.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -75,6 +111,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		049ADE9029C6E3B2009B9B62 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				049ADE9129C6E3BF009B9B62 /* Button */,
+				049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		049ADE9129C6E3BF009B9B62 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */,
+				049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		049ADE9F29C95CF6009B9B62 /* Diagnosis */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEAC29C9BE4B009B9B62 /* Model */,
+				049ADEA129C95D09009B9B62 /* ViewModel */,
+				049ADEA029C95D05009B9B62 /* View */,
+			);
+			path = Diagnosis;
+			sourceTree = "<group>";
+		};
+		049ADEA029C95D05009B9B62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEB929CC493A009B9B62 /* SelfTest */,
+				049ADEA529C98349009B9B62 /* SelfTestInfo */,
+				049ADEA429C98326009B9B62 /* WatchInfo */,
+				049ADEA229C97003009B9B62 /* DiagnosisView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		049ADEA129C95D09009B9B62 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */,
+				049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		049ADEA429C98326009B9B62 /* WatchInfo */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEA829C9837C009B9B62 /* WatchInfoView.swift */,
+				049ADEB729CC209D009B9B62 /* WatchInfoRow.swift */,
+			);
+			path = WatchInfo;
+			sourceTree = "<group>";
+		};
+		049ADEA529C98349009B9B62 /* SelfTestInfo */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */,
+				049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */,
+			);
+			path = SelfTestInfo;
+			sourceTree = "<group>";
+		};
+		049ADEAC29C9BE4B009B9B62 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEAD29C9BE56009B9B62 /* SelfTestResult.swift */,
+				049ADEB529CC1C81009B9B62 /* WatchInfo.swift */,
+				049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		049ADEB929CC493A009B9B62 /* SelfTest */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEBA29CC4A92009B9B62 /* SelfTestView.swift */,
+				049ADEBC29CC4C7C009B9B62 /* SelfTestStartView.swift */,
+				049ADEBE29CD4183009B9B62 /* SelfTestResultView.swift */,
+			);
+			path = SelfTest;
+			sourceTree = "<group>";
+		};
 		BC3CA1A829BF664800C8AE3D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				BC4317C829C094530094333B /* AlzheimerInformationType.swift */,
+				049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -161,6 +284,7 @@
 		BC8D551329B9951400FAA6E3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				049ADE9029C6E3B2009B9B62 /* UI */,
 				BC4317CA29C094EE0094333B /* Structure */,
 				BC4317C729C094220094333B /* Constant */,
 				BC8D551929B995A200FAA6E3 /* Extension */,
@@ -181,6 +305,7 @@
 		BC8D551C29B99A4A00FAA6E3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				049ADE9F29C95CF6009B9B62 /* Diagnosis */,
 				BC4E1EB929C2331400915AB6 /* Intro */,
 				BC8D551E29B99A6D00FAA6E3 /* Home */,
 			);
@@ -299,6 +424,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
+				049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */,
+				049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */,
+				049ADEBB29CC4A92009B9B62 /* SelfTestView.swift in Sources */,
 				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
@@ -309,7 +437,13 @@
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
+				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
+				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
+				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
+				049ADE9E29C6EB44009B9B62 /* ButtonTest.swift in Sources */,
+				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
+				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
@@ -318,9 +452,21 @@
 				BC4E1EBB29C2333600915AB6 /* SingupView.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
+
+				049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */,
+				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
+				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
+				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
+
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
+
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
+				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
+				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
+				049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */,
+				049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */,
+				049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
