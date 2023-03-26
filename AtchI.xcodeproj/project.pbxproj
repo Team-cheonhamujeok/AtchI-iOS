@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
 		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
+
 		049ADE9E29C6EB44009B9B62 /* ButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */; };
 		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
 		049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */; };
@@ -27,6 +28,7 @@
 		049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */; };
 		04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8F74A29D022B50082DC29 /* TestAnswer.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
+
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
@@ -56,6 +58,7 @@
 /* Begin PBXFileReference section */
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
+
 		049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
 		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
 		049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoView.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 		049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestViewModel.swift; sourceTree = "<group>"; };
 		04A8F74A29D022B50082DC29 /* TestAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswer.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -117,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				049ADE9129C6E3BF009B9B62 /* Button */,
-				049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -445,10 +448,12 @@
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
+
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
 				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
 				049ADE9E29C6EB44009B9B62 /* ButtonTest.swift in Sources */,
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
+
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
