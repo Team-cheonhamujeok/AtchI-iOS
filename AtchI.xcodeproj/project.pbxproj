@@ -24,6 +24,8 @@
 		049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEBE29CD4183009B9B62 /* SelfTestResultView.swift */; };
 		049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */; };
 		049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */; };
+		049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */; };
+		04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8F74A29D022B50082DC29 /* TestAnswer.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
@@ -52,7 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
@@ -70,8 +71,9 @@
 		049ADEBE29CD4183009B9B62 /* SelfTestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResultView.swift; sourceTree = "<group>"; };
 		049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestion.swift; sourceTree = "<group>"; };
 		049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestQuestions.swift; sourceTree = "<group>"; };
+		049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestViewModel.swift; sourceTree = "<group>"; };
+		04A8F74A29D022B50082DC29 /* TestAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswer.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
-
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */,
 				049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */,
+				049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 		BC4317C729C094220094333B /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				04A8F74A29D022B50082DC29 /* TestAnswer.swift */,
 				BC4317C829C094530094333B /* AlzheimerInformationType.swift */,
 				049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */,
 			);
@@ -423,12 +427,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */,
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
 				049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */,
 				049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */,
 				049ADEBB29CC4A92009B9B62 /* SelfTestView.swift in Sources */,
 				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
+				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
@@ -452,15 +458,12 @@
 				BC4E1EBB29C2333600915AB6 /* SingupView.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
-
 				049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
-
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
-
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
 				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
