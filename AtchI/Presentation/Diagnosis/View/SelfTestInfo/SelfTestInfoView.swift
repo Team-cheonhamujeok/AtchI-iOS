@@ -10,12 +10,29 @@ import SwiftUI
 struct SelfTestInfoView: View {
     @StateObject var viewModel: SelfTestInfoViewModel
     
+    @Binding var path: [DiagnosisViewStack]
+    
     //MARK: - Body
     var body: some View {
-        if viewModel.isTest {
-            haveTestView
-        } else {
-            noTestView
+        Group {
+            if viewModel.isTest {
+                haveTestView
+            } else {
+                noTestView
+            }
+        }
+        .navigationDestination(for: DiagnosisViewStack.self) { child in
+            switch child {
+            case .selfTest:
+                SelfTestView(path: $path)
+            case .selfTestStart:
+                SelfTestStartView(path: $path)
+            case .selfTestResult:
+                SelfTestResultView(path: $path)
+            default:
+                Text("잘못된 접근")
+            }
+            
         }
     }
     
@@ -31,8 +48,7 @@ struct SelfTestInfoView: View {
                           buttonColor: .mainPurple,
                           isIndicate: true)
             {
-                //TODO: navigation 추가하기
-                print("HI")
+                path.append(.selfTestStart)
             } content: {
                 Text("자가진단 시작하기")
             }
@@ -52,16 +68,16 @@ struct SelfTestInfoView: View {
                               buttonColor: .mainPurple,
                               isIndicate: false)
                 {
-                    //TODO: navigation 추가하기
-                    print("HI")
+                    path.append(.selfTestStart)
                 } content: {
                     Text("자가진단 다시하기")
                 }
+                .padding(.bottom, 15)
+                
                 Divider()
             }
             
             // 2️⃣ 자가진단 리스트
-            //TODO: 테이블뷰 넣기, 최대 2개, 전체보기
             List(viewModel.selfTestResults.indices, id: \.self) { index in
                 SelfTestRow(selfTestResult: viewModel.selfTestResults[index],
                             index: index)
@@ -111,6 +127,6 @@ struct ExplainTestView: View {
 //MARK: - Preview
 struct SelfTestInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestInfoView(viewModel: SelfTestInfoViewModel())
+        SelfTestInfoView(viewModel: SelfTestInfoViewModel(), path: .constant([]))
     }
 }

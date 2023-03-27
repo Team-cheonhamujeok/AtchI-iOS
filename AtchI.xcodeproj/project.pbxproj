@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */; };
 		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
 		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
 		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewStack.swift; sourceTree = "<group>"; };
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				04A8F74A29D022B50082DC29 /* TestAnswer.swift */,
 				BC4317C829C094530094333B /* AlzheimerInformationType.swift */,
 				049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */,
+				042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */,
+				042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */,
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
 				049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */,
 				049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */,
