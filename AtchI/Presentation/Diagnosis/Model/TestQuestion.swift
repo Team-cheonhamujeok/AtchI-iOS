@@ -15,4 +15,5 @@ import Foundation
 struct TestQuestion {
     var index: String
     var content: String
+    var answer: TestAnswer?
 }

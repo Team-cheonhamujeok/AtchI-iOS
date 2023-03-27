@@ -85,15 +85,22 @@ struct DefaultButton<Content>: View where Content: View {
                         .font(.system(size: 30))
                 }
             }
-            .frame(width: width == nil ? 300 : width,
-                   height: height == nil ? 50 : height)
+            .frame(
+                minWidth: width == nil ? 250 : width,
+                maxWidth: 300,
+                minHeight: height == nil ? 20 : height,
+                maxHeight: 50)
+                  
             
         // 그 외는 작은 버튼으로 취급
         default:
             content
                 .font(.bodySmall)
-                .frame(width: width == nil ? 85 : width,
-                       height: height == nil ? 35 : height)
+                .frame(
+                    minWidth: width == nil ? 85 : width,
+                    maxWidth: 85,
+                    minHeight: height == nil ? 20 : height,
+                    maxHeight: 35)
         }
     }
 }
