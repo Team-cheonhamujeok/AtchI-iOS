@@ -10,23 +10,50 @@ import SwiftUI
 class SelfTestViewModel: ObservableObject {
     @Published var questionIndex = 0.0
     
-    var answers: [TestAnswer] = []
-    var result: SelfTestResult?
+    //TODO: result 데이터를 UserData나, 서버에 저장해야함.
+    private var answers: [TestAnswer] = []
+    private var result: SelfTestResult?
     
     func makeResult() {
-        self.result = SelfTestResult(day: currentTime(), point: calculatorPoint(), level: measureLevel())
+        self.result = SelfTestResult(day: currentTime(),
+                                     point: calculatorPoint(),
+                                     level: measureLevel())
     }
     
-    func getImoji() -> String {
-        //TODO: Imoji 분기처리하는 로직 넣기
+    func appendAnswer(testAnswer: TestAnswer) {
+        answers.append(testAnswer)
+    }
+    
+    func getEmoji() -> String {
+        var emoji = ""
         
-        return ""
+        if result?.level == "치매 안심 단계" {
+            emoji = "🙂"
+        } else if result?.level == "치매 위험 단계" {
+            emoji = "😢"
+        } else if result?.level == "치매 단계"{
+            emoji = "🚨"
+        } else {
+            emoji = "❓"
+        }
+        
+        return emoji
     }
     
     func getLevel() -> String {
-        //TODO: 레벨 분기처리하는 로직 넣기
-        return ""
+        guard let result = result else { return "데이터 없음" }
+        
+        return result.level
     }
+    
+    func resetAnswers() {
+        answers = []
+    }
+    
+    func resetResult() {
+        result = nil
+    }
+    
     
     //MARK: - Util
     private func currentTime() -> String {
@@ -57,6 +84,13 @@ class SelfTestViewModel: ObservableObject {
     }
     
     private func measureLevel() -> String {
-        return "치매 위험 단계"
+        let point = calculatorPoint()
+        if point <= 3 {
+            return "치매 안심 단계"
+        } else if point <= 9 {
+            return "치매 위험 단계"
+        } else {
+            return "치매 단계"
+        }
     }
 }

@@ -63,8 +63,6 @@ struct SelfTestInfoView: View {
             VStack(alignment: .leading) {
                 ExplainTestView()
                 DefaultButton(buttonSize: .small,
-                              width: 140,
-                              height: 25,
                               buttonStyle: .filled,
                               buttonColor: .mainPurple,
                               isIndicate: false)
@@ -93,8 +91,6 @@ struct SelfTestInfoView: View {
             HStack{
                 Spacer()
                 DefaultButton(buttonSize: .small,
-                              width: 80,
-                              height: 23,
                               buttonStyle: .unfilled,
                               buttonColor: .grayDisabled,
                               isIndicate: false)

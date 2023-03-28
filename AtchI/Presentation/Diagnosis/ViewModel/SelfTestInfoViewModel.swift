@@ -17,6 +17,6 @@ class SelfTestInfoViewModel: ObservableObject {
                                             ]
     
     // 자가진단을 한 적이 있는가?
-    @Published var isTest: Bool = false
+    @Published var isTest: Bool = true
     
 }

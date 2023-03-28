@@ -75,6 +75,7 @@ struct SelfTestView: View {
             {
                 if buttonSeletor != nil {
                     if selfTestViewModel.questionIndex == 14 {
+                        selfTestViewModel.makeResult()
                         // 화면 전환
                         path.append(.selfTestResult)
                     } else {
@@ -82,7 +83,7 @@ struct SelfTestView: View {
                         // 인덱스 증가
                         selfTestViewModel.questionIndex += 1
                         // 데이터 담기
-                        selfTestViewModel.answers.append(buttonSeletor)
+                        selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
                         // 선택한 버튼 nil
                         self.buttonSeletor = nil
                     }

@@ -37,8 +37,8 @@ struct SelfTestStartView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
-                selfTestViewModel.result = nil
-                selfTestViewModel.answers = []
+                selfTestViewModel.resetResult()
+                selfTestViewModel.resetAnswers()
                 path.append(.selfTest)
             } content: {
                 Text("다음으로")
