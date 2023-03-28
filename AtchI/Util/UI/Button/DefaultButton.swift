@@ -1,3 +1,4 @@
+
 //
 //  DefaultButton.swift
 //  AtchI
@@ -76,6 +77,7 @@ struct DefaultButton<Content>: View where Content: View {
             HStack{
                 Spacer()
                 content
+                    .padding()
                     .font(.titleSmall)
                 Spacer()
                 
@@ -95,12 +97,11 @@ struct DefaultButton<Content>: View where Content: View {
         // 그 외는 작은 버튼으로 취급
         default:
             content
+                .padding(.all, 5)
                 .font(.bodySmall)
                 .frame(
-                    minWidth: width == nil ? 85 : width,
-                    maxWidth: 85,
-                    minHeight: height == nil ? 20 : height,
-                    maxHeight: 35)
+                    maxWidth: width,
+                    maxHeight: height)
         }
     }
 }
