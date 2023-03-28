@@ -11,6 +11,8 @@ import SwiftUI
 struct SelfTestStartView: View {
     @Binding var path: [DiagnosisViewStack]
     
+    @StateObject var selfTestViewModel: SelfTestViewModel
+    
     var body: some View {
         VStack {
             // 상단 공백
@@ -35,6 +37,8 @@ struct SelfTestStartView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
+                selfTestViewModel.result = nil
+                selfTestViewModel.answers = []
                 path.append(.selfTest)
             } content: {
                 Text("다음으로")
@@ -70,6 +74,6 @@ struct SelfTestExplainCardView: View {
 //MARK: -  Preview
 struct SelfTestStartView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestStartView(path: .constant([]))
+        SelfTestStartView(path: .constant([]), selfTestViewModel: SelfTestViewModel())
     }
 }

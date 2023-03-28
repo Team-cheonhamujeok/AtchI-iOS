@@ -32,7 +32,7 @@ struct WatchInfoView: View {
     var noWatchView: some View {
         VStack {
             ExplainWatchView(isConnected: $viewModel.isConnectedWatch)
-            ReConnectCardView()
+            ReConnectCardView(viewModel: viewModel)
         }
     }
 }
@@ -76,6 +76,8 @@ struct ExplainWatchView: View {
 
 /// 애플워치 미착용 상태 카드 뷰
 struct ReConnectCardView: View {
+    var viewModel: WatchInfoViewModel
+    
     var body: some View {
         VStack(spacing: 7) {
             Spacer()
@@ -94,7 +96,7 @@ struct ReConnectCardView: View {
                           isIndicate: false)
             {
                 //TODO: Navigation 넣기
-                print("HI")
+                viewModel.isConnectedWatch = !viewModel.isConnectedWatch
             } content: {
                 Text("재시도")
                     .font(.bodySmall)

@@ -11,16 +11,18 @@ struct SelfTestResultView: View {
     
     @Binding var path: [DiagnosisViewStack]
     
+    @StateObject var selfTestViewModel: SelfTestViewModel
+    
     var body: some View {
         VStack {
             // 상단 공백
             Spacer()
             
             // Title
-            Text("😮")
+            Text(selfTestViewModel.getImoji())
                 .font(.titleLarge)
                 .padding(.all, 14)
-            Text("치매 위험 단계")
+            Text(selfTestViewModel.getLevel())
                 .font(.titleLarge)
                 .foregroundColor(.mainPurple)
             
@@ -37,10 +39,10 @@ struct SelfTestResultView: View {
                           isIndicate: false)
             {
                 path = []
+                selfTestViewModel.answers = []
             } content: {
                 Text("확인")
             }
-
         }
         .padding(.all, 30)
     }
@@ -78,6 +80,6 @@ struct SelfTestResultExplainCardView: View {
 //MARK: - Preview
 struct SelfTestResultView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestResultView(path: .constant([]))
+        SelfTestResultView(path: .constant([]), selfTestViewModel: SelfTestViewModel() )
     }
 }

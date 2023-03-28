@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SelfTestInfoView: View {
     @StateObject var viewModel: SelfTestInfoViewModel
+    @StateObject var selfTestViewModel: SelfTestViewModel
     
     @Binding var path: [DiagnosisViewStack]
     
@@ -24,11 +25,11 @@ struct SelfTestInfoView: View {
         .navigationDestination(for: DiagnosisViewStack.self) { child in
             switch child {
             case .selfTest:
-                SelfTestView(path: $path)
+                SelfTestView(path: $path, selfTestViewModel: selfTestViewModel)
             case .selfTestStart:
-                SelfTestStartView(path: $path)
+                SelfTestStartView(path: $path, selfTestViewModel: selfTestViewModel)
             case .selfTestResult:
-                SelfTestResultView(path: $path)
+                SelfTestResultView(path: $path, selfTestViewModel: selfTestViewModel)
             default:
                 Text("잘못된 접근")
             }
@@ -127,6 +128,6 @@ struct ExplainTestView: View {
 //MARK: - Preview
 struct SelfTestInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestInfoView(viewModel: SelfTestInfoViewModel(), path: .constant([]))
+        SelfTestInfoView(viewModel: SelfTestInfoViewModel(), selfTestViewModel: SelfTestViewModel() , path: .constant([]))
     }
 }

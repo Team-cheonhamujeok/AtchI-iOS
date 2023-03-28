@@ -19,9 +19,10 @@
 import SwiftUI
 
 struct SelfTestView: View {
-    @StateObject var viewModel = SelfTestViewModel()
+    
     @State var buttonSeletor: TestAnswer?
     @Binding var path: [DiagnosisViewStack]
+    @StateObject var selfTestViewModel: SelfTestViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,7 +38,7 @@ struct SelfTestView: View {
                 .padding(.horizontal, 30)
             
             
-            VStack{
+            VStack {
                 Spacer(minLength: 30)
                 Group {
                     // Title
@@ -46,21 +47,21 @@ struct SelfTestView: View {
                             .font(.titleSmall)
                             .foregroundColor(.mainPurple)
                         Spacer()
-                        Text("\(Int(viewModel.questionIndex + 1)) / 15")
+                        Text("\(Int(selfTestViewModel.questionIndex + 1)) / 15")
                     }
                     
                     // ProgressView
-                    ProgressView(value: viewModel.questionIndex, total: 14)
+                    ProgressView(value: selfTestViewModel.questionIndex, total: 14)
                         .progressViewStyle(LinearProgressViewStyle(tint: .mainPurple))
-                        .animation(.default, value: viewModel.questionIndex)
+                        .animation(.default, value: selfTestViewModel.questionIndex)
                 }
                 .padding(.horizontal, 30)
                 .padding(.bottom, 10)
                 
                 // 문제 View
-                SelfTestQuestionCardView(buttonSeletor: $buttonSeletor, id: $viewModel.questionIndex)
+                SelfTestQuestionCardView(buttonSeletor: $buttonSeletor, id: $selfTestViewModel.questionIndex, selfTestViewModel: selfTestViewModel)
                     .padding(.horizontal, 25)
-                    .animation(.easeIn, value: viewModel.questionIndex)
+                    .animation(.easeIn, value: selfTestViewModel.questionIndex)
             }
             
             Spacer(minLength: 20)
@@ -73,16 +74,21 @@ struct SelfTestView: View {
                 isIndicate: false)
             {
                 if buttonSeletor != nil {
-                    if viewModel.questionIndex == 14 {
-                        // TODO: 완료 결과 데이터 내보내기
+                    if selfTestViewModel.questionIndex == 14 {
+                        // 화면 전환
                         path.append(.selfTestResult)
                     } else {
-                        viewModel.questionIndex += 1
-                        buttonSeletor = nil
+                        guard let buttonSeletor = buttonSeletor else { return }
+                        // 인덱스 증가
+                        selfTestViewModel.questionIndex += 1
+                        // 데이터 담기
+                        selfTestViewModel.answers.append(buttonSeletor)
+                        // 선택한 버튼 nil
+                        self.buttonSeletor = nil
                     }
                 }
             } content: {
-                if viewModel.questionIndex == 14 {
+                if selfTestViewModel.questionIndex == 14 {
                     Text("완료하기")
                 } else {
                     Text("다음으로")
@@ -102,8 +108,8 @@ struct SelfTestView: View {
 struct SelfTestQuestionCardView: View {
     @Binding var buttonSeletor: TestAnswer?
     @Binding var id: Double
+    var selfTestViewModel: SelfTestViewModel
     var body: some View {
-        // 백그라운드
         VStack {
             // 문제
             VStack(alignment: .leading){
@@ -204,6 +210,6 @@ struct SelfTestQuestionCardView: View {
 //MARK: - Preview
 struct SelfTestView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestView(viewModel: SelfTestViewModel(), path: .constant([]))
+        SelfTestView(path: .constant([]), selfTestViewModel: SelfTestViewModel())
     }
 }

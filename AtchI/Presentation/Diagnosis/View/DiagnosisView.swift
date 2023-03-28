@@ -10,6 +10,7 @@ import SwiftUI
 struct DiagnosisView: View {
     let selfTestInfoViewModel = SelfTestInfoViewModel()
     let watchInfoViewModel = WatchInfoViewModel()
+    let selfTestViewModel = SelfTestViewModel()
     
     @State private var path: [DiagnosisViewStack] = []
     
@@ -22,7 +23,7 @@ struct DiagnosisView: View {
                         .fontWeight(.bold)
                         .padding(.bottom, 18)
                     
-                    SelfTestInfoView(viewModel: selfTestInfoViewModel, path: $path)
+                    SelfTestInfoView(viewModel: selfTestInfoViewModel, selfTestViewModel: selfTestViewModel, path: $path)
                     
                 }
                 .padding(.horizontal, 30)
