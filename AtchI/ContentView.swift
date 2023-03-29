@@ -16,12 +16,12 @@ struct ContentView: View {
                     Image(systemName: "house")
                     Text("홈")
                 }
-            Text("글쓰기")
+            LoginView()
                 .tabItem{
                     Image(systemName: "square.and.pencil")
                     Text("글쓰기")
                 }
-            Text("설정")
+            SignupView()
                 .tabItem{
                     Image(systemName: "gear")
                     Text("설정")
