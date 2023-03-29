@@ -21,8 +21,8 @@ struct SingupView: View {
                     ToogleInput(title:
                                     "성별", options: ["남", "여"])
                     TextInput(title: "생년월일", placeholder: "8자리 생년월일 ex.230312")
-                    TextInput(title: "비밀번호", placeholder: "비밀번호를 입력해주세요")
-                    TextInput(title: "비밀번호 확인", placeholder: "비밀번호를 한번 더 입력해주세요")
+                    SecureInput(title: "비밀번호", placeholder: "비밀번호를 입력해주세요")
+                    SecureInput(title: "비밀번호 확인", placeholder: "비밀번호를 한번 더 입력해주세요")
                 }
                 
                 // Complete Button
