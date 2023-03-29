@@ -26,7 +26,6 @@
 		049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */; };
 		049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */; };
 		04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8F74A29D022B50082DC29 /* TestAnswer.swift */; };
-
 		6F16514B29D1342400CC228F /* PreventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16514A29D1342400CC228F /* PreventView.swift */; };
 		6F16514D29D1345A00CC228F /* BoldDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16514C29D1345A00CC228F /* BoldDivider.swift */; };
 		6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515029D1348D00CC228F /* QuizTemplate.swift */; };
@@ -34,13 +33,15 @@
 		6F16515529D134DD00CC228F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515429D134DD00CC228F /* QuizView.swift */; };
 		6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515629D134FD00CC228F /* QuizDoneView.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
+		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
+		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
 		BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C529C0886D0094333B /* InformationCardList.swift */; };
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
-		BC4E1EBB29C2333600915AB6 /* SingupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBA29C2333600915AB6 /* SingupView.swift */; };
+		BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBA29C2333600915AB6 /* SignupView.swift */; };
 		BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBC29C2346000915AB6 /* IntroView.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
 		BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D550129B9909C00FAA6E3 /* ContentView.swift */; };
@@ -88,13 +89,15 @@
 		6F16515429D134DD00CC228F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		6F16515629D134FD00CC228F /* QuizDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDoneView.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		BC2526EA29D419BA000FCE11 /* SecureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInput.swift; sourceTree = "<group>"; };
+		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
 		BC4317C529C0886D0094333B /* InformationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardList.swift; sourceTree = "<group>"; };
 		BC4317C829C094530094333B /* AlzheimerInformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformationType.swift; sourceTree = "<group>"; };
 		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
-		BC4E1EBA29C2333600915AB6 /* SingupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingupView.swift; sourceTree = "<group>"; };
+		BC4E1EBA29C2333600915AB6 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		BC4E1EBC29C2346000915AB6 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		BC8D54FC29B9909C00FAA6E3 /* AtchI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtchI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIApp.swift; sourceTree = "<group>"; };
@@ -250,6 +253,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		BC2526E929D418F3000FCE11 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		BC3CA1A829BF664800C8AE3D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,8 +293,9 @@
 			isa = PBXGroup;
 			children = (
 				BC4E1EBE29C237DD00915AB6 /* Resuable */,
-				BC4E1EBA29C2333600915AB6 /* SingupView.swift */,
+				BC4E1EBA29C2333600915AB6 /* SignupView.swift */,
 				BC4E1EBC29C2346000915AB6 /* IntroView.swift */,
+				BC2526EC29D4231B000FCE11 /* LoginView.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -294,6 +306,7 @@
 				BC00906529C2CA5D008D6F0C /* TextInput.swift */,
 				BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */,
 				BCF6DA3D29C4344F00E1ACBF /* RoundedButton.swift */,
+				BC2526EA29D419BA000FCE11 /* SecureInput.swift */,
 			);
 			path = Resuable;
 			sourceTree = "<group>";
@@ -303,7 +316,7 @@
 			children = (
 				BC8D54FE29B9909C00FAA6E3 /* AtchI */,
 				BC8D54FD29B9909C00FAA6E3 /* Products */,
-				04A8F74D29D0BC550082DC29 /* Recovered References */,
+				BC2526E929D418F3000FCE11 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -496,6 +509,7 @@
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
+				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
 				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
@@ -506,7 +520,6 @@
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
 				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
-
 				6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */,
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
@@ -514,11 +527,12 @@
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
 				BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */,
 				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
-				BC4E1EBB29C2333600915AB6 /* SingupView.swift in Sources */,
+				BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
+				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
