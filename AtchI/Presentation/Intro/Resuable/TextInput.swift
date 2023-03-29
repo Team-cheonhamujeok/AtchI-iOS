@@ -16,12 +16,15 @@ struct TextInput: View {
     
     var body: some View {
         VStack (alignment: .leading) {
+            // Title
             Text(title)
                 .font(.bodyLarge)
+            
+            // Input rectangle
             ZStack {
+                // Outline
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.white)
-                    .frame(maxWidth: .infinity, minHeight: 65)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .strokeBorder(
@@ -30,13 +33,16 @@ struct TextInput: View {
                                     Color.grayDisabled,
                                 lineWidth: 2).animation(.easeInOut(duration: 0.2))
                     )
-                HStack {
+                
+                // Text Field
                     TextField(placeholder, text: $text)
                         .padding(.horizontal, 16)
-                        .frame(maxWidth: .infinity, maxHeight: 65)
                         .focused($isFocused)
-                }
             }
+            .frame(maxWidth: .infinity,
+                   minHeight: 65,
+                   maxHeight: 65)
+            
             // Show error message
             if !error.isEmpty {
                 Text(error)

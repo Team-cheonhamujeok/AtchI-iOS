@@ -14,7 +14,7 @@ struct DefaultButton<Content>: View where Content: View {
     let buttonStyle: ButtonStyle
     let buttonColor: Color
     let isIndicate: Bool
- 
+    
     
     let action: () -> Void
     @ViewBuilder let content: Content
@@ -26,31 +26,19 @@ struct DefaultButton<Content>: View where Content: View {
         switch buttonStyle {
         // 채워진 버튼
         case .filled:
-            if buttonColor == .mainPurpleLight {
-                Button(action: action) {
-                    makeLabel()
-                }
-                .buttonStyle(.bordered)
-                .controlSize(buttonSize)
-                .tint(.mainPurple)
+            Button(action: action) {
+                makeLabel()
             }
-            else {
-                Button(action: action) {
-                    makeLabel()
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(buttonSize)
-                .tint(buttonColor)
-                .cornerRadius(20)
-            }
+            .background(Color.mainPurple)
+            .tint(.white)
+            .cornerRadius(20)
             
-        // 비어있는 버튼
+            // 비어있는 버튼
         case .unfilled:
             Button(action: action) {
                 makeLabel()
             }
             .buttonStyle(.borderless)
-            .controlSize(buttonSize)
             .tint(buttonColor)
             .padding(
                 buttonSize == ControlSize.large ?
@@ -60,7 +48,7 @@ struct DefaultButton<Content>: View where Content: View {
                 RoundedRectangle(
                     cornerRadius:
                         buttonSize == ControlSize.large ? 16 : 100)
-                    .stroke(buttonColor, lineWidth: 2)
+                .stroke(buttonColor, lineWidth: 2)
             }
         }
     }
@@ -71,7 +59,7 @@ struct DefaultButton<Content>: View where Content: View {
         // 버튼 사이즈에 따른 구분
         switch buttonSize {
             
-        // 큰 버튼 일 경우
+            // 큰 버튼 일 경우
         case .large:
             HStack{
                 Spacer()
@@ -85,22 +73,19 @@ struct DefaultButton<Content>: View where Content: View {
                         .font(.system(size: 30))
                 }
             }
-            .frame(
-                minWidth: width == nil ? 250 : width,
-                maxWidth: 300,
-                minHeight: height == nil ? 20 : height,
-                maxHeight: 50)
-                  
+            .frame(maxWidth: .infinity,
+                   minHeight: 65,
+                   maxHeight: 65)
             
-        // 그 외는 작은 버튼으로 취급
+            
+            // 그 외는 작은 버튼으로 취급
         default:
             content
+                .padding(.all, 5)
                 .font(.bodySmall)
                 .frame(
-                    minWidth: width == nil ? 85 : width,
-                    maxWidth: 85,
-                    minHeight: height == nil ? 20 : height,
-                    maxHeight: 35)
+                    maxWidth: width,
+                    maxHeight: height)
         }
     }
 }

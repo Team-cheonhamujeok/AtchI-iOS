@@ -22,11 +22,16 @@ struct ContentView: View {
                         Image(systemName: "brain.head.profile")
                         Text("예방")
                     }
-                Text("글쓰기")
+                LoginView()
                     .tabItem{
                         Image(systemName: "square.and.pencil")
                         Text("글쓰기")
                     }
+                SignupView()
+                    .tabItem{
+                      Image(systemName: "gear")
+                      Text("설정")
+                   }
                 Text("설정")
                     .tabItem{
                         Image(systemName: "gear")
