@@ -21,21 +21,21 @@ struct QuizDoneView: View {
                     .font(.titleLarge)
                 Text("이제 오늘 퀴즈는 " + "개가 남았어요 :)")
                     .font(.bodyMedium)
-                
-                Button("도전하기") {
-                    print("dismiss")
-                    dismiss() //PreventView로 가야함.. 수정!!
-                }
-//                .buttonStyle(RoundButton(labelColor: .mainPurple, backgroundColor: .white))
-//                NavigationLink(destination: PreventView()) {
-//                    Text("확인")
-//                        .font(.bodySmall)
-//                        .foregroundColor(Color.mainPurple)
-//                        .padding(EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20))
-//                        .background(Capsule().fill(.white))
-//                }
+
             }
             .foregroundColor(.white)
+            VStack {
+                Text("")
+                Spacer()
+
+                DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
+                    print("퀴즈풀기 완료")
+//                    self.presentationMode.value.dismiss()
+                }, content: {
+                    Text("완료")
+                        .foregroundColor(.mainPurple)
+                })
+            }
             
         }
         
