@@ -8,27 +8,37 @@
 import SwiftUI
 
 struct DiagnosisView: View {
-    let selfTestViewModel = SelfTestInfoViewModel()
+    let selfTestInfoViewModel = SelfTestInfoViewModel()
     let watchInfoViewModel = WatchInfoViewModel()
+    let selfTestViewModel = SelfTestViewModel()
+    
+    @State private var path: [DiagnosisViewStack] = []
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ScrollView {
-                SelfTestInfoView(viewModel: selfTestViewModel)
-                    .padding(.all, 20)
+                VStack(alignment: .leading) {
+                    Text("진단")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding(.bottom, 18)
+                    
+                    SelfTestInfoView(viewModel: selfTestInfoViewModel, selfTestViewModel: selfTestViewModel, path: $path)
+                    
+                }
+                .padding(.horizontal, 30)
+                .padding(.vertical, 20)
                 
                 Rectangle()
                     .frame(height: 15)
                     .foregroundColor(.grayBoldLine)
                 
                 WatchInfoView(viewModel: watchInfoViewModel)
-                    .padding(.all, 20)
+                    .padding(.all, 30)
                 
                 Spacer()
             }
-            .navigationTitle("진단")
         }
-        
     }
 }
 
