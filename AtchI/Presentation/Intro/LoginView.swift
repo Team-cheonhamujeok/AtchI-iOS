@@ -19,31 +19,34 @@ struct LoginView: View {
             TextInput(title: "이메일", placeholder: "예) junjongsul@gmail.com")
             SecureInput(title: "비밀번호", placeholder: "비밀번호를 입력해주세요")
             
-            // Complete Button
-            DefaultButton(
-                buttonSize: .large,
-                buttonStyle: .filled,
-                buttonColor: .mainPurple,
-                isIndicate: false,
-                action: {
-                    print("로그인하기 click")
-                },
-                content: {
-                    Text("로그인하기")
-                }
-            )
-            
-            // Already signup
-            HStack (alignment: .center, spacing: 3) {
-                Text("계정이 없으신가요? ")
-                    .foregroundColor(.grayTextLight)
-                Text("회원가입하기")
-                    .foregroundColor(.grayTextLight)
-                    .underline()
-                    .onTapGesture {
-                        // 회원가입뷰로 이동이동
+            VStack(spacing: 20) {
+                // Complete Button
+                DefaultButton(
+                    buttonSize: .large,
+                    buttonStyle: .filled,
+                    buttonColor: .mainPurple,
+                    isIndicate: false,
+                    action: {
+                        print("로그인하기 click")
+                    },
+                    content: {
+                        Text("로그인하기")
                     }
-            }.frame(maxWidth: .infinity)
+                )
+                // Already signup
+                HStack (alignment: .center, spacing: 3) {
+                    Text("계정이 없으신가요? ")
+                        .foregroundColor(.grayTextLight)
+                    Text("회원가입하기")
+                        .foregroundColor(.grayTextLight)
+                        .underline()
+                        .onTapGesture {
+                            // 회원가입뷰로 이동이동
+                        }
+                }.frame(maxWidth: .infinity)
+            }
+            
+
             
             Spacer()
         }
