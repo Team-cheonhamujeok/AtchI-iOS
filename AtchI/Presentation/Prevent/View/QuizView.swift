@@ -10,29 +10,35 @@ import SwiftUI
 struct QuizView: View {
     var quizOrder: String
     var quizContent: String
+    @State var tag:Int? = nil
     
     var body: some View {
         ZStack{
             Color.mainPurple.ignoresSafeArea()
+            VStack(alignment: .leading, spacing: 10) {
+                Text(quizOrder + "번째 퀴즈")
+                    .font(.titleSmall)
+                    .foregroundColor(.white)
+                Text(quizContent)
+                    .font(.titleLarge)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }.padding(EdgeInsets(top: 0, leading: 30, bottom: 30, trailing: 30))
+            
             VStack {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(quizOrder + "번째 퀴즈")
-                        .font(.titleSmall)
-                        .foregroundColor(.white)
-                    Text(quizContent)
-                        .font(.titleLarge)
-                        .foregroundColor(.white)
-                        .frame(idealWidth: .infinity, alignment: .center)
-//                        .lineLimit(3)
-                }.padding(.horizontal)
+                Text("")
                 
-                NavigationLink(destination: QuizDoneView(quizOrder: quizOrder)) {
-                    Text("완료")
-                        .font(.bodySmall)
-                        .foregroundColor(Color.mainPurple)
-                        .padding(EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20))
-                        .background(Capsule().fill(.white))
+                Spacer()
+                NavigationLink(destination: QuizDoneView(quizOrder: quizOrder), tag: 1, selection: self.$tag) {
+                    EmptyView()
                 }
+                DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
+                    print("퀴즈풀기 완료")
+                    self.tag = 1
+                }, content: {
+                    Text("완료")
+                        .foregroundColor(.mainPurple)
+                })
             }
         }
         

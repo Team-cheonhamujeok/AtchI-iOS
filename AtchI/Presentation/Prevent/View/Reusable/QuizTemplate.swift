@@ -43,8 +43,8 @@ struct QuizTemplate: View {
     }
 }
 
-//struct QuizTemplate_Previews: PreviewProvider {
-//    static var previews: some View {
-//        QuizTemplate()
-//    }
-//}
+struct QuizTemplate_Previews: PreviewProvider {
+    static var previews: some View {
+        QuizTemplate(quizOrder: "첫", quizCountents: "오늘 점심은 무엇인가요?")
+    }
+}
