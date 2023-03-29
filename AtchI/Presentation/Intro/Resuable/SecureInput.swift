@@ -21,11 +21,11 @@ struct SecureInput: View {
             Text(title)
                 .font(.bodyLarge)
             
-            // Focus line
+            // Input rectangle
             ZStack {
+                // Outline
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.white)
-                    .frame(maxWidth: .infinity, minHeight: 65)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .strokeBorder(
@@ -40,12 +40,10 @@ struct SecureInput: View {
                     if showPassword {
                         TextField(placeholder, text: $password)
                             .padding(.horizontal, 16)
-                            .frame(maxWidth: .infinity, maxHeight: 65)
                             .focused($isFocused)
                     } else {
                         SecureField(placeholder, text: $password)
                             .padding(.horizontal, 16)
-                            .frame(maxWidth: .infinity, maxHeight: 65)
                             .focused($isFocused)
                     }
                     Button(action: {
@@ -56,7 +54,10 @@ struct SecureInput: View {
                     
                 }
                 .padding(.trailing, 20)
-            }
+            }.frame(maxWidth: .infinity,
+                    minHeight: 65,
+                    maxHeight: 65)
+            
             // Error message
             if !error.isEmpty {
                 Text(error)
