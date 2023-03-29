@@ -1,5 +1,5 @@
 //
-//  SingupView.swift
+//  SignupView.swift
 //  AtchI
 //
 //  Created by DOYEON LEE on 2023/03/16.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SingupView: View {
+struct SignupView: View {
     var body: some View {
         VStack {
             ScrollView {
@@ -21,17 +21,40 @@ struct SingupView: View {
                     ToogleInput(title:
                                     "성별", options: ["남", "여"])
                     TextInput(title: "생년월일", placeholder: "8자리 생년월일 ex.230312")
-                    TextInput(title: "비밀번호", placeholder: "비밀번호를 입력해주세요")
-                    TextInput(title: "비밀번호 확인", placeholder: "비밀번호를 한번 더 입력해주세요")
+                    SecureInput(title: "비밀번호", placeholder: "비밀번호를 입력해주세요")
+                    SecureInput(title: "비밀번호 확인", placeholder: "비밀번호를 한번 더 입력해주세요")
                 }
                 
                 // Complete Button
                 Spacer(minLength: 50)
-                RoundedButton(title: "회원가입하기") {
-                    print("click")
+                DefaultButton(
+                       buttonSize: .large,
+                       buttonStyle: .filled,
+                       buttonColor: .mainPurple,
+                       isIndicate: false,
+                       action: {
+                           print("회원가입하기 click")
+                       },
+                       content: {
+                           Text("회원가입하기")
+                       }
+                   )
+                Spacer(minLength: 20)
+                
+                // Already signup
+                HStack (alignment: .center, spacing: 3) {
+                    Text("이미 가입하셨나요? ")
+                        .foregroundColor(.grayTextLight)
+                    Text("로그인하기")
+                        .foregroundColor(.grayTextLight)
+                        .underline()
+                        .onTapGesture {
+                            // 로그인뷰로 이동이동
+                        }
                 }
                 
-                Spacer(minLength: 50)
+                // Bottom margin
+                Spacer(minLength: 30)
             }
             .padding(.horizontal, 30)
             .scrollIndicators(.hidden)
@@ -52,7 +75,7 @@ struct SingupView: View {
 
 struct SingupView_Previews: PreviewProvider {
     static var previews: some View {
-        SingupView()
+        SignupView()
     }
 }
 
