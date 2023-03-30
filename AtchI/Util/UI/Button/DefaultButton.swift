@@ -30,7 +30,7 @@ struct DefaultButton<Content>: View where Content: View {
             Button(action: action) {
                 makeLabel()
             }
-            .background(Color.mainPurple)
+            .background(buttonColor)
             .tint(.white)
             .cornerRadius(20)
             
@@ -41,10 +41,6 @@ struct DefaultButton<Content>: View where Content: View {
             }
             .buttonStyle(.borderless)
             .tint(buttonColor)
-            .padding(
-                buttonSize == ControlSize.large ?
-                EdgeInsets(top: 12, leading: 18, bottom: 12, trailing: 18) : EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
-            )
             .overlay {
                 RoundedRectangle(
                     cornerRadius:
