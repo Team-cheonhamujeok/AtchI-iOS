@@ -46,6 +46,7 @@ struct SelfTestStartView: View {
             
         }
         .padding(.all, 30)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

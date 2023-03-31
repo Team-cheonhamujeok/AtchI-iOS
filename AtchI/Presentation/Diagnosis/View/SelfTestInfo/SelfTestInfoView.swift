@@ -30,6 +30,8 @@ struct SelfTestInfoView: View {
                 SelfTestStartView(path: $path, selfTestViewModel: selfTestViewModel)
             case .selfTestResult:
                 SelfTestResultView(path: $path, selfTestViewModel: selfTestViewModel)
+            case .selfTestResultList:
+                SelfTestResultList(path: $path)
             default:
                 Text("잘못된 접근")
             }
@@ -99,8 +101,7 @@ struct SelfTestInfoView: View {
                               buttonColor: .grayDisabled,
                               isIndicate: false)
                 {
-                    //TODO: Navigation 넣기
-                    print("HI")
+                    path.append(.selfTestResultList)
                 } content: {
                     Text("전체보기")
                 }
