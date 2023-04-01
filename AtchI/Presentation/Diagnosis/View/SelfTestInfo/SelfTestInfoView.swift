@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelfTestInfoView: View {
-    @StateObject var viewModel: SelfTestInfoViewModel
+    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
     @StateObject var selfTestViewModel: SelfTestViewModel
     
     @Binding var path: [DiagnosisViewStack]
@@ -16,7 +16,7 @@ struct SelfTestInfoView: View {
     //MARK: - Body
     var body: some View {
         Group {
-            if viewModel.isTest {
+            if selfTestInfoViewModel.isTest {
                 haveTestView
             } else {
                 noTestView
@@ -31,7 +31,7 @@ struct SelfTestInfoView: View {
             case .selfTestResult:
                 SelfTestResultView(path: $path, selfTestViewModel: selfTestViewModel)
             case .selfTestResultList:
-                SelfTestResultList(path: $path)
+                SelfTestResultList(path: $path, selfTestInfoViewModel: selfTestInfoViewModel)
             default:
                 Text("잘못된 접근")
             }
@@ -81,8 +81,8 @@ struct SelfTestInfoView: View {
             }
             
             // 2️⃣ 자가진단 리스트
-            List(viewModel.selfTestResults.indices, id: \.self) { index in
-                SelfTestRow(selfTestResult: viewModel.selfTestResults[index],
+            List(selfTestInfoViewModel.selfTestResults.indices, id: \.self) { index in
+                SelfTestRow(selfTestResult: selfTestInfoViewModel.selfTestResults[index],
                             index: index)
                     .listRowSeparator(.hidden)
                 
@@ -129,6 +129,6 @@ struct ExplainTestView: View {
 //MARK: - Preview
 struct SelfTestInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestInfoView(viewModel: SelfTestInfoViewModel(), selfTestViewModel: SelfTestViewModel() , path: .constant([]))
+        SelfTestInfoView(selfTestInfoViewModel: SelfTestInfoViewModel(), selfTestViewModel: SelfTestViewModel() , path: .constant([]))
     }
 }
