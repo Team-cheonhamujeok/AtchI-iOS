@@ -6,8 +6,20 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignupView: View {
+    
+    @ObservedObject var viewModel: SignupViewModel
+    
+    @State var password: String = ""
+    @State var passwordAgin: String = ""
+    
+    init() {
+        self.viewModel = SignupViewModel()
+    }
+    
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -16,13 +28,21 @@ struct SignupView: View {
                         .font(.titleLarge)
                     
                     // Input list
-                    TextInput(title: "이름", placeholder: "이름을 입력해주세요")
-                    TextInput(title: "이메일", placeholder: "예) junjongsul@gmail.com")
-                    ToogleInput(title:
-                                    "성별", options: ["남", "여"])
-                    TextInput(title: "생년월일", placeholder: "8자리 생년월일 ex.230312")
-                    SecureInput(title: "비밀번호", placeholder: "비밀번호를 입력해주세요")
-                    SecureInput(title: "비밀번호 확인", placeholder: "비밀번호를 한번 더 입력해주세요")
+//                    TextInput(title: "이름",
+//                              placeholder: "이름을 입력해주세요")
+//                    TextInput(title: "이메일",
+//                              placeholder: "예) junjongsul@gmail.com")
+//                    ToogleInput(title:"성별",
+//                                options: ["남", "여"])
+//                    TextInput(title: "생년월일",
+//                              placeholder: "8자리 생년월일 ex.230312")
+                    
+                    SecureInput(title: "비밀번호",
+                                placeholder: "비밀번호를 입력해주세요",
+                                password: $password)
+                    SecureInput(title: "비밀번호 확인",
+                                placeholder: "비밀번호를 한번 더 입력해주세요",
+                                password: $passwordAgin)
                 }
                 
                 // Complete Button
