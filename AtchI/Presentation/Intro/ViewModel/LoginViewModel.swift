@@ -8,13 +8,12 @@
 import Foundation
 import Combine
 
+
 class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
-    
     @Published var emailErrorMessage: String = ""
     @Published var passwordErrorMessage: String = ""
-    
     @Published var enableLoginButton: Bool? = false
     
     private var cancellables = Set<AnyCancellable>()
@@ -34,7 +33,8 @@ class LoginViewModel: ObservableObject {
             if isValid {
                 self?.emailErrorMessage = ""
             } else {
-                self?.emailErrorMessage = "이메일형식에 맞게 입력해주세요"
+                self?.emailErrorMessage =
+                    ViewErrorMessage.invalidEmail.krDescription
             }
         }.store(in: &cancellables)
 
