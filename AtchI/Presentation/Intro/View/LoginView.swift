@@ -29,7 +29,8 @@ struct LoginView: View {
                       error: $viewModel.emailErrorMessage)
             SecureInput(title: "비밀번호",
                         placeholder: "비밀번호를 입력해주세요",
-                        password: $viewModel.password)
+                        password: $viewModel.password,
+                        errorMessage: $viewModel.passwordErrorMessage)
             
             VStack(spacing: 20) {
                 // Complete Button

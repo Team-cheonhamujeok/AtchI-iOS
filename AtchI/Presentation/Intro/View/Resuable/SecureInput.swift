@@ -11,7 +11,7 @@ struct SecureInput: View {
     var title: String
     var placeholder: String
     @Binding var password: String
-    @State private var error: String = ""
+    @Binding var errorMessage: String
     @State private var showPassword = false
     @FocusState private var isFocused: Bool
     
@@ -61,11 +61,11 @@ struct SecureInput: View {
                     maxHeight: 65)
             
             // Error message
-            Text(error)
+            Text(errorMessage)
                 .foregroundColor(.red)
                 .font(.bodySmall)
                 .frame(minHeight: 20)
-                .opacity(!error.isEmpty ? 1.0 : 0.0)
+                .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
                 .animation(.easeInOut(duration: 0.3))
         }
     }
@@ -82,11 +82,4 @@ struct SecureInput: View {
         }
     }
     
-}
-
-
-struct Previews_SecureInput_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
 }
