@@ -47,18 +47,18 @@ struct SignupView: View {
                 
                 // Complete Button
                 Spacer(minLength: 50)
-                DefaultButton(
-                       buttonSize: .large,
-                       buttonStyle: .filled,
-                       buttonColor: .mainPurple,
-                       isIndicate: false,
-                       action: {
-                           print("회원가입하기 click")
-                       },
-                       content: {
-                           Text("회원가입하기")
-                       }
-                   )
+//                DefaultButton(
+//                       buttonSize: .large,
+//                       buttonStyle: .filled,
+//                       buttonColor: .mainPurple,
+//                       isIndicate: false,
+//                       action: {
+//                           print("회원가입하기 click")
+//                       },
+//                       content: {
+//                           Text("회원가입하기")
+//                       }
+//                   )
                 Spacer(minLength: 20)
                 
                 // Already signup
