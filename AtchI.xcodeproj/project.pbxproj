@@ -32,6 +32,8 @@
 		6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515229D134AA00CC228F /* QuizStateCard.swift */; };
 		6F16515529D134DD00CC228F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515429D134DD00CC228F /* QuizView.swift */; };
 		6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515629D134FD00CC228F /* QuizDoneView.swift */; };
+		6F9956B629E86D5C00C5487C /* PreventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9956B529E86D5C00C5487C /* PreventModel.swift */; };
+		6FDB09D829E3D99B00523AA7 /* PreventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB09D729E3D99B00523AA7 /* PreventViewModel.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
@@ -65,7 +67,6 @@
 		042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewStack.swift; sourceTree = "<group>"; };
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
-
 		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
 		049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoView.swift; sourceTree = "<group>"; };
 		049ADEA829C9837C009B9B62 /* WatchInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoView.swift; sourceTree = "<group>"; };
@@ -88,6 +89,8 @@
 		6F16515229D134AA00CC228F /* QuizStateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStateCard.swift; sourceTree = "<group>"; };
 		6F16515429D134DD00CC228F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		6F16515629D134FD00CC228F /* QuizDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDoneView.swift; sourceTree = "<group>"; };
+		6F9956B529E86D5C00C5487C /* PreventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventModel.swift; sourceTree = "<group>"; };
+		6FDB09D729E3D99B00523AA7 /* PreventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventViewModel.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		BC2526EA29D419BA000FCE11 /* SecureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInput.swift; sourceTree = "<group>"; };
 		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 		6F16514629D1339700CC228F /* Prevent */ = {
 			isa = PBXGroup;
 			children = (
+				6F9956B429E86D4A00C5487C /* Model */,
+				6FDB09D629E3D98600523AA7 /* ViewModel */,
 				6F16514729D133E500CC228F /* View */,
 			);
 			path = Prevent;
@@ -253,10 +258,25 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		6F9956B429E86D4A00C5487C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F9956B529E86D5C00C5487C /* PreventModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6FDB09D629E3D98600523AA7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6FDB09D729E3D99B00523AA7 /* PreventViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BC2526E929D418F3000FCE11 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -540,8 +560,10 @@
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
+				6F9956B629E86D5C00C5487C /* PreventModel.swift in Sources */,
 				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
 				049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */,
+				6FDB09D829E3D99B00523AA7 /* PreventViewModel.swift in Sources */,
 				049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */,
 				049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */,
 			);

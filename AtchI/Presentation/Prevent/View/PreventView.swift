@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PreventView: View {
+    @State var isActive : Bool = false
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -16,13 +18,19 @@ struct PreventView: View {
                         .font(.titleLarge)
                     Spacer()
                     
-                    Text("퀴즈를 풀며 뇌를 훈련시켜 보세요!")
-                        .font(.bodyLarge)
-                        .frame(maxWidth: 250, maxHeight: 37)
-                        .background(Color.grayBoldLine)
-                        
-                        .cornerRadius(10)
-                        .padding(.vertical, 1)
+//                    Text("퀴즈를 풀며 뇌를 훈련시켜 보세요!")
+//                        .font(.bodyLarge)
+//                        .frame(maxWidth: 250, maxHeight: 37)
+//                        .background(Color.grayBoldLine)
+//                        .cornerRadius(10)
+                    ZStack {
+                        Image("speechBubble")
+                        Text("퀴즈를 풀며 뇌를 훈련시켜 보세요!")
+                            .font(.bodyLarge)
+                            .padding(.vertical, 1)
+
+                    }
+                    
                 }
                 .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
                 
@@ -50,17 +58,18 @@ struct PreventView: View {
                 .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 30))
                 
                 VStack {
-                    QuizTemplate(quizOrder: "첫", quizCountents: "오늘은 몇월 며칠인가요?")
+                    QuizTemplate(quizOrder: "첫", quizContents: "오늘은 몇월 며칠인가요?", rootIsActive: self.$isActive)
                         .padding(.bottom, 20)
-                    QuizTemplate(quizOrder: "두", quizCountents: "어제 누구랑 점심을 먹었나요?")
+                    QuizTemplate(quizOrder: "두", quizContents: "어제 누구랑 점심을 먹었나요?", rootIsActive: self.$isActive)
                         .padding(.bottom, 20)
-                    QuizTemplate(quizOrder: "세", quizCountents: "오늘 아침에 일어나자마자 무엇을 했나요?")
+                    QuizTemplate(quizOrder: "세", quizContents: "오늘 아침에 일어나자마자 무엇을 했나요?", rootIsActive: self.$isActive)
                 }
                 .padding(.horizontal, 30)
                 Spacer()
             }
         }
     }
+    
 }
 
 struct PreventView_Previews: PreviewProvider {

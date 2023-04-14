@@ -8,23 +8,24 @@
 import SwiftUI
 
 struct QuizTemplate: View {
-    var quizOrder: String
-    var quizCountents: String
+    @State var quizOrder: String
+    @State var quizContents: String
     @State var tag:Int? = nil
+    @Binding var rootIsActive: Bool
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 15) {
                 Text(quizOrder + "번째 퀴즈")
                     .font(.titleSmall)
-                Text(quizCountents)
+                Text(quizContents)
                     .font(.bodyMedium)
                     .lineLimit(1)
                     .truncationMode(.tail)
             }
             Spacer()
 
-            NavigationLink(destination: QuizView(quizOrder: quizOrder, quizContent: quizCountents)) {
+            NavigationLink(destination: QuizView(quizOrder: $quizOrder, quizContent: $quizContents, preventViewModel: PreventViewModel(), rootIsActive: self.$rootIsActive), isActive: $rootIsActive) {
                 Text("도전하기")
                     .font(.bodySmall)
                     .foregroundColor(.white)
@@ -43,8 +44,8 @@ struct QuizTemplate: View {
     }
 }
 
-struct QuizTemplate_Previews: PreviewProvider {
-    static var previews: some View {
-        QuizTemplate(quizOrder: "첫", quizCountents: "오늘 점심은 무엇인가요?")
-    }
-}
+//struct QuizTemplate_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuizTemplate(quizOrder: "첫", quizContents: "오늘 점심은 무엇인가요?")
+//    }
+//}
