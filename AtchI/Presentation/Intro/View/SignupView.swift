@@ -19,7 +19,6 @@ struct SignupView: View {
         self.viewModel = SignupViewModel()
     }
     
-    
     var body: some View {
         VStack {
             ScrollView {

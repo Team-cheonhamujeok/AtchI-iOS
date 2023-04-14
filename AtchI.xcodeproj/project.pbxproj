@@ -35,6 +35,8 @@
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
+		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
+		BC37AA5329E080760047D273 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5229E080760047D273 /* Moya */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
@@ -42,8 +44,13 @@
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
 		BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC88B57229D5F47C003CA752 /* Combine.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		BC4DD6A329DDD4B5000C5DE1 /* AtchITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA849FA29DDADAF008CAE45 /* AtchITests.swift */; };
+		BC4DD6A529DDD574000C5DE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4DD6A429DDD574000C5DE1 /* XCTest.framework */; };
+		BC4DD6A829DDD74F000C5DE1 /* AtchIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA84A0129DDCC3C008CAE45 /* AtchIViewModelTests.swift */; };
 		BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBA29C2333600915AB6 /* SignupView.swift */; };
 		BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBC29C2346000915AB6 /* IntroView.swift */; };
+		BC70470F29E7E91C00FA265A /* SignupDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupDTO.swift */; };
+		BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78196E29E07884005C4CF5 /* AccountService.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
 		BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D550129B9909C00FAA6E3 /* ContentView.swift */; };
 		BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550329B9909D00FAA6E3 /* Assets.xcassets */; };
@@ -52,6 +59,8 @@
 		BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551729B9959100FAA6E3 /* Fonts.swift */; };
 		BCA1486029D5F149001F390D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1485F29D5F149001F390D /* LoginViewModel.swift */; };
 		BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1486129D5F1BD001F390D /* SignupViewModel.swift */; };
+		BCA849FB29DDADAF008CAE45 /* AtchITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA849FA29DDADAF008CAE45 /* AtchITests.swift */; };
+		BCA84A0229DDCC3C008CAE45 /* AtchIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA84A0129DDCC3C008CAE45 /* AtchIViewModelTests.swift */; };
 		BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BC29BDE613003E364C /* HomeView.swift */; };
 		BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */; };
 		BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0C129BE286C003E364C /* AppTitleBar.swift */; };
@@ -59,11 +68,23 @@
 		BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */; };
 		BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B329BEF99600FEE178 /* ShortcutCard.swift */; };
 		BCECD6BD29DA95C400F6A50F /* ViewErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCECD6BC29DA95C400F6A50F /* ViewErrorMessage.swift */; };
+		BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */; };
+		BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92729E0356D00F301B1 /* Subject.swift */; };
 		BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */; };
 		BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3929C42D1C00E1ACBF /* View.swift */; };
 		BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3B29C42D3200E1ACBF /* RoundedCorner.swift */; };
 		BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3D29C4344F00E1ACBF /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCA849FC29DDADAF008CAE45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC8D54F429B9909C00FAA6E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC8D54FB29B9909C00FAA6E3;
+			remoteInfo = AtchI;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewStack.swift; sourceTree = "<group>"; };
@@ -100,8 +121,11 @@
 		BC4317C529C0886D0094333B /* InformationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardList.swift; sourceTree = "<group>"; };
 		BC4317C829C094530094333B /* AlzheimerInformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformationType.swift; sourceTree = "<group>"; };
 		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
+		BC4DD6A429DDD574000C5DE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BC4E1EBA29C2333600915AB6 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		BC4E1EBC29C2346000915AB6 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		BC70470E29E7E91C00FA265A /* SignupDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDTO.swift; sourceTree = "<group>"; };
+		BC78196E29E07884005C4CF5 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		BC88B57229D5F47C003CA752 /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		BC8D54FC29B9909C00FAA6E3 /* AtchI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtchI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIApp.swift; sourceTree = "<group>"; };
@@ -113,6 +137,9 @@
 		BC9C977D29C2262D00DC6FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BCA1485F29D5F149001F390D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BCA1486129D5F1BD001F390D /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		BCA849F829DDADAF008CAE45 /* AtchITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCA849FA29DDADAF008CAE45 /* AtchITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchITests.swift; sourceTree = "<group>"; };
+		BCA84A0129DDCC3C008CAE45 /* AtchIViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIViewModelTests.swift; sourceTree = "<group>"; };
 		BCDDE0BC29BDE613003E364C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDiagnosisCard.swift; sourceTree = "<group>"; };
 		BCDDE0C129BE286C003E364C /* AppTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleBar.swift; sourceTree = "<group>"; };
@@ -120,6 +147,8 @@
 		BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizShortcutCard.swift; sourceTree = "<group>"; };
 		BCE394B329BEF99600FEE178 /* ShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutCard.swift; sourceTree = "<group>"; };
 		BCECD6BC29DA95C400F6A50F /* ViewErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewErrorMessage.swift; sourceTree = "<group>"; };
+		BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapperTest.swift; sourceTree = "<group>"; };
+		BCEDA92729E0356D00F301B1 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleInput.swift; sourceTree = "<group>"; };
 		BCF6DA3929C42D1C00E1ACBF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		BCF6DA3B29C42D3200E1ACBF /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -131,7 +160,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
+				BC37AA5329E080760047D273 /* Moya in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCA849F529DDADAF008CAE45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC4DD6A529DDD574000C5DE1 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,9 +356,27 @@
 			path = Resuable;
 			sourceTree = "<group>";
 		};
+		BC70470C29E7E8D800FA265A /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				BC70470E29E7E91C00FA265A /* SignupDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		BC78196D29E07867005C4CF5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BC70470C29E7E8D800FA265A /* DTO */,
+				BC78196E29E07884005C4CF5 /* AccountService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		BC88B57129D5F47C003CA752 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC4DD6A429DDD574000C5DE1 /* XCTest.framework */,
 				BC88B57229D5F47C003CA752 /* Combine.framework */,
 			);
 			name = Frameworks;
@@ -329,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				BC8D54FE29B9909C00FAA6E3 /* AtchI */,
+				BCA849F929DDADAF008CAE45 /* AtchITests */,
 				BC8D54FD29B9909C00FAA6E3 /* Products */,
 				BC2526E929D418F3000FCE11 /* Recovered References */,
 				BC88B57129D5F47C003CA752 /* Frameworks */,
@@ -339,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				BC8D54FC29B9909C00FAA6E3 /* AtchI.app */,
+				BCA849F829DDADAF008CAE45 /* AtchITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,6 +405,7 @@
 		BC8D54FE29B9909C00FAA6E3 /* AtchI */ = {
 			isa = PBXGroup;
 			children = (
+				BC78196D29E07867005C4CF5 /* Service */,
 				BC9C977D29C2262D00DC6FB3 /* Info.plist */,
 				BC8D551C29B99A4A00FAA6E3 /* Presentation */,
 				BC8D551329B9951400FAA6E3 /* Util */,
@@ -368,6 +428,7 @@
 		BC8D551329B9951400FAA6E3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BCEDA92629E0355F00F301B1 /* PropertyWrapper */,
 				049ADE9029C6E3B2009B9B62 /* UI */,
 				BC4317CA29C094EE0094333B /* Structure */,
 				BC4317C729C094220094333B /* Constant */,
@@ -421,6 +482,7 @@
 			children = (
 				BCA1485F29D5F149001F390D /* LoginViewModel.swift */,
 				BCA1486129D5F1BD001F390D /* SignupViewModel.swift */,
+				BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -434,6 +496,23 @@
 				BC2526EC29D4231B000FCE11 /* LoginView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BCA849F929DDADAF008CAE45 /* AtchITests */ = {
+			isa = PBXGroup;
+			children = (
+				BCA84A0329DDCCA1008CAE45 /* Login */,
+				BCA849FA29DDADAF008CAE45 /* AtchITests.swift */,
+			);
+			path = AtchITests;
+			sourceTree = "<group>";
+		};
+		BCA84A0329DDCCA1008CAE45 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BCA84A0129DDCC3C008CAE45 /* AtchIViewModelTests.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		BCDDE0BE29BE17D0003E364C /* Component */ = {
@@ -458,6 +537,14 @@
 			path = Reusable;
 			sourceTree = "<group>";
 		};
+		BCEDA92629E0355F00F301B1 /* PropertyWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				BCEDA92729E0356D00F301B1 /* Subject.swift */,
+			);
+			path = PropertyWrapper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -474,9 +561,31 @@
 			dependencies = (
 			);
 			name = AtchI;
+			packageProductDependencies = (
+				BC37AA5029E080760047D273 /* CombineMoya */,
+				BC37AA5229E080760047D273 /* Moya */,
+			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BCA849F729DDADAF008CAE45 /* AtchITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCA84A0029DDADAF008CAE45 /* Build configuration list for PBXNativeTarget "AtchITests" */;
+			buildPhases = (
+				BCA849F429DDADAF008CAE45 /* Sources */,
+				BCA849F529DDADAF008CAE45 /* Frameworks */,
+				BCA849F629DDADAF008CAE45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCA849FD29DDADAF008CAE45 /* PBXTargetDependency */,
+			);
+			name = AtchITests;
+			productName = AtchITests;
+			productReference = BCA849F829DDADAF008CAE45 /* AtchITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -491,6 +600,10 @@
 					BC8D54FB29B9909C00FAA6E3 = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					BCA849F729DDADAF008CAE45 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BC8D54FB29B9909C00FAA6E3;
+					};
 				};
 			};
 			buildConfigurationList = BC8D54F729B9909C00FAA6E3 /* Build configuration list for PBXProject "AtchI" */;
@@ -502,11 +615,15 @@
 				Base,
 			);
 			mainGroup = BC8D54F329B9909C00FAA6E3;
+			packageReferences = (
+				BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BC8D54FB29B9909C00FAA6E3 /* AtchI */,
+				BCA849F729DDADAF008CAE45 /* AtchITests */,
 			);
 		};
 /* End PBXProject section */
@@ -518,6 +635,13 @@
 			files = (
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCA849F629DDADAF008CAE45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,12 +664,14 @@
 				6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */,
 				6F16514B29D1342400CC228F /* PreventView.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
+				BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
+				BC70470F29E7E91C00FA265A /* SignupDTO.swift in Sources */,
 				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
@@ -557,8 +683,10 @@
 				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
 				6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */,
+				BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */,
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
+				BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */,
 				BCECD6BD29DA95C400F6A50F /* ViewErrorMessage.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
@@ -569,6 +697,7 @@
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
+				BC4DD6A329DDD4B5000C5DE1 /* AtchITests.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
@@ -579,13 +708,31 @@
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
 				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
+				BC4DD6A829DDD74F000C5DE1 /* AtchIViewModelTests.swift in Sources */,
 				049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */,
 				049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */,
 				049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BCA849F429DDADAF008CAE45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA84A0229DDCC3C008CAE45 /* AtchIViewModelTests.swift in Sources */,
+				BCA849FB29DDADAF008CAE45 /* AtchITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCA849FD29DDADAF008CAE45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC8D54FB29B9909C00FAA6E3 /* AtchI */;
+			targetProxy = BCA849FC29DDADAF008CAE45 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BC8D550829B9909D00FAA6E3 /* Debug */ = {
@@ -764,6 +911,50 @@
 			};
 			name = Release;
 		};
+		BCA849FE29DDADAF008CAE45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8MX74Y447;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = doyeon.AtchITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtchI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AtchI";
+			};
+			name = Debug;
+		};
+		BCA849FF29DDADAF008CAE45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8MX74Y447;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = doyeon.AtchITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtchI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AtchI";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -785,7 +976,40 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		BCA84A0029DDADAF008CAE45 /* Build configuration list for PBXNativeTarget "AtchITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCA849FE29DDADAF008CAE45 /* Debug */,
+				BCA849FF29DDADAF008CAE45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC37AA5029E080760047D273 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		BC37AA5229E080760047D273 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BC8D54F429B9909C00FAA6E3 /* Project object */;
 }

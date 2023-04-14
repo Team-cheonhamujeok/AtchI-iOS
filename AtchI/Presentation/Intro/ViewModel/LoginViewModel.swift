@@ -11,20 +11,15 @@ import Combine
 
 class LoginViewModel: ObservableObject {
     
-    // Rx는 이벤트 드리븐?
     /// Action(Event) - 사용자가 발생시키는 이벤트
     @Published var editEmail: String = ""
     @Published var editPassword: String = ""
     @Subject var tapLoginButton: Void = ()
-
     
     /// Result - 이벤트에 따른 결과
     @Published var emailErrorMessage: String = ""
     @Published var passwordErrorMessage: String = ""
     @Published var enableLoginButton: Bool? = false
-    
-    /// 삼항 이벤트
-    private var isValid = false
     
     private var cancellables = Set<AnyCancellable>()
     

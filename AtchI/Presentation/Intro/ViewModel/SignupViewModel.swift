@@ -12,6 +12,18 @@ class SignupViewModel: ObservableObject {
     var password = PassthroughSubject<String, Never>()
     var passwordAgain = PassthroughSubject<String, Never>()
     
+    let accountService: AccountService
+    
+    init(){
+        // TOOD: DI parameter로 바꾸기
+        accountService = AccountService()
+        bind()
+    }
+    
+    private func bind(){
+        accountService.reqSignup(signupDTO: <#T##SignupDTO#>)
+    }
+    
     /// 비밀번호 확인 및 제약 조건 검토
     var validatedPassword: AnyPublisher<String?, Never> {
         return password.combineLatest(passwordAgain)
@@ -24,5 +36,4 @@ class SignupViewModel: ObservableObject {
             // publisher를 AnyPublisher로 바꿈
             .eraseToAnyPublisher()
     }
-
 }
