@@ -11,7 +11,7 @@ import CombineMoya
 import Combine
 
 enum AccountAPI{
-    case signup(signupDTO: SignupDTO)
+    case signup(signupDTO: SignupModel)
     case login
 }
 
@@ -38,8 +38,8 @@ extension AccountAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .signup(let signupDTO):
-            return .requestJSONEncodable(signupDTO)
+        case .signup(let signupModel):
+            return .requestJSONEncodable(signupModel)
         case .login:
             return .requestPlain // DTO 만들고 수정 예정
         }
@@ -56,8 +56,18 @@ class AccountService {
     
     var cancellables = Set<AnyCancellable>()
     
-    func reqSignup(signupDTO: SignupDTO) -> AnyPublisher<Response, MoyaError> {
+    // 내부 퍼블리셔를 받아서 한번 더 처리한다음에 넘기기
+    func reqSignup(signupDTO: SignupModel) -> AnyPublisher<Response, AccountError> {
         return provider.requestPublisher(.signup(signupDTO: signupDTO))
+            .tryMap { response -> Response in
+                return response
+            }
+            .mapError { error in
+                // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
+                return AccountError.signupFailed
+            }
+            .eraseToAnyPublisher()
+        
     }
 }
 

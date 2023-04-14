@@ -44,12 +44,11 @@
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
 		BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC88B57229D5F47C003CA752 /* Combine.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		BC4DD6A329DDD4B5000C5DE1 /* AtchITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA849FA29DDADAF008CAE45 /* AtchITests.swift */; };
 		BC4DD6A529DDD574000C5DE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4DD6A429DDD574000C5DE1 /* XCTest.framework */; };
 		BC4DD6A829DDD74F000C5DE1 /* AtchIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA84A0129DDCC3C008CAE45 /* AtchIViewModelTests.swift */; };
 		BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBA29C2333600915AB6 /* SignupView.swift */; };
 		BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBC29C2346000915AB6 /* IntroView.swift */; };
-		BC70470F29E7E91C00FA265A /* SignupDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupDTO.swift */; };
+		BC70470F29E7E91C00FA265A /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupModel.swift */; };
 		BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78196E29E07884005C4CF5 /* AccountService.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
 		BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D550129B9909C00FAA6E3 /* ContentView.swift */; };
@@ -59,7 +58,6 @@
 		BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551729B9959100FAA6E3 /* Fonts.swift */; };
 		BCA1486029D5F149001F390D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1485F29D5F149001F390D /* LoginViewModel.swift */; };
 		BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1486129D5F1BD001F390D /* SignupViewModel.swift */; };
-		BCA849FB29DDADAF008CAE45 /* AtchITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA849FA29DDADAF008CAE45 /* AtchITests.swift */; };
 		BCA84A0229DDCC3C008CAE45 /* AtchIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA84A0129DDCC3C008CAE45 /* AtchIViewModelTests.swift */; };
 		BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BC29BDE613003E364C /* HomeView.swift */; };
 		BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */; };
@@ -124,7 +122,7 @@
 		BC4DD6A429DDD574000C5DE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BC4E1EBA29C2333600915AB6 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		BC4E1EBC29C2346000915AB6 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
-		BC70470E29E7E91C00FA265A /* SignupDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDTO.swift; sourceTree = "<group>"; };
+		BC70470E29E7E91C00FA265A /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		BC78196E29E07884005C4CF5 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		BC88B57229D5F47C003CA752 /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		BC8D54FC29B9909C00FAA6E3 /* AtchI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtchI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,7 +136,6 @@
 		BCA1485F29D5F149001F390D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BCA1486129D5F1BD001F390D /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		BCA849F829DDADAF008CAE45 /* AtchITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCA849FA29DDADAF008CAE45 /* AtchITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchITests.swift; sourceTree = "<group>"; };
 		BCA84A0129DDCC3C008CAE45 /* AtchIViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIViewModelTests.swift; sourceTree = "<group>"; };
 		BCDDE0BC29BDE613003E364C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDiagnosisCard.swift; sourceTree = "<group>"; };
@@ -356,18 +353,18 @@
 			path = Resuable;
 			sourceTree = "<group>";
 		};
-		BC70470C29E7E8D800FA265A /* DTO */ = {
+		BC70470C29E7E8D800FA265A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC70470E29E7E91C00FA265A /* SignupDTO.swift */,
+				BC70470E29E7E91C00FA265A /* SignupModel.swift */,
 			);
-			path = DTO;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BC78196D29E07867005C4CF5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				BC70470C29E7E8D800FA265A /* DTO */,
+				BC70470C29E7E8D800FA265A /* Model */,
 				BC78196E29E07884005C4CF5 /* AccountService.swift */,
 			);
 			path = Service;
@@ -502,7 +499,6 @@
 			isa = PBXGroup;
 			children = (
 				BCA84A0329DDCCA1008CAE45 /* Login */,
-				BCA849FA29DDADAF008CAE45 /* AtchITests.swift */,
 			);
 			path = AtchITests;
 			sourceTree = "<group>";
@@ -671,7 +667,7 @@
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
-				BC70470F29E7E91C00FA265A /* SignupDTO.swift in Sources */,
+				BC70470F29E7E91C00FA265A /* SignupModel.swift in Sources */,
 				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
@@ -697,7 +693,6 @@
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
-				BC4DD6A329DDD4B5000C5DE1 /* AtchITests.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
@@ -720,7 +715,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCA84A0229DDCC3C008CAE45 /* AtchIViewModelTests.swift in Sources */,
-				BCA849FB29DDADAF008CAE45 /* AtchITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

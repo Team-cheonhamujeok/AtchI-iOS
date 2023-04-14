@@ -14,6 +14,8 @@ class SignupViewModel: ObservableObject {
     
     let accountService: AccountService
     
+    private var cancellable = Set<AnyCancellable>()
+    
     init(){
         // TOOD: DI parameter로 바꾸기
         accountService = AccountService()
@@ -21,7 +23,17 @@ class SignupViewModel: ObservableObject {
     }
     
     private func bind(){
-        accountService.reqSignup(signupDTO: <#T##SignupDTO#>)
+        accountService.reqSignup(signupDTO: SignupModel(email: "1234@naver.com",
+                                                        pw: "1111",
+                                                        birthday: "010101",
+                                                        gender: true,
+                                                        name: "test_1234"))
+        .sink(receiveCompletion: { error in
+            print(error)
+        }, receiveValue: {_ in
+            print("성공!")
+        })
+        .store(in : &cancellable)
     }
     
     /// 비밀번호 확인 및 제약 조건 검토
