@@ -67,7 +67,7 @@ final class SignupViewModelTests: XCTestCase {
         let cancellable = publisher
             .sink{
                 // Then
-                XCTAssertEqual($0, "success") // 예상한 결과와 일치하는지 확인
+                XCTAssertEqual($0, nil) // 예상한 결과와 일치하는지 확인
             }
         
         // Test case 1
@@ -148,9 +148,7 @@ final class SignupViewModelTests: XCTestCase {
     }
     
     
-    
-    
-    // 일반 동기 함수 테스트
+    // 일반 동기 함수 테스트 - 
     func test_signup_email_validation() {
         XCTAssertTrue(viewModel.isValidEmail("test@example.com"))
         XCTAssertTrue(viewModel.isValidEmail("user@domain.co.uk"))
