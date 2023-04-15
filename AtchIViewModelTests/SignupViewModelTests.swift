@@ -7,6 +7,8 @@
 
 @testable import AtchI
 import XCTest
+import Combine
+
 
 final class SignupViewModelTests: XCTestCase {
 
@@ -20,23 +22,24 @@ final class SignupViewModelTests: XCTestCase {
         self.viewModel = nil
     }
 
-    func test_signup() {
+    // 첫번째 방식 - fullfill 이용 방법
+    func test_signup_first() {
         // Given
         let expectation = XCTestExpectation(description: "My Combine Test")
         let publisher = viewModel.$signupResult // 테스트할 Combine Publisher
         var receivedValue: String?
         
         // When
-
         let cancellable = publisher
             .sink(receiveCompletion: { error in
                 
             }, receiveValue: { value in
-                print("test \(value)")
+                // Then - Observable
                     receivedValue = value
                     expectation.fulfill()
             })
         
+        // Test case 1
         viewModel.signup(SignupModel(email: "1234@naver.com",
                                      pw: "1111",
                                      birthday: "010101",
@@ -50,5 +53,39 @@ final class SignupViewModelTests: XCTestCase {
         // Clean up
         cancellable.cancel() // 테스트가 끝나면 구독을 취소하여 리소스를 정리
     }
-
+    
+    // 두번째 방식 - Assert 코드를 비동기 클로저 안으로 넣음 - 시간 제한 영향 X
+    func test_signup_second() {
+        // Given
+        let publisher = viewModel.$signupResult // 테스트할 Combine Publisher
+        
+        // When
+        let cancellable = publisher
+            .sink(receiveCompletion: { error in
+                
+            }, receiveValue: { value in
+                // Then
+                XCTAssertEqual(value, "success") // 예상한 결과와 일치하는지 확인
+            })
+        
+        // Test case 1
+        viewModel.signup(SignupModel(email: "1234@naver.com",
+                                     pw: "1111",
+                                     birthday: "010101",
+                                     gender: true,
+                                     name: "test_1234"))
+        
+        // Clean up
+        cancellable.cancel() // 테스트가 끝나면 구독을 취소하여 리소스를 정리
+    }
+    
+    // 일반 동기 함수 테스트
+    func test_signup_email_validation() {
+        XCTAssertTrue(viewModel.isValidEmail("test@example.com"))
+        XCTAssertTrue(viewModel.isValidEmail("user@domain.co.uk"))
+        
+        XCTAssertFalse(viewModel.isValidEmail("invalid_email"))
+        XCTAssertFalse(viewModel.isValidEmail("user@.com"))
+        XCTAssertFalse(viewModel.isValidEmail("@domain.com"))
+    }
 }
