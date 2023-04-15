@@ -16,7 +16,7 @@ struct SignupView: View {
     @State var passwordAgin: String = ""
     
     init() {
-        self.viewModel = SignupViewModel()
+        self.viewModel = SignupViewModel(accountService: AccountService())
     }
     
     var body: some View {

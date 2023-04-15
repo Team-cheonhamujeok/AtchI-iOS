@@ -9,29 +9,50 @@ import Foundation
 import Combine
 
 class SignupViewModel: ObservableObject {
+    let accountService: AccountServiceType
+    
+    // input
     var password = PassthroughSubject<String, Never>()
     var passwordAgain = PassthroughSubject<String, Never>()
+    @Subject var tapSignupButton: Void = ()
     
-    let accountService: AccountService
+    // output
+    @Subject var signupResult: String = ""
     
     private var cancellable = Set<AnyCancellable>()
     
-    init(){
+    init(accountService: AccountServiceType){
         // TOOD: DI parameter로 바꾸기
-        accountService = AccountService()
-        bind()
+        self.accountService = accountService
+        self.bind()
     }
     
     private func bind(){
-        accountService.reqSignup(signupDTO: SignupModel(email: "1234@naver.com",
-                                                        pw: "1111",
-                                                        birthday: "010101",
-                                                        gender: true,
-                                                        name: "test_1234"))
-        .sink(receiveCompletion: { error in
-            print(error)
-        }, receiveValue: {_ in
-            print("성공!")
+        $tapSignupButton.sink { [weak self] in
+            self?.signup(SignupModel(email: "1234@naver.com",
+                                     pw: "1111",
+                                     birthday: "010101",
+                                     gender: true,
+                                     name: "test_1234"))
+        }
+        .store(in: &cancellable)
+    }
+    
+    func signup(_ signupModel: SignupModel){
+        accountService.reqSignup(signupModel: signupModel)
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished:
+                // Publisher가 완료됨 (complete)
+                break
+            case .failure(let error):
+                // Publisher가 오류를 발생시킴 (error)
+                self.$signupResult.send("fail")
+                break
+            }
+
+        }, receiveValue: { result in
+            self.$signupResult.send("success")
         })
         .store(in : &cancellable)
     }
@@ -48,4 +69,6 @@ class SignupViewModel: ObservableObject {
             // publisher를 AnyPublisher로 바꿈
             .eraseToAnyPublisher()
     }
+    
+
 }

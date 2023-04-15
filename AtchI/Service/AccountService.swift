@@ -51,14 +51,14 @@ extension AccountAPI: TargetType {
 }
 
 
-class AccountService {
+class AccountService: AccountServiceType {
     let provider = MoyaProvider<AccountAPI>()
     
     var cancellables = Set<AnyCancellable>()
     
     // 내부 퍼블리셔를 받아서 한번 더 처리한다음에 넘기기
-    func reqSignup(signupDTO: SignupModel) -> AnyPublisher<Response, AccountError> {
-        return provider.requestPublisher(.signup(signupDTO: signupDTO))
+    func reqSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> {
+        return provider.requestPublisher(.signup(signupDTO: signupModel))
             .tryMap { response -> Response in
                 return response
             }
@@ -70,15 +70,3 @@ class AccountService {
         
     }
 }
-
-
-enum AccountError: Error {
-    case signupFailed
-    case networkError(String)
-    // 필요에 따라 추가적인 에러 케이스를 정의할 수 있음
-}
-
-
-
-
-
