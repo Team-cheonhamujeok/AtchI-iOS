@@ -8,7 +8,7 @@
 import SwiftUI
 import HealthKit
 
-class HealthKitService {
+class HealthKitServiceTemp {
     let healthStore = HKHealthStore()
     
     // 읽기 및 쓰기 권한 설정
