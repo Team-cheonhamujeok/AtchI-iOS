@@ -17,7 +17,7 @@ class SignupViewModel: ObservableObject {
     @Subject var tapSignupButton: Void = ()
     
     // output
-    @Subject var signupResult: String = ""
+    @Published var signupErrorMessage: String? = nil
     
     private var cancellable = Set<AnyCancellable>()
     
@@ -37,12 +37,17 @@ class SignupViewModel: ObservableObject {
                                      name: "test_1234"))
         }
         .store(in: &cancellable)
+        
+        // Signup 결과에 따라 실행
+//        $signupResult.sink { value in
+//            if value == ""
+//        }
     }
     
     /// AccountService를 통해 signup api를 실행시키고 결과값을 signupResult로 send함
-    /// 근데 이 자체로 Testable 했으면 좋겠는데...
+    /// 근데 이 자체로 Testable 했으면 좋겠는데... -> 불가능한가? -> 그런듯
     func signup(_ signupModel: SignupModel){
-        accountService.reqSignup(signupModel: signupModel)
+        accountService.requestSignup(signupModel: signupModel)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
@@ -52,7 +57,10 @@ class SignupViewModel: ObservableObject {
                     // 에러 발생시 각각 대응
                     switch error {
                     case .signupFailed:
-                        self?.$signupResult.send("fail")
+                        self?.signupErrorMessage = error.krDescription()
+                        break
+                    case .emailDuplicated:
+                        self?.signupErrorMessage = error.krDescription()
                         break
                     default:
                         break
@@ -61,7 +69,7 @@ class SignupViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] result in
                 // 성공 시 화면 전환
-                self?.$signupResult.send("success")
+                self?.signupErrorMessage = nil
             })
             .store(in : &cancellable)
     }

@@ -11,5 +11,5 @@ import Moya
 
 // Mock Service 객체 만들기 위해 정의
 protocol AccountServiceType {
-    func reqSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> 
+    func requestSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> 
 }

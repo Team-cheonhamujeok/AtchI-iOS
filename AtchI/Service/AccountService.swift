@@ -57,7 +57,7 @@ class AccountService: AccountServiceType {
     var cancellables = Set<AnyCancellable>()
     
     // 내부 퍼블리셔를 받아서 한번 더 처리한다음에 넘기기
-    func reqSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> {
+    func requestSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> {
         return provider.requestPublisher(.signup(signupDTO: signupModel))
             .tryMap { response -> Response in
                 return response
