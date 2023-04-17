@@ -8,7 +8,7 @@
 import Foundation
 import HealthKit
 
-class HealthKitProvicer {
+class HealthKitProvider {
     let healthStore = HKHealthStore()
     
     func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,

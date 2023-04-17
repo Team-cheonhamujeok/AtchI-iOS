@@ -10,10 +10,10 @@ import HealthKit
 
 class HealthKitSleepService: HealthKitServiceType {
     
-    let healthKitProvicer: HealthKitProvicer
+    let healthKitProvicer: HealthKitProvider
     let sleepIdentifier: [HKCategoryValueSleepAnalysis]
     
-    init(healthkitProvicer: HealthKitProvicer) {
+    init(healthkitProvicer: HealthKitProvider) {
         self.healthKitProvicer = healthkitProvicer
         sleepIdentifier = [.inBed, .asleepREM, .asleepCore, .asleepDeep, .awake]
     }
