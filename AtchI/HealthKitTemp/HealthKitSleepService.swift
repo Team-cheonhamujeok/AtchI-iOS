@@ -8,20 +8,6 @@
 import Foundation
 import HealthKit
 
-protocol HealthKitModel {
-    var identifier: HealthKitIdentifier { get }
-}
-
-struct HealthKitDateModel: HealthKitModel {
-    let identifier: HealthKitIdentifier
-    let time: Date?
-}
-
-struct HealthKitQuentityModel: HealthKitModel {
-    let identifier: HealthKitIdentifier
-    let quentity: Double?
-}
-
 class HealthKitSleepService: HealthKitServiceType {
     
     let healthKitProvicer: HealthKitProvicer
