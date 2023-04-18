@@ -46,7 +46,7 @@
 		BC699F6829D2F7F000F212C4 /* SleepTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC699F6729D2F7F000F212C4 /* SleepTime.swift */; };
 		BC795F2929ED8CC800F937E2 /* HealthkitIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC795F2829ED8CC800F937E2 /* HealthkitIdentifier.swift */; };
 		BC795F2C29ED92C200F937E2 /* HealthKitDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC795F2B29ED92C200F937E2 /* HealthKitDateModel.swift */; };
-		BC795F2F29ED92EE00F937E2 /* HealthkitDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC795F2E29ED92EE00F937E2 /* HealthkitDateModel.swift */; };
+		BC795F2F29ED92EE00F937E2 /* HealthkitModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC795F2E29ED92EE00F937E2 /* HealthkitModelType.swift */; };
 		BC795F3129ED930300F937E2 /* HealthKitQuentitymodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC795F3029ED930300F937E2 /* HealthKitQuentitymodel.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
 		BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D550129B9909C00FAA6E3 /* ContentView.swift */; };
@@ -108,7 +108,7 @@
 		BC699F6929D308D400F212C4 /* AtchI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtchI.entitlements; sourceTree = "<group>"; };
 		BC795F2829ED8CC800F937E2 /* HealthkitIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitIdentifier.swift; sourceTree = "<group>"; };
 		BC795F2B29ED92C200F937E2 /* HealthKitDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDateModel.swift; sourceTree = "<group>"; };
-		BC795F2E29ED92EE00F937E2 /* HealthkitDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitDateModel.swift; sourceTree = "<group>"; };
+		BC795F2E29ED92EE00F937E2 /* HealthkitModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitModelType.swift; sourceTree = "<group>"; };
 		BC795F3029ED930300F937E2 /* HealthKitQuentitymodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitQuentitymodel.swift; sourceTree = "<group>"; };
 		BC8D54FC29B9909C00FAA6E3 /* AtchI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtchI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIApp.swift; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 		BC795F2D29ED92DA00F937E2 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				BC795F2E29ED92EE00F937E2 /* HealthkitDateModel.swift */,
+				BC795F2E29ED92EE00F937E2 /* HealthkitModelType.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -544,7 +544,7 @@
 			files = (
 				BC40725129EB13D800B10579 /* HealthKitSleepService.swift in Sources */,
 				049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */,
-				BC795F2F29ED92EE00F937E2 /* HealthkitDateModel.swift in Sources */,
+				BC795F2F29ED92EE00F937E2 /* HealthkitModelType.swift in Sources */,
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
 				049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */,
 				049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HealthKitDateModel: HealthKitModel {
+struct HealthKitDateModel: HealthKitModelType {
     let identifier: HealthKitIdentifier
     let time: Date?
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 import HealthKit
 
+/// 데이터 추출을 위해 이전에 사용되었던 클래스입니다. 더 이상 사용되지 않습니다.
+@available(*, deprecated)
 class HealthKitServiceTemp {
     let healthStore = HKHealthStore()
     

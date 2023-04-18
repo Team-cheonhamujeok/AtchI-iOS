@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HealthKitQuentityModel: HealthKitModel {
+struct HealthKitQuentityModel: HealthKitModelType {
     let identifier: HealthKitIdentifier
     let quentity: Double?
 }

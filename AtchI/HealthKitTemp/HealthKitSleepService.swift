@@ -23,7 +23,7 @@ class HealthKitSleepService: HealthKitServiceType {
     /// - Parameters:
     ///    - today: 오늘 날짜를 주입합니다.
     ///    - completion: HealthKitModel 배열을 인자로 받는 클로저를 주입합니다. 이 클로저를 통해 Service 상위 레벨에서 데이터를 다룹니다.
-    func getData(today: Date, completion: @escaping ([HealthKitModel])->Void){
+    func getData(today: Date, completion: @escaping ([HealthKitModelType])->Void){
         // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
         let endDate = getTodaySixPM(today)
         let startDate = getYesterdaySixPM(today)
@@ -35,7 +35,7 @@ class HealthKitSleepService: HealthKitServiceType {
             // self 캡쳐 방지
             if let self = self {
                 // 기존 수면 총량 구하기
-                var sleepQuentities: [HealthKitModel] = self.sleepIdentifier.map { identifier in
+                var sleepQuentities: [HealthKitModelType] = self.sleepIdentifier.map { identifier in
                     let quentity: Double
                     = self.getSleepTimeQuentity(sleepType: identifier,
                                                 samples: samples)
