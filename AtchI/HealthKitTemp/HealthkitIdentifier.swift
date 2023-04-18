@@ -8,6 +8,7 @@
 import Foundation
 import HealthKit
 
+@available(*, deprecated, message: "더이상 사용하지 않는 열거형입니다.")
 enum HealthKitIdentifier {
     // sleep
     case inBedQuentity
