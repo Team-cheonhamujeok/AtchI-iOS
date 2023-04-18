@@ -9,5 +9,5 @@ import Foundation
 
 struct HealthKitDateModel: HealthKitModelType {
     let identifier: HealthKitIdentifier
-    let time: Date?
+    let date: Date?
 }

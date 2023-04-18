@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct AtchIApp: App {
     
-    let service = HealthKitService()
     
     var body: some Scene {
         WindowGroup {
