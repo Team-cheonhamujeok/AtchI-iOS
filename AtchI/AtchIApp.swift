@@ -13,7 +13,6 @@ struct AtchIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SleepTimeView()
         }
     }
     
@@ -23,6 +22,5 @@ struct AtchIApp: App {
     
     func setup() {
         // 첫 실행 시 실행할 코드를 여기에 작성합니다.
-        service.configure()
     }
 }

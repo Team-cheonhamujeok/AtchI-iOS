@@ -36,6 +36,21 @@ class HealthKitSleepService{
         }
     }
     
+//    func fetchSleepData2(completion: @escaping ([HKCategorySample]) -> Void) -> (Date) -> [HKCategorySample]{
+//        // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
+//        return { [self] date in
+//            let endDate = getTodaySixPM(date)
+//            let startDate = getYesterdaySixPM(date)
+//            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+//
+//            // 수면 데이터 가져오기
+//            healthKitProvider.getCategoryTypeSample(identifier: .sleepAnalysis,
+//                                                    predicate: predicate) { samples in
+//                completion(samples)
+//            }
+//        }
+//    }
+    
     // MARK: - Get Function
     
     /// 전체 수면 시간 중 InBed 상태인 시간의 총시간(단위: 분)을 구합니다.
