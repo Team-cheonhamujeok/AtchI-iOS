@@ -39,11 +39,15 @@
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
+		BC40724F29EB109B00B10579 /* HealthKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC40724E29EB109B00B10579 /* HealthKitProvider.swift */; };
+		BC40725129EB13D800B10579 /* HealthKitSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC40725029EB13D800B10579 /* HealthKitSleepService.swift */; };
+		BC40725429EC3AA300B10579 /* HealthKitServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC40725329EC3AA300B10579 /* HealthKitServiceType.swift */; };
 		BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C529C0886D0094333B /* InformationCardList.swift */; };
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
 		BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBA29C2333600915AB6 /* SignupView.swift */; };
 		BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBC29C2346000915AB6 /* IntroView.swift */; };
+		BC699F6829D2F7F000F212C4 /* SleepTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC699F6729D2F7F000F212C4 /* SleepTime.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
 		BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D550129B9909C00FAA6E3 /* ContentView.swift */; };
 		BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550329B9909D00FAA6E3 /* Assets.xcassets */; };
@@ -95,11 +99,16 @@
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
+		BC40724E29EB109B00B10579 /* HealthKitProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitProvider.swift; sourceTree = "<group>"; };
+		BC40725029EB13D800B10579 /* HealthKitSleepService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSleepService.swift; sourceTree = "<group>"; };
+		BC40725329EC3AA300B10579 /* HealthKitServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitServiceType.swift; sourceTree = "<group>"; };
 		BC4317C529C0886D0094333B /* InformationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardList.swift; sourceTree = "<group>"; };
 		BC4317C829C094530094333B /* AlzheimerInformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformationType.swift; sourceTree = "<group>"; };
 		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
 		BC4E1EBA29C2333600915AB6 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		BC4E1EBC29C2346000915AB6 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		BC699F6729D2F7F000F212C4 /* SleepTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTime.swift; sourceTree = "<group>"; };
+		BC699F6929D308D400F212C4 /* AtchI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtchI.entitlements; sourceTree = "<group>"; };
 		BC8D54FC29B9909C00FAA6E3 /* AtchI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtchI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIApp.swift; sourceTree = "<group>"; };
 		BC8D550129B9909C00FAA6E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -270,6 +279,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BC40725229EC3A9100B10579 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				BC40725329EC3AA300B10579 /* HealthKitServiceType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		BC4317C729C094220094333B /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,12 +329,31 @@
 			path = Resuable;
 			sourceTree = "<group>";
 		};
+		BC699F6529D2F7AC00F212C4 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		BC699F6629D2F7D300F212C4 /* HealthKitTemp */ = {
+			isa = PBXGroup;
+			children = (
+				BC40725229EC3A9100B10579 /* Protocol */,
+				BC699F6729D2F7F000F212C4 /* SleepTime.swift */,
+				BC40724E29EB109B00B10579 /* HealthKitProvider.swift */,
+				BC40725029EB13D800B10579 /* HealthKitSleepService.swift */,
+			);
+			path = HealthKitTemp;
+			sourceTree = "<group>";
+		};
 		BC8D54F329B9909C00FAA6E3 = {
 			isa = PBXGroup;
 			children = (
 				BC8D54FE29B9909C00FAA6E3 /* AtchI */,
 				BC8D54FD29B9909C00FAA6E3 /* Products */,
-				BC2526E929D418F3000FCE11 /* Recovered References */,
+				BC699F6529D2F7AC00F212C4 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,6 +368,8 @@
 		BC8D54FE29B9909C00FAA6E3 /* AtchI */ = {
 			isa = PBXGroup;
 			children = (
+				BC699F6929D308D400F212C4 /* AtchI.entitlements */,
+				BC699F6629D2F7D300F212C4 /* HealthKitTemp */,
 				BC9C977D29C2262D00DC6FB3 /* Info.plist */,
 				BC8D551C29B99A4A00FAA6E3 /* Presentation */,
 				BC8D551329B9951400FAA6E3 /* Util */,
@@ -494,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC40725129EB13D800B10579 /* HealthKitSleepService.swift in Sources */,
 				049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */,
 				042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */,
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
@@ -507,6 +546,7 @@
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
+				BC40724F29EB109B00B10579 /* HealthKitProvider.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
@@ -532,10 +572,12 @@
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */,
+				BC40725429EC3AA300B10579 /* HealthKitServiceType.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
+				BC699F6829D2F7F000F212C4 /* SleepTime.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
@@ -671,6 +713,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
@@ -678,6 +721,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "수면 데이터 측정을 위해 데이터 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "수면 데이터 측정을 위해 데이터 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
@@ -702,6 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
@@ -709,6 +755,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "수면 데이터 측정을 위해 데이터 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "수면 데이터 측정을 위해 데이터 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
