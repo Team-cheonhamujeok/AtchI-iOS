@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelfTestInfoView: View {
-    @StateObject var viewModel: SelfTestInfoViewModel
+    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
     @StateObject var selfTestViewModel: SelfTestViewModel
     
     @Binding var path: [DiagnosisViewStack]
@@ -16,7 +16,7 @@ struct SelfTestInfoView: View {
     //MARK: - Body
     var body: some View {
         Group {
-            if viewModel.isTest {
+            if selfTestInfoViewModel.isTest {
                 haveTestView
             } else {
                 noTestView
@@ -30,6 +30,8 @@ struct SelfTestInfoView: View {
                 SelfTestStartView(path: $path, selfTestViewModel: selfTestViewModel)
             case .selfTestResult:
                 SelfTestResultView(path: $path, selfTestViewModel: selfTestViewModel)
+            case .selfTestResultList:
+                SelfTestResultList(path: $path, selfTestInfoViewModel: selfTestInfoViewModel)
             default:
                 Text("잘못된 접근")
             }
@@ -63,6 +65,8 @@ struct SelfTestInfoView: View {
             VStack(alignment: .leading) {
                 ExplainTestView()
                 DefaultButton(buttonSize: .small,
+                              width: 153,
+                              height: 35,
                               buttonStyle: .filled,
                               buttonColor: .mainPurple,
                               isIndicate: false)
@@ -77,8 +81,8 @@ struct SelfTestInfoView: View {
             }
             
             // 2️⃣ 자가진단 리스트
-            List(viewModel.selfTestResults.indices, id: \.self) { index in
-                SelfTestRow(selfTestResult: viewModel.selfTestResults[index],
+            List(selfTestInfoViewModel.selfTestResults.indices, id: \.self) { index in
+                SelfTestRow(selfTestResult: selfTestInfoViewModel.selfTestResults[index],
                             index: index)
                     .listRowSeparator(.hidden)
                 
@@ -91,12 +95,13 @@ struct SelfTestInfoView: View {
             HStack{
                 Spacer()
                 DefaultButton(buttonSize: .small,
+                              width: 99,
+                              height: 35,
                               buttonStyle: .unfilled,
                               buttonColor: .grayDisabled,
                               isIndicate: false)
                 {
-                    //TODO: Navigation 넣기
-                    print("HI")
+                    path.append(.selfTestResultList)
                 } content: {
                     Text("전체보기")
                 }
@@ -124,6 +129,6 @@ struct ExplainTestView: View {
 //MARK: - Preview
 struct SelfTestInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestInfoView(viewModel: SelfTestInfoViewModel(), selfTestViewModel: SelfTestViewModel() , path: .constant([]))
+        SelfTestInfoView(selfTestInfoViewModel: SelfTestInfoViewModel(), selfTestViewModel: SelfTestViewModel() , path: .constant([]))
     }
 }

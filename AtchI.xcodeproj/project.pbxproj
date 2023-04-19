@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */; };
+		044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */; };
 		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
 		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
 		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
@@ -93,9 +94,9 @@
 
 /* Begin PBXFileReference section */
 		042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewStack.swift; sourceTree = "<group>"; };
+		044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResultList.swift; sourceTree = "<group>"; };
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
-		049ADE9D29C6EB44009B9B62 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
 		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
 		049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoView.swift; sourceTree = "<group>"; };
 		049ADEA829C9837C009B9B62 /* WatchInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoView.swift; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 			children = (
 				049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */,
 				049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */,
+				044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */,
 			);
 			path = SelfTestInfo;
 			sourceTree = "<group>";
@@ -798,6 +800,7 @@
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
 				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
+				044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */,
 				049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */,
 				049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */,
 				049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */,
