@@ -10,8 +10,8 @@ import SwiftUI
 struct SecureInput: View {
     var title: String
     var placeholder: String
-    @Binding var password: String
-    @Binding var errorMessage: String
+    @State private var password: String = ""
+    @State private var error: String = ""
     @State private var showPassword = false
     @FocusState private var isFocused: Bool
     
@@ -38,13 +38,11 @@ struct SecureInput: View {
                 // Password input
                 HStack {
                     if showPassword {
-                        TextField(placeholder,
-                                  text: $password)
+                        TextField(placeholder, text: $password)
                             .padding(.horizontal, 16)
                             .focused($isFocused)
                     } else {
-                        SecureField(placeholder,
-                                    text: $password)
+                        SecureField(placeholder, text: $password)
                             .padding(.horizontal, 16)
                             .focused($isFocused)
                     }
@@ -61,12 +59,11 @@ struct SecureInput: View {
                     maxHeight: 65)
             
             // Error message
-            Text(errorMessage)
-                .foregroundColor(.red)
-                .font(.bodySmall)
-                .frame(minHeight: 20)
-                .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
-                .animation(.easeInOut(duration: 0.3))
+            if !error.isEmpty {
+                Text(error)
+                    .foregroundColor(.red)
+                    .font(.subheadline)
+            }
         }
     }
     
@@ -83,3 +80,4 @@ struct SecureInput: View {
     }
     
 }
+

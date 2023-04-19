@@ -22,19 +22,12 @@ struct IntroView: View {
                     Text("안녕하세요")
                         .font(.titleLarge)
                     Spacer()
-//                    Text("AI")
-//                        .font(.titleMedium)
-//                        .foregroundColor(.mainPurple)
+                    Text("AI")
+                        .font(.titleMedium)
+                        .foregroundColor(.mainPurple)
                     Spacer()
                 }
-                HStack {
-                    Text("AI")
-                        .font(.titleLarge)
-                    Text("치매 진단 및")
-                        .font(.titleLarge)
-                    
-                }
-                Text("예방 솔루션")
+                Text("치매 진단 및 예방 솔루션")
                     .font(.titleLarge)
                 HStack (spacing: 0) {
                     Text("엣치")

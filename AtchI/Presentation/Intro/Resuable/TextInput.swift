@@ -10,10 +10,9 @@ import SwiftUI
 struct TextInput: View {
     var title: String
     var placeholder: String
-    @Binding var text: String
-    @Binding var error: String
+    @State private var text: String = ""
+    @State private var error: String = ""
     @FocusState private var isFocused: Bool
-    @State private var showError = false
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -45,12 +44,11 @@ struct TextInput: View {
                    maxHeight: 65)
             
             // Show error message
-            Text(error)
-                .foregroundColor(.red)
-                .font(.bodySmall)
-                .frame(minHeight: 20)
-                .opacity(!error.isEmpty ? 1.0 : 0.0)
-                .animation(.easeInOut(duration: 0.3))
+            if !error.isEmpty {
+                Text(error)
+                    .foregroundColor(.red)
+                    .font(.subheadline)
+            }
         }
     }
 }

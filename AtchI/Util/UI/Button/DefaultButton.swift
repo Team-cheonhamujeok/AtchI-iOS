@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct DefaultButton<Content>: View where Content: View {
     let buttonSize: ControlSize
@@ -16,8 +15,6 @@ struct DefaultButton<Content>: View where Content: View {
     let buttonStyle: ButtonStyle
     let buttonColor: Color
     let isIndicate: Bool
-//    @Subject? var subject: Void
-    var subject: PassthroughSubject<Void, Never>? = nil
     
     
     let action: () -> Void
@@ -30,9 +27,7 @@ struct DefaultButton<Content>: View where Content: View {
         switch buttonStyle {
         // 채워진 버튼
         case .filled:
-            Button(action: {
-                action()
-                subject?.send() }) {
+            Button(action: action) {
                 makeLabel()
             }
             .background(buttonColor)
