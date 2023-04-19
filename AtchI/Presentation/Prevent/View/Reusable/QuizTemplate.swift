@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct QuizTemplate: View {
-    var quizOrder: String
-    var quizContents: String
+    var quiz: Quiz
     @State var tag:Int? = nil
     @Binding var viewStack: [QuizStack]
     var preventViewModel: PreventViewModel
-    var quizOrderNumber: Int
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 15) {
-                Text(quizOrder + "번째 퀴즈")
+                Text(quiz.index + "번째 퀴즈")
                     .font(.titleSmall)
-                Text(quizContents)
+                Text(quiz.content)
                     .font(.bodyMedium)
                     .lineLimit(1)
                     .truncationMode(.tail)
@@ -28,10 +26,7 @@ struct QuizTemplate: View {
             Spacer()
             
             Text("도전하기").onTapGesture {
-                viewStack.append(QuizStack(id: quizOrderNumber, identifier: .quizView, content: TodayQuiz.quizzes[quizOrderNumber]))
-
-                print("append & quizOrder \(quizOrder)") // 여기서는 똑바로 출력되는데 QuizView를 그릴 때 계속 첫번째 값만 나옴 ..
-                print(viewStack)
+                viewStack.append(QuizStack(type: .quizView, data: quiz))
             }
             .font(.bodySmall)
             .foregroundColor(.white)

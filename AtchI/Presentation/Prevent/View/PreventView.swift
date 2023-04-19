@@ -60,26 +60,30 @@ struct PreventView: View {
                     .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 30))
                     
                     VStack {
-                        QuizTemplate(quizOrder: TodayQuiz.quizzes[0].index, quizContents: TodayQuiz.quizzes[0].content, viewStack: $viewStack, preventViewModel: preventViewModel, quizOrderNumber: 0)
+                        QuizTemplate(quiz: TodayQuiz.quizzes[0], viewStack: $viewStack, preventViewModel: preventViewModel)
                             .padding(.bottom, 20)
-                        QuizTemplate(quizOrder: TodayQuiz.quizzes[1].index, quizContents: TodayQuiz.quizzes[1].content, viewStack: $viewStack, preventViewModel: preventViewModel, quizOrderNumber: 1)
+                        QuizTemplate(quiz: TodayQuiz.quizzes[1], viewStack: $viewStack, preventViewModel: preventViewModel)
                             .padding(.bottom, 20)
-                        QuizTemplate(quizOrder: TodayQuiz.quizzes[2].index, quizContents: TodayQuiz.quizzes[2].content, viewStack: $viewStack, preventViewModel: preventViewModel, quizOrderNumber: 2)
+                        QuizTemplate(quiz: TodayQuiz.quizzes[2], viewStack: $viewStack, preventViewModel: preventViewModel)
+                            .padding(.bottom, 20)
                     }
                     .padding(.horizontal, 30)
                     Spacer()
-                } // ScrollView
-            } // VStack
-                        .navigationDestination(for: QuizStack.self) { value in
-                            switch value.identifier {
-                            case .quizView:
-                                QuizView(quizOrder: value.content.index, quizContent: value.content.content, preventViewModel: preventViewModel, quizPath: $viewStack, quizOrderNumber: value.id)
-                            case .quizDoneView:
-                                QuizDoneView(quizOrder: value.content.index, preventViewModel: preventViewModel, quizStack: $viewStack)
-                            }
-                        } // end navigationDestination
-        } // NavigationStack
-    } // body
+                }
+            }
+            // navigationDestination 함수의 클로저는 escaping 클로저임
+            // 따라서 한번만 등록되어야함
+            // 또한 외부 값을 참조하면 안되고 for 타입을 통해 데이터를 전달받아야함
+            .navigationDestination(for: QuizStack.self) { value in
+                switch value.type {
+                case .quizView:
+                    QuizView(quiz: value.data, preventViewModel: preventViewModel, quizPath: $viewStack)
+                case .quizDoneView:
+                    QuizDoneView(quizOrder: value.data.index, preventViewModel: preventViewModel, quizStack: $viewStack)
+                }
+            }
+        }
+    }
     
 } // PreventView
 

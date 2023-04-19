@@ -8,21 +8,19 @@
 import SwiftUI
 
 struct QuizView: View {
-    var quizOrder: String
-    var quizContent: String
+    var quiz: Quiz
     @State var tag:Int? = nil
     var preventViewModel: PreventViewModel
     @Binding var quizPath: [QuizStack]
-    var quizOrderNumber: Int
     
     var body: some View {
         ZStack{
             Color.mainPurple.ignoresSafeArea()
             VStack(alignment: .leading, spacing: 10) {
-                Text(quizOrder + "번째 퀴즈")
+                Text(quiz.index + "번째 퀴즈")
                     .font(.titleSmall)
                     .foregroundColor(.white)
-                Text(quizContent)
+                Text(quiz.content)
                     .font(.titleLarge)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -38,7 +36,7 @@ struct QuizView: View {
                     self.tag = 1
                     preventViewModel.quizCountUp()
                     print(preventViewModel.quizCount)
-                    quizPath.append(QuizStack(id: 0, identifier: .quizDoneView, content: TodayQuiz.quizzes[quizOrderNumber]))
+                    quizPath.append(QuizStack(type: .quizDoneView, data: quiz))
                 }, content: {
                     Text("완료")
                         .foregroundColor(.mainPurple)
@@ -47,7 +45,6 @@ struct QuizView: View {
             }
         }
         .onAppear {
-            print("QuizView onAppear\(quizOrder)") //여기서는 첫번째 값으로만 넘어옴..
         }
         
         
