@@ -27,6 +27,9 @@ struct SelfTestResultList: View {
                     SelfTestRow(selfTestResult: selfTestInfoViewModel.selfTestResults[index],
                                 index: index)
                     .listRowSeparator(.hidden)
+                    .padding(.vertical, 12)
+                    
+                    Divider()
                 }
                 .listStyle(.inset)
             }
