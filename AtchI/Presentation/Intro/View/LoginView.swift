@@ -8,16 +8,29 @@
 import SwiftUI
 
 struct LoginView: View {
+    
+    @ObservedObject var viewModel: LoginViewModel
+    
+    init() {
+        self.viewModel = LoginViewModel()
+    }
+    
     var body: some View {
         
-        VStack (alignment: .leading, spacing: 40) {
+        VStack (alignment: .leading, spacing: 15) {
             // Page title
             Text("로그인")
                 .font(.titleLarge)
             
             // Input list
-            TextInput(title: "이메일", placeholder: "예) junjongsul@gmail.com")
-            SecureInput(title: "비밀번호", placeholder: "비밀번호를 입력해주세요")
+            TextInput(title: "이메일",
+                      placeholder: "예) junjongsul@gmail.com",
+                      text: $viewModel.editEmail,
+                      error: $viewModel.emailErrorMessage)
+            SecureInput(title: "비밀번호",
+                        placeholder: "비밀번호를 입력해주세요",
+                        password: $viewModel.editPassword,
+                        errorMessage: $viewModel.passwordErrorMessage)
             
             VStack(spacing: 20) {
                 // Complete Button
@@ -26,13 +39,14 @@ struct LoginView: View {
                     buttonStyle: .filled,
                     buttonColor: .mainPurple,
                     isIndicate: false,
+                    subject: viewModel.$tapLoginButton,
                     action: {
-                        print("로그인하기 click")
                     },
                     content: {
                         Text("로그인하기")
                     }
                 )
+                
                 // Already signup
                 HStack (alignment: .center, spacing: 3) {
                     Text("계정이 없으신가요? ")
