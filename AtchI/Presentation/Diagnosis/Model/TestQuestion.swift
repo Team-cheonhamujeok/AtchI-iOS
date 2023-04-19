@@ -11,6 +11,7 @@ import Foundation
 ///  - Parameters:
 ///     - index: 문제의 번호입니다 (ex: 첫번째, 두번째, ..)
 ///     - content : 문제 내용입니다.
+///     - answer : never, little, many, nothing
 ///
 struct TestQuestion {
     var index: String
