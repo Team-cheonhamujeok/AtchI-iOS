@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct QuizTemplate: View {
-    @State var quizOrder: String
-    @State var quizContents: String
+    var quizOrder: String
+    var quizContents: String
     @State var tag:Int? = nil
-    @Binding var rootIsActive: Bool
+    @Binding var viewStack: [QuizViewStack]
+    var preventViewModel: PreventViewModel
     
     var body: some View {
         HStack {
@@ -24,19 +25,27 @@ struct QuizTemplate: View {
                     .truncationMode(.tail)
             }
             Spacer()
-
-            NavigationLink(destination: QuizView(quizOrder: $quizOrder, quizContent: $quizContents, preventViewModel: PreventViewModel(), rootIsActive: self.$rootIsActive), isActive: $rootIsActive) {
-                Text("도전하기")
-                    .font(.bodySmall)
-                    .foregroundColor(.white)
-                    .padding(EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20))
-                    .background(Capsule().fill(Color.mainPurple))
+            
+            
+            Text("도전하기").onTapGesture {
+                viewStack.append(.quizView)
+                print(quizOrder) // 여기서는 똑바로 출력되는데 QuizView를 그릴 때 계속 첫번째 값만 나옴 ..
+                print(viewStack)
             }
-//                .opacity(0)
-//                Button("도전하기") {
-//                    self.tag = 1
-//                }
-//                .buttonStyle(RoundButton(labelColor: .white, backgroundColor: .mainPurple))
+            .font(.bodySmall)
+            .foregroundColor(.white)
+            .padding(EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20))
+            .background(Capsule().fill(Color.mainPurple))
+            
+            .navigationDestination(for: QuizViewStack.self) { value in
+                switch value {
+                case .quizView:
+                    QuizView(quizOrder: quizOrder, quizContent: quizContents, preventViewModel: preventViewModel, quizPath: $viewStack)
+                case .quizDoneView:
+                    QuizDoneView(quizOrder: quizOrder, preventViewModel: preventViewModel, quizStack: $viewStack)
+                    
+                }
+            }
             
             
             
@@ -44,8 +53,8 @@ struct QuizTemplate: View {
     }
 }
 
-//struct QuizTemplate_Previews: PreviewProvider {
-//    static var previews: some View {
-//        QuizTemplate(quizOrder: "첫", quizContents: "오늘 점심은 무엇인가요?")
-//    }
-//}
+struct QuizTemplate_Previews: PreviewProvider {
+    static var previews: some View {
+        QuizTemplate(quizOrder: "첫", quizContents: "오늘 점심은 무엇인가요?", viewStack: .constant([]), preventViewModel: PreventViewModel())
+    }
+}

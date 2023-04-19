@@ -9,8 +9,8 @@ import SwiftUI
 
 struct QuizDoneView: View {
     var quizOrder: String
-    @StateObject var preventViewModel: PreventViewModel
-    @Binding var shouldPopToRootView : Bool
+    var preventViewModel: PreventViewModel
+    @Binding var quizStack: [QuizViewStack]
     
     var body: some View {
         ZStack{
@@ -31,8 +31,7 @@ struct QuizDoneView: View {
 
                 DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
                     print("퀴즈풀기 완료")
-//                    self.presentationMode.value.dismiss()
-                    self.shouldPopToRootView = false
+                    quizStack = []
                 }, content: {
                     Text("확인")
                         .foregroundColor(.mainPurple)
