@@ -10,7 +10,7 @@ import SwiftUI
 struct QuizDoneView: View {
     var quizOrder: String
     var preventViewModel: PreventViewModel
-    @Binding var quizStack: [QuizViewStack]
+    @Binding var quizStack: [QuizStack]
     
     var body: some View {
         ZStack{

@@ -12,7 +12,8 @@ struct QuizView: View {
     var quizContent: String
     @State var tag:Int? = nil
     var preventViewModel: PreventViewModel
-    @Binding var quizPath: [QuizViewStack]
+    @Binding var quizPath: [QuizStack]
+    var quizOrderNumber: Int
     
     var body: some View {
         ZStack{
@@ -37,7 +38,7 @@ struct QuizView: View {
                     self.tag = 1
                     preventViewModel.quizCountUp()
                     print(preventViewModel.quizCount)
-                    quizPath.append(.quizDoneView)
+                    quizPath.append(QuizStack(id: 0, identifier: .quizDoneView, content: TodayQuiz.quizzes[quizOrderNumber]))
                 }, content: {
                     Text("완료")
                         .foregroundColor(.mainPurple)
@@ -46,15 +47,15 @@ struct QuizView: View {
             }
         }
         .onAppear {
-            print(quizOrder) //여기서는 첫번째 값으로만 넘어옴..
+            print("QuizView onAppear\(quizOrder)") //여기서는 첫번째 값으로만 넘어옴..
         }
         
         
     }
 }
 
-struct QuizView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuizView(quizOrder: "첫", quizContent: "오늘 점심은 무엇인가요?", preventViewModel: PreventViewModel(), quizPath: .constant([]))
-    }
-}
+//struct QuizView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuizView(quizOrder: "첫", quizContent: "오늘 점심은 무엇인가요?", preventViewModel: PreventViewModel(), quizPath: .constant([]))
+//    }
+//}

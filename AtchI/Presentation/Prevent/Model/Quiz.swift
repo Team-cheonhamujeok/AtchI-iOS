@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Quiz {
+struct Quiz: Equatable {
     var index: String
     var content: String
 }
