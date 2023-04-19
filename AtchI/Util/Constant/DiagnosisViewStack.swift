@@ -14,4 +14,5 @@ enum DiagnosisViewStack {
     case selfTest
     case selfTestStart
     case selfTestResult
+    case selfTestResultList
 }

@@ -70,7 +70,7 @@ struct SelfTestView: View {
             DefaultButton(
                 buttonSize: .large,
                 buttonStyle: .filled,
-                buttonColor: .mainPurple,
+                buttonColor: buttonSeletor == nil ? .grayDisabled : .mainPurple,
                 isIndicate: false)
             {
                 if buttonSeletor != nil {
@@ -91,8 +91,10 @@ struct SelfTestView: View {
             } content: {
                 if selfTestViewModel.questionIndex == 14 {
                     Text("완료하기")
+                        .foregroundColor(.white)
                 } else {
                     Text("다음으로")
+                        .foregroundColor(.white)
                 }
             }
             .disabled(buttonSeletor == nil)
@@ -138,7 +140,8 @@ struct SelfTestQuestionCardView: View {
             ///
             VStack(spacing: 10) {
                 DefaultButton(buttonSize: .small,
-                              width: 250,
+                              width: .infinity,
+                              height: 35,
                               buttonStyle: .filled,
                               buttonColor: buttonSeletor == .never ? .mainPurple : .mainPurpleLight,
                               isIndicate: false)
@@ -154,7 +157,8 @@ struct SelfTestQuestionCardView: View {
                 
                 
                 DefaultButton(buttonSize: .small,
-                              width: 250,
+                              width: .infinity,
+                              height: 35,
                               buttonStyle: .filled,
                               buttonColor: buttonSeletor == .little ? .mainPurple : .mainPurpleLight,
                               isIndicate: false)
@@ -171,7 +175,8 @@ struct SelfTestQuestionCardView: View {
                 
                 
                 DefaultButton(buttonSize: .small,
-                              width: 250,
+                              width: .infinity,
+                              height: 35,
                               buttonStyle: .filled,
                               buttonColor: buttonSeletor == .many ? .mainPurple : .mainPurpleLight,
                               isIndicate: false)
@@ -186,7 +191,8 @@ struct SelfTestQuestionCardView: View {
                 }
                 
                 DefaultButton(buttonSize: .small,
-                              width: 250,
+                              width: .infinity,
+                              height: 35,
                               buttonStyle: .filled,
                               buttonColor: buttonSeletor == .nothing ? .mainPurple : .mainPurpleLight,
                               isIndicate: false)
