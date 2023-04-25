@@ -11,6 +11,8 @@
 		044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */; };
 		0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41529F58E5A00A8A747 /* HKActivityService.swift */; };
 		0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */; };
+		0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */; };
+		0455D42B29F77DEC00A8A747 /* HKProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D42A29F77DEC00A8A747 /* HKProviderTest.swift */; };
 		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
 		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
 		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
@@ -107,6 +109,8 @@
 		0455D41729F61A1100A8A747 /* AtchI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtchI.entitlements; sourceTree = "<group>"; };
 		0455D41C29F7796800A8A747 /* AtchIServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchIServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIServiceTests.swift; sourceTree = "<group>"; };
+		0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceTest.swift; sourceTree = "<group>"; };
+		0455D42A29F77DEC00A8A747 /* HKProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKProviderTest.swift; sourceTree = "<group>"; };
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
@@ -214,9 +218,19 @@
 		0455D41D29F7796800A8A747 /* AtchIServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				0455D42529F77DA100A8A747 /* HealthKit */,
 				0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */,
 			);
 			path = AtchIServiceTests;
+			sourceTree = "<group>";
+		};
+		0455D42529F77DA100A8A747 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */,
+				0455D42A29F77DEC00A8A747 /* HKProviderTest.swift */,
+			);
+			path = HealthKit;
 			sourceTree = "<group>";
 		};
 		049ADE9029C6E3B2009B9B62 /* UI */ = {
@@ -771,6 +785,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
+				0455D42B29F77DEC00A8A747 /* HKProviderTest.swift in Sources */,
+				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
