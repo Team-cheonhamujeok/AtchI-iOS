@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */; };
 		044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */; };
+		0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41529F58E5A00A8A747 /* HKActivityService.swift */; };
 		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
 		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
 		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
@@ -94,6 +95,8 @@
 /* Begin PBXFileReference section */
 		042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewStack.swift; sourceTree = "<group>"; };
 		044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResultList.swift; sourceTree = "<group>"; };
+		0455D41529F58E5A00A8A747 /* HKActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityService.swift; sourceTree = "<group>"; };
+		0455D41729F61A1100A8A747 /* AtchI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtchI.entitlements; sourceTree = "<group>"; };
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
@@ -394,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6F0F6329EFAE3A00F3FBD1 /* HealthKitProvider.swift */,
+				0455D41529F58E5A00A8A747 /* HKActivityService.swift */,
 				BC6F0F6629EFAE3A00F3FBD1 /* HealthKitSleepService.swift */,
 				BC6F0F6729EFAE3A00F3FBD1 /* SleepTime.swift */,
 			);
@@ -469,6 +473,7 @@
 		BC8D54FE29B9909C00FAA6E3 /* AtchI */ = {
 			isa = PBXGroup;
 			children = (
+				0455D41729F61A1100A8A747 /* AtchI.entitlements */,
 				BC6F0F6229EFAE3A00F3FBD1 /* HealthKitTemp */,
 				BC78196D29E07867005C4CF5 /* Service */,
 				BC9C977D29C2262D00DC6FB3 /* Info.plist */,
@@ -738,6 +743,7 @@
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
 				BC88B7FC29EA521E00F484AF /* AccountError.swift in Sources */,
 				BC6F0F6829EFAE3A00F3FBD1 /* HealthKitProvider.swift in Sources */,
+				0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
@@ -964,10 +970,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -995,10 +1002,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
