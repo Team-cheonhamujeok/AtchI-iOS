@@ -38,10 +38,6 @@ class SignupViewModel: ObservableObject {
         }
         .store(in: &cancellable)
         
-        // Signup 결과에 따라 실행
-//        $signupResult.sink { value in
-//            if value == ""
-//        }
     }
     
     /// AccountService를 통해 signup api를 실행시키고 결과값을 signupResult로 send함
@@ -93,6 +89,4 @@ class SignupViewModel: ObservableObject {
         // publisher를 AnyPublisher로 바꿈
             .eraseToAnyPublisher()
     }
-    
-    
 }

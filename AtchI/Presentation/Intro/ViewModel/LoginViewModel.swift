@@ -50,7 +50,6 @@ class LoginViewModel: ObservableObject {
             isValid
             ? ""
             :ViewErrorMessage.invalidPassword.krDescription
-            
         }
         .store(in: &cancellables)
         
@@ -66,6 +65,7 @@ class LoginViewModel: ObservableObject {
         $tapLoginButton.sink { _ in
             print("로그인 시도")
         }.store(in: &cancellables)
+        
     }
     
     // MARK: - Validation
