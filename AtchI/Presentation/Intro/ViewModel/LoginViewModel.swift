@@ -36,7 +36,7 @@ class LoginViewModel: ObservableObject {
             return self.isValidEmail(email) || email.isEmpty
         }.map { isValid in
             // 에러 문구 결정
-            isValid ? "" : ViewErrorMessage.invalidEmail.krDescription
+            isValid ? "" : ValidationErrorMessage.invalidEmail.description
         }
         .assign(to: \.emailErrorMessage, on: self)
         .store(in: &cancellables)
@@ -49,7 +49,7 @@ class LoginViewModel: ObservableObject {
             self?.passwordErrorMessage =
             isValid
             ? ""
-            :ViewErrorMessage.invalidPassword.krDescription
+            :ValidationErrorMessage.invalidPassword.description
             
         }
         .store(in: &cancellables)

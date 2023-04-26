@@ -72,7 +72,8 @@
 		BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */; };
 		BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B329BEF99600FEE178 /* ShortcutCard.swift */; };
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
-		BCECD6BD29DA95C400F6A50F /* ViewErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCECD6BC29DA95C400F6A50F /* ViewErrorMessage.swift */; };
+		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
+		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
 		BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */; };
 		BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92729E0356D00F301B1 /* Subject.swift */; };
 		BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */; };
@@ -161,7 +162,8 @@
 		BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizShortcutCard.swift; sourceTree = "<group>"; };
 		BCE394B329BEF99600FEE178 /* ShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutCard.swift; sourceTree = "<group>"; };
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
-		BCECD6BC29DA95C400F6A50F /* ViewErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewErrorMessage.swift; sourceTree = "<group>"; };
+		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
+		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
 		BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapperTest.swift; sourceTree = "<group>"; };
 		BCEDA92729E0356D00F301B1 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleInput.swift; sourceTree = "<group>"; };
@@ -336,7 +338,7 @@
 				BC4317C829C094530094333B /* AlzheimerInformationType.swift */,
 				049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */,
 				042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */,
-				BCECD6BC29DA95C400F6A50F /* ViewErrorMessage.swift */,
+				BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -377,6 +379,7 @@
 				BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */,
 				BCF6DA3D29C4344F00E1ACBF /* RoundedButton.swift */,
 				BC2526EA29D419BA000FCE11 /* SecureInput.swift */,
+				BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */,
 			);
 			path = Resuable;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
+				BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
@@ -758,7 +762,6 @@
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
 				BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */,
-				BCECD6BD29DA95C400F6A50F /* ViewErrorMessage.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
 				BC88B80329EA535000F484AF /* AccountServiceType.swift in Sources */,
@@ -772,6 +775,7 @@
 				BC6F0F6B29EFAE3A00F3FBD1 /* SleepTime.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
+				BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,

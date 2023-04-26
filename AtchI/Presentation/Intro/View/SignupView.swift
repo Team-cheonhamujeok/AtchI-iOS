@@ -12,6 +12,8 @@ struct SignupView: View {
     
     @ObservedObject var viewModel: SignupViewModel
     
+    @State var sendedEmailCertification: Bool = false
+    
     init() {
         self.viewModel = SignupViewModel(
             validationServcie: ValidationService(),
@@ -21,7 +23,7 @@ struct SignupView: View {
     var body: some View {
         VStack {
             ScrollView {
-                VStack (alignment: .leading, spacing: 15) {
+                VStack (alignment: .leading, spacing: 20) {
                     Text("회원가입")
                         .font(.titleLarge)
                     
@@ -31,17 +33,23 @@ struct SignupView: View {
                               placeholder: "이름을 입력해주세요",
                               text: $viewModel.name,
                               errorMessage: $viewModel.nameErrorMessage)
-                    TextInput(title: "이메일",
-                              placeholder: "예) junjongsul@gmail.com",
-                              text: $viewModel.email,
-                              errorMessage: $viewModel.emailErrorMessage)
+                    VStack {
+                        TextInput(title: "이메일",
+                                  placeholder: "예) junjongsul@gmail.com",
+                                  text: $viewModel.email,
+                                  errorMessage: $viewModel.emailErrorMessage)
+                        TextInput(title: "",
+                                  placeholder: "이메일 인증번호를 입력해주세요",
+                                  text: $viewModel.email,
+                                  errorMessage: $viewModel.emailErrorMessage)
+                        ThinLightButton(title: sendedEmailCertification ? "이메일 인증 다시 보내기" : "이메일 인증하기", onTap: viewModel.$tapEmailCertificationButton, disabled: $viewModel.disabledEmailCertificationField)
+                    }
                     ToogleInput(title:"성별",
                                 options: ["남", "여"])
                     TextInput(title: "생년월일",
                               placeholder: "8자리 생년월일 ex.230312",
                               text: $viewModel.birth,
                               errorMessage: $viewModel.birthErrorMessage)
-                    
                     SecureInput(title: "비밀번호",
                                 placeholder: "비밀번호를 입력해주세요",
                                 secureText: $viewModel.password,
@@ -53,7 +61,7 @@ struct SignupView: View {
                 }
                 
                 // Complete Button
-                Spacer(minLength: 50)
+                Spacer(minLength: 20)
                 DefaultButton(
                        buttonSize: .large,
                        buttonStyle: .filled,

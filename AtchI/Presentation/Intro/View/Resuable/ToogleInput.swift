@@ -36,7 +36,7 @@ struct ToogleInput: View {
                     }
                     .frame(maxWidth: .infinity, minHeight: 65)
                     .background(selected == option ? Color.mainPurple : Color.white)
-                    .animation(.easeInOut(duration: 0.1))
+                    .animation(.easeInOut(duration: 0.1), value: selected)
                 }
             }
             .frame(maxWidth: .infinity,
@@ -50,7 +50,6 @@ struct ToogleInput: View {
                         lineWidth: 2)
             )
         }
-        Spacer(minLength: 15)
     }
 }
 
