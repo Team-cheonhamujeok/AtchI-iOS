@@ -13,12 +13,6 @@ class HealthKitProvider {
     // MARK: - Properties
     let healthStore = HKHealthStore()
     
-    // MARK: Combine
-    /// Activity에 대한 publisher
-    var stepPublisher = PassthroughSubject<Double, Error>()
-    var energyPublisher = PassthroughSubject<Double, Error>()
-    var distancePublisher = PassthroughSubject<Double, Error>()
-    
     //MARK: - Category Sample
     func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
@@ -53,9 +47,10 @@ class HealthKitProvider {
         healthStore.execute(query)
     }
 
-    // MARK: - Quantity Type Sample 
+    // MARK: - Quantity Type Sample
     func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
-                               predicate: NSPredicate) {
+                               predicate: NSPredicate,
+                               completion: @escaping ((Double) -> Void)) {
         
         // Identifier로 Type 분류
         guard let quantityType = HKQuantityType.quantityType(forIdentifier: identifier) else {
@@ -83,23 +78,24 @@ class HealthKitProvider {
             }
            
             
-            /// - Note : 1. query extension으로 뽑아와서 쿼리 만드는 메소드를 만들고, async await를 넣어보자. (init에 escaping closure를 어떻게 대체하지..)
-            ///         2. combine을 써보자
-        
-            // ID에 따른 단위 설정 후 Publisher에 맞게 send
-            switch identifier {
-            case .stepCount:
-                self.stepPublisher
-                    .send(sum.doubleValue(for: .count()))
-            case .activeEnergyBurned:
-                self.energyPublisher
-                    .send(sum.doubleValue(for: .kilocalorie()))
-            case .distanceWalkingRunning:
-                self.distancePublisher
-                    .send(sum.doubleValue(for: .meter()))
-            default:
-                fatalError("Unexpected identifier \(identifier)")
-            }
+            // 단위
+            let unit: HKUnit = {
+                // ID에 따른 단위 설정 후 Publisher에 맞게 send
+                switch identifier {
+                case .stepCount:
+                    return .count()
+                case .activeEnergyBurned:
+                    return .kilocalorie()
+                case .distanceWalkingRunning:
+                    return .meter()
+                default:
+                    fatalError("Unexpected identifier \(identifier)")
+                }
+            }()
+
+            // escaping closure 내보내기
+            completion(sum.doubleValue(for: unit))
+
         }
         
         // HealthKit store에서 쿼리를 실행
