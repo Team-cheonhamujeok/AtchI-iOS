@@ -60,6 +60,8 @@ class SignupViewModel: ObservableObject {
     private func bind(){
         // TODO: ✅ onChange에 Validation을 넣는 것 보다 입력을 완료하면 Validation 체크 하는게 좋을까요? 🤔
         // ✔️ weak self를 써야하는지 확인하기
+        
+        /// 이름 형식을 검증합니다. 빈 값일 땐 검증하지 않습니다.
         $name.map {
                 self.validationServcie.isValidNameFormat($0)
                 || $0.isEmpty
@@ -69,6 +71,7 @@ class SignupViewModel: ObservableObject {
             .assign(to: \.nameErrorMessage, on: self)
             .store(in: &cancellables)
         
+        /// 이메일 형식을 검증합니다. 빈 값일 땐 검증하지 않습니다.
         $email.map {
                 self.validationServcie.isValidEmailFormat($0)
                 || $0.isEmpty
@@ -78,6 +81,7 @@ class SignupViewModel: ObservableObject {
             .assign(to: \.emailErrorMessage, on: self)
             .store(in: &cancellables)
         
+        /// 생년월일 형식을 검증합니다. 빈 값일 땐 검증하지 않습니다.
         $birth.map {
                 self.validationServcie.isValidBirthFormat($0)
                 || $0.isEmpty
@@ -87,6 +91,7 @@ class SignupViewModel: ObservableObject {
             .assign(to: \.birthErrorMessage, on: self)
             .store(in: &cancellables)
         
+        /// 비밀번호 형식을 검증합니다. 빈 값일 땐 검증하지 않습니다.
         $password.map {
                 self.validationServcie.isValidPasswordFormat($0)
                 || $0.isEmpty
@@ -96,6 +101,7 @@ class SignupViewModel: ObservableObject {
             .assign(to: \.passwordErrorMessage, on: self)
             .store(in: &cancellables)
         
+        /// 비밀번호와 다시쓴 비밀번호가 일치하는지 검사합니다. 빈 값일 땐 검증하지 않습니다.
         $passwordAgain.map {
                 $0.isEmpty
             }.map {
@@ -103,11 +109,6 @@ class SignupViewModel: ObservableObject {
             }.receive(on: RunLoop.main)
             .assign(to: \.passwordAgainErrorMessage, on: self)
             .store(in: &cancellables)
-        
-        $passwordAgain.sink { [self]_ in
-            print(self.passwordAgain)
-            print(self.password)
-        }.store(in: &cancellables)
         
         // signup button enable/disable
         // TODO: 아직 View에 활성화 여부 바인딩 안됨
