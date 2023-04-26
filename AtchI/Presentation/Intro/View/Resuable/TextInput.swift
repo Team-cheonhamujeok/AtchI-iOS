@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TextInput: View {
-    var title: String
-    var placeholder: String
+    var title: String = ""
+    var placeholder: String = ""
     @Binding var text: String
-    @Binding var error: String
+    @Binding var errorMessage: String
     @FocusState private var isFocused: Bool
     @State private var showError = false
     
@@ -36,7 +36,8 @@ struct TextInput: View {
                     )
                 
                 // Text Field
-                    TextField(placeholder, text: $text)
+                    TextField(placeholder,
+                              text: $text)
                         .padding(.horizontal, 16)
                         .focused($isFocused)
             }
@@ -45,11 +46,11 @@ struct TextInput: View {
                    maxHeight: 65)
             
             // Show error message
-            Text(error)
+            Text(errorMessage)
                 .foregroundColor(.red)
                 .font(.bodySmall)
                 .frame(minHeight: 20)
-                .opacity(!error.isEmpty ? 1.0 : 0.0)
+                .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
                 .animation(.easeInOut(duration: 0.3))
         }
     }

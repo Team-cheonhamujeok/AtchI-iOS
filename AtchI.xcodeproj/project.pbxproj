@@ -71,6 +71,7 @@
 		BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */; };
 		BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */; };
 		BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B329BEF99600FEE178 /* ShortcutCard.swift */; };
+		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCECD6BD29DA95C400F6A50F /* ViewErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCECD6BC29DA95C400F6A50F /* ViewErrorMessage.swift */; };
 		BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */; };
 		BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92729E0356D00F301B1 /* Subject.swift */; };
@@ -159,6 +160,7 @@
 		BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfDiagnosisShortcutCard.swift; sourceTree = "<group>"; };
 		BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizShortcutCard.swift; sourceTree = "<group>"; };
 		BCE394B329BEF99600FEE178 /* ShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutCard.swift; sourceTree = "<group>"; };
+		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCECD6BC29DA95C400F6A50F /* ViewErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewErrorMessage.swift; sourceTree = "<group>"; };
 		BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapperTest.swift; sourceTree = "<group>"; };
 		BCEDA92729E0356D00F301B1 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				BC88B7FA29EA521400F484AF /* Error */,
 				BC70470C29E7E8D800FA265A /* Model */,
 				BC78196E29E07884005C4CF5 /* AccountService.swift */,
+				BCE7CED429F983B1003C3A6C /* ValidationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				6F16514B29D1342400CC228F /* PreventView.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */,
+				BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,

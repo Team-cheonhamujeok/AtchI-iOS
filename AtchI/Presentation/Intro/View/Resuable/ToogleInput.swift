@@ -32,14 +32,16 @@ struct ToogleInput: View {
                             .padding()
                             .foregroundColor(selected != option ? Color.mainPurple : Color.white)
                             .font(.bodyMedium)
-                            .frame(maxWidth: .infinity, minHeight: 65)
+                            .frame(maxWidth: 65, minHeight: 65)
                     }
                     .frame(maxWidth: .infinity, minHeight: 65)
                     .background(selected == option ? Color.mainPurple : Color.white)
                     .animation(.easeInOut(duration: 0.1))
                 }
             }
-            .frame(maxWidth: .infinity, minHeight: 65)
+            .frame(maxWidth: .infinity,
+                   minHeight: 65,
+                   maxHeight: 65)
             .cornerRadius(20)
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
@@ -48,6 +50,7 @@ struct ToogleInput: View {
                         lineWidth: 2)
             )
         }
+        Spacer(minLength: 15)
     }
 }
 
