@@ -19,11 +19,11 @@ import HealthKit
 
 final class HKActivityServiceTest: XCTestCase {
     
-    var sut: HealthKitProviderProtocol?
+    var sut: HKActivityService?
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        self.sut = MockHealthKitProvider()
+        self.sut = HKActivityService(healthkitProvicer: MockHealthKitProvider())
     }
 
     override func tearDownWithError() throws {
@@ -31,7 +31,7 @@ final class HKActivityServiceTest: XCTestCase {
         sut = nil
     }
 
-    func testExample() throws {
+    func testStep() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         // Any test you write for XCTest can be annotated as throws and async.
@@ -48,7 +48,69 @@ final class HKActivityServiceTest: XCTestCase {
         var result = 0.0
         
         //MARK: Act
-        sut?.getQuantityTypeSample(identifier: identity, predicate: predicate, completion: { quantity in
+        var future = sut?.getStepCount()
+        
+        future?.sink(receiveCompletion: { err in
+            print(err)
+        }, receiveValue: { quantity in
+            result = quantity
+        })
+        
+        //MARK: Assert
+        XCTAssertEqual(result, 0)
+    }
+    
+    func testEnergy() throws {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Any test you write for XCTest can be annotated as throws and async.
+        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
+        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        
+        //MARK: Arrange
+        let identity: HKQuantityTypeIdentifier = .stepCount
+        let now = Date()
+        let startOfDay = Calendar.current.date(byAdding: .day, value: 0, to: now)
+        let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: now)
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
+        
+        var result = 0.0
+        
+        //MARK: Act
+        var future = sut?.getEnergy()
+        
+        future?.sink(receiveCompletion: { err in
+            print(err)
+        }, receiveValue: { quantity in
+            result = quantity
+        })
+        
+        //MARK: Assert
+        XCTAssertEqual(result, 0)
+    }
+    
+    func testDistance() throws {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Any test you write for XCTest can be annotated as throws and async.
+        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
+        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        
+        //MARK: Arrange
+        let identity: HKQuantityTypeIdentifier = .stepCount
+        let now = Date()
+        let startOfDay = Calendar.current.date(byAdding: .day, value: 0, to: now)
+        let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: now)
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
+        
+        var result = 0.0
+        
+        //MARK: Act
+        var future = sut?.getDistance()
+        
+        future?.sink(receiveCompletion: { err in
+            print(err)
+        }, receiveValue: { quantity in
             result = quantity
         })
         

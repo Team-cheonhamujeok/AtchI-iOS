@@ -11,17 +11,17 @@ import HealthKit
 
 /// - Note: Protocol이 필요할까요?
 protocol HKActivityServiceProtocol {
-    var healthKitProvider: HealthKitProvider { get }
-    func getStepCount(date: Date) -> Future<Double, Error>
-    func getEnergy(date: Date) -> Future<Double, Error>
-    func getDistance(date: Date) -> Future<Double, Error>
+    var healthKitProvider: HealthKitProviderProtocol { get }
+    func getStepCount() -> Future<Double, Error>
+    func getEnergy() -> Future<Double, Error>
+    func getDistance() -> Future<Double, Error>
 }
 
 class HKActivityService: HKActivityServiceProtocol {
     //MARK: - Properties
-    var healthKitProvider: HealthKitProvider
+    var healthKitProvider: HealthKitProviderProtocol
     
-    init(healthkitProvicer: HealthKitProvider) {
+    init(healthkitProvicer: HealthKitProviderProtocol) {
         self.healthKitProvider = healthkitProvicer
     }
     
@@ -29,7 +29,7 @@ class HKActivityService: HKActivityServiceProtocol {
     //MARK: - Sending Function
     /// - Note: 값을 구하는 기간은 다 똑같으니 predicate는 묶는게 낫겠죠?
     //MARK: 걸음 수
-    func getStepCount(date: Date) -> Future<Double, Error> {
+    func getStepCount() -> Future<Double, Error> {
         return Future { promise in
             let now = Date()
             let startOfDay = Calendar.current.date(byAdding: .day, value: 0, to: now)
@@ -43,7 +43,7 @@ class HKActivityService: HKActivityServiceProtocol {
     }
     
     // MARK: 열량
-    func getEnergy(date: Date) -> Future<Double, Error>  {
+    func getEnergy() -> Future<Double, Error>  {
         return Future { promise in
             
             let now = Date()
@@ -57,7 +57,7 @@ class HKActivityService: HKActivityServiceProtocol {
         }
     }
     // MARK: 거리
-    func getDistance(date: Date) -> Future<Double, Error>  {
+    func getDistance() -> Future<Double, Error>  {
         return Future { promise in
             
             let now = Date()
