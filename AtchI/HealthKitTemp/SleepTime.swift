@@ -23,7 +23,7 @@ class HealthKitServiceTemp {
         }
     }
     
-    func getSleepData(){
+    func getSleepData() {
         // 수면 데이터 Type 정의
         if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
             // 데이터를 필터링할 조건(predicate)를 설정할 수 있음. 여기선 일주일 데이터를 받아오도록 설정

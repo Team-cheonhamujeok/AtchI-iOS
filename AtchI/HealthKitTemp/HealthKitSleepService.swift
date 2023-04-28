@@ -7,10 +7,13 @@
 
 import Foundation
 import HealthKit
+import Combine
 
 class HealthKitSleepService{
     
     let healthKitProvider: HealthKitProvider
+    
+//    enableBackgroundDelivery(for:frequency:withCompletion:)
     
     init(healthkitProvicer: HealthKitProvider) {
         self.healthKitProvider = healthkitProvicer
@@ -23,33 +26,20 @@ class HealthKitSleepService{
     /// - Parameters:
     ///    - date: 데이터를 가져오고자 하는 날짜를 주입합니다.
     ///    - completion: sample을 전달받는 콜백 클로저입니다.
-    func fetchSleepData(date: Date, completion: @escaping ([HKCategorySample]) -> Void) {
-        // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
-        let endDate = getTodaySixPM(date)
-        let startDate = getYesterdaySixPM(date)
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+    /// - Returns: 수면 데이터를 [HKCategorySample] 형으로 Future에 담아 반환합니다.
+    func fetchSleepDataWithCombine(date: Date) -> Future<[HKCategorySample], Error> {
+        return Future { [weak self] promise in
+            // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
+            let endDate = self?.getTodaySixPM(date)
+            let startDate = self?.getYesterdaySixPM(date)
+            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
 
-        // 수면 데이터 가져오기
-        healthKitProvider.getCategoryTypeSample(identifier: .sleepAnalysis,
-                                                predicate: predicate) { samples in
-            completion(samples)
+            // 수면 데이터 가져오기
+            self?.healthKitProvider.getCategoryTypeSample(identifier: .sleepAnalysis, predicate: predicate) { samples in
+                promise(Result.success(samples))
+            }
         }
     }
-    
-//    func fetchSleepData2(completion: @escaping ([HKCategorySample]) -> Void) -> (Date) -> [HKCategorySample]{
-//        // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
-//        return { [self] date in
-//            let endDate = getTodaySixPM(date)
-//            let startDate = getYesterdaySixPM(date)
-//            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
-//
-//            // 수면 데이터 가져오기
-//            healthKitProvider.getCategoryTypeSample(identifier: .sleepAnalysis,
-//                                                    predicate: predicate) { samples in
-//                completion(samples)
-//            }
-//        }
-//    }
     
     // MARK: - Get Function
     

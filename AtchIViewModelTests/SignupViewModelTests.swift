@@ -37,7 +37,7 @@ final class SignupViewModelTests: XCTestCase {
         
         // When
         let cancellable = publisher
-            .sink{value in
+            .sink{ value in
                 // Then - Observable
                     receivedValue = value
                     expectation.fulfill()
@@ -80,7 +80,6 @@ final class SignupViewModelTests: XCTestCase {
         // Clean up
         cancellable.cancel() // 테스트가 끝나면 구독을 취소하여 리소스를 정리
     }
-
     
     // 세번째 방식 - 리스트 이용
     func test_signup_multi() {
