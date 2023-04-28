@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TextInput: View {
-    var title: String
-    var placeholder: String
+    var title: String = ""
+    var placeholder: String = ""
     @Binding var text: String
-    @Binding var error: String
+    @Binding var errorMessage: String
+//    var onFocusOut: PassthroughSubject<String, Never>? = nil
+    
+    // private
     @FocusState private var isFocused: Bool
-    @State private var showError = false
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -32,25 +35,29 @@ struct TextInput: View {
                                 isFocused ?
                                 Color.mainPurple:
                                     Color.grayDisabled,
-                                lineWidth: 2).animation(.easeInOut(duration: 0.2))
+                                lineWidth: 2)
+                            .animation(.easeInOut(duration: 0.3), value: isFocused)
                     )
                 
                 // Text Field
-                    TextField(placeholder, text: $text)
+                    TextField(placeholder,
+                              text: $text)
                         .padding(.horizontal, 16)
+                        .frame(maxWidth: .infinity,
+                               minHeight: 65,
+                               maxHeight: 65)
                         .focused($isFocused)
+                
             }
-            .frame(maxWidth: .infinity,
-                   minHeight: 65,
-                   maxHeight: 65)
             
             // Show error message
-            Text(error)
+            Text(errorMessage)
                 .foregroundColor(.red)
                 .font(.bodySmall)
-                .frame(minHeight: 20)
-                .opacity(!error.isEmpty ? 1.0 : 0.0)
-                .animation(.easeInOut(duration: 0.3))
+                .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
+                .animation(.easeInOut(duration: 0.3),
+                           value: isFocused)
+                .frame(height: !errorMessage.isEmpty ? nil : 0)
         }
     }
 }
