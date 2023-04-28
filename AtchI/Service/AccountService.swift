@@ -11,8 +11,9 @@ import CombineMoya
 import Combine
 
 enum AccountAPI{
-    case signup(signupDTO: SignupModel)
+    case signup(_ signupModel: SignupModel)
     case login
+    case emailConfirm(_ email: String)
 }
 
 extension AccountAPI: TargetType {
@@ -26,11 +27,15 @@ extension AccountAPI: TargetType {
             return "/signup"
         case .login:
             return "/login"
+        case .emailConfirm:
+            return "/mailConfirm"
         }
     }
     
     var method: Moya.Method {
         switch self {
+        case .emailConfirm:
+            return .get
         case .signup, .login:
             return .post
         }
@@ -42,6 +47,9 @@ extension AccountAPI: TargetType {
             return .requestJSONEncodable(signupModel)
         case .login:
             return .requestPlain // DTO 만들고 수정 예정
+        case .emailConfirm(let email):
+            return .requestParameters(parameters: ["email" : email],
+                                      encoding: URLEncoding.queryString)
         }
     }
     
@@ -52,13 +60,30 @@ extension AccountAPI: TargetType {
 
 
 class AccountService: AccountServiceType {
+//    let provider = MoyaProvider<AccountAPI>(plugins: [NetworkLoggerPlugin()])
     let provider = MoyaProvider<AccountAPI>()
     
     var cancellables = Set<AnyCancellable>()
     
-    // 내부 퍼블리셔를 받아서 한번 더 처리한다음에 넘기기
+    func requestEmailConfirm(email: String) -> AnyPublisher<EmailVerificationModel, AccountError> {
+        return provider.requestPublisher(.emailConfirm(email))
+            .tryMap { response -> EmailVerificationModel in
+                do {
+                    let decodedData = try response.map(EmailVerificationModel.self)
+                    return decodedData
+                } catch {
+                    throw AccountError.common(.jsonSerializationFailed)
+                }
+            }
+            .mapError { error in
+                // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
+                return AccountError.sendEmailConfirmFailed
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func requestSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> {
-        return provider.requestPublisher(.signup(signupDTO: signupModel))
+        return provider.requestPublisher(.signup(signupModel))
             .tryMap { response -> Response in
                 return response
             }
@@ -67,6 +92,5 @@ class AccountService: AccountServiceType {
                 return AccountError.signupFailed
             }
             .eraseToAnyPublisher()
-        
     }
 }

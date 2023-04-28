@@ -38,6 +38,9 @@
 		6F16515529D134DD00CC228F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515429D134DD00CC228F /* QuizView.swift */; };
 		6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515629D134FD00CC228F /* QuizDoneView.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
+		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
+		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
+		BC0446BF29FC24AA002109A2 /* EmailVerificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
 		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
@@ -82,7 +85,6 @@
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
-		BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */; };
 		BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92729E0356D00F301B1 /* Subject.swift */; };
 		BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */; };
 		BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3929C42D1C00E1ACBF /* View.swift */; };
@@ -141,6 +143,9 @@
 		6F16515429D134DD00CC228F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		6F16515629D134FD00CC228F /* QuizDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDoneView.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelType.swift; sourceTree = "<group>"; };
+		BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelType.swift; sourceTree = "<group>"; };
+		BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationModel.swift; sourceTree = "<group>"; };
 		BC2526EA29D419BA000FCE11 /* SecureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInput.swift; sourceTree = "<group>"; };
 		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -189,7 +194,6 @@
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
-		BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapperTest.swift; sourceTree = "<group>"; };
 		BCEDA92729E0356D00F301B1 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleInput.swift; sourceTree = "<group>"; };
 		BCF6DA3929C42D1C00E1ACBF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -375,6 +379,15 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		BC0446B929FC1A87002109A2 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */,
+				BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		BC2526E929D418F3000FCE11 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				BC70470E29E7E91C00FA265A /* SignupModel.swift */,
+				BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -612,9 +626,9 @@
 		BCA1485D29D5F127001F390D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BC0446B929FC1A87002109A2 /* Protocol */,
 				BCA1485F29D5F149001F390D /* LoginViewModel.swift */,
 				BCA1486129D5F1BD001F390D /* SignupViewModel.swift */,
-				BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */,
 				BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */,
 				BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */,
 			);
@@ -841,7 +855,6 @@
 				6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */,
 				6F16514B29D1342400CC228F /* PreventView.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
-				BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */,
 				BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
@@ -849,6 +862,7 @@
 				BC88B7FC29EA521E00F484AF /* AccountError.swift in Sources */,
 				BC6F0F6829EFAE3A00F3FBD1 /* HealthKitProvider.swift in Sources */,
 				0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */,
+				BC0446BF29FC24AA002109A2 /* EmailVerificationModel.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
@@ -863,6 +877,7 @@
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
+				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
 				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
 				6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */,
@@ -885,6 +900,7 @@
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
+				BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */,
 				BC3DDF6B29FB9BD200452A2B /* SignupRequestViewModel.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,

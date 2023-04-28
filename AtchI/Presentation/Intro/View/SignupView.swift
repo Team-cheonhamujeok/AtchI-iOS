@@ -13,7 +13,7 @@ struct SignupView: View {
     @ObservedObject var validationViewModel: SignupValidationViewModel
     @ObservedObject var requestViewModel: SignupRequestViewModel
     
-//    @State var sendedEmailCertification: Bool = false
+//    @State var sendedEmailVerification: Bool = false
     
     init() {
         // ViewModel DI
@@ -40,17 +40,31 @@ struct SignupView: View {
                               placeholder: "이름을 입력해주세요",
                               text: $validationViewModel.name,
                               errorMessage: $validationViewModel.nameErrorMessage)
+                    VStack {
                         TextInput(title: "이메일",
                                   placeholder: "예) junjongsul@gmail.com",
                                   text: $validationViewModel.email,
                                   errorMessage: $validationViewModel.emailErrorMessage)
+                        ThinLightButton(title: requestViewModel.sendedEmailVerification
+                                        ? "이메일 인증번호 다시 보내기"
+                                        : "이메일 인증번호 보내기",
+                                        onTap: requestViewModel.$tapSendEmailVerificationButton,
+                                        disabled: $requestViewModel.disabledEmailVerificationField)
+                    }
                     VStack {
                         TextInput(title: "이메일 인증",
                                   placeholder: "이메일 인증번호를 입력해주세요",
-                                  text: $validationViewModel.email,
-                                  errorMessage: $validationViewModel.emailErrorMessage
+                                  text: $requestViewModel.emailVerificationCode,
+                                  errorMessage: $requestViewModel.emailVerificationErrorMessage
                         )
-                        ThinLightButton(title: requestViewModel.sendedEmailCertification ? "이메일 인증 다시 보내기" : "이메일 인증하기", onTap: requestViewModel.$tapEmailCertificationButton, disabled: $requestViewModel.disabledEmailCertificationField)
+                        if requestViewModel.sendedEmailVerification {
+                            ThinLightButton(title: "확인하기",
+                                            onTap: requestViewModel.$tapCheckEmailVerificationButton,
+                                            disabled: $requestViewModel.disabledEmailVerificationField)
+                            .alert(isPresented: $requestViewModel.successEmailVerification) {
+                                Alert(title: Text("인증 성공"), message: Text("인증에 성공하였습니다"), dismissButton: .default(Text("OK")))
+                            }
+                        }
                     }
                     ToogleInput(title:"성별",
                                 options: ["남", "여"])

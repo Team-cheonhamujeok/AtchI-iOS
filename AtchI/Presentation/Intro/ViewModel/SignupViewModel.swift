@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@available(*, deprecated, message: "SingupValidationViewModel과 SingupRequestViewModel로 분리되었습니다.")
 class SignupViewModel: ObservableObject {
     // MARK: - Dependency
     let validationServcie: ValidationService
@@ -159,10 +160,10 @@ class SignupViewModel: ObservableObject {
                     // 에러 발생시 각각 대응
                     switch error {
                     case .signupFailed:
-                        self?.signupErrorMessage = error.krDescription()
+                        self?.signupErrorMessage = error.description
                         break
                     case .emailDuplicated:
-                        self?.signupErrorMessage = error.krDescription()
+                        self?.signupErrorMessage = error.description
                         break
                     default:
                         break

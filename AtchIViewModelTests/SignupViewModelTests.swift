@@ -22,11 +22,6 @@
 //        self.viewModel = nil
 //    }
 //
-//    /// 🤔 결국 Usecase를 분리해야하나?
-//    ///  테스트하고 싶은 것: Model에 따라 각 Error가 잘 구분되고 있는지
-//    ///  ViewModel에서 네트워킹 코드 호출 -> sink에 바로 화면전환/에러메세지 할당 작업 하니까 테스트가 어려움.
-//    ///  비동기 함수는 시간을 두고 상태변수가 바뀌었는지 확인해야함.
-//    ///  따라서 Usecase에서 네트워킹 호출 -> Usecase 상태 변수 변경 -> 이를 다시 ViewModel에서 구독 해야할지도
 //
 //    // 첫번째 방식 - fulfill 이용 방법
 //    func test_signup_first() {

@@ -13,7 +13,7 @@ struct TextInput: View {
     var placeholder: String = ""
     @Binding var text: String
     @Binding var errorMessage: String
-//    var onFocusOut: PassthroughSubject<String, Never>? = nil
+    var onFocusOut: PassthroughSubject<String, Never>? = nil
     
     // private
     @FocusState private var isFocused: Bool
@@ -47,6 +47,9 @@ struct TextInput: View {
                                minHeight: 65,
                                maxHeight: 65)
                         .focused($isFocused)
+                        .onSubmit {
+                            onFocusOut?.send(text)
+                        }
                 
             }
             
