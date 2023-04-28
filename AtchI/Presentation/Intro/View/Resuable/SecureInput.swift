@@ -10,7 +10,7 @@ import SwiftUI
 struct SecureInput: View {
     var title: String
     var placeholder: String
-    @Binding var password: String
+    @Binding var secureText: String
     @Binding var errorMessage: String
     @State private var showPassword = false
     @FocusState private var isFocused: Bool
@@ -39,12 +39,12 @@ struct SecureInput: View {
                 HStack {
                     if showPassword {
                         TextField(placeholder,
-                                  text: $password)
+                                  text: $secureText)
                             .padding(.horizontal, 16)
                             .focused($isFocused)
                     } else {
                         SecureField(placeholder,
-                                    text: $password)
+                                    text: $secureText)
                             .padding(.horizontal, 16)
                             .focused($isFocused)
                     }

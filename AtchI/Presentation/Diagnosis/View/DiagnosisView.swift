@@ -23,7 +23,10 @@ struct DiagnosisView: View {
                         .fontWeight(.bold)
                         .padding(.bottom, 18)
                     
-                    SelfTestInfoView(viewModel: selfTestInfoViewModel, selfTestViewModel: selfTestViewModel, path: $path)
+                    SelfTestInfoView(
+                        selfTestInfoViewModel: selfTestInfoViewModel,
+                        selfTestViewModel: selfTestViewModel,
+                        path: $path)
                     
                 }
                 .padding(.horizontal, 30)
