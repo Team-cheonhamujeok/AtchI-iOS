@@ -74,6 +74,7 @@ struct DefaultButton<Content>: View where Content: View {
                 if isIndicate {
                     Image(systemName: "arrow.right")
                         .font(.system(size: 30))
+                        .padding(.trailing, 30)
                 }
             }
             .frame(maxWidth: .infinity,

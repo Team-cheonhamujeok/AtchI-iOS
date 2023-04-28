@@ -6,11 +6,20 @@
 //
 
 import Foundation
+import Combine
 import HealthKit
 
+protocol HealthKitProviderProtocol {
+    func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
+                               predicate: NSPredicate,
+                               completion: @escaping ((Double) -> Void))
+}
+
 class HealthKitProvider {
+    // MARK: - Properties
     let healthStore = HKHealthStore()
     
+    //MARK: - Category Sample
     func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
                                completion: @escaping ([HKCategorySample]) -> Void) {
@@ -44,8 +53,58 @@ class HealthKitProvider {
         healthStore.execute(query)
     }
 
-    
-    func getQuantityTypeSample(){
+    // MARK: - Quantity Type Sample
+    func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
+                               predicate: NSPredicate,
+                               completion: @escaping ((Double) -> Void)) {
         
+        // Identifier로 Type 분류
+        guard let quantityType = HKQuantityType.quantityType(forIdentifier: identifier) else {
+            print("'HealthKitProvider': 올바르지 않은 ID입니다.")
+            return
+        }
+        
+        // Quantity Type과 날짜 Predicate로 query 작성,
+        let query = HKStatisticsQuery(quantityType: quantityType,
+                                      quantitySamplePredicate: predicate,
+                                      options: .cumulativeSum) { _, result, error in
+            
+            /// 결과가 잘 들어왔는지 옵셔널 바인딩
+            /// resulut : 순수 결과 데이터
+            guard let result = result else {
+                print("'HealthKitProvider': Result가 생성되지 않았습니다.")
+                return
+            }
+            
+            /// 합이 잘 들어왔는지 옵셔널 바인딩
+            /// sum: 기간동안 한 Activity의 양
+            guard let sum = result.sumQuantity() else {
+                print("'HealthKitProvider': sumQuantity가 생성되지 않았습니다.")
+                return
+            }
+           
+            
+            // 단위
+            let unit: HKUnit = {
+                // ID에 따른 단위 설정 후 Publisher에 맞게 send
+                switch identifier {
+                case .stepCount:
+                    return .count()
+                case .activeEnergyBurned:
+                    return .kilocalorie()
+                case .distanceWalkingRunning:
+                    return .meter()
+                default:
+                    fatalError("Unexpected identifier \(identifier)")
+                }
+            }()
+
+            // escaping closure 내보내기
+            completion(sum.doubleValue(for: unit))
+
+        }
+        
+        // HealthKit store에서 쿼리를 실행
+        healthStore.execute(query)
     }
 }
