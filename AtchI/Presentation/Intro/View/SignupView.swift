@@ -10,57 +10,65 @@ import Combine
 
 struct SignupView: View {
     
-    @ObservedObject var viewModel: SignupViewModel
+    @ObservedObject var validationViewModel: SignupValidationViewModel
+    @ObservedObject var requestViewModel: SignupRequestViewModel
     
-    @State var sendedEmailCertification: Bool = false
+//    @State var sendedEmailCertification: Bool = false
     
     init() {
-        self.viewModel = SignupViewModel(
-            validationServcie: ValidationService(),
+        // ViewModel DI
+        self.validationViewModel = SignupValidationViewModel(
+            validationServcie: ValidationService())
+        self.requestViewModel = SignupRequestViewModel(
             accountService: AccountService())
+        // 두 뷰모델간 의존성 연결
+        self.validationViewModel.requestViewModel = self.requestViewModel
+        self.requestViewModel.validationViewModel = self.validationViewModel
     }
     
     var body: some View {
         VStack {
             ScrollView {
                 VStack (alignment: .leading, spacing: 20) {
+                    // MARK: Page Title
                     Text("회원가입")
                         .font(.titleLarge)
                     
-                    // Input list
+                    // MARK: Input List
                     Spacer(minLength: 15)
                     TextInput(title: "이름",
                               placeholder: "이름을 입력해주세요",
-                              text: $viewModel.name,
-                              errorMessage: $viewModel.nameErrorMessage)
-                    VStack {
+                              text: $validationViewModel.name,
+                              errorMessage: $validationViewModel.nameErrorMessage)
                         TextInput(title: "이메일",
                                   placeholder: "예) junjongsul@gmail.com",
-                                  text: $viewModel.email,
-                                  errorMessage: $viewModel.emailErrorMessage)
-                        TextInput(title: "",
+                                  text: $validationViewModel.email,
+                                  errorMessage: $validationViewModel.emailErrorMessage)
+                    VStack {
+                        TextInput(title: "이메일 인증",
                                   placeholder: "이메일 인증번호를 입력해주세요",
-                                  text: $viewModel.email,
-                                  errorMessage: $viewModel.emailErrorMessage)
-                        ThinLightButton(title: sendedEmailCertification ? "이메일 인증 다시 보내기" : "이메일 인증하기", onTap: viewModel.$tapEmailCertificationButton, disabled: $viewModel.disabledEmailCertificationField)
+                                  text: $validationViewModel.email,
+                                  errorMessage: $validationViewModel.emailErrorMessage
+                        )
+                        ThinLightButton(title: requestViewModel.sendedEmailCertification ? "이메일 인증 다시 보내기" : "이메일 인증하기", onTap: requestViewModel.$tapEmailCertificationButton, disabled: $requestViewModel.disabledEmailCertificationField)
                     }
                     ToogleInput(title:"성별",
                                 options: ["남", "여"])
                     TextInput(title: "생년월일",
                               placeholder: "8자리 생년월일 ex.230312",
-                              text: $viewModel.birth,
-                              errorMessage: $viewModel.birthErrorMessage)
+                              text: $validationViewModel.birth,
+                              errorMessage: $validationViewModel.birthErrorMessage)
                     SecureInput(title: "비밀번호",
                                 placeholder: "비밀번호를 입력해주세요",
-                                secureText: $viewModel.password,
-                                errorMessage: $viewModel.passwordErrorMessage)
+                                secureText: $validationViewModel.password,
+                                errorMessage: $validationViewModel.passwordErrorMessage)
                     SecureInput(title: "비밀번호 확인",
                                 placeholder: "비밀번호를 한번 더 입력해주세요",
-                                secureText: $viewModel.passwordAgain,
-                                errorMessage: $viewModel.passwordAgainErrorMessage)
+                                secureText: $validationViewModel.passwordAgain,
+                                errorMessage: $validationViewModel.passwordAgainErrorMessage)
                 }
                 
-                // Complete Button
+                // MARK:  Complete Button
                 Spacer(minLength: 20)
                 DefaultButton(
                        buttonSize: .large,

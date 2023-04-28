@@ -41,6 +41,12 @@ class SignupViewModel: ObservableObject {
     @Published var signupErrorMessage: String = ""
     /// 이메일 인증하기 버튼 비활성화 여부입니다.
     @Published var disabledEmailCertificationField: Bool = false
+    /// 이메일 인증을 시도했는지 여부입니다.
+    @Published var sendedEmailCertification: Bool = false
+    /// 이메일 인증 성공여부입니다.
+    @Published var validEmailcertification: Bool = true
+    /// 이메일 인증 실패 메세지입니다.
+    @Published var emailcertificationErrorMessage: Bool = false
     /// 회원가입 버튼 비활성화 여부입니다.
     @Published var disableSignupButton: Bool = true
     
@@ -50,7 +56,6 @@ class SignupViewModel: ObservableObject {
     // MARK: - Constructor
     init(validationServcie: ValidationService,
         accountService: AccountServiceType){
-        // TOOD: DI parameter로 바꾸기
         self.accountService = accountService
         self.validationServcie = validationServcie
         self.bind()
@@ -110,6 +115,13 @@ class SignupViewModel: ObservableObject {
             .assign(to: \.passwordAgainErrorMessage, on: self)
             .store(in: &cancellables)
         
+        /// 이메일 인증하기 버튼을 누르면 이메일 인증 버튼의 문구를 변경할 수 있도록 sendedEmailCertification을 변경합니다.
+        $tapEmailCertificationButton.map {
+            true
+        }
+        .assign(to: \.sendedEmailCertification, on: self)
+        .store(in: &cancellables)
+        
         // signup button enable/disable
         // TODO: 아직 View에 활성화 여부 바인딩 안됨
         $name.combineLatest($email, $password, $passwordAgain) {
@@ -136,7 +148,6 @@ class SignupViewModel: ObservableObject {
     }
     
     /// AccountService를 통해 signup api를 실행시키고 결과값을 signupResult로 send함
-    /// 근데 이 자체로 Testable 했으면 좋겠는데... -> 불가능한가? -> 그런듯
     func signup(_ signupModel: SignupModel){
         accountService.requestSignup(signupModel: signupModel)
             .sink(receiveCompletion: { [weak self] completion in
