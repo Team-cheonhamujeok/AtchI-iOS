@@ -35,7 +35,7 @@ class SignupRequestViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init(accountService: AccountService){
+    init(accountService: AccountServiceType){
         self.accountService = accountService
         self.bindState()
         self.bindEvent()

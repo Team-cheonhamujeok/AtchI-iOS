@@ -75,6 +75,7 @@
 		BC81F36429FD615400E09958 /* SignupReqeustViewModelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36329FD615400E09958 /* SignupReqeustViewModelEvent.swift */; };
 		BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36729FD6CDF00E09958 /* ValidationServcieType.swift */; };
 		BC81F36A29FD6DA100E09958 /* MockValidationServcie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36929FD6DA100E09958 /* MockValidationServcie.swift */; };
+		BC81F37029FD823000E09958 /* SignupRequestViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36F29FD823000E09958 /* SignupRequestViewModelTests.swift */; };
 		BC88B7FC29EA521E00F484AF /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88B7FB29EA521E00F484AF /* AccountError.swift */; };
 		BC88B80329EA535000F484AF /* AccountServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88B80229EA535000F484AF /* AccountServiceType.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
@@ -190,6 +191,7 @@
 		BC81F36329FD615400E09958 /* SignupReqeustViewModelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustViewModelEvent.swift; sourceTree = "<group>"; };
 		BC81F36729FD6CDF00E09958 /* ValidationServcieType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationServcieType.swift; sourceTree = "<group>"; };
 		BC81F36929FD6DA100E09958 /* MockValidationServcie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockValidationServcie.swift; sourceTree = "<group>"; };
+		BC81F36F29FD823000E09958 /* SignupRequestViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelTests.swift; sourceTree = "<group>"; };
 		BC88B57229D5F47C003CA752 /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		BC88B7FB29EA521E00F484AF /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		BC88B80229EA535000F484AF /* AccountServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceType.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				BCDF69C529EA6ADA00D39AA1 /* Mock */,
 				BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */,
 				BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */,
+				BC81F36F29FD823000E09958 /* SignupRequestViewModelTests.swift */,
 			);
 			path = AtchIViewModelTests;
 			sourceTree = "<group>";
@@ -885,6 +888,7 @@
 				BC49094B29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift in Sources */,
 				BC81F36A29FD6DA100E09958 /* MockValidationServcie.swift in Sources */,
 				BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */,
+				BC81F37029FD823000E09958 /* SignupRequestViewModelTests.swift in Sources */,
 				BCDF69C729EA6AE500D39AA1 /* MockAccountService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
