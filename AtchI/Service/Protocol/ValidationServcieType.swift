@@ -8,7 +8,7 @@
 import Foundation
 
 /// 회원가입에 필요한 검증 로직 Service입니다.
-protocol ValidationServcieType {
+protocol ValidationServiceType {
     
     /// 이름 형식이 맞는지 검증합니다.
     ///

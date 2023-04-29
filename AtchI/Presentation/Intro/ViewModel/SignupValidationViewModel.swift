@@ -11,7 +11,7 @@ import Combine
 class SignupValidationViewModel: ObservableObject {
     
     // MARK: - Dependency
-    let validationServcie: ValidationService
+    let validationServcie: ValidationServiceType
     var eventToRequestViewModel = PassthroughSubject<SignupValidationViewModelEvent, Never>()
     var eventFromRequestViewModel: PassthroughSubject<SignupRequestViewModelEvent, Never>? = nil
     
@@ -25,7 +25,7 @@ class SignupValidationViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init(validationServcie: ValidationService){
+    init(validationServcie: ValidationServiceType){
         self.validationServcie = validationServcie
         self.bindState()
         self.bindEvent()
@@ -47,9 +47,7 @@ class SignupValidationViewModel: ObservableObject {
             if isNameValid && isEmailValid && isBirthValid && isPasswordValid && isPasswordAgainValid {
                 // 모든 입력값이 형식검사를 통과했음을 알리기
                 self.eventToRequestViewModel.send(.allInputValid)
-            }
-            
-            if isEmailValid {
+            } else if isEmailValid {
                 self.eventToRequestViewModel.send(.emailValid(email: $0.email))
             } else {
                 self.eventToRequestViewModel.send(.emailInvalid)
@@ -71,7 +69,7 @@ class SignupValidationViewModel: ObservableObject {
             switch event {
                 
             case .signup:
-                self.eventToRequestViewModel.send(.sendInfo(Info: self.infoState))
+                self.eventToRequestViewModel.send(.sendInfoForSignup(Info: self.infoState))
                 break
             }
             

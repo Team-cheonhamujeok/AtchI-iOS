@@ -8,8 +8,10 @@
 import Foundation
 
 enum SignupValidationViewModelEvent {
+    
     case emailValid(email: String)
     case emailInvalid
     case allInputValid
-    case sendInfo(Info: InfoState)
+    case sendInfoForSignup(Info: InfoState)
+
 }

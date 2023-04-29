@@ -66,7 +66,7 @@ class SignupRequestViewModel: ObservableObject {
         }.store(in: &cancellables)
         
         
-        /// SignupButton을 탭하면 signup serivce를 통해 회원가입 요청을 보냅니다.
+        /// SignupButton을 탭하면 input 정보를 받아오기 위해 ValidationViewModel에 요청을 보냅니다.
         $tapSignupButton.sink { [weak self] in
             self?.eventToValidationViewModel.send(.signup)
         }
@@ -95,7 +95,7 @@ class SignupRequestViewModel: ObservableObject {
                 self.signupState.enable = self.emailVerificationState.sucess
                 break
                 
-            case .sendInfo(let info):
+            case .sendInfoForSignup(let info):
                 let gender: Bool =
                     info.gender == "남"
                 self.reqeustSignup(

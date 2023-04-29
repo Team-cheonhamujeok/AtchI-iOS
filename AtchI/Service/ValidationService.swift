@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ValidationService: ValidationServcieType {
+class ValidationService: ValidationServiceType {
     
     func isValidNameFormat(_ name: String) -> Bool {
         let nameRegex = "^[가-힣a-zA-Z]{1,}"
