@@ -11,7 +11,9 @@ import Combine
 class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
     // MARK: - Dependency
     let accountService: AccountServiceType
-    var validationViewModel: SignupValidationViewModelType? = nil
+//    var validationViewModel: SignupValidationViewModelType? = nil
+    var eventToValidationViewModel = PassthroughSubject<SignupRequestViewModelEvent, Never>()
+    var eventFromValidationViewModel: PassthroughSubject<SignupValidationViewModelEvent, Never>? = nil
     
     // MARK: - Input State
     @Subject var tapSendEmailVerificationButton: Void = ()
@@ -27,6 +29,8 @@ class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
     // MARK: - Other Data
     /// 서버에서 받은 이메일 확인 코드입니다.
     private var receivedEmailVerificationCode: String = ""
+    /// ValidationViewModel로부터 받은 이메일입니다.
+    private var receivedEmail: String = ""
     
     // MARK: - Cancellable Bag
     private var cancellables = Set<AnyCancellable>()
@@ -34,10 +38,11 @@ class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
     // MARK: - Constructor
     init(accountService: AccountService){
         self.accountService = accountService
-        self.bind()
+        self.bindState()
+        self.bindEvent()
     }
     // MARK: - Bind Method
-    private func bind() {
+    private func bindState() {
         
         /// 이메일 인증하기 버튼을 누르면 이메일 인증 버튼의 문구를 변경할 수 있도록 sendedEmailVerification을 변경합니다.
         $tapSendEmailVerificationButton.map { true }
@@ -46,7 +51,7 @@ class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
         
         /// 서버로 이메일 인증 메일 전송 요청을 보냅니다.
         $tapSendEmailVerificationButton.sink { [weak self] in
-            self?.reqeustEmailVerification(self?.validationViewModel?.email ?? "")
+            self?.reqeustEmailVerification(self?.receivedEmail ?? "")
         }
         .store(in: &cancellables)
         
@@ -54,8 +59,8 @@ class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
         $tapCheckEmailVerificationButton.sink { _ in
             if self.emailVerificationCode == self.receivedEmailVerificationCode {
                 self.emailVerificationState.sucess = true
+                self.emailVerificationState.sended = false
                 self.emailVerificationState.checkEnable = false
-                self.emailVerificationState.sendEnable = false
             } else {
                 self.emailVerificationState.failMessage = "인증코드가 일치하지 않습니다"
             }
@@ -64,19 +69,52 @@ class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
         
         /// SignupButton을 탭하면 signup serivce를 통해 회원가입 요청을 보냅니다.
         $tapSignupButton.sink { [weak self] in
-            self?.reqeustSignup(SignupModel(email: self?.validationViewModel?.email ?? "",
-                                     pw: self?.validationViewModel?.password ?? "",
-                                     birthday: self?.validationViewModel?.birth ?? "",
-                                     gender: self?.validationViewModel?.gender ?? true,
-                                     name: self?.validationViewModel?.name ?? ""))
+            self?.eventToValidationViewModel.send(.signup)
         }
         .store(in: &cancellables)
+        
+
+    }
+    
+    func bindEvent(){
+        eventFromValidationViewModel?.sink { [weak self]
+            (event: SignupValidationViewModelEvent) in
+            guard let self = self else { return }
+            switch event {
+                
+            case .emailValid(let email):
+                self.receivedEmail = email
+                self.emailVerificationState.sendEnable = true
+                break
+                
+            case .emailInvalid:
+                self.emailVerificationState.sendEnable = false
+                return
+                
+            case .allInputValid:
+                self.signupState.enable = self.emailVerificationState.sucess
+                break
+                
+            case .sendInfo(let info):
+                let gender: Bool =
+                    info.gender == "남"
+                self.reqeustSignup(
+                    SignupModel(email: info.email,
+                                pw: info.password,
+                                birthday: info.birth,
+                                gender: gender,
+                                name: info.name))
+                break
+                
+            }
+        }.store(in: &cancellables)
+        
     }
     
     // MARK: - Reqeust Method
     func reqeustEmailVerification(_ email: String) {
         self.accountService
-            .requestEmailConfirm(email: self.validationViewModel?.email ?? "")
+            .requestEmailConfirm(email: email)
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {

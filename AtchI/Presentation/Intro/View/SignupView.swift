@@ -22,8 +22,13 @@ struct SignupView: View {
         self.requestViewModel = SignupRequestViewModel(
             accountService: AccountService())
         // 두 뷰모델간 의존성 연결
-        self.validationViewModel.requestViewModel = self.requestViewModel
-        self.requestViewModel.validationViewModel = self.validationViewModel
+        self.validationViewModel.eventFromRequestViewModel
+            = self.requestViewModel.eventToValidationViewModel
+        self.requestViewModel.eventFromValidationViewModel
+            = self.validationViewModel.eventToRequestViewModel
+        // bind 함수 호출
+        self.requestViewModel.bindEvent()
+        self.validationViewModel.bindEvent()
     }
     
     var body: some View {
@@ -38,64 +43,60 @@ struct SignupView: View {
                     Spacer(minLength: 15)
                     TextInput(title: "이름",
                               placeholder: "이름을 입력해주세요",
-                              text: $validationViewModel.name,
-                              errorMessage: validationViewModel.nameErrorMessage)
+                              text: $validationViewModel.infoState.name,
+                              errorMessage: validationViewModel.infoErrorState.nameErrorMessage)
                     VStack {
                         TextInput(title: "이메일",
                                   placeholder: "예) junjongsul@gmail.com",
-                                  text: $validationViewModel.email,
-                                  errorMessage: validationViewModel.emailErrorMessage)
-                        ThinLightButton(title: requestViewModel.emailVerificationState.sended
-                                        ? "이메일 인증번호 다시 보내기"
-                                        : "이메일 인증번호 보내기",
-                                        onTap: requestViewModel.$tapSendEmailVerificationButton,
-                                        disabled: $requestViewModel.emailVerificationState.sended)
+                                  text: $validationViewModel.infoState.email,
+                                  errorMessage: validationViewModel.infoErrorState.emailErrorMessage,
+                                  disabled: requestViewModel.emailVerificationState.sucess)
+                        if !requestViewModel.emailVerificationState.sucess {
+                            ThinLightButton(title: requestViewModel.emailVerificationState.sended
+                                            ? "이메일 인증번호 다시 보내기"
+                                            : "이메일 인증번호 보내기",
+                                            onTap: requestViewModel.$tapSendEmailVerificationButton,
+                                            disabled: !requestViewModel.emailVerificationState.sendEnable)
+                        }
                     }
                     VStack {
                         TextInput(title: "이메일 인증",
                                   placeholder: "이메일 인증번호를 입력해주세요",
                                   text: $requestViewModel.emailVerificationCode,
                                   errorMessage: requestViewModel.emailVerificationState.failMessage,
-                                  disabled: !requestViewModel.emailVerificationState.sended)
+                                  disabled: !requestViewModel.emailVerificationState.sended
+                                  || requestViewModel.emailVerificationState.sucess)
                         if requestViewModel.emailVerificationState.sended {
                             ThinLightButton(title: "확인하기",
                                             onTap: requestViewModel.$tapCheckEmailVerificationButton,
-                                            disabled: $requestViewModel.emailVerificationState.checkEnable)
+                                            disabled: requestViewModel.emailVerificationState.sucess)
                             .alert(isPresented: $requestViewModel.emailVerificationState.sucess) {
                                 Alert(title: Text("인증 성공"), message: Text("인증에 성공하였습니다"), dismissButton: .default(Text("OK")))
                             }
                         }
                     }
                     ToogleInput(title:"성별",
-                                options: ["남", "여"])
+                                options: ["남", "여"],
+                                selected: $validationViewModel.infoState.gender)
                     TextInput(title: "생년월일",
                               placeholder: "8자리 생년월일 ex.230312",
-                              text: $validationViewModel.birth,
-                              errorMessage: validationViewModel.birthErrorMessage)
+                              text: $validationViewModel.infoState.birth,
+                              errorMessage: validationViewModel.infoErrorState.birthErrorMessage)
                     SecureInput(title: "비밀번호",
                                 placeholder: "비밀번호를 입력해주세요",
-                                secureText: $validationViewModel.password,
-                                errorMessage: $validationViewModel.passwordErrorMessage)
+                                secureText: $validationViewModel.infoState.password,
+                                errorMessage: $validationViewModel.infoErrorState.passwordAgainErrorMessage)
                     SecureInput(title: "비밀번호 확인",
                                 placeholder: "비밀번호를 한번 더 입력해주세요",
-                                secureText: $validationViewModel.passwordAgain,
-                                errorMessage: $validationViewModel.passwordAgainErrorMessage)
+                                secureText: $validationViewModel.infoState.passwordAgain,
+                                errorMessage: $validationViewModel.infoErrorState.passwordAgainErrorMessage)
                 }
                 
                 // MARK:  Complete Button
                 Spacer(minLength: 20)
-                DefaultButton(
-                       buttonSize: .large,
-                       buttonStyle: .filled,
-                       buttonColor: .mainPurple,
-                       isIndicate: false,
-                       action: {
-                           print("회원가입하기 click")
-                       },
-                       content: {
-                           Text("회원가입하기")
-                       }
-                   )
+                RoundedButton(title: "회원가입하기",
+                              onTap: requestViewModel.$tapSignupButton,
+                              disabled: requestViewModel.signupState.enable)
                 Spacer(minLength: 20)
                 
                 // Already signup

@@ -11,13 +11,7 @@ struct ToogleInput: View {
     var title: String
     let options: [String]
     
-    @State private var selected: String
-    
-    init(title: String, options: [String]) {
-        self.title = title
-        self.options = options
-        self.selected = options[0]
-    }
+    @Binding var selected: String
     
     var body: some View {
         VStack (alignment: .leading) {
