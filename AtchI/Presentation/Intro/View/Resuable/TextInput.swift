@@ -9,10 +9,16 @@ import SwiftUI
 import Combine
 
 struct TextInput: View {
-    var title: String = ""
-    var placeholder: String = ""
+    // let: 할당 이후 변하지 않는 값
+    let title: String
+    let placeholder: String
+    // @Binding: 상위에 전달해야하는 값
     @Binding var text: String
-    @Binding var errorMessage: String
+    // var: 상위에 전달할 필요가 없고, 변해야하는 값
+    var errorMessage: String
+    // var+초기값: 상위에 전달할 필요가 없고, 변해야하는데 선택적으로 사용하고 싶은 값
+    var disabled: Bool = false
+    
     var onFocusOut: PassthroughSubject<String, Never>? = nil
     
     // private
@@ -32,9 +38,11 @@ struct TextInput: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .strokeBorder(
-                                isFocused ?
-                                Color.mainPurple:
-                                    Color.grayDisabled,
+                                isFocused
+                                ? Color.mainPurple
+                                : disabled
+                                ? Color.grayBoldLine
+                                : Color.grayDisabled,
                                 lineWidth: 2)
                             .animation(.easeInOut(duration: 0.3), value: isFocused)
                     )
@@ -50,7 +58,7 @@ struct TextInput: View {
                         .onSubmit {
                             onFocusOut?.send(text)
                         }
-                
+                        .disabled(disabled)
             }
             
             // Show error message

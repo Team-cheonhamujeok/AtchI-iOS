@@ -41,6 +41,8 @@
 		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
 		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
 		BC0446BF29FC24AA002109A2 /* EmailVerificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */; };
+		BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BC0446C129FC40CD002109A2 /* ComposableArchitecture */; };
+		BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446C529FC42EE002109A2 /* SignupReducer.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
 		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
@@ -64,6 +66,9 @@
 		BC6F0F6B29EFAE3A00F3FBD1 /* SleepTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6729EFAE3A00F3FBD1 /* SleepTime.swift */; };
 		BC70470F29E7E91C00FA265A /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupModel.swift */; };
 		BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78196E29E07884005C4CF5 /* AccountService.swift */; };
+		BC81F35629FCC26700E09958 /* TypeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35529FCC26700E09958 /* TypeState.swift */; };
+		BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35829FD38DA00E09958 /* SignupState.swift */; };
+		BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35A29FD3D3700E09958 /* EmailVerificationState.swift */; };
 		BC88B7FC29EA521E00F484AF /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88B7FB29EA521E00F484AF /* AccountError.swift */; };
 		BC88B80329EA535000F484AF /* AccountServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88B80229EA535000F484AF /* AccountServiceType.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
@@ -146,6 +151,7 @@
 		BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelType.swift; sourceTree = "<group>"; };
 		BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelType.swift; sourceTree = "<group>"; };
 		BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationModel.swift; sourceTree = "<group>"; };
+		BC0446C529FC42EE002109A2 /* SignupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReducer.swift; sourceTree = "<group>"; };
 		BC2526EA29D419BA000FCE11 /* SecureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInput.swift; sourceTree = "<group>"; };
 		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -169,6 +175,9 @@
 		BC6F0F6729EFAE3A00F3FBD1 /* SleepTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepTime.swift; sourceTree = "<group>"; };
 		BC70470E29E7E91C00FA265A /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		BC78196E29E07884005C4CF5 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		BC81F35529FCC26700E09958 /* TypeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeState.swift; sourceTree = "<group>"; };
+		BC81F35829FD38DA00E09958 /* SignupState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupState.swift; sourceTree = "<group>"; };
+		BC81F35A29FD3D3700E09958 /* EmailVerificationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationState.swift; sourceTree = "<group>"; };
 		BC88B57229D5F47C003CA752 /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		BC88B7FB29EA521E00F484AF /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		BC88B80229EA535000F484AF /* AccountServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceType.swift; sourceTree = "<group>"; };
@@ -222,6 +231,7 @@
 			files = (
 				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
+				BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +398,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		BC0446C729FC4536002109A2 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				BCA1486129D5F1BD001F390D /* SignupViewModel.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
 		BC2526E929D418F3000FCE11 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +456,7 @@
 		BC4E1EB929C2331400915AB6 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				BC0446C729FC4536002109A2 /* Deprecated */,
 				BCA1485E29D5F134001F390D /* View */,
 				BCA1485D29D5F127001F390D /* ViewModel */,
 			);
@@ -495,6 +514,15 @@
 				BCE7CED429F983B1003C3A6C /* ValidationService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BC81F35729FD38D000E09958 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				BC81F35829FD38DA00E09958 /* SignupState.swift */,
+				BC81F35A29FD3D3700E09958 /* EmailVerificationState.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 		BC88B57129D5F47C003CA752 /* Frameworks */ = {
@@ -626,11 +654,12 @@
 		BCA1485D29D5F127001F390D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BC81F35729FD38D000E09958 /* State */,
 				BC0446B929FC1A87002109A2 /* Protocol */,
 				BCA1485F29D5F149001F390D /* LoginViewModel.swift */,
-				BCA1486129D5F1BD001F390D /* SignupViewModel.swift */,
 				BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */,
 				BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */,
+				BC0446C529FC42EE002109A2 /* SignupReducer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -680,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				BCEDA92729E0356D00F301B1 /* Subject.swift */,
+				BC81F35529FCC26700E09958 /* TypeState.swift */,
 			);
 			path = PropertyWrapper;
 			sourceTree = "<group>";
@@ -739,6 +769,7 @@
 			packageProductDependencies = (
 				BC37AA5029E080760047D273 /* CombineMoya */,
 				BC37AA5229E080760047D273 /* Moya */,
+				BC0446C129FC40CD002109A2 /* ComposableArchitecture */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -778,6 +809,7 @@
 			mainGroup = BC8D54F329B9909C00FAA6E3;
 			packageReferences = (
 				BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */,
+				BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -857,11 +889,14 @@
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
+				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
+				BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
 				BC88B7FC29EA521E00F484AF /* AccountError.swift in Sources */,
 				BC6F0F6829EFAE3A00F3FBD1 /* HealthKitProvider.swift in Sources */,
 				0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */,
+				BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */,
 				BC0446BF29FC24AA002109A2 /* EmailVerificationModel.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
@@ -908,6 +943,7 @@
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
+				BC81F35629FCC26700E09958 /* TypeState.swift in Sources */,
 				BC3DDF6929FB9BC400452A2B /* SignupValidationViewModel.swift in Sources */,
 				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
 				044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */,
@@ -1239,6 +1275,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.52.0;
+			};
+		};
 		BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -1250,6 +1294,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BC0446C129FC40CD002109A2 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		BC37AA5029E080760047D273 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;
