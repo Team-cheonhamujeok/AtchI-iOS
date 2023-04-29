@@ -12,9 +12,9 @@ import HealthKit
 /// - Note: Protocol이 필요할까요?
 protocol HKActivityServiceProtocol {
     var healthKitProvider: HealthKitProviderProtocol { get }
-    func getStepCount() -> Future<Double, Error>
-    func getEnergy() -> Future<Double, Error>
-    func getDistance() -> Future<Double, Error>
+    func getStepCount(date: Date) -> Future<Double, Error>
+    func getEnergy(date: Date) -> Future<Double, Error>
+    func getDistance(date: Date) -> Future<Double, Error>
 }
 
 class HKActivityService: HKActivityServiceProtocol {
@@ -29,26 +29,26 @@ class HKActivityService: HKActivityServiceProtocol {
     //MARK: - Sending Function
     /// - Note: 값을 구하는 기간은 다 똑같으니 predicate는 묶는게 낫겠죠?
     //MARK: 걸음 수
-    func getStepCount() -> Future<Double, Error> {
+    func getStepCount(date: Date) -> Future<Double, Error> {
         return Future { promise in
-            let now = Date()
-            let startOfDay = Calendar.current.date(byAdding: .day, value: 0, to: now)
-            let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: now)
-            let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
+            let startOfDay = self.startDate(date: date)
+            let endOfDay = self.endDate(date: date)
+            let predicate = HKQuery.predicateForSamples(withStart: startOfDay,
+                                                        end: endOfDay,
+                                                        options: .strictStartDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .stepCount, predicate: predicate) { count in
+            self.healthKitProvider.getQuantityTypeSample(identifier: .stepCount,
+                                                         predicate: predicate) { count in
                 promise(Result.success(count))
             }
         }
     }
     
     // MARK: 열량
-    func getEnergy() -> Future<Double, Error>  {
+    func getEnergy(date: Date) -> Future<Double, Error>  {
         return Future { promise in
-            
-            let now = Date()
-            let startOfDay = Calendar.current.date(byAdding: .day, value: 0, to: now)
-            let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: now)
+            let startOfDay = self.startDate(date: date)
+            let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
             
             self.healthKitProvider.getQuantityTypeSample(identifier: .activeEnergyBurned, predicate: predicate) { energy in
@@ -57,17 +57,23 @@ class HKActivityService: HKActivityServiceProtocol {
         }
     }
     // MARK: 거리
-    func getDistance() -> Future<Double, Error>  {
+    func getDistance(date: Date) -> Future<Double, Error>  {
         return Future { promise in
-            
-            let now = Date()
-            let startOfDay = Calendar.current.date(byAdding: .day, value: 0, to: now)
-            let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: now)
+            let startOfDay = self.startDate(date: date)
+            let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
             
             self.healthKitProvider.getQuantityTypeSample(identifier: .distanceWalkingRunning, predicate: predicate) { distance in
                 promise(Result.success(distance))
             }
         }
+    }
+    // MARK: - Private Func
+    private func startDate(date: Date) -> Date? {
+        return Calendar.current.date(byAdding: .day, value: 0, to: date)
+    }
+    
+    private func endDate(date: Date) -> Date? {
+        return Calendar.current.date(byAdding: .day, value: 0, to: date)
     }
 }

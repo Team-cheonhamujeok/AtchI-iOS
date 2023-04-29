@@ -48,7 +48,20 @@ final class HKActivityServiceTest: XCTestCase {
         var result = 0.0
         
         //MARK: Act
-        var future = sut?.getStepCount()
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .full  
+        // 1. 지역 설정
+        formatter.locale = Locale(identifier: "ko_KR")
+
+        // 2. 시간대 설정
+        formatter.timeZone = TimeZone(identifier: "Asia/Seoul")
+        
+        
+        var future = sut?.getStepCount(date: date)
+        print("Date:", date)
+        print("KRDate:", formatter.string(from: date))
         
         future?.sink(receiveCompletion: { err in
             print(err)
@@ -57,7 +70,7 @@ final class HKActivityServiceTest: XCTestCase {
         })
         
         //MARK: Assert
-        XCTAssertEqual(result, 0)
+        XCTAssertEqual(result, 8000)
     }
     
     func testEnergy() throws {
@@ -77,7 +90,8 @@ final class HKActivityServiceTest: XCTestCase {
         var result = 0.0
         
         //MARK: Act
-        var future = sut?.getEnergy()
+        let date = Date()
+        var future = sut?.getEnergy(date: date)
         
         future?.sink(receiveCompletion: { err in
             print(err)
@@ -106,7 +120,8 @@ final class HKActivityServiceTest: XCTestCase {
         var result = 0.0
         
         //MARK: Act
-        var future = sut?.getDistance()
+        let date = Date()
+        var future = sut?.getDistance(date: date)
         
         future?.sink(receiveCompletion: { err in
             print(err)
