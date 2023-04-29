@@ -92,6 +92,7 @@ class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
                 return
                 
             case .allInputValid:
+                print("event: allInputValid: \(self.emailVerificationState.sucess)")
                 self.signupState.enable = self.emailVerificationState.sucess
                 break
                 
