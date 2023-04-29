@@ -8,10 +8,9 @@
 import Foundation
 import Combine
 
-class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
+class SignupRequestViewModel: ObservableObject {
     // MARK: - Dependency
     let accountService: AccountServiceType
-//    var validationViewModel: SignupValidationViewModelType? = nil
     var eventToValidationViewModel = PassthroughSubject<SignupRequestViewModelEvent, Never>()
     var eventFromValidationViewModel: PassthroughSubject<SignupValidationViewModelEvent, Never>? = nil
     
