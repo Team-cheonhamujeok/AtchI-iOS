@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct QuizView: View {
-    var quizOrder: String
-    var quizContent: String
+    var quiz: Quiz
     @State var tag:Int? = nil
+    var preventViewModel: PreventViewModel
+    @Binding var quizPath: [QuizStack]
     
     var body: some View {
         ZStack{
             Color.mainPurple.ignoresSafeArea()
             VStack(alignment: .leading, spacing: 10) {
-                Text(quizOrder + "번째 퀴즈")
+                Text(quiz.index + "번째 퀴즈")
                     .font(.titleSmall)
                     .foregroundColor(.white)
-                Text(quizContent)
+                Text(quiz.content)
                     .font(.titleLarge)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -29,16 +30,18 @@ struct QuizView: View {
                 Text("")
                 
                 Spacer()
-                NavigationLink(destination: QuizDoneView(quizOrder: quizOrder), tag: 1, selection: self.$tag) {
-                    EmptyView()
-                }
+                
                 DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
                     print("퀴즈풀기 완료")
                     self.tag = 1
+                    preventViewModel.quizCountUp()
+                    print(preventViewModel.quizCount)
+                    quizPath.append(QuizStack(type: .quizDoneView, data: quiz))
                 }, content: {
                     Text("완료")
                         .foregroundColor(.mainPurple)
                 })
+                .padding(.horizontal, 30)
             }
         }
         
@@ -46,8 +49,8 @@ struct QuizView: View {
     }
 }
 
-struct QuizView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuizView(quizOrder: "첫", quizContent: "오늘 점심은 무엇인가요?")
-    }
-}
+//struct QuizView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuizView(quizOrder: "첫", quizContent: "오늘 점심은 무엇인가요?")
+//    }
+//}

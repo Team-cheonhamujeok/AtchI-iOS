@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuizStateCard: View {
     var days = ["월", "화", "수", "목", "금", "토", "일"]
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
             Text("이번주 퀴즈 현황")
@@ -26,54 +27,6 @@ struct QuizStateCard: View {
 //                        .font(.bodyMedium)
 //                        .foregroundColor(.white)
 //                }
-//                ZStack {
-//                    Circle()
-//                        .fill(Color.mainPurple)
-//                        .frame(width: 30, height: 30)
-//                    Text("화")
-//                        .font(.bodyMedium)
-//                        .foregroundColor(.white)
-//                }
-//                ZStack {
-//                    Circle()
-//                        .fill(Color.mainPurple)
-//                        .frame(width: 30, height: 30)
-//                    Text("수")
-//                        .font(.bodyMedium)
-//                        .foregroundColor(.white)
-//                }
-//                ZStack {
-//                    Circle()
-//                        .fill(Color.mainPurple)
-//                        .frame(width: 30, height: 30)
-//                    Text("목")
-//                        .font(.bodyMedium)
-//                        .foregroundColor(.white)
-//                }
-//                ZStack {
-//                    Circle()
-//                        .fill(Color.mainPurple)
-//                        .frame(width: 30, height: 30)
-//                    Text("금")
-//                        .font(.bodyMedium)
-//                        .foregroundColor(.white)
-//                }
-//                ZStack {
-//                    Circle()
-//                        .fill(Color.mainPurple)
-//                        .frame(width: 30, height: 30)
-//                    Text("토")
-//                        .font(.bodyMedium)
-//                        .foregroundColor(.white)
-//                }
-//                ZStack {
-//                    Circle()
-//                        .fill(Color.mainPurple)
-//                        .frame(width: 30, height: 30)
-//                    Text("일")
-//                        .font(.bodyMedium)
-//                        .foregroundColor(.white)
-//                }
 //
 //            }
             
@@ -85,12 +38,32 @@ struct QuizStateCard: View {
             
             HStack {
                 ForEach(days, id: \.self) { item in
-                    Text(item)
-                        .font(.bodyMedium)
+                    ZStack {
+                        if item == "월" {
+                        Circle()
+                            .fill(Color.mainPurple)
+                            .frame(width: 30, height: 30)
+                        }
+                        else if item == "화" {
+                            Circle()
+                                .strokeBorder(Color.mainPurple,lineWidth: 1)
+                                .frame(width: 30, height: 30)
+                        }
+                        // Spacer 들어갈때 동그라미 있는 곳 없는 곳 간격이 달라져서 투명 원 하나 넣어둠
+                        else {
+                            Circle()
+                                .fill(.clear)
+                                .frame(width: 30, height: 30)
+                        }
+                        Text(item)
+                            .font(.bodyMedium)
+                        
+                    }
                     if item != days.last { // match everything but the last
                         Spacer()
                         
                     }
+                    
                 }
             }
             .padding(.top, 5)
