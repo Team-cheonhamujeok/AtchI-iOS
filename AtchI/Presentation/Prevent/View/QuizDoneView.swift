@@ -9,7 +9,8 @@ import SwiftUI
 
 struct QuizDoneView: View {
     var quizOrder: String
-    @Environment(\.dismiss) private var dismiss
+    var preventViewModel: PreventViewModel
+    @Binding var quizStack: [QuizStack]
     
     var body: some View {
         ZStack{
@@ -19,9 +20,9 @@ struct QuizDoneView: View {
                     .font(.titleLarge)
                 Text(quizOrder + "번째 퀴즈 완료")
                     .font(.titleLarge)
-                Text("이제 오늘 퀴즈는 " + "개가 남았어요 :)")
+                Text("이제 오늘 퀴즈는 " + String(3 - preventViewModel.quizCount) + "개가 남았어요 :)")
                     .font(.bodyMedium)
-
+                let _ = print(3 - preventViewModel.quizCount)
             }
             .foregroundColor(.white)
             VStack {
@@ -30,11 +31,12 @@ struct QuizDoneView: View {
 
                 DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
                     print("퀴즈풀기 완료")
-//                    self.presentationMode.value.dismiss()
+                    quizStack = []
                 }, content: {
-                    Text("완료")
+                    Text("확인")
                         .foregroundColor(.mainPurple)
                 })
+                .padding(.horizontal, 30)
             }
             
         }
@@ -42,8 +44,8 @@ struct QuizDoneView: View {
     }
 }
 
-struct QuizDoneView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuizDoneView(quizOrder: "첫")
-    }
-}
+//struct QuizDoneView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuizDoneView(quizOrder: "첫")
+//    }
+//}
