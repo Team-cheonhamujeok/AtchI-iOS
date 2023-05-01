@@ -15,6 +15,23 @@ protocol HKProviderProtocol {
                                completion: @escaping ((Double) -> Void))
 }
 
+enum HKProviderError: Error {
+    /// Identifier 오류입니다.
+    case identifierNotFound
+    /// Healhkit Query 실패 오류입니다.
+    case fetchSamplesFailed
+    
+    var description: String {
+        switch self {
+        case .identifierNotFound:
+            return "identifier를 찾을 수 없습니다. 올바른 identifier를 입력했는지 확인해주세요."
+        case .fetchSamplesFailed:
+            return "Sample을 가져오는데 실패했습니다. 건강 데이터에 대한 접근 권한 및 디바이스 상태를 확인해주세요."
+        }
+    }
+    
+}
+
 class HKProvider {
     // MARK: - Properties
     let healthStore = HKHealthStore()
@@ -22,12 +39,11 @@ class HKProvider {
     //MARK: - Category Sample
     func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ([HKCategorySample]) -> Void) {
+                               completion: @escaping ([HKCategorySample], Error?) -> Void) throws {
         // identifier로 Type 정의
         guard let sleepType = HKObjectType.categoryType(forIdentifier: identifier) else {
             // 에러 처리를 수행합니다.
-            print("Invalid HKCategoryTypeIdentifier")
-            return
+            throw HKProviderError.identifierNotFound
         }
         
         // 최신 데이터를 먼저 가져오도록 sort 기준 정의
@@ -36,16 +52,15 @@ class HKProvider {
         // 쿼리 수행 완료시 실행할 콜백 정의
         let query = HKSampleQuery(sampleType: sleepType,
                                   predicate: predicate,
-                                  limit: 1000,
+                                  limit: HKObjectQueryNoLimit,
                                   sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.
-                print(error)
-                return
+                completion([], HKProviderError.fetchSamplesFailed)
             }
             if let result = tmpResult {
                 let categorySamples = result.compactMap { $0 as? HKCategorySample }
-                completion(categorySamples)
+                completion(categorySamples, nil)
             }
         }
         
