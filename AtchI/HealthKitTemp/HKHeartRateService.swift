@@ -10,9 +10,9 @@ import Combine
 import HealthKit
 
 class HKHeartRateService {
-    let healthKitProvider: HealthKitProvider
+    let healthKitProvider: HKProvider
     
-    init(healthKitProvider: HealthKitProvider) {
+    init(healthKitProvider: HKProvider) {
         self.healthKitProvider = healthKitProvider
     }
     

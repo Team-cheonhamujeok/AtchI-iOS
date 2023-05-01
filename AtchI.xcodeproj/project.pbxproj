@@ -1043,7 +1043,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = N8MX74Y447;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -1062,7 +1062,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = N8MX74Y447;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -1081,7 +1081,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = N8MX74Y447;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -1105,7 +1105,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = N8MX74Y447;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -1246,10 +1246,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = N8MX74Y447;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "건강 데이터 접근을 위해 권한이 필요합니다. 해당 정보는 치매 진단을 위해 사용됩니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "건강 데이터 접근을 위해 권한이 필요합니다. 해당 정보는 치매 진단을 위해 사용됩니다.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
@@ -1278,10 +1281,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = N8MX74Y447;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "건강 데이터 접근을 위해 권한이 필요합니다. 해당 정보는 치매 진단을 위해 사용됩니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "건강 데이터 접근을 위해 권한이 필요합니다. 해당 정보는 치매 진단을 위해 사용됩니다.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";

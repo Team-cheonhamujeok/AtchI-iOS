@@ -9,13 +9,13 @@ import Foundation
 import Combine
 import HealthKit
 
-protocol HealthKitProviderProtocol {
+protocol HKProviderProtocol {
     func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
                                predicate: NSPredicate,
                                completion: @escaping ((Double) -> Void))
 }
 
-class HealthKitProvider {
+class HKProvider {
     // MARK: - Properties
     let healthStore = HKHealthStore()
     

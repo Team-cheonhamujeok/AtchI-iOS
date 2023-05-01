@@ -5,29 +5,49 @@
 //  Created by 강민규 on 2023/04/25.
 //
 
+@testable import AtchI
 import XCTest
 
+import Combine
+import HealthKit
+
+/// Real device test. dont't excute on simulator
 final class AtchIServiceTests: XCTestCase {
 
+    var service: HKSleepService!
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.service = HKSleepService(healthkitProvicer: HKProvider())
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.service = nil
     }
 
+    /// receive king
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        
+        print("####")
+        
+        let expectation = XCTestExpectation(description: "Signup Test Test")
+
+        let cancellable = service.fetchSleepDataWithCombine(date: Date())
+            .sink(receiveCompletion: { _ in print("### stream 완료") },
+                  receiveValue: { samples in
+                print("### \(samples)")
+                expectation.fulfill()
+                
+            })
+        
+        wait(for: [expectation], timeout: 5.0)
+        
+        XCTAssertEqual(0, 0)
+
     }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

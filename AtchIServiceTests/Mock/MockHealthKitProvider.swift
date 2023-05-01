@@ -10,7 +10,7 @@
 import Combine
 import HealthKit
 
-class MockHealthKitProvider: HealthKitProviderProtocol {
+class MockHealthKitProvider: HKProviderProtocol {
     var cancellables = Set<AnyCancellable>()
     
     func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
