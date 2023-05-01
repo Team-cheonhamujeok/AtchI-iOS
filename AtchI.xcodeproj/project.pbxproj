@@ -31,11 +31,13 @@
 		049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */; };
 		049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */; };
 		04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8F74A29D022B50082DC29 /* TestAnswer.swift */; };
+
 		6F06DB5F29FD3D7700770596 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB5E29FD3D7700770596 /* Quiz.swift */; };
 		6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6029FD3D8600770596 /* PreventViewModel.swift */; };
 		6F06DB6329FD3DCF00770596 /* QuizViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6229FD3DCF00770596 /* QuizViewType.swift */; };
 		6F06DB6529FD3DDA00770596 /* TodayQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6429FD3DDA00770596 /* TodayQuiz.swift */; };
 		6F0F94AE29FE4DA400993A52 /* HealthKitHeartRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0F94AD29FE4DA400993A52 /* HealthKitHeartRateService.swift */; };
+
 		6F16514B29D1342400CC228F /* PreventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16514A29D1342400CC228F /* PreventView.swift */; };
 		6F16514D29D1345A00CC228F /* BoldDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16514C29D1345A00CC228F /* BoldDivider.swift */; };
 		6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515029D1348D00CC228F /* QuizTemplate.swift */; };
@@ -153,11 +155,13 @@
 		049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestQuestions.swift; sourceTree = "<group>"; };
 		049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestViewModel.swift; sourceTree = "<group>"; };
 		04A8F74A29D022B50082DC29 /* TestAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswer.swift; sourceTree = "<group>"; };
+
 		6F06DB5E29FD3D7700770596 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		6F06DB6029FD3D8600770596 /* PreventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventViewModel.swift; sourceTree = "<group>"; };
 		6F06DB6229FD3DCF00770596 /* QuizViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewType.swift; sourceTree = "<group>"; };
 		6F06DB6429FD3DDA00770596 /* TodayQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuiz.swift; sourceTree = "<group>"; };
 		6F0F94AD29FE4DA400993A52 /* HealthKitHeartRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHeartRateService.swift; sourceTree = "<group>"; };
+
 		6F16514A29D1342400CC228F /* PreventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventView.swift; sourceTree = "<group>"; };
 		6F16514C29D1345A00CC228F /* BoldDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldDivider.swift; sourceTree = "<group>"; };
 		6F16515029D1348D00CC228F /* QuizTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTemplate.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				0491BAD429F968A2005C53E5 /* Mock */,
 				0455D42529F77DA100A8A747 /* HealthKit */,
 				0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */,
+				04C6011F29FF7AF8004DA887 /* DiagnosisServiceTests.swift */,
 			);
 			path = AtchIServiceTests;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 			path = SelfTest;
 			sourceTree = "<group>";
 		};
+
 		6F06DB5C29FD3D5F00770596 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +396,7 @@
 				6F06DB6029FD3D8600770596 /* PreventViewModel.swift */,
 			);
 			path = ViewModel;
+
 			sourceTree = "<group>";
 		};
 		6F16514629D1339700CC228F /* Prevent */ = {
@@ -548,6 +555,7 @@
 		BC78196D29E07867005C4CF5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				04C6011629FEDE81004DA887 /* Diagnosis */,
 				BC88B80029EA533A00F484AF /* Protocol */,
 				BC88B7FA29EA521400F484AF /* Error */,
 				BC70470C29E7E8D800FA265A /* Model */,
@@ -910,6 +918,7 @@
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
+				04C6012029FF7AF8004DA887 /* DiagnosisServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -938,6 +947,7 @@
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
 				049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */,
 				049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */,
+				04C6011C29FEDFF5004DA887 /* DiagnosisError.swift in Sources */,
 				049ADEBB29CC4A92009B9B62 /* SelfTestView.swift in Sources */,
 				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
 				6F16514D29D1345A00CC228F /* BoldDivider.swift in Sources */,
@@ -968,8 +978,11 @@
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
 				BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */,
+
 				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
+
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
+				04C6011A29FEDF27004DA887 /* DiagnosisPostModel.swift in Sources */,
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
