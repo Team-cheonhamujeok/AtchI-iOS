@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct AtchIApp: App {
+    let hkAuthorizationProvider = HKAuthorizationProvider()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear{
+                    hkAuthorizationProvider.setAuthorization()
+            }
         }
     }
 }

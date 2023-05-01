@@ -11,7 +11,7 @@ import HealthKit
 
 /// - Note: Protocol이 필요할까요?
 protocol HKActivityServiceProtocol {
-    var healthKitProvider: HealthKitProviderProtocol { get }
+    var healthKitProvider: HKProviderProtocol { get }
     func getStepCount(date: Date) -> Future<Double, Error>
     func getEnergy(date: Date) -> Future<Double, Error>
     func getDistance(date: Date) -> Future<Double, Error>
@@ -19,9 +19,9 @@ protocol HKActivityServiceProtocol {
 
 class HKActivityService: HKActivityServiceProtocol {
     //MARK: - Properties
-    var healthKitProvider: HealthKitProviderProtocol
+    var healthKitProvider: HKProviderProtocol
     
-    init(healthkitProvicer: HealthKitProviderProtocol) {
+    init(healthkitProvicer: HKProviderProtocol) {
         self.healthKitProvider = healthkitProvicer
     }
     

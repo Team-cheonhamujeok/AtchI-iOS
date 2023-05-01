@@ -1,5 +1,5 @@
 //
-//  HealthKitSleepService.swift
+//  HKSleepService.swift
 //  AtchI
 //
 //  Created by DOYEON LEE on 2023/04/16.
@@ -9,13 +9,13 @@ import Foundation
 import HealthKit
 import Combine
 
-class HealthKitSleepService{
+class HKSleepService{
     
-    let healthKitProvider: HealthKitProvider
+    let healthKitProvider: HKProvider
     
 //    enableBackgroundDelivery(for:frequency:withCompletion:)
     
-    init(healthkitProvicer: HealthKitProvider) {
+    init(healthkitProvicer: HKProvider) {
         self.healthKitProvider = healthkitProvicer
     }
     
@@ -28,7 +28,7 @@ class HealthKitSleepService{
     ///    - completion: sample을 전달받는 콜백 클로저입니다.
     /// - Returns: 수면 데이터를 [HKCategorySample] 형으로 Future에 담아 반환합니다.
     func fetchSleepDataWithCombine(date: Date) -> Future<[HKCategorySample], Error> {
-        return Future { [weak self] promise in
+        return Future() { [weak self] promise in
             // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
             let endDate = self?.getTodaySixPM(date)
             let startDate = self?.getYesterdaySixPM(date)

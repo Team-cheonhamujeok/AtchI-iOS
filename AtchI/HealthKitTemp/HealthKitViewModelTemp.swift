@@ -9,9 +9,9 @@ import Foundation
 
 /// 예시 뷰모델
 class HealthKitViewModelTemp {
-    let sleepService: HealthKitSleepService
+    let sleepService: HKSleepService
     
-    init(sleepService: HealthKitSleepService) {
+    init(sleepService: HKSleepService) {
         self.sleepService = sleepService
     }
     
