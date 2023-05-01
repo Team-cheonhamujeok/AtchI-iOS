@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import LinkNavigator
 
 struct HomeView: View {
+    
+    let navigator: LinkNavigatorType
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -51,9 +55,9 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}
 

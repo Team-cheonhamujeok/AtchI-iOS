@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "linknavigator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/interactord/LinkNavigator.git",
+      "state" : {
+        "revision" : "0ac3638f4b9a14c8286f378cba8f15fdbdcaa69f",
+        "version" : "0.7.1"
+      }
+    },
+    {
       "identity" : "moya",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Moya/Moya.git",
