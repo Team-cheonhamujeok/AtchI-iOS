@@ -26,7 +26,7 @@ struct LoginView: View {
             TextInput(title: "이메일",
                       placeholder: "예) junjongsul@gmail.com",
                       text: $viewModel.editEmail,
-                      errorMessage: $viewModel.emailErrorMessage)
+                      errorMessage: viewModel.emailErrorMessage)
             SecureInput(title: "비밀번호",
                         placeholder: "비밀번호를 입력해주세요",
                         secureText: $viewModel.editPassword,

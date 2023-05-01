@@ -12,7 +12,7 @@ import SwiftUI
 struct ThinLightButton: View {
     var title: String
     var onTap: PassthroughSubject<Void, Never>
-    @Binding var disabled: Bool
+    var disabled: Bool = false
     
     var body: some View {
         Button(action: {

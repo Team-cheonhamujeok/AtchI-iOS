@@ -17,7 +17,7 @@ struct ContentView: View {
                         Image(systemName: "house")
                         Text("홈")
                     }
-                PreventView()
+                PreventView(preventViewModel: PreventViewModel())
                     .tabItem{
                         Image(systemName: "brain.head.profile")
                         Text("예방")

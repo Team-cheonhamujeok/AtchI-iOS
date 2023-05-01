@@ -21,8 +21,6 @@ class HealthKitViewModelTemp {
         let pub2 = sleepService.fetchSleepDataWithCombine(date: Date()) // 실제론 다른 서비스
         let pub3 = sleepService.fetchSleepDataWithCombine(date: Date()) // 실제론 다른 서비스
         
-        // 실제로 동작이 멈추는건가? cancle -> complete. callback -> 자원을 아끼는가? ->>>
-        
         // zip3 사용 예시
         pub1.zip(pub2, pub3) { [weak self] sleepSamples, samples2, samples3 in // 네이밍은 서비스에 맞게
             print("sample1: \(sleepSamples), sample2: \(samples2), sample3: \(samples3)") // 값 3개가 다 도착하면 실행
