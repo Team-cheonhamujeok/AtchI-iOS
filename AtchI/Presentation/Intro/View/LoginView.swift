@@ -46,18 +46,6 @@ struct LoginView: View {
                         Text("로그인하기")
                     }
                 )
-                
-                // Already signup
-                HStack (alignment: .center, spacing: 3) {
-                    Text("계정이 없으신가요? ")
-                        .foregroundColor(.grayTextLight)
-                    Text("회원가입하기")
-                        .foregroundColor(.grayTextLight)
-                        .underline()
-                        .onTapGesture {
-                            // 회원가입뷰로 이동이동
-                        }
-                }.frame(maxWidth: .infinity)
             }
             
 
