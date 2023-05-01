@@ -24,7 +24,7 @@ class HKProvider {
     //MARK: - Category Sample
     func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ([HKCategorySample], Error?) -> Void) throws {
+                               completion: @escaping ([HKCategorySample], Error?) -> Void) {
         // identifier로 Type 정의
         guard let sleepType = HKObjectType.categoryType(forIdentifier: identifier) else {
             // 에러 처리를 수행합니다.

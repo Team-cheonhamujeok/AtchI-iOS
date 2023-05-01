@@ -11,12 +11,12 @@ import Combine
 
 class HKSleepService{
     
-    let healthKitProvider: HKProvider
+    let hkProvider: HKProvider
     
 //    enableBackgroundDelivery(for:frequency:withCompletion:)
     
-    init(healthkitProvicer: HKProvider) {
-        self.healthKitProvider = healthkitProvicer
+    init(hkProvider: HKProvider) {
+        self.hkProvider = hkProvider
     }
     
 
@@ -33,9 +33,11 @@ class HKSleepService{
             let endDate = self?.getTodaySixPM(date)
             let startDate = self?.getYesterdaySixPM(date)
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
-
+            
             // 수면 데이터 가져오기
-            self?.healthKitProvider.getCategoryTypeSample(identifier: .sleepAnalysis, predicate: predicate) { samples in
+            self?.hkProvider.getCategoryTypeSample(identifier: .sleepAnalysis,
+                                                              predicate: predicate) { samples, error  in
+                if let error = error { promise(Result.failure(error)) }
                 promise(Result.success(samples))
             }
         }
