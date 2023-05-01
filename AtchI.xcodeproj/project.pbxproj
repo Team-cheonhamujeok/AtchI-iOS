@@ -31,10 +31,13 @@
 		049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */; };
 		049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */; };
 		04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8F74A29D022B50082DC29 /* TestAnswer.swift */; };
-		04C6011829FEDE9A004DA887 /* DiagnosisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6011729FEDE9A004DA887 /* DiagnosisService.swift */; };
-		04C6011A29FEDF27004DA887 /* DiagnosisPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6011929FEDF27004DA887 /* DiagnosisPostModel.swift */; };
-		04C6011C29FEDFF5004DA887 /* DiagnosisError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6011B29FEDFF5004DA887 /* DiagnosisError.swift */; };
-		04C6012029FF7AF8004DA887 /* DiagnosisServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6011F29FF7AF8004DA887 /* DiagnosisServiceTests.swift */; };
+
+		6F06DB5F29FD3D7700770596 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB5E29FD3D7700770596 /* Quiz.swift */; };
+		6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6029FD3D8600770596 /* PreventViewModel.swift */; };
+		6F06DB6329FD3DCF00770596 /* QuizViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6229FD3DCF00770596 /* QuizViewType.swift */; };
+		6F06DB6529FD3DDA00770596 /* TodayQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6429FD3DDA00770596 /* TodayQuiz.swift */; };
+		6F0F94AE29FE4DA400993A52 /* HealthKitHeartRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0F94AD29FE4DA400993A52 /* HealthKitHeartRateService.swift */; };
+
 		6F16514B29D1342400CC228F /* PreventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16514A29D1342400CC228F /* PreventView.swift */; };
 		6F16514D29D1345A00CC228F /* BoldDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16514C29D1345A00CC228F /* BoldDivider.swift */; };
 		6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515029D1348D00CC228F /* QuizTemplate.swift */; };
@@ -42,6 +45,11 @@
 		6F16515529D134DD00CC228F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515429D134DD00CC228F /* QuizView.swift */; };
 		6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515629D134FD00CC228F /* QuizDoneView.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
+		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
+		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
+		BC0446BF29FC24AA002109A2 /* EmailVerificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */; };
+		BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BC0446C129FC40CD002109A2 /* ComposableArchitecture */; };
+		BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446C529FC42EE002109A2 /* SignupReducer.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
 		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
@@ -55,7 +63,7 @@
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
 		BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */; };
-		BC49094B29EA69CF00EDDD0D /* SignupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094A29EA69CF00EDDD0D /* SignupViewModelTests.swift */; };
+		BC49094B29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */; };
 		BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC88B57229D5F47C003CA752 /* Combine.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBA29C2333600915AB6 /* SignupView.swift */; };
 		BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBC29C2346000915AB6 /* IntroView.swift */; };
@@ -65,6 +73,16 @@
 		BC6F0F6B29EFAE3A00F3FBD1 /* SleepTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6729EFAE3A00F3FBD1 /* SleepTime.swift */; };
 		BC70470F29E7E91C00FA265A /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupModel.swift */; };
 		BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78196E29E07884005C4CF5 /* AccountService.swift */; };
+		BC81F35629FCC26700E09958 /* TypeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35529FCC26700E09958 /* TypeState.swift */; };
+		BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35829FD38DA00E09958 /* SignupState.swift */; };
+		BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35A29FD3D3700E09958 /* EmailVerificationState.swift */; };
+		BC81F35D29FD538500E09958 /* InfoState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35C29FD538500E09958 /* InfoState.swift */; };
+		BC81F35F29FD53E100E09958 /* InfoErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35E29FD53E100E09958 /* InfoErrorState.swift */; };
+		BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36029FD613300E09958 /* SignupValidationViewModelEvent.swift */; };
+		BC81F36429FD615400E09958 /* SignupReqeustViewModelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36329FD615400E09958 /* SignupReqeustViewModelEvent.swift */; };
+		BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36729FD6CDF00E09958 /* ValidationServcieType.swift */; };
+		BC81F36A29FD6DA100E09958 /* MockValidationServcie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36929FD6DA100E09958 /* MockValidationServcie.swift */; };
+		BC81F37029FD823000E09958 /* SignupRequestViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F36F29FD823000E09958 /* SignupRequestViewModelTests.swift */; };
 		BC88B7FC29EA521E00F484AF /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88B7FB29EA521E00F484AF /* AccountError.swift */; };
 		BC88B80329EA535000F484AF /* AccountServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88B80229EA535000F484AF /* AccountServiceType.swift */; };
 		BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */; };
@@ -86,7 +104,6 @@
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
-		BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */; };
 		BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92729E0356D00F301B1 /* Subject.swift */; };
 		BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */; };
 		BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3929C42D1C00E1ACBF /* View.swift */; };
@@ -138,10 +155,13 @@
 		049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestQuestions.swift; sourceTree = "<group>"; };
 		049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestViewModel.swift; sourceTree = "<group>"; };
 		04A8F74A29D022B50082DC29 /* TestAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswer.swift; sourceTree = "<group>"; };
-		04C6011729FEDE9A004DA887 /* DiagnosisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisService.swift; sourceTree = "<group>"; };
-		04C6011929FEDF27004DA887 /* DiagnosisPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisPostModel.swift; sourceTree = "<group>"; };
-		04C6011B29FEDFF5004DA887 /* DiagnosisError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisError.swift; sourceTree = "<group>"; };
-		04C6011F29FF7AF8004DA887 /* DiagnosisServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisServiceTests.swift; sourceTree = "<group>"; };
+
+		6F06DB5E29FD3D7700770596 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		6F06DB6029FD3D8600770596 /* PreventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventViewModel.swift; sourceTree = "<group>"; };
+		6F06DB6229FD3DCF00770596 /* QuizViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewType.swift; sourceTree = "<group>"; };
+		6F06DB6429FD3DDA00770596 /* TodayQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuiz.swift; sourceTree = "<group>"; };
+		6F0F94AD29FE4DA400993A52 /* HealthKitHeartRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHeartRateService.swift; sourceTree = "<group>"; };
+
 		6F16514A29D1342400CC228F /* PreventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventView.swift; sourceTree = "<group>"; };
 		6F16514C29D1345A00CC228F /* BoldDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldDivider.swift; sourceTree = "<group>"; };
 		6F16515029D1348D00CC228F /* QuizTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTemplate.swift; sourceTree = "<group>"; };
@@ -149,6 +169,10 @@
 		6F16515429D134DD00CC228F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		6F16515629D134FD00CC228F /* QuizDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDoneView.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelType.swift; sourceTree = "<group>"; };
+		BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelType.swift; sourceTree = "<group>"; };
+		BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationModel.swift; sourceTree = "<group>"; };
+		BC0446C529FC42EE002109A2 /* SignupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReducer.swift; sourceTree = "<group>"; };
 		BC2526EA29D419BA000FCE11 /* SecureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInput.swift; sourceTree = "<group>"; };
 		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -161,7 +185,7 @@
 		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
 		BC49094129EA69AB00EDDD0D /* AtchIViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchIViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIViewModelTests.swift; sourceTree = "<group>"; };
-		BC49094A29EA69CF00EDDD0D /* SignupViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelTests.swift; sourceTree = "<group>"; };
+		BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelTests.swift; sourceTree = "<group>"; };
 		BC4DD6A429DDD574000C5DE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BC4E1EBA29C2333600915AB6 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		BC4E1EBC29C2346000915AB6 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
@@ -172,6 +196,16 @@
 		BC6F0F6729EFAE3A00F3FBD1 /* SleepTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepTime.swift; sourceTree = "<group>"; };
 		BC70470E29E7E91C00FA265A /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		BC78196E29E07884005C4CF5 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		BC81F35529FCC26700E09958 /* TypeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeState.swift; sourceTree = "<group>"; };
+		BC81F35829FD38DA00E09958 /* SignupState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupState.swift; sourceTree = "<group>"; };
+		BC81F35A29FD3D3700E09958 /* EmailVerificationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationState.swift; sourceTree = "<group>"; };
+		BC81F35C29FD538500E09958 /* InfoState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoState.swift; sourceTree = "<group>"; };
+		BC81F35E29FD53E100E09958 /* InfoErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoErrorState.swift; sourceTree = "<group>"; };
+		BC81F36029FD613300E09958 /* SignupValidationViewModelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelEvent.swift; sourceTree = "<group>"; };
+		BC81F36329FD615400E09958 /* SignupReqeustViewModelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustViewModelEvent.swift; sourceTree = "<group>"; };
+		BC81F36729FD6CDF00E09958 /* ValidationServcieType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationServcieType.swift; sourceTree = "<group>"; };
+		BC81F36929FD6DA100E09958 /* MockValidationServcie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockValidationServcie.swift; sourceTree = "<group>"; };
+		BC81F36F29FD823000E09958 /* SignupRequestViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelTests.swift; sourceTree = "<group>"; };
 		BC88B57229D5F47C003CA752 /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		BC88B7FB29EA521E00F484AF /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		BC88B80229EA535000F484AF /* AccountServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceType.swift; sourceTree = "<group>"; };
@@ -197,7 +231,6 @@
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
-		BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapperTest.swift; sourceTree = "<group>"; };
 		BCEDA92729E0356D00F301B1 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleInput.swift; sourceTree = "<group>"; };
 		BCF6DA3929C42D1C00E1ACBF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -226,6 +259,7 @@
 			files = (
 				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
+				BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,19 +381,29 @@
 			path = SelfTest;
 			sourceTree = "<group>";
 		};
-		04C6011629FEDE81004DA887 /* Diagnosis */ = {
+
+		6F06DB5C29FD3D5F00770596 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04C6011729FEDE9A004DA887 /* DiagnosisService.swift */,
-				04C6011929FEDF27004DA887 /* DiagnosisPostModel.swift */,
-				04C6011B29FEDFF5004DA887 /* DiagnosisError.swift */,
+				6F06DB5E29FD3D7700770596 /* Quiz.swift */,
 			);
-			path = Diagnosis;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F06DB5D29FD3D6500770596 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F06DB6029FD3D8600770596 /* PreventViewModel.swift */,
+			);
+			path = ViewModel;
+
 			sourceTree = "<group>";
 		};
 		6F16514629D1339700CC228F /* Prevent */ = {
 			isa = PBXGroup;
 			children = (
+				6F06DB5D29FD3D6500770596 /* ViewModel */,
+				6F06DB5C29FD3D5F00770596 /* Model */,
 				6F16514729D133E500CC228F /* View */,
 			);
 			path = Prevent;
@@ -394,6 +438,16 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		BC0446C729FC4536002109A2 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */,
+				BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */,
+				BCA1486129D5F1BD001F390D /* SignupViewModel.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
 		BC2526E929D418F3000FCE11 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +471,8 @@
 				049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */,
 				042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */,
 				BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */,
+				6F06DB6229FD3DCF00770596 /* QuizViewType.swift */,
+				6F06DB6429FD3DDA00770596 /* TodayQuiz.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -435,8 +491,11 @@
 			children = (
 				BC54288229EACD950026C175 /* Extension */,
 				BCDF69C529EA6ADA00D39AA1 /* Mock */,
-				BC49094A29EA69CF00EDDD0D /* SignupViewModelTests.swift */,
+
+				BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */,
+
 				BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */,
+				BC81F36F29FD823000E09958 /* SignupRequestViewModelTests.swift */,
 			);
 			path = AtchIViewModelTests;
 			sourceTree = "<group>";
@@ -444,6 +503,7 @@
 		BC4E1EB929C2331400915AB6 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				BC0446C729FC4536002109A2 /* Deprecated */,
 				BCA1485E29D5F134001F390D /* View */,
 				BCA1485D29D5F127001F390D /* ViewModel */,
 			);
@@ -478,6 +538,7 @@
 				BC6F0F6629EFAE3A00F3FBD1 /* HealthKitSleepService.swift */,
 				BC6F0F6729EFAE3A00F3FBD1 /* SleepTime.swift */,
 				BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */,
+				6F0F94AD29FE4DA400993A52 /* HealthKitHeartRateService.swift */,
 			);
 			path = HealthKitTemp;
 			sourceTree = "<group>";
@@ -486,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				BC70470E29E7E91C00FA265A /* SignupModel.swift */,
+				BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,6 +563,26 @@
 				BCE7CED429F983B1003C3A6C /* ValidationService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BC81F35729FD38D000E09958 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				BC81F35829FD38DA00E09958 /* SignupState.swift */,
+				BC81F35A29FD3D3700E09958 /* EmailVerificationState.swift */,
+				BC81F35C29FD538500E09958 /* InfoState.swift */,
+				BC81F35E29FD53E100E09958 /* InfoErrorState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		BC81F36229FD613800E09958 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				BC81F36029FD613300E09958 /* SignupValidationViewModelEvent.swift */,
+				BC81F36329FD615400E09958 /* SignupReqeustViewModelEvent.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		BC88B57129D5F47C003CA752 /* Frameworks */ = {
@@ -526,6 +608,7 @@
 			isa = PBXGroup;
 			children = (
 				BC88B80229EA535000F484AF /* AccountServiceType.swift */,
+				BC81F36729FD6CDF00E09958 /* ValidationServcieType.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -605,7 +688,6 @@
 				6F16514629D1339700CC228F /* Prevent */,
 				049ADE9F29C95CF6009B9B62 /* Diagnosis */,
 				BC4E1EB929C2331400915AB6 /* Intro */,
-				BC8D551E29B99A6D00FAA6E3 /* Home */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -632,11 +714,13 @@
 		BCA1485D29D5F127001F390D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BC81F36229FD613800E09958 /* Event */,
+				BC81F35729FD38D000E09958 /* State */,
 				BCA1485F29D5F149001F390D /* LoginViewModel.swift */,
-				BCA1486129D5F1BD001F390D /* SignupViewModel.swift */,
-				BCEDA92429E0278F00F301B1 /* PropertyWrapperTest.swift */,
 				BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */,
 				BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */,
+				BC0446C529FC42EE002109A2 /* SignupReducer.swift */,
+				BC8D551E29B99A6D00FAA6E3 /* Home */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -668,6 +752,7 @@
 			isa = PBXGroup;
 			children = (
 				BCDF69C629EA6AE500D39AA1 /* MockAccountService.swift */,
+				BC81F36929FD6DA100E09958 /* MockValidationServcie.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -686,6 +771,7 @@
 			isa = PBXGroup;
 			children = (
 				BCEDA92729E0356D00F301B1 /* Subject.swift */,
+				BC81F35529FCC26700E09958 /* TypeState.swift */,
 			);
 			path = PropertyWrapper;
 			sourceTree = "<group>";
@@ -745,6 +831,7 @@
 			packageProductDependencies = (
 				BC37AA5029E080760047D273 /* CombineMoya */,
 				BC37AA5229E080760047D273 /* Moya */,
+				BC0446C129FC40CD002109A2 /* ComposableArchitecture */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -784,6 +871,7 @@
 			mainGroup = BC8D54F329B9909C00FAA6E3;
 			packageReferences = (
 				BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */,
+				BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -839,8 +927,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC54288429EACDAE0026C175 /* XCTestCaseExtension.swift in Sources */,
-				BC49094B29EA69CF00EDDD0D /* SignupViewModelTests.swift in Sources */,
+
+				BC49094B29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift in Sources */,
+				BC81F36A29FD6DA100E09958 /* MockValidationServcie.swift in Sources */,
+
 				BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */,
+				BC81F37029FD823000E09958 /* SignupRequestViewModelTests.swift in Sources */,
 				BCDF69C729EA6AE500D39AA1 /* MockAccountService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -851,6 +943,7 @@
 			files = (
 				049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */,
 				042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */,
+				6F06DB5F29FD3D7700770596 /* Quiz.swift in Sources */,
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
 				049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */,
 				049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */,
@@ -863,17 +956,21 @@
 				6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */,
 				6F16514B29D1342400CC228F /* PreventView.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
-				BCEDA92529E0278F00F301B1 /* PropertyWrapperTest.swift in Sources */,
 				BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
+				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
+				BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
 				BC88B7FC29EA521E00F484AF /* AccountError.swift in Sources */,
 				BC6F0F6829EFAE3A00F3FBD1 /* HealthKitProvider.swift in Sources */,
 				0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */,
+				BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */,
+				BC0446BF29FC24AA002109A2 /* EmailVerificationModel.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
+				BC81F36429FD615400E09958 /* SignupReqeustViewModelEvent.swift in Sources */,
 				BC70470F29E7E91C00FA265A /* SignupModel.swift in Sources */,
 				BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */,
 				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
@@ -881,24 +978,31 @@
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
 				BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */,
-				04C6011829FEDE9A004DA887 /* DiagnosisService.swift in Sources */,
+
+				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
+
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				04C6011A29FEDF27004DA887 /* DiagnosisPostModel.swift in Sources */,
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
+				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
+				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
 				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
 				6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */,
 				BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */,
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
+				6F0F94AE29FE4DA400993A52 /* HealthKitHeartRateService.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
 				BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
 				BC88B80329EA535000F484AF /* AccountServiceType.swift in Sources */,
 				BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */,
+				BC81F35D29FD538500E09958 /* InfoState.swift in Sources */,
 				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
+				6F06DB6329FD3DCF00770596 /* QuizViewType.swift in Sources */,
 				BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
@@ -908,14 +1012,19 @@
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */,
+				6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
+				BC81F35F29FD53E100E09958 /* InfoErrorState.swift in Sources */,
+				BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */,
 				BC3DDF6B29FB9BD200452A2B /* SignupRequestViewModel.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
+				6F06DB6529FD3DDA00770596 /* TodayQuiz.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
+				BC81F35629FCC26700E09958 /* TypeState.swift in Sources */,
 				BC3DDF6929FB9BC400452A2B /* SignupValidationViewModel.swift in Sources */,
 				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
 				044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */,
@@ -1247,6 +1356,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.52.0;
+			};
+		};
 		BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -1258,6 +1375,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BC0446C129FC40CD002109A2 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		BC37AA5029E080760047D273 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;

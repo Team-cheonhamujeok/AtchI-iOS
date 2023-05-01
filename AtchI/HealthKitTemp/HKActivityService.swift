@@ -70,10 +70,26 @@ class HKActivityService: HKActivityServiceProtocol {
     }
     // MARK: - Private Func
     private func startDate(date: Date) -> Date? {
-        return Calendar.current.date(byAdding: .day, value: 0, to: date)
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        let start = calendar.date(from: components)!
+        
+        return start
     }
     
     private func endDate(date: Date) -> Date? {
-        return Calendar.current.date(byAdding: .day, value: 0, to: date)
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        components.hour = 23
+        components.minute = 59
+        components.second = 59
+        
+        let end = calendar.date(from: components)!
+        
+        return end
     }
 }

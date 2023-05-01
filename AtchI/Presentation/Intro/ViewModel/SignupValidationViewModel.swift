@@ -8,117 +8,71 @@
 import Foundation
 import Combine
 
-protocol SignupValidationViewModelType {
-    // Input State
-    var name: String { get }
-    var email: String { get }
-    var gender: Bool { get }
-    var birth: String { get }
-    var password: String { get }
-    var passwordAgain: String { get }
-    
-    // Output state
-    /// 이름 형식 검증에 대한 에러 메세지입니다.
-    var nameErrorMessage: String { get }
-    /// 이메일 형식 검증에 대한 에러 메세지입니다.
-    var emailErrorMessage: String { get }
-    /// 이메일 인증에 대한 에러 메세지입니다.
-    var emailCertificationErrorMessage: String { get }
-    // 생년월일 형식에 대한 에러 메세지입니다.
-    var birthErrorMessage: String { get }
-    /// 비밀번호 형식에 대한 에러 메세지입니다.
-    var passwordErrorMessage: String { get }
-    /// 비밀번호 확인에 대한 에러 메세지 입니다.
-    var passwordAgainErrorMessage: String { get }
-    /// 회원가입 성공 여부에 대한 에러 메세지입니다.
-    var signupErrorMessage: String { get }
-    /// 회원가입 버튼 비활성화 여부입니다.
-    var disableSignupButton: Bool { get }
-}
-
-class SignupValidationViewModel: ObservableObject, SignupValidationViewModelType {
+class SignupValidationViewModel: ObservableObject {
     
     // MARK: - Dependency
-    let validationServcie: ValidationService
-    var requestViewModel: SignupRequestViewModelType? = nil
+    let validationServcie: ValidationServiceType
+    var eventToRequestViewModel = PassthroughSubject<SignupValidationViewModelEvent, Never>()
+    var eventFromRequestViewModel: PassthroughSubject<SignupRequestViewModelEvent, Never>? = nil
     
     // MARK: - Input State
-    @Published var name: String = ""
-    @Published var email: String = ""
-    @Published var gender: Bool = false
-    @Published var birth: String = ""
-    @Published var password: String = ""
-    @Published var passwordAgain: String = ""
+    @Published var infoState: InfoState = InfoState()
     
     // MARK: - Ouput State
-    @Published var nameErrorMessage: String = ""
-    @Published var emailErrorMessage: String = ""
-    @Published var emailCertificationErrorMessage: String = ""
-    @Published var birthErrorMessage: String = ""
-    @Published var passwordErrorMessage: String = ""
-    @Published var passwordAgainErrorMessage: String = ""
-    @Published var signupErrorMessage: String = ""
-    @Published var disableSignupButton: Bool = true
+    @Published var infoErrorState: InfoErrorState = InfoErrorState()
     
     // MARK: - Cancellable Bag
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init(validationServcie: ValidationService){
+    init(validationServcie: ValidationServiceType){
         self.validationServcie = validationServcie
-        self.bind()
+        self.bindState()
+        self.bindEvent()
     }
     
     // MARK: - Method
-    private func bind(){
+    private func bindState(){
         
-        /// 이름 형식을 검증합니다. 빈 값일 땐 검증하지 않습니다.
-        $name.map {
-            self.validationServcie.isValidNameFormat($0)
-            || $0.isEmpty
-        }.map {
-            $0 ? "" : ValidationErrorMessage.invalidName.description
-        }.receive(on: RunLoop.main)
-            .assign(to: \.nameErrorMessage, on: self)
-            .store(in: &cancellables)
+        $infoState.sink { [weak self] in
+            guard let self = self else { return }
+            
+            // 형식 검사
+            let isNameValid = self.validationServcie.isValidNameFormat($0.name)
+            let isEmailValid = self.validationServcie.isValidEmailFormat($0.email)
+            let isBirthValid = self.validationServcie.isValidBirthFormat($0.birth)
+            let isPasswordValid = self.validationServcie.isValidPasswordFormat($0.password)
+            let isPasswordAgainValid = $0.password == $0.passwordAgain
+            
+            if isNameValid && isEmailValid && isBirthValid && isPasswordValid && isPasswordAgainValid {
+                // 모든 입력값이 형식검사를 통과했음을 알리기
+                self.eventToRequestViewModel.send(.allInputValid)
+            } else if isEmailValid {
+                self.eventToRequestViewModel.send(.emailValid(email: $0.email))
+            } else {
+                self.eventToRequestViewModel.send(.emailInvalid)
+            }
+            
+            // 빈 값일때는 에러메세지 X
+            infoErrorState.nameErrorMessage = isNameValid || $0.name.isEmpty ? "" : ValidationErrorMessage.invalidName.description
+            infoErrorState.emailErrorMessage = isEmailValid || $0.email.isEmpty ? "" : ValidationErrorMessage.invalidEmail.description
+            infoErrorState.birthErrorMessage = isBirthValid || $0.birth.isEmpty ? "" : ValidationErrorMessage.invalidBirth.description
+            infoErrorState.passwordErrorMessage = isPasswordValid || $0.password.isEmpty ? "" : ValidationErrorMessage.invalidPassword.description
+            infoErrorState.passwordAgainErrorMessage = isPasswordAgainValid || $0.passwordAgain.isEmpty ? "" : ValidationErrorMessage.invalidPasswordAgain.description
+        }.store(in: &cancellables)
         
-        /// 이메일 형식을 검증합니다. 빈 값일 땐 검증하지 않습니다.
-        $email.map {
-            self.validationServcie.isValidEmailFormat($0)
-            || $0.isEmpty
-        }.map {
-            $0 ? "" : ValidationErrorMessage.invalidEmail.description
-        }.receive(on: RunLoop.main)
-            .assign(to: \.emailErrorMessage, on: self)
-            .store(in: &cancellables)
-        
-        /// 생년월일 형식을 검증합니다. 빈 값일 땐 검증하지 않습니다.
-        $birth.map {
-            self.validationServcie.isValidBirthFormat($0)
-            || $0.isEmpty
-        }.map {
-            $0 ? "" : ValidationErrorMessage.invalidBirth.description
-        }.receive(on: RunLoop.main)
-            .assign(to: \.birthErrorMessage, on: self)
-            .store(in: &cancellables)
-        
-        /// 비밀번호 형식을 검증합니다. 빈 값일 땐 검증하지 않습니다.
-        $password.map {
-            self.validationServcie.isValidPasswordFormat($0)
-            || $0.isEmpty
-        }.map {
-            $0 ? "" : ValidationErrorMessage.invalidPassword.description
-        }.receive(on: RunLoop.main)
-            .assign(to: \.passwordErrorMessage, on: self)
-            .store(in: &cancellables)
-        
-        /// 비밀번호와 다시쓴 비밀번호가 일치하는지 검사합니다. 빈 값일 땐 검증하지 않습니다.
-        $passwordAgain.map {
-            $0.isEmpty
-        }.map {
-            $0 ? "" : ValidationErrorMessage.invalidPasswordAgain.description
-        }.receive(on: RunLoop.main)
-            .assign(to: \.passwordAgainErrorMessage, on: self)
-            .store(in: &cancellables)
+    }
+    
+    func bindEvent() {
+        eventFromRequestViewModel?.sink { [weak self] (event: SignupRequestViewModelEvent) in
+            guard let self = self else { return }
+            switch event {
+                
+            case .signup:
+                self.eventToRequestViewModel.send(.sendInfoForSignup(Info: self.infoState))
+                break
+            }
+            
+        }.store(in: &cancellables)
     }
 }
