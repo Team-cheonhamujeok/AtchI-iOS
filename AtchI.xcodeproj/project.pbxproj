@@ -51,7 +51,6 @@
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
 		BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */; };
-		BC49094B29EA69CF00EDDD0D /* SignupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094A29EA69CF00EDDD0D /* SignupViewModelTests.swift */; };
 		BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC88B57229D5F47C003CA752 /* Combine.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBA29C2333600915AB6 /* SignupView.swift */; };
 		BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4E1EBC29C2346000915AB6 /* IntroView.swift */; };
@@ -153,7 +152,6 @@
 		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
 		BC49094129EA69AB00EDDD0D /* AtchIViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchIViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIViewModelTests.swift; sourceTree = "<group>"; };
-		BC49094A29EA69CF00EDDD0D /* SignupViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelTests.swift; sourceTree = "<group>"; };
 		BC4DD6A429DDD574000C5DE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BC4E1EBA29C2333600915AB6 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		BC4E1EBC29C2346000915AB6 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
@@ -416,7 +414,6 @@
 			children = (
 				BC54288229EACD950026C175 /* Extension */,
 				BCDF69C529EA6ADA00D39AA1 /* Mock */,
-				BC49094A29EA69CF00EDDD0D /* SignupViewModelTests.swift */,
 				BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */,
 			);
 			path = AtchIViewModelTests;
@@ -818,7 +815,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC54288429EACDAE0026C175 /* XCTestCaseExtension.swift in Sources */,
-				BC49094B29EA69CF00EDDD0D /* SignupViewModelTests.swift in Sources */,
 				BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */,
 				BCDF69C729EA6AE500D39AA1 /* MockAccountService.swift in Sources */,
 			);
