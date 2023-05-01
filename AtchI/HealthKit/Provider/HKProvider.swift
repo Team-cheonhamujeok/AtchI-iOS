@@ -28,7 +28,8 @@ class HKProvider {
         // identifier로 Type 정의
         guard let sleepType = HKObjectType.categoryType(forIdentifier: identifier) else {
             // 에러 처리를 수행합니다.
-            throw HKProviderError.identifierNotFound
+            completion([], HKProviderError.identifierNotFound)
+            return
         }
         
         // 최신 데이터를 먼저 가져오도록 sort 기준 정의
