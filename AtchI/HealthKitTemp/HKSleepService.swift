@@ -1,5 +1,5 @@
 //
-//  HealthKitSleepService.swift
+//  HKSleepService.swift
 //  AtchI
 //
 //  Created by DOYEON LEE on 2023/04/16.
@@ -9,7 +9,7 @@ import Foundation
 import HealthKit
 import Combine
 
-class HealthKitSleepService{
+class HKSleepService{
     
     let healthKitProvider: HealthKitProvider
     

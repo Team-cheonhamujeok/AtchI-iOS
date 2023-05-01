@@ -1,5 +1,5 @@
 //
-//  HealthKitHeartRateService.swift
+//  HKHeartRateService.swift
 //  AtchI
 //
 //  Created by 이봄이 on 2023/04/30.
@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import HealthKit
 
-class HealthKitHeartRateService {
+class HKHeartRateService {
     let healthKitProvider: HealthKitProvider
     
     init(healthKitProvider: HealthKitProvider) {
