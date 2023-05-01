@@ -97,6 +97,7 @@
 		BCDACF4129FF930A00EFF2ED /* DiagnosisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF3E29FF930A00EFF2ED /* DiagnosisService.swift */; };
 		BCDACF4229FF930A00EFF2ED /* DiagnosisPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF3F29FF930A00EFF2ED /* DiagnosisPostModel.swift */; };
 		BCDACF4429FF933400EFF2ED /* DiagnosisServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF4329FF933400EFF2ED /* DiagnosisServiceTests.swift */; };
+		BCDACF4A29FFA97F00EFF2ED /* HKProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF4929FFA97F00EFF2ED /* HKProviderError.swift */; };
 		BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BC29BDE613003E364C /* HomeView.swift */; };
 		BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */; };
 		BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0C129BE286C003E364C /* AppTitleBar.swift */; };
@@ -227,6 +228,7 @@
 		BCDACF3E29FF930A00EFF2ED /* DiagnosisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisService.swift; sourceTree = "<group>"; };
 		BCDACF3F29FF930A00EFF2ED /* DiagnosisPostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisPostModel.swift; sourceTree = "<group>"; };
 		BCDACF4329FF933400EFF2ED /* DiagnosisServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisServiceTests.swift; sourceTree = "<group>"; };
+		BCDACF4929FFA97F00EFF2ED /* HKProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKProviderError.swift; sourceTree = "<group>"; };
 		BCDDE0BC29BDE613003E364C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDiagnosisCard.swift; sourceTree = "<group>"; };
 		BCDDE0C129BE286C003E364C /* AppTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleBar.swift; sourceTree = "<group>"; };
@@ -733,6 +735,7 @@
 		BCDACF3629FF927900EFF2ED /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				BCDACF4829FFA96E00EFF2ED /* Error */,
 				BC305CB329FF8402001388EA /* HKAuthorizationProvider.swift */,
 				BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */,
 			);
@@ -803,6 +806,14 @@
 				BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */,
 			);
 			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		BCDACF4829FFA96E00EFF2ED /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				BCDACF4929FFA97F00EFF2ED /* HKProviderError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		BCDDE0BE29BE17D0003E364C /* Component */ = {
@@ -1023,6 +1034,7 @@
 				6F16514B29D1342400CC228F /* PreventView.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */,
+				BCDACF4A29FFA97F00EFF2ED /* HKProviderError.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
 				BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */,
