@@ -15,6 +15,14 @@ enum MockEmail: String {
 }
 
 class MockAccountService: AccountServiceType {
+    func requestEmailConfirm(email: String) -> AnyPublisher<AtchI.EmailVerificationModel, AtchI.AccountError> {
+        
+        return Just(AtchI.EmailVerificationModel(message: "",
+                                                 verificationCode: ""))
+        .setFailureType(to: AccountError.self)
+        .eraseToAnyPublisher()
+    }
+    
     
     var cancellables = Set<AnyCancellable>()
     
@@ -28,7 +36,7 @@ class MockAccountService: AccountServiceType {
         // 응답 생성
         let jsonDict: [String: Any] = ["mid": "-1"]
         guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []) else {
-            return Fail(error: AccountError.jsonSerializationFailed)
+            return Fail(error: AccountError.common(.jsonSerializationFailed))
             .eraseToAnyPublisher()}
         
         // SignupModel에 따른 유효한 Response 값을 생성하여 AnyPublisher로 반환

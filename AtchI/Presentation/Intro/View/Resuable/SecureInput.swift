@@ -32,7 +32,9 @@ struct SecureInput: View {
                                 isFocused ?
                                 Color.mainPurple:
                                     Color.grayDisabled,
-                                lineWidth: 2).animation(.easeInOut(duration: 0.2))
+                                lineWidth: 2)
+                            .animation(.easeInOut(duration: 0.2),
+                                       value: isFocused)
                     )
                 
                 // Password input
@@ -64,9 +66,10 @@ struct SecureInput: View {
             Text(errorMessage)
                 .foregroundColor(.red)
                 .font(.bodySmall)
-                .frame(minHeight: 20)
+//                .frame(minHeight: 20)
                 .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
-                .animation(.easeInOut(duration: 0.3))
+                .animation(.easeInOut(duration: 0.3),
+                           value: errorMessage)
         }
     }
     

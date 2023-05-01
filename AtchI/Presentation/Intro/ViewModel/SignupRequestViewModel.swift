@@ -8,99 +8,143 @@
 import Foundation
 import Combine
 
-protocol SignupRequestViewModelType {
-    // input state
-    /// 이메일 인증 버튼 탭 이벤트입니다
-    var tapEmailCertificationButton: Void { get }
-    /// 회원가입 버튼 탭 이벤트입니다
-    var tapSignupButton: Void { get }
-    
-    // output state
-    /// 회원가입 성공 여부에 대한 에러 메세지입니다.
-    var signupErrorMessage: String { get }
-    /// 이메일 인증하기 버튼 비활성화 여부입니다.
-    var disabledEmailCertificationField: Bool { get }
-    /// 이메일 인증을 시도했는지 여부입니다.
-    var sendedEmailCertification: Bool { get }
-    /// 이메일 인증 성공여부입니다.
-    var validEmailcertification: Bool { get }
-    /// 이메일 인증 실패 메세지입니다.
-    var emailcertificationErrorMessage: Bool { get }
-    /// 회원가입 버튼 비활성화 여부입니다.
-    var disableSignupButton: Bool { get }
-}
-
-
-
-class SignupRequestViewModel: ObservableObject, SignupRequestViewModelType {
+class SignupRequestViewModel: ObservableObject {
     // MARK: - Dependency
     let accountService: AccountServiceType
-    var validationViewModel: SignupValidationViewModelType? = nil
+    var eventToValidationViewModel = PassthroughSubject<SignupRequestViewModelEvent, Never>()
+    var eventFromValidationViewModel: PassthroughSubject<SignupValidationViewModelEvent, Never>? = nil
     
     // MARK: - Input State
-    @Subject var tapEmailCertificationButton: Void = ()
+    @Subject var tapSendEmailVerificationButton: Void = ()
+    @Subject var tapCheckEmailVerificationButton: Void = ()
     @Subject var tapSignupButton: Void = ()
     
+    @Published var emailVerificationCode: String = "" // << 프로토콜 추가
+    
     // MARK: - Ouput State
-    @Published var signupErrorMessage: String = ""
-    @Published var disabledEmailCertificationField: Bool = false
-    @Published var sendedEmailCertification: Bool = false
-    @Published var validEmailcertification: Bool = true
-    @Published var emailcertificationErrorMessage: Bool = false
-    @Published var disableSignupButton: Bool = true
+    @Published var signupState: SignupState = SignupState()
+    @Published var emailVerificationState: EmailVerificationState = EmailVerificationState()
+    
+    // MARK: - Other Data
+    /// 서버에서 받은 이메일 확인 코드입니다.
+    private var receivedEmailVerificationCode: String = ""
+    /// ValidationViewModel로부터 받은 이메일입니다.
+    private var receivedEmail: String = ""
     
     // MARK: - Cancellable Bag
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init(accountService: AccountService){
+    init(accountService: AccountServiceType){
         self.accountService = accountService
-        self.bind()
+        self.bindState()
+        self.bindEvent()
     }
-    
-    private func bind() {
+    // MARK: - Bind Method
+    private func bindState() {
         
-        /// 이메일 인증하기 버튼을 누르면 이메일 인증 버튼의 문구를 변경할 수 있도록 sendedEmailCertification을 변경합니다.
-        $tapEmailCertificationButton.map { true }
-        .assign(to: \.sendedEmailCertification, on: self)
-        .store(in: &cancellables)
+        /// 이메일 인증하기 버튼을 누르면 이메일 인증 버튼의 문구를 변경할 수 있도록 sendedEmailVerification을 변경합니다.
+        $tapSendEmailVerificationButton.map { true }
+            .assign(to: \.emailVerificationState.sendEnable, on: self)
+            .store(in: &cancellables)
         
-        // SignupButton 누를 시 signup 실행
-        $tapSignupButton.sink { [weak self] in
-            self?.signup(SignupModel(email: self?.validationViewModel?.email ?? "",
-                                     pw: self?.validationViewModel?.password ?? "",
-                                     birthday: self?.validationViewModel?.birth ?? "",
-                                     gender: self?.validationViewModel?.gender ?? true,
-                                     name: self?.validationViewModel?.name ?? ""))
+        /// 서버로 이메일 인증 메일 전송 요청을 보냅니다.
+        $tapSendEmailVerificationButton.sink { [weak self] in
+            self?.reqeustEmailVerification(self?.receivedEmail ?? "")
         }
         .store(in: &cancellables)
+        
+        /// 사용자가 입력한 이메일 인증코드와 서버에서 받은 인증코드가 같은지 검사합니다.
+        $tapCheckEmailVerificationButton.sink { _ in
+            if self.emailVerificationCode == self.receivedEmailVerificationCode {
+                self.emailVerificationState.sucess = true
+                self.emailVerificationState.sended = false
+                self.emailVerificationState.checkEnable = false
+            } else {
+                self.emailVerificationState.failMessage = "인증코드가 일치하지 않습니다"
+            }
+        }.store(in: &cancellables)
+        
+        
+        /// SignupButton을 탭하면 input 정보를 받아오기 위해 ValidationViewModel에 요청을 보냅니다.
+        $tapSignupButton.sink { [weak self] in
+            self?.eventToValidationViewModel.send(.signup)
+        }
+        .store(in: &cancellables)
+        
+
+    }
+    
+    func bindEvent(){
+        eventFromValidationViewModel?.sink { [weak self]
+            (event: SignupValidationViewModelEvent) in
+            guard let self = self else { return }
+            switch event {
+                
+            case .emailValid(let email):
+                self.receivedEmail = email
+                self.emailVerificationState.sendEnable = true
+                break
+                
+            case .emailInvalid:
+                self.emailVerificationState.sendEnable = false
+                return
+                
+            case .allInputValid:
+                print("event: allInputValid: \(self.emailVerificationState.sucess)")
+                self.signupState.enable = self.emailVerificationState.sucess
+                break
+                
+            case .sendInfoForSignup(let info):
+                let gender: Bool =
+                    info.gender == "남"
+                self.reqeustSignup(
+                    SignupModel(email: info.email,
+                                pw: info.password,
+                                birthday: info.birth,
+                                gender: gender,
+                                name: info.name))
+                break
+                
+            }
+        }.store(in: &cancellables)
+        
+    }
+    
+    // MARK: - Reqeust Method
+    func reqeustEmailVerification(_ email: String) {
+        self.accountService
+            .requestEmailConfirm(email: email)
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.emailVerificationState.failMessage = error.description
+                }
+            }, receiveValue: { (result: EmailVerificationModel) in
+                self.receivedEmailVerificationCode = result.verificationCode
+                self.emailVerificationState.sended = true
+            }).store(in: &cancellables)
     }
     
     /// AccountService를 통해 signup api를 실행시키고 결과값을 signupResult로 send함
-    func signup(_ signupModel: SignupModel){
+    func reqeustSignup(_ signupModel: SignupModel){
         accountService.requestSignup(signupModel: signupModel)
             .sink(receiveCompletion: { [weak self] completion in
+                guard let self = self else { return }
                 switch completion {
                 case .finished:
-                    // 이벤트 완료시 행동 정의
                     break
                 case .failure(let error):
-                    // 에러 발생시 각각 대응
-                    switch error {
-                    case .signupFailed:
-                        self?.signupErrorMessage = error.krDescription()
-                        break
-                    case .emailDuplicated:
-                        self?.signupErrorMessage = error.krDescription()
-                        break
-                    default:
-                        break
-                    }
+                    self.signupState.failMessage = error.description
                     break
                 }
             }, receiveValue: { [weak self] result in
-                // 성공 시 화면 전환
-                self?.signupErrorMessage = ""
+                guard let self = self else { return }
+                // TODO: 성공시 화면 전환
+                self.signupState.failMessage = ""
             })
             .store(in : &cancellables)
     }
