@@ -484,7 +484,9 @@
 			children = (
 				BC54288229EACD950026C175 /* Extension */,
 				BCDF69C529EA6ADA00D39AA1 /* Mock */,
+
 				BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */,
+
 				BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */,
 				BC81F36F29FD823000E09958 /* SignupRequestViewModelTests.swift */,
 			);
@@ -916,8 +918,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC54288429EACDAE0026C175 /* XCTestCaseExtension.swift in Sources */,
+
 				BC49094B29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift in Sources */,
 				BC81F36A29FD6DA100E09958 /* MockValidationServcie.swift in Sources */,
+
 				BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */,
 				BC81F37029FD823000E09958 /* SignupRequestViewModelTests.swift in Sources */,
 				BCDF69C729EA6AE500D39AA1 /* MockAccountService.swift in Sources */,

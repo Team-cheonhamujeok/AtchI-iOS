@@ -30,6 +30,41 @@ final class HKActivityServiceTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         sut = nil
     }
+    
+    func test_Date를_문자로() throws {
+        // MARK: - 한국 시간 만들고 String으로 변환
+        let date = Date()
+    
+        let format = DateFormatter()
+        format.locale = Locale(identifier: Locale.current.identifier)
+        format.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+        format.dateFormat = "yyyy/MM/dd HH:mm:SS"
+        
+        let str = format.string(from: date)
+        
+        print("f:", str)
+        // MARK: - String을 Date 타입으로 변경
+        /// - Note: 한국 시간을 String으로 잘 들고와짐
+        /// 그런데 이걸 다시 Date 타입으로 만들면 9시간 전의 시간이 담긴 Date 타입이 나옴
+        /// (그냥 확 Date에 9시간 더해버릴까싶네요..)
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: Locale.current.identifier)
+        formatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:SS"
+        let result = formatter
+                        .date(from: str)
+
+        print("f:", result)
+        
+        XCTAssertEqual("2023/05/01 01:43:21", str)
+    }
+    
+    func test_오늘_00시() throws {
+    }
+    
+    func test_오늘_현재시간() throws {
+    }
+
 
     func testStep() throws {
         // This is an example of a functional test case.
@@ -48,8 +83,8 @@ final class HKActivityServiceTest: XCTestCase {
         var result = 0.0
         
         //MARK: Act
-        var future = sut?.getStepCount()
         
+        var future = sut?.getStepCount(date: Date())
         future?.sink(receiveCompletion: { err in
             print(err)
         }, receiveValue: { quantity in
@@ -57,7 +92,7 @@ final class HKActivityServiceTest: XCTestCase {
         })
         
         //MARK: Assert
-        XCTAssertEqual(result, 0)
+        XCTAssertEqual(result, 8000)
     }
     
     func testEnergy() throws {
@@ -77,7 +112,8 @@ final class HKActivityServiceTest: XCTestCase {
         var result = 0.0
         
         //MARK: Act
-        var future = sut?.getEnergy()
+        let date = Date()
+        var future = sut?.getEnergy(date: date)
         
         future?.sink(receiveCompletion: { err in
             print(err)
@@ -106,7 +142,8 @@ final class HKActivityServiceTest: XCTestCase {
         var result = 0.0
         
         //MARK: Act
-        var future = sut?.getDistance()
+        let date = Date()
+        var future = sut?.getDistance(date: date)
         
         future?.sink(receiveCompletion: { err in
             print(err)
