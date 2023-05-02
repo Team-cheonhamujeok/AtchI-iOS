@@ -22,9 +22,9 @@ struct PreventView: View {
 //        self.preventViewModel = PreventViewModel(navigator: navigator)
 //    }
     
-    init(navigator: LinkNavigatorType) {
-        self.navigator = navigator
-        self.preventViewModel = PreventViewModel(navigator: navigator)
+    init(dependency: DependencyType = AppDependency.shared) {
+        self.navigator = dependency.resolve()!
+        self.preventViewModel = dependency.resolve()!
     }
     
 //    init(preventViewModel: PreventViewModel) {
@@ -103,12 +103,13 @@ struct PreventView: View {
                 }
             }
             
-        }.toolbar(.visible, for: .navigationBar)
+        }
+        .toolbar(.visible, for: .navigationBar)
     }
 }
 
 struct PreventView_Previews: PreviewProvider {
     static var previews: some View {
-        PreventView(navigator: LinkNavigator(dependency: AppDependency(), builders: AppRouterGroup().routers))
+        PreventView(dependency: AppDependency.shared)
     }
 }

@@ -21,7 +21,7 @@ struct AtchIApp: App {
     var body: some Scene {
         WindowGroup {
             navigator
-                .launch(paths: ["home"],
+                .launch(paths: ["tabBar"],
                         items: [:])
                 .ignoresSafeArea(edges: .all)
         }

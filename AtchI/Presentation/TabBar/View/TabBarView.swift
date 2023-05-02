@@ -10,11 +10,9 @@ import LinkNavigator
 
 struct TabBarView: View {
     
-    var navigator: LinkNavigatorType
-    
     var body: some View {
         TabView {
-            HomeView(navigator: navigator)
+            HomeView()
                 .tabItem{
                     Image(systemName: "house")
                     Text("홈")
@@ -40,13 +38,18 @@ struct TabBarView: View {
                     Image(systemName: "gear")
                     Text("설정")
                 }
-        }.toolbar(.hidden, for: .navigationBar)
+        }
+        .toolbar(content: {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                AppTitleBar().padding()
+            }
+        })
     }
 }
 
 
-struct TabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarView(navigator: LinkNavigator(dependency: AppDependency(), builders: AppRouterGroup().routers))
-    }
-}
+//struct TabBarView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TabBarView(navigator: LinkNavigator(dependency: AppDependency(), builders: AppRouterGroup().routers))
+//    }
+//}

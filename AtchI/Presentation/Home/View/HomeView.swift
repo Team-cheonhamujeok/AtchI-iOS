@@ -12,19 +12,18 @@ struct HomeView: View {
     
     let navigator: LinkNavigatorType
     
-    init(navigator: LinkNavigatorType) {
-        self.navigator = navigator
+    init(dependency: DependencyType = AppDependency.shared) {
+        self.navigator = dependency.resolve()!
     }
     
     var body: some View {
-        NavigationView {
             VStack {
                 // 로고 + 앱이름
-                AppTitleBar()
+//                AppTitleBar()
                 
                 ScrollView {
                     // AI 진단 결과 카드
-                    Spacer(minLength: 30)
+                    Spacer(minLength: 20)
                     VStack(alignment: .leading){
                         Text("AI 진단 결과")
                             .font(.titleMedium)
@@ -40,13 +39,11 @@ struct HomeView: View {
                             SelfDiagnosisShortcutCard()
                                 .onTapGesture {
                                     navigator
-//                                        .setNavigationVisible(false)
                                         .backToLast(path: "tabBar", isAnimated: true)
                                 }
                             QuizShortcutCard()
                                 .onTapGesture {
                                     navigator
-//                                        .setNavigationVisible(true)
                                         .next(paths: ["prevent"],
                                               items: [:],
                                               isAnimated: true)
@@ -61,21 +58,19 @@ struct HomeView: View {
                     // 바닥 여백
                     Spacer(minLength: 40)
                 }
-            }
             .scrollIndicators(.hidden)
             .padding(.horizontal, 30)
             .frame(maxWidth: .infinity,
                    maxHeight: .infinity,
                    alignment: .leading)
-            .toolbar(.hidden, for: .navigationBar)
         }
     }
 }
 
-//struct HomeView_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        HomeView(dependency: AppDependency.shared)
-//    }
-//}
+struct HomeView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        HomeView()
+    }
+}
 
