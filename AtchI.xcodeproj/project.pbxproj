@@ -30,6 +30,7 @@
 		049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */; };
 		049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */; };
 		049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */; };
+		04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8575C2A016BF600576D61 /* DiagnosisTestData.swift */; };
 		04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8F74A29D022B50082DC29 /* TestAnswer.swift */; };
 		6F06DB5F29FD3D7700770596 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB5E29FD3D7700770596 /* Quiz.swift */; };
 		6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6029FD3D8600770596 /* PreventViewModel.swift */; };
@@ -157,6 +158,7 @@
 		049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestion.swift; sourceTree = "<group>"; };
 		049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestQuestions.swift; sourceTree = "<group>"; };
 		049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestViewModel.swift; sourceTree = "<group>"; };
+		04A8575C2A016BF600576D61 /* DiagnosisTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisTestData.swift; sourceTree = "<group>"; };
 		04A8F74A29D022B50082DC29 /* TestAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswer.swift; sourceTree = "<group>"; };
 		6F06DB5E29FD3D7700770596 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		6F06DB6029FD3D8600770596 /* PreventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventViewModel.swift; sourceTree = "<group>"; };
@@ -783,6 +785,7 @@
 			isa = PBXGroup;
 			children = (
 				BCDACF4329FF933400EFF2ED /* DiagnosisServiceTests.swift */,
+				04A8575C2A016BF600576D61 /* DiagnosisTestData.swift */,
 			);
 			path = Diagnosis;
 			sourceTree = "<group>";
@@ -988,6 +991,7 @@
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
 				BCDACF4429FF933400EFF2ED /* DiagnosisServiceTests.swift in Sources */,
+				04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
