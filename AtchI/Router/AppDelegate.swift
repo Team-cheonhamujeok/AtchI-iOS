@@ -11,7 +11,12 @@ import LinkNavigator
 /// 외부 의존성과 화면을 주입받은 navigator 를 관리하는 타입입니다.
 final class AppDelegate: NSObject {
   var navigator: LinkNavigator {
-    LinkNavigator(dependency: AppDependency(), builders: AppRouterGroup().routers)
+      let appDependency = AppDependency.shared
+      let linkNavigator = LinkNavigator(dependency: appDependency,
+                                        builders: AppRouterGroup().routers)
+      appDependency.navigator = linkNavigator
+      return linkNavigator
+      
   }
 }
 

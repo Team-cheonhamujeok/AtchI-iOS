@@ -6,8 +6,19 @@
 //
 
 import Foundation
+import LinkNavigator
+
+struct PreventDependency: DependencyType {
+    
+}
 
 class PreventViewModel: ObservableObject {
+    
+    let navigator: LinkNavigatorType
+    
+    init(navigator: LinkNavigatorType) {
+        self.navigator = navigator
+    }
     
     @Published var quizCount: Int = 0
 //    var today: String = getNowDay()

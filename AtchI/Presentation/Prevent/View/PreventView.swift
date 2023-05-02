@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import LinkNavigator
 
 struct PreventView: View {
-    @StateObject var preventViewModel: PreventViewModel
+    
+//    let navigator: LinkNavigatorType
+    
+    @ObservedObject var preventViewModel: PreventViewModel
     @State var viewStack: [QuizStack] = []
+    
+//    init(navigator: LinkNavigatorType,
+//        dependency: DependencyType = AppDependency()) {
+//        self.preventViewModel = dependency.resolve()!
+//        self.navigator = navigator
+//    }
+    
+    init(preventViewModel: PreventViewModel) {
+        self.preventViewModel = preventViewModel
+    }
     
     var body: some View {
         NavigationStack(path: $viewStack) {
@@ -85,11 +99,10 @@ struct PreventView: View {
             
         }
     }
-    
 }
 
-struct PreventView_Previews: PreviewProvider {
-    static var previews: some View {
-        PreventView(preventViewModel: PreventViewModel())
-    }
-}
+//struct PreventView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PreventView()
+//    }
+//}

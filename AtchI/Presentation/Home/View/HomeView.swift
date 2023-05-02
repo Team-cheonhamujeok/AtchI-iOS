@@ -12,6 +12,10 @@ struct HomeView: View {
     
     let navigator: LinkNavigatorType
     
+    init(dependency: AppDependencyType = AppDependency.shared) {
+        self.navigator = dependency.navigator!
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -34,7 +38,14 @@ struct HomeView: View {
                             .font(.titleMedium)
                         HStack{
                             SelfDiagnosisShortcutCard()
+                                .onTapGesture {
+                                    navigator.close(isAnimated: true) { print("modal dismissed!") }
+                                }
                             QuizShortcutCard()
+                                .onTapGesture {
+                                    navigator.fullSheet(paths: ["prevent"], items: [:], isAnimated: true, prefersLargeTitles: false)
+//                                    navigator.next(paths: ["home", "prevent"], items: [:], isAnimated: true)
+                                }
                         }
                     }
                     
