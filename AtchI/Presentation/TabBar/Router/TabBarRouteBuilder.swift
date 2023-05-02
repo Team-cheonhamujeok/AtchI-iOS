@@ -17,7 +17,7 @@ struct TabBarRouteBuilder: RouteBuilder {
   var build: (LinkNavigatorType, [String: String], DependencyType) -> MatchingViewController? {
     { navigator, items, dependency in
         return WrappingController(matchPath: matchPath) {
-        TabBarView()
+        TabBarView(navigator: navigator)
       }
     }
   }

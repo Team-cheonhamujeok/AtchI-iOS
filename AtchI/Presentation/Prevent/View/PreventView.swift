@@ -10,20 +10,26 @@ import LinkNavigator
 
 struct PreventView: View {
     
-//    let navigator: LinkNavigatorType
+    let navigator: LinkNavigatorType
     
     @ObservedObject var preventViewModel: PreventViewModel
     @State var viewStack: [QuizStack] = []
     
-//    init(navigator: LinkNavigatorType,
-//        dependency: DependencyType = AppDependency()) {
-//        self.preventViewModel = dependency.resolve()!
-//        self.navigator = navigator
+    @State var toogle: Bool = true
+    
+//    init(dependency: AppDependency = AppDependency.shared) {
+//        self.navigator = dependency.navigator!
+//        self.preventViewModel = PreventViewModel(navigator: navigator)
 //    }
     
-    init(preventViewModel: PreventViewModel) {
-        self.preventViewModel = preventViewModel
+    init(navigator: LinkNavigatorType) {
+        self.navigator = navigator
+        self.preventViewModel = PreventViewModel(navigator: navigator)
     }
+    
+//    init(preventViewModel: PreventViewModel) {
+//        self.preventViewModel = preventViewModel
+//    }
     
     var body: some View {
         NavigationStack(path: $viewStack) {
@@ -97,12 +103,12 @@ struct PreventView: View {
                 }
             }
             
-        }
+        }.toolbar(.visible, for: .navigationBar)
     }
 }
 
-//struct PreventView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PreventView()
-//    }
-//}
+struct PreventView_Previews: PreviewProvider {
+    static var previews: some View {
+        PreventView(navigator: LinkNavigator(dependency: AppDependency(), builders: AppRouterGroup().routers))
+    }
+}

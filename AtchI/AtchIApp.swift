@@ -16,18 +16,14 @@ struct AtchIApp: App {
     
     var navigator: LinkNavigator {
         return appDelegate.navigator
-        
     }
     
     var body: some Scene {
         WindowGroup {
             navigator
-                .launch(paths: ["tabBar"], items: [:])
-                // 'paths' 파라미터의 인자가 시작 페이지로 설정됩니다.
-//            ContentView()
-//                .onAppear{
-//                    hkAuthorizationProvider.setAuthorization()
-//            }
+                .launch(paths: ["home"],
+                        items: [:])
+                .ignoresSafeArea(edges: .all)
         }
     }
 }

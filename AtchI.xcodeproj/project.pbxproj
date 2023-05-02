@@ -50,7 +50,6 @@
 		BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446C529FC42EE002109A2 /* SignupReducer.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
-		BC300F6E2A00056700DA2833 /* LinkNavigator in Frameworks */ = {isa = PBXBuildFile; productRef = BC300F6D2A00056700DA2833 /* LinkNavigator */; };
 		BC300F712A000CB400DA2833 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F702A000CB400DA2833 /* AppDependency.swift */; };
 		BC300F732A000DFB00DA2833 /* AppRouterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F722A000DFB00DA2833 /* AppRouterGroup.swift */; };
 		BC300F752A000E2900DA2833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F742A000E2900DA2833 /* AppDelegate.swift */; };
@@ -58,8 +57,6 @@
 		BC300F7B2A001A2400DA2833 /* PreventRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F7A2A001A2400DA2833 /* PreventRouteBuilder.swift */; };
 		BC300F7E2A008A4C00DA2833 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F7D2A008A4C00DA2833 /* TabBarView.swift */; };
 		BC300F812A008AB400DA2833 /* TabBarRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F802A008AB400DA2833 /* TabBarRouteBuilder.swift */; };
-		BC300F862A00934D00DA2833 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F852A00934D00DA2833 /* RootView.swift */; };
-		BC300F882A00936100DA2833 /* RootRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F872A00936100DA2833 /* RootRouteBuilder.swift */; };
 		BC305CB429FF8402001388EA /* HKAuthorizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC305CB329FF8402001388EA /* HKAuthorizationProvider.swift */; };
 		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
 		BC37AA5329E080760047D273 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5229E080760047D273 /* Moya */; };
@@ -68,6 +65,7 @@
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
 		BC3DDF6929FB9BC400452A2B /* SignupValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */; };
 		BC3DDF6B29FB9BD200452A2B /* SignupRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */; };
+		BC4282472A00DA9900EDA084 /* LinkNavigator in Frameworks */ = {isa = PBXBuildFile; productRef = BC4282462A00DA9900EDA084 /* LinkNavigator */; };
 		BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C529C0886D0094333B /* InformationCardList.swift */; };
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
@@ -193,14 +191,13 @@
 		BC300F7A2A001A2400DA2833 /* PreventRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventRouteBuilder.swift; sourceTree = "<group>"; };
 		BC300F7D2A008A4C00DA2833 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		BC300F802A008AB400DA2833 /* TabBarRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouteBuilder.swift; sourceTree = "<group>"; };
-		BC300F852A00934D00DA2833 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		BC300F872A00936100DA2833 /* RootRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouteBuilder.swift; sourceTree = "<group>"; };
 		BC305CB329FF8402001388EA /* HKAuthorizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKAuthorizationProvider.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
 		BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModel.swift; sourceTree = "<group>"; };
 		BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModel.swift; sourceTree = "<group>"; };
+		BC4282452A00DA9200EDA084 /* LinkNavigator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LinkNavigator; path = ../Opensource/LinkNavigator; sourceTree = "<group>"; };
 		BC4317C529C0886D0094333B /* InformationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardList.swift; sourceTree = "<group>"; };
 		BC4317C829C094530094333B /* AlzheimerInformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformationType.swift; sourceTree = "<group>"; };
 		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
@@ -283,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
-				BC300F6E2A00056700DA2833 /* LinkNavigator in Frameworks */,
+				BC4282472A00DA9900EDA084 /* LinkNavigator in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
 				BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
@@ -519,7 +516,6 @@
 			isa = PBXGroup;
 			children = (
 				BC300F7D2A008A4C00DA2833 /* TabBarView.swift */,
-				BC300F852A00934D00DA2833 /* RootView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,9 +524,16 @@
 			isa = PBXGroup;
 			children = (
 				BC300F802A008AB400DA2833 /* TabBarRouteBuilder.swift */,
-				BC300F872A00936100DA2833 /* RootRouteBuilder.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		BC300F892A00C13D00DA2833 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BC4282452A00DA9200EDA084 /* LinkNavigator */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 		BC3CA1A829BF664800C8AE3D /* ViewModel */ = {
@@ -684,6 +687,7 @@
 		BC8D54F329B9909C00FAA6E3 = {
 			isa = PBXGroup;
 			children = (
+				BC300F892A00C13D00DA2833 /* Packages */,
 				BC8D54FE29B9909C00FAA6E3 /* AtchI */,
 				BC49094229EA69AC00EDDD0D /* AtchIViewModelTests */,
 				0455D41D29F7796800A8A747 /* AtchIServiceTests */,
@@ -978,7 +982,7 @@
 				BC37AA5029E080760047D273 /* CombineMoya */,
 				BC37AA5229E080760047D273 /* Moya */,
 				BC0446C129FC40CD002109A2 /* ComposableArchitecture */,
-				BC300F6D2A00056700DA2833 /* LinkNavigator */,
+				BC4282462A00DA9900EDA084 /* LinkNavigator */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -1019,7 +1023,6 @@
 			packageReferences = (
 				BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */,
 				BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				BC300F6C2A00056700DA2833 /* XCRemoteSwiftPackageReference "LinkNavigator" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -1168,7 +1171,6 @@
 				BC3DDF6B29FB9BD200452A2B /* SignupRequestViewModel.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
-				BC300F882A00936100DA2833 /* RootRouteBuilder.swift in Sources */,
 				BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
 				BC300F7E2A008A4C00DA2833 /* TabBarView.swift in Sources */,
@@ -1176,7 +1178,6 @@
 				6F06DB6529FD3DDA00770596 /* TodayQuiz.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
 				BC81F35629FCC26700E09958 /* TypeState.swift in Sources */,
-				BC300F862A00934D00DA2833 /* RootView.swift in Sources */,
 				BC300F752A000E2900DA2833 /* AppDelegate.swift in Sources */,
 				BC3DDF6929FB9BC400452A2B /* SignupValidationViewModel.swift in Sources */,
 				049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */,
@@ -1525,14 +1526,6 @@
 				minimumVersion = 0.52.0;
 			};
 		};
-		BC300F6C2A00056700DA2833 /* XCRemoteSwiftPackageReference "LinkNavigator" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/interactord/LinkNavigator.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.1;
-			};
-		};
 		BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -1549,11 +1542,6 @@
 			package = BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		BC300F6D2A00056700DA2833 /* LinkNavigator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BC300F6C2A00056700DA2833 /* XCRemoteSwiftPackageReference "LinkNavigator" */;
-			productName = LinkNavigator;
-		};
 		BC37AA5029E080760047D273 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;
@@ -1563,6 +1551,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		BC4282462A00DA9900EDA084 /* LinkNavigator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LinkNavigator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

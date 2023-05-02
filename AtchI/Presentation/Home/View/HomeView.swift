@@ -12,8 +12,8 @@ struct HomeView: View {
     
     let navigator: LinkNavigatorType
     
-    init(dependency: AppDependencyType = AppDependency.shared) {
-        self.navigator = dependency.navigator!
+    init(navigator: LinkNavigatorType) {
+        self.navigator = navigator
     }
     
     var body: some View {
@@ -39,12 +39,17 @@ struct HomeView: View {
                         HStack{
                             SelfDiagnosisShortcutCard()
                                 .onTapGesture {
-                                    navigator.close(isAnimated: true) { print("modal dismissed!") }
+                                    navigator
+//                                        .setNavigationVisible(false)
+                                        .backToLast(path: "tabBar", isAnimated: true)
                                 }
                             QuizShortcutCard()
                                 .onTapGesture {
-                                    navigator.fullSheet(paths: ["prevent"], items: [:], isAnimated: true, prefersLargeTitles: false)
-//                                    navigator.next(paths: ["home", "prevent"], items: [:], isAnimated: true)
+                                    navigator
+//                                        .setNavigationVisible(true)
+                                        .next(paths: ["prevent"],
+                                              items: [:],
+                                              isAnimated: true)
                                 }
                         }
                     }
@@ -62,13 +67,15 @@ struct HomeView: View {
             .frame(maxWidth: .infinity,
                    maxHeight: .infinity,
                    alignment: .leading)
+            .toolbar(.hidden, for: .navigationBar)
         }
     }
 }
 
 //struct HomeView_Previews: PreviewProvider {
+//    
 //    static var previews: some View {
-//        HomeView()
+//        HomeView(dependency: AppDependency.shared)
 //    }
 //}
 

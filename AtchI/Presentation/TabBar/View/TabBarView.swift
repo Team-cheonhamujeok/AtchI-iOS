@@ -6,19 +6,21 @@
 //
 
 import SwiftUI
+import LinkNavigator
 
 struct TabBarView: View {
     
+    var navigator: LinkNavigatorType
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(navigator: navigator)
                 .tabItem{
                     Image(systemName: "house")
                     Text("홈")
                 }
             Text("임시")
-//            PreventView(preventViewModel: PreventViewModel())
+            //            PreventView(preventViewModel: PreventViewModel())
                 .tabItem{
                     Image(systemName: "brain.head.profile")
                     Text("예방")
@@ -38,13 +40,13 @@ struct TabBarView: View {
                     Image(systemName: "gear")
                     Text("설정")
                 }
-        }
+        }.toolbar(.hidden, for: .navigationBar)
     }
 }
 
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView()
+        TabBarView(navigator: LinkNavigator(dependency: AppDependency(), builders: AppRouterGroup().routers))
     }
 }
