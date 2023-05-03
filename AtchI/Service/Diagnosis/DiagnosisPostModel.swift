@@ -17,6 +17,6 @@ struct DiagnosisGetModel: Codable {
     let did: Int
     let mid: Int
     let result: Int
-    let date: String
+    let date: Date
     let answerlist: [Int]
 }

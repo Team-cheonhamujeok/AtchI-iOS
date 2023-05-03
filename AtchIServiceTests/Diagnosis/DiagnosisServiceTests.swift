@@ -7,13 +7,15 @@
 @testable import AtchI
 import XCTest
 
+import Moya
+
 final class DiagnosisServiceTests: XCTestCase {
     
-    var sut: DiagnosisServiceType?
+    var sut: DiagnosisServiceType!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        self.sut = DiagnosisService()
+        self.sut = DiagnosisService(provider: MoyaProvider<DiagnosisAPI>() )
     }
 
     override func tearDownWithError() throws {
@@ -21,8 +23,50 @@ final class DiagnosisServiceTests: XCTestCase {
         self.sut = nil
     }
 
-    func testExample() throws {
+    func test_자가진단_유저_결과들고오기() throws {
+        let expectation = XCTestExpectation(description: "fetches data and updates properties.")
+        let request = sut.getDiagnosisList(mid: 1)
         
+        let cancellable = request
+                            .handleEvents(receiveSubscription: { _ in
+                              print("Network request will start")
+                            }, receiveOutput: { _ in
+                              print("Network request data received")
+                            }, receiveCancel: {
+                              print("Network request cancelled")
+                            })
+                            .sink(receiveCompletion: { com in
+                                print("com", com)
+                            }, receiveValue: { response in
+                                print("response", response)
+                                
+                                expectation.fulfill()
+                            })
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func test_자가진단_결과_post하기() throws {
+        let expectation = XCTestExpectation(description: "post data and updates properties.")
+        let request = sut.postDiagnosis(postDTO: DiagnosisTestData.postSampleData)
+        
+        let cancellable = request
+                            .handleEvents(receiveSubscription: { _ in
+                              print("Network request will start")
+                            }, receiveOutput: { _ in
+                              print("Network request data received")
+                            }, receiveCancel: {
+                              print("Network request cancelled")
+                            })
+                            .sink(receiveCompletion: { com in
+                                print("com", com)
+                            }, receiveValue: { response in
+                                print("response", response)
+                                
+                                expectation.fulfill()
+                            })
+        
+        wait(for: [expectation], timeout: 10.0)
     }
 
     func testPerformanceExample() throws {
