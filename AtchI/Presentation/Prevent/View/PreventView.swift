@@ -17,14 +17,9 @@ struct PreventView: View {
     
     @State var toogle: Bool = true
     
-//    init(dependency: AppDependency = AppDependency.shared) {
-//        self.navigator = dependency.navigator!
-//        self.preventViewModel = PreventViewModel(navigator: navigator)
-//    }
-    
-    init(dependency: DependencyType = AppDependency.shared) {
-        self.navigator = dependency.resolve()!
-        self.preventViewModel = dependency.resolve()!
+    init(dependency: AppDependency = AppDependency.shared) {
+        self.navigator = dependency.navigator!
+        self.preventViewModel = PreventViewModel(navigator: navigator)
     }
     
 //    init(preventViewModel: PreventViewModel) {
@@ -102,7 +97,6 @@ struct PreventView: View {
                     QuizDoneView(quizOrder: value.data.index, preventViewModel: preventViewModel, quizStack: $viewStack)
                 }
             }
-            
         }
         .toolbar(.visible, for: .navigationBar)
     }
