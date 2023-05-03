@@ -683,6 +683,7 @@
 			children = (
 				6F16514629D1339700CC228F /* Prevent */,
 				049ADE9F29C95CF6009B9B62 /* Diagnosis */,
+				BC8D551E29B99A6D00FAA6E3 /* Home */,
 				BC4E1EB929C2331400915AB6 /* Intro */,
 			);
 			path = Presentation;
@@ -716,7 +717,6 @@
 				BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */,
 				BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */,
 				BC0446C529FC42EE002109A2 /* SignupReducer.swift */,
-				BC8D551E29B99A6D00FAA6E3 /* Home */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
