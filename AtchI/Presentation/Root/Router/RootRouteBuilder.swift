@@ -10,14 +10,14 @@ import Foundation
 import LinkNavigator
 import SwiftUI
 
-struct TabBarRouteBuilder: RouteBuilder {
+struct RootRouteBuilder: RouteBuilder {
     
-  var matchPath: String { "tabBar" }
+  var matchPath: String { "root" }
 
   var build: (LinkNavigatorType, [String: String], DependencyType) -> MatchingViewController? {
     { navigator, items, dependency in
         return WrappingController(matchPath: matchPath) {
-        TabBarView()
+        RootView(navigator: navigator)
       }
     }
   }

@@ -12,15 +12,16 @@ struct HomeView: View {
     
     let navigator: LinkNavigatorType
     
-    init(dependency: DependencyType = AppDependency.shared) {
-        self.navigator = dependency.resolve()!
+    init(navigator: LinkNavigatorType) {
+        self.navigator = navigator
     }
     
     var body: some View {
             VStack {
-                // 로고 + 앱이름
+//                 로고 + 앱이름
 //                AppTitleBar()
-                
+//                    .padding()
+
                 ScrollView {
                     // AI 진단 결과 카드
                     Spacer(minLength: 20)
@@ -39,7 +40,7 @@ struct HomeView: View {
                             SelfDiagnosisShortcutCard()
                                 .onTapGesture {
                                     navigator
-                                        .backToLast(path: "tabBar", isAnimated: true)
+                                        .backToLast(path: "root", isAnimated: true)
                                 }
                             QuizShortcutCard()
                                 .onTapGesture {
@@ -63,14 +64,14 @@ struct HomeView: View {
             .frame(maxWidth: .infinity,
                    maxHeight: .infinity,
                    alignment: .leading)
-        }
+            }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     
     static var previews: some View {
-        HomeView()
+        HomeView(navigator: LinkNavigator(dependency: AppDependency(), builders: AppRouterGroup().routers))
     }
 }
 

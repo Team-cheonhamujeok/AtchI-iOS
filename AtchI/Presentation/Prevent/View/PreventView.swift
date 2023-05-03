@@ -10,16 +10,13 @@ import LinkNavigator
 
 struct PreventView: View {
     
-    let navigator: LinkNavigatorType
-    
     @ObservedObject var preventViewModel: PreventViewModel
     @State var viewStack: [QuizStack] = []
     
     @State var toogle: Bool = true
     
-    init(dependency: AppDependency = AppDependency.shared) {
-        self.navigator = dependency.navigator!
-        self.preventViewModel = PreventViewModel(navigator: navigator)
+    init(preventViewModel: PreventViewModel) {
+        self.preventViewModel = preventViewModel
     }
     
 //    init(preventViewModel: PreventViewModel) {
@@ -98,12 +95,11 @@ struct PreventView: View {
                 }
             }
         }
-        .toolbar(.visible, for: .navigationBar)
     }
 }
 
 struct PreventView_Previews: PreviewProvider {
     static var previews: some View {
-        PreventView(dependency: AppDependency.shared)
+        PreventView(preventViewModel: PreventViewModel(navigator: LinkNavigator(dependency: AppDependency(), builders: AppRouterGroup().routers)))
     }
 }

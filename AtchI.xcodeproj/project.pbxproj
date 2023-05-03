@@ -55,8 +55,8 @@
 		BC300F752A000E2900DA2833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F742A000E2900DA2833 /* AppDelegate.swift */; };
 		BC300F782A00113B00DA2833 /* HomeRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F772A00113B00DA2833 /* HomeRouteBuilder.swift */; };
 		BC300F7B2A001A2400DA2833 /* PreventRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F7A2A001A2400DA2833 /* PreventRouteBuilder.swift */; };
-		BC300F7E2A008A4C00DA2833 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F7D2A008A4C00DA2833 /* TabBarView.swift */; };
-		BC300F812A008AB400DA2833 /* TabBarRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F802A008AB400DA2833 /* TabBarRouteBuilder.swift */; };
+		BC300F7E2A008A4C00DA2833 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F7D2A008A4C00DA2833 /* RootView.swift */; };
+		BC300F812A008AB400DA2833 /* RootRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC300F802A008AB400DA2833 /* RootRouteBuilder.swift */; };
 		BC305CB429FF8402001388EA /* HKAuthorizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC305CB329FF8402001388EA /* HKAuthorizationProvider.swift */; };
 		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
 		BC37AA5329E080760047D273 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5229E080760047D273 /* Moya */; };
@@ -189,8 +189,8 @@
 		BC300F742A000E2900DA2833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC300F772A00113B00DA2833 /* HomeRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouteBuilder.swift; sourceTree = "<group>"; };
 		BC300F7A2A001A2400DA2833 /* PreventRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventRouteBuilder.swift; sourceTree = "<group>"; };
-		BC300F7D2A008A4C00DA2833 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		BC300F802A008AB400DA2833 /* TabBarRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouteBuilder.swift; sourceTree = "<group>"; };
+		BC300F7D2A008A4C00DA2833 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		BC300F802A008AB400DA2833 /* RootRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouteBuilder.swift; sourceTree = "<group>"; };
 		BC305CB329FF8402001388EA /* HKAuthorizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKAuthorizationProvider.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
@@ -503,19 +503,19 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		BC300F7C2A008A2D00DA2833 /* TabBar */ = {
+		BC300F7C2A008A2D00DA2833 /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				BC300F822A008ACB00DA2833 /* Router */,
 				BC300F7F2A008AA200DA2833 /* View */,
 			);
-			path = TabBar;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		BC300F7F2A008AA200DA2833 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC300F7D2A008A4C00DA2833 /* TabBarView.swift */,
+				BC300F7D2A008A4C00DA2833 /* RootView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,7 +523,7 @@
 		BC300F822A008ACB00DA2833 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				BC300F802A008AB400DA2833 /* TabBarRouteBuilder.swift */,
+				BC300F802A008AB400DA2833 /* RootRouteBuilder.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -758,7 +758,7 @@
 		BC8D551C29B99A4A00FAA6E3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BC300F7C2A008A2D00DA2833 /* TabBar */,
+				BC300F7C2A008A2D00DA2833 /* Root */,
 				BC8D551E29B99A6D00FAA6E3 /* Home */,
 				6F16514629D1339700CC228F /* Prevent */,
 				049ADE9F29C95CF6009B9B62 /* Diagnosis */,
@@ -1137,7 +1137,7 @@
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
 				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
-				BC300F812A008AB400DA2833 /* TabBarRouteBuilder.swift in Sources */,
+				BC300F812A008AB400DA2833 /* RootRouteBuilder.swift in Sources */,
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
 				BC305CB429FF8402001388EA /* HKAuthorizationProvider.swift in Sources */,
 				6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */,
@@ -1173,7 +1173,7 @@
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
-				BC300F7E2A008A4C00DA2833 /* TabBarView.swift in Sources */,
+				BC300F7E2A008A4C00DA2833 /* RootView.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				6F06DB6529FD3DDA00770596 /* TodayQuiz.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,

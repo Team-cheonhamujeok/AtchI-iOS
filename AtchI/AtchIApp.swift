@@ -21,9 +21,9 @@ struct AtchIApp: App {
     var body: some Scene {
         WindowGroup {
             navigator
-                .launch(paths: ["tabBar"],
+                .launch(paths: ["root"],
                         items: [:])
-                .ignoresSafeArea(edges: .all)
+                .ignoresSafeArea(edges: .vertical)
         }
     }
 }

@@ -11,8 +11,7 @@ import LinkNavigator
 struct AppRouterGroup {
   var routers: [RouteBuilder] {
     [
-//        RootRouteBuilder(),
-        TabBarRouteBuilder(),
+        RootRouteBuilder(),
         HomeRouteBuilder(),
         PreventRouteBuilder(),
     ]
