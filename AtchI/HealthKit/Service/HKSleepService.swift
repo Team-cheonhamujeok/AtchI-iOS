@@ -9,35 +9,137 @@ import Foundation
 import HealthKit
 import Combine
 
+// TODO: Future 에러 핸들링 (Provider 에러 전파)
+// TODO: 오늘 이후 값에 접근할 경우 fatalError 내기 (개발자 에러)
+// TODO: 값이 비어있을 때 CustomError 반환하기 (워치 미착용, 앱에서 수면시간 지정 안할 시 수면 데이터가 비어 있음)
+
 /// HealthKit의 수면 샘플을 가져오는 클래스입니다.
 ///
-/// provider를 통해 sample을 가져오는 `fetchSleepSamples(date:)` 함수와
-/// 그 외 수면 데이터 가공을 위한 메서드들로 구성되어 있습니다.
+/// HKSleepService에서 제공하는 데이터 종류는 다음과 같습니다.
+/// - 총 수면 수면 시간(단위: 분, 이하 동일)
+/// - 수면 시작 시간
+/// - 수면 종료 시간
+/// - (애플 워치 미착용시) 수면 총 시간
+/// - 렘 수면 총 시간
+/// - 가벼운 수면 총 시간
+/// - 깊은 수면 총 시간
+/// - 수면 중 깨어 있었던 시간
 ///
-/// 먼저, fetch함수를 통해 데이터를 가져온 후 가져온 데이터를 이용해 게산 메서드를 이용할 수 있습니다.
+/// [**사용법**]
 ///
-/// ```swift
-/// let service = HKSleepService(hkProvider: HKProvider())
+/// 1. 여러개의 수면 데이터가 한번에 필요하다면 ``getSleepAll(date:)``로 모든 정보가 담긴 구조체 인스턴스를 반환받을 수 있습니다.
 ///
-/// service.fetchSleepSamples(date: Date()) { samples in
-///   let awakeTime = service.getSleepAwakeQeuntity(samples: samples)
-///    // ... 이후 작업
-/// }
-/// ```
+/// 2. 개별 데이터가 필요하다면 ``getSleepQuentity(date:sleepCategory:)-8xz6g``,  ``getSleepQuentity(date:sleepCategory:)-2a6jf``,  ``getSleepStartDate(date:)``,  ``getSleepEndDate(date:)`` 메서드로 Primitive type을 반환받을 수 있습니다.
 ///
-/// - SeeAlso: HKProvider
+/// - Note: 어제 오후 6시~ 오늘 오후 6시 사이를 오늘 수면 시간으로 판단합니다.
 ///
-class HKSleepService {
+/// - Warning: 개별 데이터에 접근하는 메서드를 여러번 호출한다면 매번 HealhKit 저장소에서 정보를 가져오게 되므로 성능 저하가 발생할 수 있습니다. 또한 호출이 전부 완료되기 전 HealthKit 저장소의 정보가 바뀔 수 있으므로 예상치 못한 결과 값을 얻을 수 있습니다. 따라서 여러 데이터가 필요한 경우에는  ``getSleepAll(date:)``를 이용하여 한번에 데이터를 받아오세요.
+///
+/// ## SeeAlso
+/// ``HKSleepServiceType``
+///
+class HKSleepService: HKSleepServiceType{
     private var provider: HKProvider
     private var dateHelper: DateHelperType
-
+    
     init(provider: HKProvider, dateHelper: DateHelperType) {
         self.provider = provider
         self.dateHelper = dateHelper
     }
 
-    // MARK: - Fetch Function
+    func getSleepAll(date: Date) -> Future <HKSleepModel, Error> {
+        return Future { promise in
+            self.fetchSleepSamples(date: date)
+                .sink(receiveCompletion: { _ in },
+                      receiveValue: { samples in
 
+                    let sleepModel =
+                    HKSleepModel(startTime: samples.first?.endDate ?? Date(), // 에러 처리해야함
+                                 endTime: samples.last?.endDate ?? Date(),
+                                 inbedQuentity: self.calculateSleepTimeQuentity(sleepType: .inBed, samples: samples),
+                                 remQuentity: self.calculateSleepTimeQuentity(sleepType: .asleepREM, samples: samples),
+                                 coreQuentity: self.calculateSleepTimeQuentity(sleepType: .asleepCore, samples: samples),
+                                 deepQuentity: self.calculateSleepTimeQuentity(sleepType: .asleepDeep, samples: samples),
+                                 awakeQuentity: self.calculateSleepTimeQuentity(sleepType: .awake, samples: samples))
+
+                    promise(Result.success(sleepModel))
+                })
+        }
+    }
+
+    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory.origin) -> Future<Int, Never> { // TODO: 에러 처리 수정
+        return Future { promise in
+            self.fetchSleepSamples(date: date)
+                .sink(receiveCompletion: { _ in },
+                      receiveValue: { [weak self] samples in
+                    
+                    guard let self = self else { return }
+                    
+                    let quentity = self.calculateSleepTimeQuentity(sleepType: sleepCategory.identifier,
+                                                                   samples: samples)
+                    promise(Result.success(quentity))
+                    
+                })
+        }
+    }
+    
+    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory.custom) -> Future<Int, Never> { // TODO: 에러 처리 수정
+        return Future { promise in
+            self.fetchSleepSamples(date: date)
+                .sink(receiveCompletion: { _ in },
+                      receiveValue: { [weak self] samples in
+                    
+                    guard let self = self else { return }
+                    
+                    switch sleepCategory {
+                    case .total:
+                        let calendar = Calendar.current
+                        let sum = samples.reduce(into: 0) { (result, sample) in
+                            let minutes = calendar.dateComponents([.minute], from: sample.startDate, to: sample.endDate).minute ?? 0
+                            result += minutes
+                        }
+                        
+                        promise(Result.success(sum))
+                    }
+                    
+                })
+        }
+    }
+
+    func getSleepStartDate(date: Date) -> Future<Date?, Never> {// TODO: 에러 처리 수정
+        return Future { promise in
+            self.fetchSleepSamples(date: date)
+                .sink(receiveCompletion: { _ in },
+                      receiveValue: { [weak self] samples in
+                    
+                    guard let self = self else { return }
+                    
+                    let startDate = samples.first?.endDate
+                    
+                    promise(Result.success(startDate))
+                })
+        }
+    }
+
+    func getSleepEndDate(date: Date) -> Future<Date?, Never> {// TODO: 에러 처리 수정
+        return Future { promise in
+            self.fetchSleepSamples(date: date)
+                .sink(receiveCompletion: { _ in },
+                      receiveValue: { [weak self] samples in
+                    
+                    guard let self = self else { return }
+                    
+                    let startDate = calculateSleepEndDate(samples: samples)
+                    
+                    promise(Result.success(startDate))
+                })
+        }
+    }
+}
+
+// MARK: - Private
+extension HKSleepService {
+    
     /// 내부적으로 Healthkit Provider를 통해 데이터를 가져옵니다. 결과는 completion으로 전달합니다.
     ///
     /// - Parameters:
@@ -50,10 +152,10 @@ class HKSleepService {
             let endDate = self?.dateHelper.getTodaySixPM(date)
             let startDate = self?.dateHelper.getYesterdaySixPM(date)
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
-
+            
             // 수면 데이터 가져오기
             self?.provider.getCategoryTypeSample(identifier: .sleepAnalysis,
-                                                              predicate: predicate) { samples, error  in
+                                                 predicate: predicate) { samples, error  in
                 if let error = error { promise(Result.failure(error)) }
                 promise(Result.success(samples))
             }
@@ -68,7 +170,7 @@ class HKSleepService {
     /// - Parameters:
     ///    - sleepType: 구하고자 하는 수면 데이터 종류의 식별자입니다.
     ///    - samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
-    /// - Returns: 수면 시작 시간을 Date형으로 반환합니다.
+    /// - Returns: 총량을 Int형(단위: 분)으로 반환합니다.
     private func calculateSleepTimeQuentity(sleepType: HKCategoryValueSleepAnalysis,
                                             samples: [HKCategorySample]) -> Int {
         let calendar = Calendar.current
@@ -79,114 +181,52 @@ class HKSleepService {
             }
         return sum
     }
-}
-
-
-extension HKSleepService: HKSleepOverallServiceType {
     
-    /// 수면 시작 시간을 구합니다.
-    ///
-    /// 어제 오후 6시~ 오늘 오후 6시 사이에 첫 수면 데이터를 수면 시작 시간으로 판단합니다.
-    ///
-    /// - Parameters:
-    ///    - samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
-    /// - Returns: 수면 시작 시간을 Date형으로 반환합니다.
-    func getSleepOverall(date: Date) -> Future <HKSleepModel, Error> {
-        return Future { promise in
-            self.fetchSleepSamples(date: date)
-                .sink(receiveCompletion: { _ in },
-                      receiveValue: { samples in
-
-                    let sleepModel =
-                    HKSleepModel(startTime: self.getSleepStartDate(samples: samples) ?? Date(), // 에러 처리해야함
-                                 endTime: self.getSleepEndDate(samples: samples) ?? Date(),
-                                 inbedQuentity: self.calculateSleepTimeQuentity(sleepType: .inBed, samples: samples),
-                                 remQuentity: self.calculateSleepTimeQuentity(sleepType: .asleepREM, samples: samples),
-                                 coreQuentity: self.calculateSleepTimeQuentity(sleepType: .asleepCore, samples: samples),
-                                 deepQuentity: self.calculateSleepTimeQuentity(sleepType: .asleepDeep, samples: samples),
-                                 awakeQuentity: self.calculateSleepTimeQuentity(sleepType: .awake, samples: samples))
-
-                    promise(Result.success(sleepModel))
-                })
+    /// 내부적으로 수면 시작 시간을 구합니다.
+    /// - Parameter samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
+    /// - Returns: 수면 시작 시간을 Date 형으로 반환합니다.
+    private func calculateSleepStartDate(samples: [HKCategorySample]) -> Date? {
+        if let stratDate = samples.first?.startDate {
+            return stratDate
+        } else {
+            fatalError("올바른 수면 데이터가 아닙니다")
         }
     }
-
-    /// 수면 시작 시간을 구합니다.
-    ///
-    /// 어제 오후 6시~ 오늘 오후 6시 사이에 첫 수면 데이터를 수면 시작 시간으로 판단합니다.
-    ///
-    /// - Parameters:
-    ///    - samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
-    /// - Returns: 수면 시작 시간을 Date형으로 반환합니다.
-    private func getSleepStartDate(samples: [HKCategorySample]) -> Date? {
-        return samples.first?.startDate
-    }
-
-    /// 수면 종료 시간을 구합니다.
-    ///
-    /// 어제 오후 6시~ 오늘 오후 6시 사이에 첫 마지막 수면 데이터를 수면 종료 시간으로 판단합니다.
-    ///
-    /// - Parameters:
-    ///    - samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
-    /// - Returns: 수면 종료 시간을 Date형으로 반환합니다.
-    private func getSleepEndDate(samples: [HKCategorySample]) -> Date? {
-        return samples.last?.endDate
+    
+    /// 내부적으로 수면 종료 시간을 구합니다.
+    /// - Parameter samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
+    /// - Returns: 수면 종료 시간을 Date 형으로 반환합니다.
+    private func calculateSleepEndDate(samples: [HKCategorySample]) -> Date {
+        if let endDate = samples.last?.endDate {
+            return endDate
+        } else {
+            fatalError("올바른 수면 데이터가 아닙니다")
+        }
     }
 }
 
-extension HKSleepService: HKSleepIndividualServiceType {
-    // MARK: - Get Function
+// MARK: - Enum
+extension HKSleepService {
     
     enum HKSleepCategory {
-        case total
-        case inbed
-        case rem
-        case core
-        case deep
-        case awake
+
+        enum custom {
+            case total
+        }
         
-        fileprivate var origin: HKCategoryValueSleepAnalysis? {
-            switch self {
-            case .total:
-                return nil
-            case .inbed:
-                return .inBed
-            case .rem:
-                return .asleepREM
-            case .core:
-                return .asleepCore
-            case .deep:
-                return .asleepDeep
-            case .awake:
-                return .awake
+        enum origin {
+            case inbed, rem, core, deep, wake
+            
+            fileprivate var identifier: HKCategoryValueSleepAnalysis {
+                switch self {
+                case .inbed: return .inBed
+                case .rem: return .asleepREM
+                case .core: return .asleepCore
+                case .deep: return .asleepDeep
+                case .wake: return .awake
+                }
             }
         }
     }
-
-    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory) -> Future<Int, Never> { // TODO: 에러 처리 수정
-        return Future { promise in
-            self.fetchSleepSamples(date: date)
-                .sink(receiveCompletion: { _ in },
-                      receiveValue: { [weak self] samples in
-                    
-                    guard let self = self else { return }
-                    
-                    // HealthKit에서 제공하는 수면 종류인 경우
-                    if let category = sleepCategory.origin {
-                        let quentity = self.calculateSleepTimeQuentity(sleepType: category,
-                                                                       samples: samples)
-                        promise(Result.success(quentity))
-                    }
-                    // HealthKit에서 제공하지 않는 수면 종류인 경우
-                    else {
-                        switch sleepCategory {
-                        case .total:
-                            promise(Result.success(0)) // TODO: 미구현
-                        default:
-                            fatalError("제공하지 않는 수면 종류입니다.")
-                        }
-                    }
-                })
-        }
-    }
+    
 }

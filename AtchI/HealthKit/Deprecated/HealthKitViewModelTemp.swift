@@ -12,12 +12,12 @@ import Combine
 class HealthKitViewModelTemp {
     
     // TODO: 프로토콜 만들어서 IoC하기
-    let sleepService: HKSleepIndividualServiceType
+    let sleepService: HKSleepServiceType
     let activityService: HKActivityService
     let heartRateService: HKHeartRateService
     
     
-    init(sleepService: HKSleepIndividualServiceType,
+    init(sleepService: HKSleepServiceType,
          activityService: HKActivityService,
          heartRateService: HKHeartRateService) {
         self.sleepService = sleepService
@@ -29,7 +29,7 @@ class HealthKitViewModelTemp {
     func start() {
         let date = Date()
 
-        let sleepPublisher = sleepService.getSleepQuentity(date: date, sleepCategory: .core)
+        let sleepPublisher = sleepService.getSleepQuentity(date: date, sleepCategory: .total)
         let acitivityDistancePublisher = activityService.getDistance(date: date)
         let acitivityEnergyPublisher = activityService.getEnergy(date: date)
         let acitivityStepCountPublisher = activityService.getStepCount(date: date)
