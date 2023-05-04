@@ -24,12 +24,10 @@ class HKProvider {
     //MARK: - Category Sample
     func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ([HKCategorySample], Error?) -> Void) {
+                               completion: @escaping ([HKCategorySample], HKError?) -> Void) {
         // identifier로 Type 정의
         guard let sleepType = HKObjectType.categoryType(forIdentifier: identifier) else {
-            // 에러 처리를 수행합니다.
-            completion([], HKProviderError.identifierNotFound)
-            return
+            fatalError("identifier를 찾을 수 없습니다. 올바른 identifier를 입력했는지 확인해주세요.")
         }
         
         // 최신 데이터를 먼저 가져오도록 sort 기준 정의
@@ -42,10 +40,15 @@ class HKProvider {
                                   sortDescriptors: [sortDescriptor]) { (_, samples, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.
-                completion([], HKProviderError.fetchSamplesFailed)
+                completion([], HKError.providerFetchSamplesFailed)
             }
             if let result = samples {
                 let categorySamples = result.compactMap { $0 as? HKCategorySample }
+                
+                if categorySamples.isEmpty {
+                    completion([], HKError.providerDataNotFound)
+                }
+                
                 completion(categorySamples, nil)
             }
         }

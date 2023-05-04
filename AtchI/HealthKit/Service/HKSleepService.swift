@@ -47,11 +47,16 @@ class HKSleepService: HKSleepServiceType{
         self.dateHelper = dateHelper
     }
 
-    func getSleepAll(date: Date) -> Future <HKSleepModel, Error> {
+    func getSleepAll(date: Date) -> Future <HKSleepModel, HKError> {
         return Future { promise in
-            self.fetchSleepSamples(date: date)
-                .sink(receiveCompletion: { _ in },
-                      receiveValue: { samples in
+            _ = self.fetchSleepSamples(date: date).sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished: break
+                    case .failure(let error):
+                        promise(Result.failure(error))
+                    }
+                },receiveValue: { samples in
 
                     let sleepModel =
                     HKSleepModel(startTime: samples.first?.endDate ?? Date(), // 에러 처리해야함
@@ -67,11 +72,16 @@ class HKSleepService: HKSleepServiceType{
         }
     }
 
-    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory.origin) -> Future<Int, Never> { // TODO: 에러 처리 수정
+    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory.origin) -> Future<Int, HKError> {
         return Future { promise in
-            self.fetchSleepSamples(date: date)
-                .sink(receiveCompletion: { _ in },
-                      receiveValue: { [weak self] samples in
+            _ = self.fetchSleepSamples(date: date).sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished: break
+                    case .failure(let error):
+                        promise(Result.failure(error))
+                    }
+                }, receiveValue: { [weak self] samples in
                     
                     guard let self = self else { return }
                     
@@ -83,13 +93,16 @@ class HKSleepService: HKSleepServiceType{
         }
     }
     
-    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory.custom) -> Future<Int, Never> { // TODO: 에러 처리 수정
+    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory.custom) -> Future<Int, HKError> { // TODO: 에러 처리 수정
         return Future { promise in
-            self.fetchSleepSamples(date: date)
-                .sink(receiveCompletion: { _ in },
-                      receiveValue: { [weak self] samples in
-                    
-                    guard let self = self else { return }
+            _ = self.fetchSleepSamples(date: date).sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished: break
+                    case .failure(let error):
+                        promise(Result.failure(error))
+                    }
+                }, receiveValue: { samples in
                     
                     switch sleepCategory {
                     case .total:
@@ -106,26 +119,36 @@ class HKSleepService: HKSleepServiceType{
         }
     }
 
-    func getSleepStartDate(date: Date) -> Future<Date?, Never> {// TODO: 에러 처리 수정
+    func getSleepStartDate(date: Date) -> Future<Date, HKError> {// TODO: 에러 처리 수정
         return Future { promise in
-            self.fetchSleepSamples(date: date)
-                .sink(receiveCompletion: { _ in },
-                      receiveValue: { [weak self] samples in
+            _ = self.fetchSleepSamples(date: date).sink(
+                    receiveCompletion: { completion in
+                        switch completion {
+                        case .finished: break
+                        case .failure(let error):
+                            promise(Result.failure(error))
+                        }
+                    }, receiveValue: { [weak self] samples in
                     
                     guard let self = self else { return }
                     
-                    let startDate = samples.first?.endDate
+                    let startDate = self.calculateSleepStartDate(samples: samples)
                     
                     promise(Result.success(startDate))
                 })
         }
     }
 
-    func getSleepEndDate(date: Date) -> Future<Date?, Never> {// TODO: 에러 처리 수정
+    func getSleepEndDate(date: Date) -> Future<Date, HKError> {// TODO: 에러 처리 수정
         return Future { promise in
-            self.fetchSleepSamples(date: date)
-                .sink(receiveCompletion: { _ in },
-                      receiveValue: { [weak self] samples in
+            _ = self.fetchSleepSamples(date: date).sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished: break
+                    case .failure(let error):
+                        promise(Result.failure(error))
+                    }
+                }, receiveValue: { [weak self] samples in
                     
                     guard let self = self else { return }
                     
@@ -146,7 +169,7 @@ extension HKSleepService {
     ///    - date: 데이터를 가져오고자 하는 날짜를 주입합니다.
     ///    - completion: sample을 전달받는 콜백 클로저입니다.
     /// - Returns: 수면 데이터를 [HKCategorySample] 형으로 Future에 담아 반환합니다.
-    private func fetchSleepSamples(date: Date) -> Future<[HKCategorySample], Error> {
+    private func fetchSleepSamples(date: Date) -> Future<[HKCategorySample], HKError> {
         return Future() { [weak self] promise in
             // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
             let endDate = self?.dateHelper.getTodaySixPM(date)
@@ -185,7 +208,7 @@ extension HKSleepService {
     /// 내부적으로 수면 시작 시간을 구합니다.
     /// - Parameter samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
     /// - Returns: 수면 시작 시간을 Date 형으로 반환합니다.
-    private func calculateSleepStartDate(samples: [HKCategorySample]) -> Date? {
+    private func calculateSleepStartDate(samples: [HKCategorySample]) -> Date {
         if let stratDate = samples.first?.startDate {
             return stratDate
         } else {

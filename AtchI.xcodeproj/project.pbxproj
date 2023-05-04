@@ -96,7 +96,7 @@
 		BCDACF4129FF930A00EFF2ED /* DiagnosisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF3E29FF930A00EFF2ED /* DiagnosisService.swift */; };
 		BCDACF4229FF930A00EFF2ED /* DiagnosisPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF3F29FF930A00EFF2ED /* DiagnosisPostModel.swift */; };
 		BCDACF4429FF933400EFF2ED /* DiagnosisServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF4329FF933400EFF2ED /* DiagnosisServiceTests.swift */; };
-		BCDACF4A29FFA97F00EFF2ED /* HKProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF4929FFA97F00EFF2ED /* HKProviderError.swift */; };
+		BCDACF4A29FFA97F00EFF2ED /* HKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF4929FFA97F00EFF2ED /* HKError.swift */; };
 		BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BC29BDE613003E364C /* HomeView.swift */; };
 		BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */; };
 		BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDE0C129BE286C003E364C /* AppTitleBar.swift */; };
@@ -109,7 +109,6 @@
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
 		BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92729E0356D00F301B1 /* Subject.swift */; };
 		BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */; };
-		BCF6B8AC2A02E84300B0FC1D /* SleepRefac.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8AB2A02E84300B0FC1D /* SleepRefac.swift */; };
 		BCF6B8AE2A03B38B00B0FC1D /* HKSleepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */; };
 		BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */; };
 		BCF6B8B52A03BBB600B0FC1D /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */; };
@@ -232,7 +231,7 @@
 		BCDACF3E29FF930A00EFF2ED /* DiagnosisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisService.swift; sourceTree = "<group>"; };
 		BCDACF3F29FF930A00EFF2ED /* DiagnosisPostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisPostModel.swift; sourceTree = "<group>"; };
 		BCDACF4329FF933400EFF2ED /* DiagnosisServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisServiceTests.swift; sourceTree = "<group>"; };
-		BCDACF4929FFA97F00EFF2ED /* HKProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKProviderError.swift; sourceTree = "<group>"; };
+		BCDACF4929FFA97F00EFF2ED /* HKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKError.swift; sourceTree = "<group>"; };
 		BCDDE0BC29BDE613003E364C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDiagnosisCard.swift; sourceTree = "<group>"; };
 		BCDDE0C129BE286C003E364C /* AppTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleBar.swift; sourceTree = "<group>"; };
@@ -245,7 +244,6 @@
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
 		BCEDA92729E0356D00F301B1 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternService.swift; sourceTree = "<group>"; };
-		BCF6B8AB2A02E84300B0FC1D /* SleepRefac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRefac.swift; sourceTree = "<group>"; };
 		BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepModel.swift; sourceTree = "<group>"; };
 		BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceType.swift; sourceTree = "<group>"; };
 		BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
@@ -747,7 +745,6 @@
 		BCDACF3629FF927900EFF2ED /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				BCDACF4829FFA96E00EFF2ED /* Error */,
 				BC305CB329FF8402001388EA /* HKAuthorizationProvider.swift */,
 				BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */,
 			);
@@ -762,7 +759,6 @@
 				BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */,
 				0455D41529F58E5A00A8A747 /* HKActivityService.swift */,
 				6F0F94AD29FE4DA400993A52 /* HKHeartRateService.swift */,
-				BCF6B8AB2A02E84300B0FC1D /* SleepRefac.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -817,6 +813,7 @@
 		BCDACF4729FF942A00EFF2ED /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				BCDACF4829FFA96E00EFF2ED /* Error */,
 				BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */,
 			);
 			path = Deprecated;
@@ -825,7 +822,7 @@
 		BCDACF4829FFA96E00EFF2ED /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				BCDACF4929FFA97F00EFF2ED /* HKProviderError.swift */,
+				BCDACF4929FFA97F00EFF2ED /* HKError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -1115,7 +1112,7 @@
 				6F16514B29D1342400CC228F /* PreventView.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */,
-				BCDACF4A29FFA97F00EFF2ED /* HKProviderError.swift in Sources */,
+				BCDACF4A29FFA97F00EFF2ED /* HKError.swift in Sources */,
 				BCF6B8AE2A03B38B00B0FC1D /* HKSleepModel.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
@@ -1130,7 +1127,6 @@
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
-				BCF6B8AC2A02E84300B0FC1D /* SleepRefac.swift in Sources */,
 				BC81F36429FD615400E09958 /* SignupReqeustViewModelEvent.swift in Sources */,
 				BC70470F29E7E91C00FA265A /* SignupModel.swift in Sources */,
 				BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */,

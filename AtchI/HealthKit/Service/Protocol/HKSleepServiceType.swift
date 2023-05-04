@@ -9,13 +9,16 @@ import Foundation
 import Combine
 
 /// HealthKit의 수면 샘플을 가져오는 SleepService의 프로토콜입니다.
+///
+/// ## Implement
+/// ``HKSleepService``
 protocol HKSleepServiceType {
     
     /// 진단에 필요한 모든 수면 데이터를 담은 구조체 인스턴스를 반환합니다.
     ///
     /// - Parameter date: 수면 데이터를 추출할 대상 날짜입니다.
     /// - Returns: 수면 데이터를 담은 `HKSleepModel`을 반환합니다
-    func getSleepAll(date: Date) -> Future <HKSleepModel, Error>
+    func getSleepAll(date: Date) -> Future <HKSleepModel, HKError>
     
     /// 전체 수면 시간 중 특정 상태인 시간의 총시간(단위: 분)을 구합니다.
     ///
@@ -32,7 +35,7 @@ protocol HKSleepServiceType {
     ///     - date: 수면 데이터를 추출할 대상 날짜입니다.
     ///     - sleepCategory: 가져오고자 하는 수면 상태 종류입니다.
     /// - Returns: 총 시간을 Int(단위: 분)로 반환합니다.
-    func getSleepQuentity(date: Date, sleepCategory: HKSleepService.HKSleepCategory.origin) -> Future<Int, Never>
+    func getSleepQuentity(date: Date, sleepCategory: HKSleepService.HKSleepCategory.origin) -> Future<Int, HKError>
     
     /// 전체 수면 시간 중 특정 상태인 시간의 총시간(단위: 분)을 구합니다.
     ///
@@ -45,7 +48,7 @@ protocol HKSleepServiceType {
     ///     - date: 수면 데이터를 추출할 대상 날짜입니다.
     ///     - sleepCategory: 가져오고자 하는 수면 상태 종류입니다.
     /// - Returns: 총 시간을 Int(단위: 분)로 반환합니다.
-    func getSleepQuentity(date: Date, sleepCategory: HKSleepService.HKSleepCategory.custom) -> Future<Int, Never>
+    func getSleepQuentity(date: Date, sleepCategory: HKSleepService.HKSleepCategory.custom) -> Future<Int, HKError>
     
     /// 수면 시작 시간을 구합니다.
     ///
@@ -54,7 +57,7 @@ protocol HKSleepServiceType {
     /// - Parameters:
     ///    - date: 수면 데이터를 추출할 대상 날짜입니다.
     /// - Returns: 수면 시작 시간을 Date형으로 반환합니다.
-    func getSleepStartDate(date: Date) -> Future<Date?, Never>
+    func getSleepStartDate(date: Date) -> Future<Date, HKError>
 
     /// 수면 종료 시간을 구합니다.
     ///
@@ -63,5 +66,5 @@ protocol HKSleepServiceType {
     /// - Parameters:
     ///    - date: 수면 데이터를 추출할 대상 날짜입니다.
     /// - Returns: 수면 종료 시간을 Date형으로 반환합니다.
-    func getSleepEndDate(date: Date) -> Future<Date?, Never>
+    func getSleepEndDate(date: Date) -> Future<Date, HKError>
 }

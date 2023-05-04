@@ -29,7 +29,7 @@ class HealthKitViewModelTemp {
     func start() {
         let date = Date()
 
-        let sleepPublisher = sleepService.getSleepQuentity(date: date, sleepCategory: .total)
+        let sleepPublisher = sleepService.getSleepAll(date: date)
         let acitivityDistancePublisher = activityService.getDistance(date: date)
         let acitivityEnergyPublisher = activityService.getEnergy(date: date)
         let acitivityStepCountPublisher = activityService.getStepCount(date: date)
