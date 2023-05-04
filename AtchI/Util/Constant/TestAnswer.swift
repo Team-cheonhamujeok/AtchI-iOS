@@ -8,8 +8,8 @@
 import Foundation
 
 enum TestAnswer: Int {
-    case never
-    case little
-    case many
-    case nothing
+    case never          // 0점
+    case little         // 1점
+    case many           // 2점
+    case nothing        // 0점
 }

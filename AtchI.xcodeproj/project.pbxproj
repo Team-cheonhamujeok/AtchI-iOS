@@ -389,6 +389,13 @@
 			path = SelfTest;
 			sourceTree = "<group>";
 		};
+		04A857602A02564B00576D61 /* Diagnosis */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Diagnosis;
+			sourceTree = "<group>";
+		};
 		6F06DB5C29FD3D5F00770596 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +502,7 @@
 		BC49094229EA69AC00EDDD0D /* AtchIViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				04A857602A02564B00576D61 /* Diagnosis */,
 				BCDACF4629FF93A300EFF2ED /* Signup */,
 				BC54288229EACD950026C175 /* Extension */,
 				BCDF69C529EA6ADA00D39AA1 /* Mock */,

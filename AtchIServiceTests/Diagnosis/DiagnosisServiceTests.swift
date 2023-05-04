@@ -39,7 +39,10 @@ final class DiagnosisServiceTests: XCTestCase {
                                 print("com", com)
                             }, receiveValue: { response in
                                 print("response", response)
-                                
+                                let decoder = JSONDecoder()
+                                if let json = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
+                                  print(json) // hyeon
+                                }
                                 expectation.fulfill()
                             })
         
