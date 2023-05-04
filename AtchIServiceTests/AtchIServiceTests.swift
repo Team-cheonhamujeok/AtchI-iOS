@@ -11,13 +11,13 @@ import XCTest
 import Combine
 import HealthKit
 
-/// Real device test. dont't excute on simulator
+/// Real device test. Don't excute on simulator
 final class AtchIServiceTests: XCTestCase {
 
     var service: HKSleepService!
 
     override func setUpWithError() throws {
-        self.service = HKSleepService(healthkitProvicer: HKProvider())
+        self.service = HKSleepService(hkProvider: HKProvider())
     }
 
     override func tearDownWithError() throws {
@@ -31,7 +31,10 @@ final class AtchIServiceTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Signup Test Test")
 
-        let cancellable = service.fetchSleepDataWithCombine(date: Date())
+        let currentDate = Date() // 현재 날짜와 시간 가져오기
+        let threeDaysAgo = Calendar.current.date(byAdding: .day, value: -150, to: currentDate)!
+        
+        let cancellable = service.fetchSleepSamples(date: threeDaysAgo)
             .sink(receiveCompletion: { _ in print("### stream 완료") },
                   receiveValue: { samples in
                 print("### \(samples)")

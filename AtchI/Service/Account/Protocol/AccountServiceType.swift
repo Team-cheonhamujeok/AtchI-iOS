@@ -22,6 +22,6 @@ protocol AccountServiceType {
     ///
     /// - Parameters:
     ///    - signupModel: 회원가입에 필요한 정보들을 담은 Model입니다.
-    /// - Returns: 요청에 성공시 전달 값은 없습니다. 실패 시 AccountError를 thorw합니다.
+    /// - Returns: 요청에 성공시 전달 값은 없습니다. 실패 시 AccountError를 throw합니다.
     func requestSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> 
 }

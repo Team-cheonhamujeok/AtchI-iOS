@@ -39,12 +39,12 @@ class HKProvider {
         let query = HKSampleQuery(sampleType: sleepType,
                                   predicate: predicate,
                                   limit: HKObjectQueryNoLimit,
-                                  sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+                                  sortDescriptors: [sortDescriptor]) { (_, samples, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.
                 completion([], HKProviderError.fetchSamplesFailed)
             }
-            if let result = tmpResult {
+            if let result = samples {
                 let categorySamples = result.compactMap { $0 as? HKCategorySample }
                 completion(categorySamples, nil)
             }
