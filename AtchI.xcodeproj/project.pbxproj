@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041E7F632A03A9B10059B816 /* TestSelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E7F622A03A9B10059B816 /* TestSelfTestViewModel.swift */; };
 		042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */; };
 		044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */; };
 		0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41529F58E5A00A8A747 /* HKActivityService.swift */; };
@@ -18,7 +19,6 @@
 		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
 		049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */; };
 		049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA829C9837C009B9B62 /* WatchInfoView.swift */; };
-		049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */; };
 		049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAD29C9BE56009B9B62 /* SelfTestResult.swift */; };
 		049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */; };
 		049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */; };
@@ -133,6 +133,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041E7F622A03A9B10059B816 /* TestSelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelfTestViewModel.swift; sourceTree = "<group>"; };
 		042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewStack.swift; sourceTree = "<group>"; };
 		044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResultList.swift; sourceTree = "<group>"; };
 		0455D41529F58E5A00A8A747 /* HKActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityService.swift; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
 		049ADEA629C98371009B9B62 /* SelfTestInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoView.swift; sourceTree = "<group>"; };
 		049ADEA829C9837C009B9B62 /* WatchInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoView.swift; sourceTree = "<group>"; };
-		049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoViewModel.swift; sourceTree = "<group>"; };
 		049ADEAD29C9BE56009B9B62 /* SelfTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResult.swift; sourceTree = "<group>"; };
 		049ADEAF29C9C2AB009B9B62 /* SelfTestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestRow.swift; sourceTree = "<group>"; };
 		049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfoViewModel.swift; sourceTree = "<group>"; };
@@ -343,7 +343,6 @@
 		049ADEA129C95D09009B9B62 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				049ADEAA29C9BB62009B9B62 /* SelfTestInfoViewModel.swift */,
 				049ADEB329CC1C72009B9B62 /* WatchInfoViewModel.swift */,
 				049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */,
 			);
@@ -392,6 +391,7 @@
 		04A857602A02564B00576D61 /* Diagnosis */ = {
 			isa = PBXGroup;
 			children = (
+				041E7F622A03A9B10059B816 /* TestSelfTestViewModel.swift */,
 			);
 			path = Diagnosis;
 			sourceTree = "<group>";
@@ -1011,6 +1011,7 @@
 				BC49094B29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift in Sources */,
 				BC81F36A29FD6DA100E09958 /* MockValidationServcie.swift in Sources */,
 				BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */,
+				041E7F632A03A9B10059B816 /* TestSelfTestViewModel.swift in Sources */,
 				BC81F37029FD823000E09958 /* SignupRequestViewModelTests.swift in Sources */,
 				BCDF69C729EA6AE500D39AA1 /* MockAccountService.swift in Sources */,
 			);
@@ -1084,7 +1085,6 @@
 				BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
-				049ADEAB29C9BB62009B9B62 /* SelfTestInfoViewModel.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BC6F0F6B29EFAE3A00F3FBD1 /* SleepTime.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,

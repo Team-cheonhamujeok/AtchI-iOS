@@ -21,7 +21,7 @@ struct SelfTestRow: View {
                     if index == 0 {
                         Text("최근")
                     }
-                    Text(selfTestResult.day)
+                    Text(selfTestResult.date)
                         .foregroundColor(.grayTextLight)
                 }
                 .font(.bodyLarge)
@@ -38,6 +38,6 @@ struct SelfTestRow: View {
 
 struct SelfTestRow_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestRow(selfTestResult: SelfTestResult(day: "23년 01월 5일", point: 1, level: "치매 위험단계"), index: 0)
+        SelfTestRow(selfTestResult: SelfTestResult(id: 1, date: "23년 01월 5일", point: 1, level: "치매 위험단계"), index: 0)
     }
 }

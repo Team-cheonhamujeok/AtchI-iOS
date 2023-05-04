@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Moya
 
 struct SelfTestResultList: View {
     
     @Binding var path: [DiagnosisViewStack]
     
-    var selfTestInfoViewModel: SelfTestInfoViewModel
+    var selfTestViewModel: SelfTestViewModel
     
     
     var body: some View {
@@ -23,8 +24,8 @@ struct SelfTestResultList: View {
                 
                 
                 // 자가진단 전체 리스트
-                ForEach(selfTestInfoViewModel.selfTestResults.indices, id: \.self) { index in
-                    SelfTestRow(selfTestResult: selfTestInfoViewModel.selfTestResults[index],
+                ForEach(selfTestViewModel.selfTestResults.indices, id: \.self) { index in
+                    SelfTestRow(selfTestResult: selfTestViewModel.selfTestResults[index],
                                 index: index)
                     .listRowSeparator(.hidden)
                     .padding(.vertical, 12)
@@ -41,6 +42,6 @@ struct SelfTestResultList: View {
 
 struct SelfTestResultList_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestResultList(path: .constant([]), selfTestInfoViewModel: SelfTestInfoViewModel())
+        SelfTestResultList(path: .constant([]), selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())))
     }
 }

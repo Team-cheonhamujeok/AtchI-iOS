@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
+import Moya
 
 struct SelfTestInfoView: View {
-    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
     @StateObject var selfTestViewModel: SelfTestViewModel
     
     @Binding var path: [DiagnosisViewStack]
@@ -16,10 +16,10 @@ struct SelfTestInfoView: View {
     //MARK: - Body
     var body: some View {
         Group {
-            if selfTestInfoViewModel.isTest {
-                haveTestView
-            } else {
+            if selfTestViewModel.selfTestResults.isEmpty {
                 noTestView
+            } else {
+                haveTestView
             }
         }
         .navigationDestination(for: DiagnosisViewStack.self) { child in
@@ -31,7 +31,7 @@ struct SelfTestInfoView: View {
             case .selfTestResult:
                 SelfTestResultView(path: $path, selfTestViewModel: selfTestViewModel)
             case .selfTestResultList:
-                SelfTestResultList(path: $path, selfTestInfoViewModel: selfTestInfoViewModel)
+                SelfTestResultList(path: $path, selfTestViewModel: selfTestViewModel)
             default:
                 Text("잘못된 접근")
             }
@@ -81,8 +81,8 @@ struct SelfTestInfoView: View {
             }
             
             // 2️⃣ 자가진단 리스트
-            List(selfTestInfoViewModel.selfTestResults.indices, id: \.self) { index in
-                SelfTestRow(selfTestResult: selfTestInfoViewModel.selfTestResults[index],
+            List(selfTestViewModel.selfTestResults.indices, id: \.self) { index in
+                SelfTestRow(selfTestResult: selfTestViewModel.selfTestResults[index],
                             index: index)
                     .listRowSeparator(.hidden)
                 
@@ -129,6 +129,6 @@ struct ExplainTestView: View {
 //MARK: - Preview
 struct SelfTestInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestInfoView(selfTestInfoViewModel: SelfTestInfoViewModel(), selfTestViewModel: SelfTestViewModel() , path: .constant([]))
+        SelfTestInfoView(selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())) , path: .constant([]))
     }
 }

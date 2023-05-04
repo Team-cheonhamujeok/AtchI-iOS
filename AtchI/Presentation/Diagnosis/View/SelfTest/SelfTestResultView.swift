@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Moya
 
 struct SelfTestResultView: View {
     
@@ -145,6 +146,6 @@ struct SelfTestResultExplainCardView: View {
 //MARK: - Preview
 struct SelfTestResultView_Previews: PreviewProvider {
     static var previews: some View {
-        SelfTestResultView(path: .constant([]), selfTestViewModel: SelfTestViewModel() )
+        SelfTestResultView(path: .constant([]), selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())) )
     }
 }

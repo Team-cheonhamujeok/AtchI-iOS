@@ -11,13 +11,13 @@ import Foundation
 ///
 /// - Parameters:
 ///     - id : 자가진단 결과의 고유 ID
-///     - day : 자가진단 날짜
+///     - date : 자가진단 날짜
 ///     - point : 자가진단 점수
 ///     - level : 치매 단계
 ///
 struct SelfTestResult: Identifiable {
-    var id = UUID()
-    var day: String
+    var id: Int
+    var date: String
     var point: Int
     var level: String
 }
