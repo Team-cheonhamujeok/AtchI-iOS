@@ -9,9 +9,10 @@ import Foundation
 import HealthKit
 import Combine
 
-// TODO: Future 에러 핸들링 (Provider 에러 전파)
+// TODO: Future 에러 핸들링 (Provider 에러 전파) ✅
 // TODO: 오늘 이후 값에 접근할 경우 fatalError 내기 (개발자 에러)
-// TODO: 값이 비어있을 때 CustomError 반환하기 (워치 미착용, 앱에서 수면시간 지정 안할 시 수면 데이터가 비어 있음)
+// TODO: HKsleepModel에 total 타임 추가하기
+// TODO: 값이 비어있을 때 CustomError 반환하기 (워치 미착용, 앱에서 수면시간 지정 안할 시 수면 데이터가 비어 있음) ✅
 
 /// HealthKit의 수면 샘플을 가져오는 클래스입니다.
 ///

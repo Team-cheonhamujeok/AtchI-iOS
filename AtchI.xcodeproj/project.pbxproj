@@ -45,7 +45,7 @@
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
 		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
 		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
-		BC0446BF29FC24AA002109A2 /* EmailVerificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */; };
+		BC0446BF29FC24AA002109A2 /* EmailVerificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BE29FC24AA002109A2 /* EmailVerificationResponseModel.swift */; };
 		BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BC0446C129FC40CD002109A2 /* ComposableArchitecture */; };
 		BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446C529FC42EE002109A2 /* SignupReducer.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
@@ -69,7 +69,7 @@
 		BC54288429EACDAE0026C175 /* XCTestCaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54288329EACDAE0026C175 /* XCTestCaseExtension.swift */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
-		BC70470F29E7E91C00FA265A /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupModel.swift */; };
+		BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */; };
 		BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78196E29E07884005C4CF5 /* AccountService.swift */; };
 		BC81F35629FCC26700E09958 /* TypeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35529FCC26700E09958 /* TypeState.swift */; };
 		BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35829FD38DA00E09958 /* SignupState.swift */; };
@@ -113,6 +113,9 @@
 		BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */; };
 		BCF6B8B52A03BBB600B0FC1D /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */; };
 		BCF6B8B82A03BBD400B0FC1D /* DateHelperType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B72A03BBD400B0FC1D /* DateHelperType.swift */; };
+		BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B92A041FA800B0FC1D /* LoginRequestModel.swift */; };
+		BCF6B8BC2A04225A00B0FC1D /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8BB2A04225A00B0FC1D /* LoginResponseModel.swift */; };
+		BCF6B8C12A04275300B0FC1D /* AccountServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8C02A04275300B0FC1D /* AccountServiceTests.swift */; };
 		BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */; };
 		BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3929C42D1C00E1ACBF /* View.swift */; };
 		BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6DA3B29C42D3200E1ACBF /* RoundedCorner.swift */; };
@@ -177,7 +180,7 @@
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelType.swift; sourceTree = "<group>"; };
 		BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelType.swift; sourceTree = "<group>"; };
-		BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationModel.swift; sourceTree = "<group>"; };
+		BC0446BE29FC24AA002109A2 /* EmailVerificationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationResponseModel.swift; sourceTree = "<group>"; };
 		BC0446C529FC42EE002109A2 /* SignupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReducer.swift; sourceTree = "<group>"; };
 		BC2526EA29D419BA000FCE11 /* SecureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInput.swift; sourceTree = "<group>"; };
 		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -200,7 +203,7 @@
 		BC54288329EACDAE0026C175 /* XCTestCaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtension.swift; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
-		BC70470E29E7E91C00FA265A /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
+		BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustModel.swift; sourceTree = "<group>"; };
 		BC78196E29E07884005C4CF5 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		BC81F35529FCC26700E09958 /* TypeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeState.swift; sourceTree = "<group>"; };
 		BC81F35829FD38DA00E09958 /* SignupState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupState.swift; sourceTree = "<group>"; };
@@ -248,6 +251,9 @@
 		BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceType.swift; sourceTree = "<group>"; };
 		BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		BCF6B8B72A03BBD400B0FC1D /* DateHelperType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperType.swift; sourceTree = "<group>"; };
+		BCF6B8B92A041FA800B0FC1D /* LoginRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestModel.swift; sourceTree = "<group>"; };
+		BCF6B8BB2A04225A00B0FC1D /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		BCF6B8C02A04275300B0FC1D /* AccountServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceTests.swift; sourceTree = "<group>"; };
 		BCF6DA3729C4293C00E1ACBF /* ToogleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleInput.swift; sourceTree = "<group>"; };
 		BCF6DA3929C42D1C00E1ACBF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		BCF6DA3B29C42D3200E1ACBF /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -286,6 +292,7 @@
 		0455D41D29F7796800A8A747 /* AtchIServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				BCF6B8BF2A04273800B0FC1D /* Account */,
 				0491BAD429F968A2005C53E5 /* Mock */,
 				BCDACF4529FF936A00EFF2ED /* Diagnosis */,
 				0455D42529F77DA100A8A747 /* HealthKit */,
@@ -554,8 +561,10 @@
 		BC70470C29E7E8D800FA265A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC70470E29E7E91C00FA265A /* SignupModel.swift */,
-				BC0446BE29FC24AA002109A2 /* EmailVerificationModel.swift */,
+				BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */,
+				BC0446BE29FC24AA002109A2 /* EmailVerificationResponseModel.swift */,
+				BCF6B8B92A041FA800B0FC1D /* LoginRequestModel.swift */,
+				BCF6B8BB2A04225A00B0FC1D /* LoginResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -932,6 +941,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		BCF6B8BF2A04273800B0FC1D /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BCF6B8C02A04275300B0FC1D /* AccountServiceTests.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1071,6 +1088,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCF6B8C12A04275300B0FC1D /* AccountServiceTests.swift in Sources */,
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
@@ -1103,6 +1121,7 @@
 				049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */,
 				049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */,
 				049ADEBB29CC4A92009B9B62 /* SelfTestView.swift in Sources */,
+				BCF6B8BC2A04225A00B0FC1D /* LoginResponseModel.swift in Sources */,
 				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
 				6F16514D29D1345A00CC228F /* BoldDivider.swift in Sources */,
 				BCF6B8B52A03BBB600B0FC1D /* DateHelper.swift in Sources */,
@@ -1123,12 +1142,12 @@
 				BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */,
 				0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */,
 				BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */,
-				BC0446BF29FC24AA002109A2 /* EmailVerificationModel.swift in Sources */,
+				BC0446BF29FC24AA002109A2 /* EmailVerificationResponseModel.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
 				BC81F36429FD615400E09958 /* SignupReqeustViewModelEvent.swift in Sources */,
-				BC70470F29E7E91C00FA265A /* SignupModel.swift in Sources */,
+				BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */,
 				BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */,
 				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
@@ -1180,6 +1199,7 @@
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */,
+				BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */,
 				6F06DB6529FD3DDA00770596 /* TodayQuiz.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
 				BC81F35629FCC26700E09958 /* TypeState.swift in Sources */,

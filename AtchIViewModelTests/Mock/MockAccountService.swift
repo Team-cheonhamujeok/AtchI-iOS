@@ -15,9 +15,9 @@ enum MockEmail: String {
 }
 
 class MockAccountService: AccountServiceType {
-    func requestEmailConfirm(email: String) -> AnyPublisher<AtchI.EmailVerificationModel, AtchI.AccountError> {
+    func requestEmailConfirm(email: String) -> AnyPublisher<AtchI.EmailVerificationResponseModel, AtchI.AccountError> {
         
-        return Just(AtchI.EmailVerificationModel(message: "",
+        return Just(AtchI.EmailVerificationResponseModel(message: "",
                                                  verificationCode: ""))
         .setFailureType(to: AccountError.self)
         .eraseToAnyPublisher()
@@ -26,7 +26,7 @@ class MockAccountService: AccountServiceType {
     
     var cancellables = Set<AnyCancellable>()
     
-    func requestSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> {
+    func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<Response, AccountError> {
         
         if signupModel.email == MockEmail.duplicatedEmail.rawValue {
             return Fail(error: AccountError.emailDuplicated)
