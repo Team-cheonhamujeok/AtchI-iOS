@@ -107,4 +107,41 @@ class HKProvider {
         // HealthKit store에서 쿼리를 실행
         healthStore.execute(query)
     }
+    
+    func getQuantityTypeSampleHeart(identifier: HKQuantityTypeIdentifier,
+                                    predicate: NSPredicate,
+                                    completion: @escaping ([HKQuantitySample]) -> Void) {
+
+        // Identifier로 Type 분류
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: identifier) else {
+            print("'HealthKitProvider': 올바르지 않은 ID입니다.")
+            return
+        }
+
+        // 최신 데이터를 먼저 가져오도록 sort 기준 정의
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
+
+        // 쿼리 수행 완료시 실행할 콜백 정의
+        let query = HKSampleQuery(sampleType: quantityType,
+                                  predicate: predicate,
+                                  limit: 1000,
+                                  sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+            if let error = error {
+                // 에러 처리를 수행합니다.
+                print("error: \(error.localizedDescription)")
+                return
+            }
+            if let result = tmpResult {
+//                print("result \(tmpResult)")
+                let quantitySamples = result.compactMap { $0 as? HKQuantitySample }
+//                print("quantity samples \(quantitySamples)")
+                completion(quantitySamples)
+            }
+        }
+        // HealthKit store에서 쿼리를 실행
+        healthStore.execute(query)
+
+    }
+    
+    
 }

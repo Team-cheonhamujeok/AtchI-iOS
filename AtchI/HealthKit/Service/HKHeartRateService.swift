@@ -16,50 +16,52 @@ class HKHeartRateService {
         self.healthKitProvider = healthKitProvider
     }
     
-    func getHeartRateData() -> Future<Double, Error> {
+    func getHeartRateData() -> Future<[HKQuantitySample], Error> {
         return Future { promise in
             let startDate = self.getYesterdayStartAM(Date())
             let endDate = self.getYesterdayEndPM(Date())
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .heartRate, predicate: predicate, completion: { count in
-                promise(Result.success(count)) // 여기 이해가 잘 안 감..
-            })
+            self.healthKitProvider.getQuantityTypeSampleHeart(identifier: .heartRate, predicate: predicate) { count in
+                promise(Result.success(count))
+            }
         }
     }
     
-    func getHeartRateVariability() -> Future<Double, Error> {
+    func getHeartRateVariability() -> Future<[HKQuantitySample], Error> {
         return Future { promise in
             let startDate = self.getYesterdayStartAM(Date())
             let endDate = self.getYesterdayEndPM(Date())
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .heartRateVariabilitySDNN, predicate: predicate, completion: { variabilityMS in
+            self.healthKitProvider.getQuantityTypeSampleHeart(identifier: .heartRateVariabilitySDNN, predicate: predicate, completion: { variabilityMS in
                 promise(Result.success(variabilityMS))
             })
             
         }
     }
     
-    func getRestingHeartRate() -> Future<Double, Error> {
+    func getRestingHeartRate() -> Future<[HKQuantitySample], Error> {
         return Future { promise in
             let startDate = self.getYesterdayStartAM(Date())
             let endDate = self.getYesterdayEndPM(Date())
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .restingHeartRate, predicate: predicate, completion: { rate in
+            self.healthKitProvider.getQuantityTypeSampleHeart(identifier: .restingHeartRate, predicate: predicate, completion: { rate in
                 promise(Result.success(rate))
             })
             
         }
     }
     
+    
+    
     // 어제 시작 시각 (00:00) 구하기
     private func getYesterdayStartAM(_ date: Date) -> Date {
         let calendar = Calendar.current
         
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        let yesterday = calendar.date(byAdding: .day, value: -1, to: date)!
+        let yesterday = calendar.date(byAdding: .day, value: -2, to: date)!
         components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: yesterday)
         components.hour = 24 // 한국 기준 24:00:00이 시작이므로
         components.minute = 0

@@ -42,6 +42,7 @@
 		6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515229D134AA00CC228F /* QuizStateCard.swift */; };
 		6F16515529D134DD00CC228F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515429D134DD00CC228F /* QuizView.swift */; };
 		6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515629D134FD00CC228F /* QuizDoneView.swift */; };
+		6F3A92EF29FF9DC3000B118D /* HKHeartRateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A92EE29FF9DC3000B118D /* HKHeartRateServiceTests.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
 		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
 		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
@@ -169,6 +170,7 @@
 		6F16515229D134AA00CC228F /* QuizStateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStateCard.swift; sourceTree = "<group>"; };
 		6F16515429D134DD00CC228F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		6F16515629D134FD00CC228F /* QuizDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDoneView.swift; sourceTree = "<group>"; };
+		6F3A92EE29FF9DC3000B118D /* HKHeartRateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceTests.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelType.swift; sourceTree = "<group>"; };
 		BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelType.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				BCDACF4529FF936A00EFF2ED /* Diagnosis */,
 				0455D42529F77DA100A8A747 /* HealthKit */,
 				0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */,
+				6F3A92EE29FF9DC3000B118D /* HKHeartRateServiceTests.swift */,
 			);
 			path = AtchIServiceTests;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F3A92EF29FF9DC3000B118D /* HKHeartRateServiceTests.swift in Sources */,
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
@@ -1123,7 +1127,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = 8B3LP78353;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -1142,7 +1146,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = 8B3LP78353;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -1161,7 +1165,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = 8B3LP78353;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -1185,7 +1189,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = 8B3LP78353;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -1326,7 +1330,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = 8B3LP78353;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -1341,7 +1345,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = doyeon.AtchI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spring.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1361,7 +1365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = 8B3LP78353;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -1376,7 +1380,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = doyeon.AtchI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spring.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
