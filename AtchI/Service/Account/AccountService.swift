@@ -11,8 +11,8 @@ import CombineMoya
 import Combine
 
 enum AccountAPI{
-    case signup(_ signupModel: SignupModel)
-    case login
+    case signup(_ signupModel: SignupReqeustModel)
+    case login(_ loginModel: LoginRequestModel)
     case emailConfirm(_ email: String)
 }
 
@@ -45,8 +45,8 @@ extension AccountAPI: TargetType {
         switch self {
         case .signup(let signupModel):
             return .requestJSONEncodable(signupModel)
-        case .login:
-            return .requestPlain // DTO 만들고 수정 예정
+        case .login(let loginModel):
+            return .requestJSONEncodable(loginModel) // DTO 만들고 수정 예정
         case .emailConfirm(let email):
             return .requestParameters(parameters: ["email" : email],
                                       encoding: URLEncoding.queryString)
@@ -62,17 +62,17 @@ extension AccountAPI: TargetType {
 class AccountService: AccountServiceType {
 //    let provider = MoyaProvider<AccountAPI>(plugins: [NetworkLoggerPlugin()])
     let provider = MoyaProvider<AccountAPI>()
+    let testing = MoyaProvider<AccountAPI)(StubBehavior)
     
     var cancellables = Set<AnyCancellable>()
     
-    func requestEmailConfirm(email: String) -> AnyPublisher<EmailVerificationModel, AccountError> {
+    func requestEmailConfirm(email: String) -> AnyPublisher<EmailVerificationResponseModel, AccountError> {
         return provider.requestPublisher(.emailConfirm(email))
-            .tryMap { response -> EmailVerificationModel in
+            .tryMap { response -> EmailVerificationResponseModel in
                 do {
-                    let decodedData = try response.map(EmailVerificationModel.self)
-                    return decodedData
+                    return try response.map(EmailVerificationResponseModel.self)
                 } catch {
-                    throw AccountError.common(.jsonSerializationFailed)
+                    fatalError("Failed to parse JSON")
                 }
             }
             .mapError { error in
@@ -82,14 +82,37 @@ class AccountService: AccountServiceType {
             .eraseToAnyPublisher()
     }
     
-    func requestSignup(signupModel: SignupModel) -> AnyPublisher<Response, AccountError> {
+    func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<Response, AccountError> {
         return provider.requestPublisher(.signup(signupModel))
             .tryMap { response -> Response in
                 return response
             }
             .mapError { error in
                 // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
-                return AccountError.signupFailed
+                return AccountError.singup(.signupFailed)
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestLogin(loginModel: LoginRequestModel) -> AnyPublisher<LoginResponseModel, AccountError> {
+        return provider.requestPublisher(.login(loginModel))
+            .tryMap { response -> LoginResponseModel in
+                do {
+                    let decodedData = try response.map(LoginResponseModel.self)
+                    if decodedData.mid == 0 {
+                        throw AccountError.login(.wrongPassword)
+                    } else if decodedData.mid == -2 {
+                        throw AccountError.login(.userNotFound)
+                    }
+                    return try response.map(LoginResponseModel.self)
+                } catch {
+                    fatalError("Failed to parse JSON")
+                }
+                throw AccountError.login(.userNotFound)
+            }
+            .mapError { error in
+                // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
+                return AccountError.login(.loginFaild)
             }
             .eraseToAnyPublisher()
     }
