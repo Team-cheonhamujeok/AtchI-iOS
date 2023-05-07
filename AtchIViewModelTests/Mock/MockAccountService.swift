@@ -29,14 +29,14 @@ class MockAccountService: AccountServiceType {
     func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<Response, AccountError> {
         
         if signupModel.email == MockEmail.duplicatedEmail.rawValue {
-            return Fail(error: AccountError.emailDuplicated)
+            return Fail(error: AccountError.signup(.emailDuplicated))
             .eraseToAnyPublisher()
         }
         
         // 응답 생성
         let jsonDict: [String: Any] = ["mid": "-1"]
         guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []) else {
-            return Fail(error: AccountError.common(.jsonSerializationFailed))
+            return Fail(error: AccountError.common(.networkError("j;lj")))
             .eraseToAnyPublisher()}
         
         // SignupModel에 따른 유효한 Response 값을 생성하여 AnyPublisher로 반환

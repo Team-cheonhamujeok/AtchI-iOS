@@ -8,26 +8,67 @@
 @testable import AtchI
 import XCTest
 import Combine
-import HealthKit
+import Moya
 
 final class AccountServiceTests: XCTestCase {
     
-    let service: AccountService!
+    var service: AccountService!
+    var cancellables = Set<AnyCancellable>()
 
     override func setUpWithError() throws {
-        service: AccountService
+        service = AccountService(provider: MoyaProvider<AccountAPI>(stubClosure: MoyaProvider.immediatelyStub))
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        service = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    /// 로그인 성공 테스트입니다.
+    func testLoginSuccess() {
+        // Given
+        var received: LoginResponseModel?
+        
+        // When
+        service
+            .requestLogin(loginModel: LoginAPIMock.success.request)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { result in
+                received = result
+            })
+            .store(in: &cancellables)
+        
+        // Then
+        let response = LoginAPIMock.success.response
+        let jsonData = try! JSONSerialization.data(withJSONObject: response, options: [])
+        let decoder = JSONDecoder()
+        let expected = try! decoder.decode(LoginResponseModel.self, from: jsonData)
+        
+        XCTAssertEqual(received, expected)
+    }
+    
+    /// 로그인 실패(비밀번호 틀림) 테스트입니다.
+    ///
+    /// - 조건값: LoginAPIMock > wrongPassword와 매치되는 LoginRequestModel
+    /// - 기댓값: AccountError.login(.wrongPassword)
+    func testLoginWrongPassword() throws {
+        // Given
+        let requestModel: LoginRequestModel = LoginAPIMock.wrongPassword.request
+        
+        // When
+        var receivedError: AccountError?
+        service.requestLogin(loginModel: requestModel)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    receivedError = error
+                case .finished:
+                    XCTFail("The publisher should not have finished successfully")
+                }
+            }, receiveValue: { _ in })
+            .store(in: &cancellables)
+        
+        // Then
+        XCTAssertEqual(receivedError, AccountError.login(.wrongPassword))
     }
 
     func testPerformanceExample() throws {

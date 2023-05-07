@@ -91,6 +91,8 @@
 		BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */; };
 		BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551529B9957900FAA6E3 /* Colors.swift */; };
 		BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551729B9959100FAA6E3 /* Fonts.swift */; };
+		BC9D00BF2A07880F00E2C6CE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D00BE2A07880F00E2C6CE /* AccountAPI.swift */; };
+		BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D00C12A07893700E2C6CE /* LoginAPIMock.swift */; };
 		BCA1486029D5F149001F390D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1485F29D5F149001F390D /* LoginViewModel.swift */; };
 		BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1486129D5F1BD001F390D /* SignupViewModel.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
@@ -230,6 +232,8 @@
 		BC8D551529B9957900FAA6E3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BC8D551729B9959100FAA6E3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		BC9C977D29C2262D00DC6FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC9D00BE2A07880F00E2C6CE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
+		BC9D00C12A07893700E2C6CE /* LoginAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIMock.swift; sourceTree = "<group>"; };
 		BCA1485F29D5F149001F390D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BCA1486129D5F1BD001F390D /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		BCA4795629EA846400A15117 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -740,6 +744,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BC9D00BD2A07880000E2C6CE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BC9D00C32A078C8900E2C6CE /* Mock */,
+				BC9D00BE2A07880F00E2C6CE /* AccountAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		BC9D00C32A078C8900E2C6CE /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				BC9D00C12A07893700E2C6CE /* LoginAPIMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		BCA1485D29D5F127001F390D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -788,6 +809,7 @@
 		BCDACF3829FF92B800EFF2ED /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				BC9D00BD2A07880000E2C6CE /* API */,
 				BC70470C29E7E8D800FA265A /* Model */,
 				BC88B7FA29EA521400F484AF /* Error */,
 				BC88B80029EA533A00F484AF /* Protocol */,
@@ -1172,6 +1194,7 @@
 				BCDACF4029FF930A00EFF2ED /* DiagnosisError.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
 				BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */,
+				BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */,
 				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
@@ -1225,6 +1248,7 @@
 				049ADEB629CC1C81009B9B62 /* WatchInfo.swift in Sources */,
 				049ADEA729C98371009B9B62 /* SelfTestInfoView.swift in Sources */,
 				049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */,
+				BC9D00BF2A07880F00E2C6CE /* AccountAPI.swift in Sources */,
 				BCDACF4229FF930A00EFF2ED /* DiagnosisPostModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
