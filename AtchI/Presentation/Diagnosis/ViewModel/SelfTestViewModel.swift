@@ -7,23 +7,57 @@
 
 import SwiftUI
 
+import Combine
+
 class SelfTestViewModel: ObservableObject {
+    //MARK: - Properties
+    let service: DiagnosisServiceType
+    
+    var disposeBag = Set<AnyCancellable>()
+    
+    /// SelfTestView에서 문제 번호를 나타냄
     @Published var questionIndex = 0.0
     
-    //TODO: result 데이터를 UserData나, 서버에 저장해야함.
+    /// 문제에 대해서 사용자의 답변이 들어있는 배열
+    /// index : 문제의 번호( 0 부터 시작 )
+    /// value : 문제에 대한 답변
     private var answers: [TestAnswer] = []
+    
+    /// 최종 SelfTestResult 결과
     private var result: SelfTestResult?
     
-    func makeResult() {
-        self.result = SelfTestResult(day: currentTime(),
-                                     point: calculatorPoint(),
-                                     level: measureLevel())
+    //MARK: info 데이터
+    /// 자가진단 데이터 리스트
+    @Published var selfTestResults: [SelfTestResult] = []
+    
+    
+    //MARK: - init
+    init(service: DiagnosisServiceType, questionIndex: Double = 0.0, answers: [TestAnswer], result: SelfTestResult? = nil) {
+        self.service = service
+        self.questionIndex = questionIndex
+        self.answers = answers
+        self.result = result
     }
     
+    init(service: DiagnosisServiceType) {
+        self.service = service
+    }
+    
+    //MARK: - View에서 사용되는 함수
+    /// answers를 종합해서 최종 Result를 도출하는 함수
+    func makeResult() {
+        self.result = SelfTestResult(id: 1,
+                                    date: currentTime(),
+                                     point: calculatorPoint(),
+                                     level: measureLevel(point: calculatorPoint()))
+    }
+    
+    /// 사용자의 답변을 answers 배열에 넣는 함수
     func appendAnswer(testAnswer: TestAnswer) {
         answers.append(testAnswer)
     }
     
+    ///  치매 레벨에 따른 Emoji 반환 함수
     func getEmoji() -> String {
         var emoji = ""
         
@@ -40,30 +74,119 @@ class SelfTestViewModel: ObservableObject {
         return emoji
     }
     
+    /// 치매 레벨 반환 함수
     func getLevel() -> String {
         guard let result = result else { return "데이터 없음" }
         
         return result.level
     }
     
+    /// 답변을 reset 하는 함수
     func resetAnswers() {
         answers = []
     }
     
+    /// 최종 result를 nil로 만드는 함수
     func resetResult() {
         result = nil
     }
     
-    
-    //MARK: - Util
-    private func currentTime() -> String {
-        let now = Date() //"Mar 21, 2018 at 1:37 PM"
-        let dateFormmater = DateFormatter()
-        dateFormmater.dateFormat = "yy년MM월dd일"
-
-        return dateFormmater.string(from: now)
+    // MARK: - Server
+    /// Post Model로 변환
+    private func convertPostData(mid: Int, date: String) -> DiagnosisPostModel{
+        var postAnswers: [Int] = []
+        
+        _ = self.answers.map { answer in
+            switch answer {
+            case .never:
+                postAnswers.append(0)
+            case .little:
+                postAnswers.append(1)
+            case .many:
+                postAnswers.append(2)
+            case .nothing:
+                postAnswers.append(0)
+            }
+        }
+        
+        return DiagnosisPostModel(mid: mid, answerlist: postAnswers, date: date)
     }
     
+    /// 서버에 Request
+    /// - Parameter :
+    /// mid: Int = 멤버 아이디
+    func requestResult(mid: Int) {
+        let postDTO = convertPostData(mid: mid, date: currentTime())
+        print(postDTO)
+        let request = service.postDiagnosis(postDTO: postDTO)
+        
+        let cancellable = request
+                            .sink(receiveCompletion: { com in
+                                print("post Compoletion", com)
+                            }, receiveValue: { response in
+                                print("post Response", response)
+                            })
+                            .store(in: &disposeBag)
+    }
+
+    /// 서버로부터 Get 하는 함수
+    func getData() {
+        // TODO: mid 값 넣기
+        let request = service.getDiagnosisList(mid: 1)
+        
+        let cancellable = request
+                            .handleEvents(receiveSubscription: { _ in
+                              print("Network request will start")
+                            }, receiveOutput: { _ in
+                              print("Network request data received")
+                            }, receiveCancel: {
+                              print("Network request cancelled")
+                            })
+                            .sink(receiveCompletion: { _ in
+                                print("SelfTestInfoViewModel: Complete")
+                            }, receiveValue: { response in
+                                let decoder = JSONDecoder()
+                                if let datas = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
+                                    // MARK: 자가진단 결과 추가
+                                        datas.forEach {
+                                        self.selfTestResults.append(
+                                                SelfTestResult(id: $0.mid,
+                                                               date: self.convertDate(date: $0.date),
+                                                              point: $0.result,
+                                                               level: self.measureLevel(point: $0.result)))
+                                        }
+                                }
+                            }).store(in: &disposeBag)
+    }
+    
+    //MARK: - Util
+    /// 현재 시간 계산
+    private func currentTime() -> String {
+        let now = Date() //"Mar 21, 2018 at 1:37 PM"
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        print(dateFormatter.string(from: now))
+        return dateFormatter.string(from: now)
+    }
+    
+    /// Date String 을 "yy년MM월dd일" 형식으로 변환
+    private func convertDate(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        // 아주 긴 세계 시간 형식을 받기 위한 포맷 형성
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        // Date 타입으로 변경
+        guard let convertDate = dateFormatter.date(from: date) else { return "날짜 형식 오류" }
+            
+        // 원하는 시간 형식으로 변경
+        dateFormatter.dateFormat = "yy년MM월dd일"
+        
+        // String으로 출력
+        return dateFormatter.string(from: convertDate)
+    }
+    
+    /// answers를 종합해서 최종 점수 계산
     private func calculatorPoint() -> Int {
         var point = 0
         
@@ -83,8 +206,8 @@ class SelfTestViewModel: ObservableObject {
         return point
     }
     
-    private func measureLevel() -> String {
-        let point = calculatorPoint()
+    /// point를 이용해서 최종 level 계산
+    private func measureLevel(point: Int) -> String {
         if point <= 3 {
             return "치매 안심 단계"
         } else if point <= 9 {

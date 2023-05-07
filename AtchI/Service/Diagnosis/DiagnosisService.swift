@@ -10,17 +10,19 @@ import Moya
 import CombineMoya
 import Combine
 
-// Mock Service 객체 만들기 위해 정의
+// MARK: - Mock Service 객체 만들기 위해 정의
 protocol DiagnosisServiceType {
-    func postDiagnosis(diagnosisPostModel: DiagnosisPostModel) -> AnyPublisher<Response, DiagnosisError>
-    func getDiagnosisList(diagnosisGetModel: DiagnosisGetModel) -> AnyPublisher<Moya.Response, DiagnosisError>
+    func postDiagnosis(postDTO: DiagnosisPostModel) -> AnyPublisher<Response, DiagnosisError>
+    func getDiagnosisList(mid: Int) -> AnyPublisher<Moya.Response, DiagnosisError>
 }
 
+// MARK: - DiagnosisAPI
 enum DiagnosisAPI {
-    case postList(listDTO: DiagnosisPostModel)
-    case getList(listDTO: DiagnosisGetModel)
+    case postList(postDTO: DiagnosisPostModel)
+    case getList(mid: Int)
 }
 
+// MARK: - Moya TargetType 채택한 Enum
 extension DiagnosisAPI: TargetType {
     var baseURL: URL {
         URL(string: "http://203.255.3.48:1224")!
@@ -46,10 +48,10 @@ extension DiagnosisAPI: TargetType {
         
     var task: Moya.Task {
         switch self {
-        case .postList(let diagnosisPostModel):
-            return .requestJSONEncodable(diagnosisPostModel)
-        case .getList(let diagnosisGetModel):
-            return .requestJSONEncodable(diagnosisGetModel)
+        case .postList(let postDTO):
+            return .requestJSONEncodable(postDTO)
+        case .getList(let mid):
+            return .requestParameters(parameters: ["mId": mid], encoding: URLEncoding.queryString)
         }
     }
         
@@ -58,13 +60,18 @@ extension DiagnosisAPI: TargetType {
     }
 }
     
+// MARK: - Service Part
 class DiagnosisService: DiagnosisServiceType {
-    let provider = MoyaProvider<DiagnosisAPI>()
+    
+    let provider: MoyaProvider<DiagnosisAPI>
+    init(provider: MoyaProvider<DiagnosisAPI>) {
+        self.provider = provider
+    }
     
     var cancellables = Set<AnyCancellable>()
     
-    func postDiagnosis(diagnosisPostModel: DiagnosisPostModel) -> AnyPublisher<Moya.Response, DiagnosisError> {
-        return provider.requestPublisher(.postList(listDTO: diagnosisPostModel))
+    func postDiagnosis(postDTO: DiagnosisPostModel) -> AnyPublisher<Moya.Response, DiagnosisError> {
+        return provider.requestPublisher(.postList(postDTO: postDTO))
             .tryMap { response -> Response in
                 return response
             }
@@ -75,13 +82,12 @@ class DiagnosisService: DiagnosisServiceType {
             .eraseToAnyPublisher()
     }
     
-    func getDiagnosisList(diagnosisGetModel: DiagnosisGetModel) -> AnyPublisher<Moya.Response, DiagnosisError> {
-        return provider.requestPublisher(.getList(listDTO: diagnosisGetModel))
+    func getDiagnosisList(mid: Int) -> AnyPublisher<Moya.Response, DiagnosisError> {
+        return provider.requestPublisher(.getList(mid: mid))
             .tryMap { response -> Response in
                 return response
             }
             .mapError { error in
-                
                 return DiagnosisError.getFail
             }
             .eraseToAnyPublisher()

@@ -15,6 +15,8 @@ protocol HKProviderProtocol {
                                completion: @escaping ((Double) -> Void))
 }
 
+
+
 class HKProvider {
     // MARK: - Properties
     let healthStore = HKHealthStore()
@@ -22,12 +24,10 @@ class HKProvider {
     //MARK: - Category Sample
     func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ([HKCategorySample]) -> Void) {
+                               completion: @escaping ([HKCategorySample], HKError?) -> Void) {
         // identifier로 Type 정의
         guard let sleepType = HKObjectType.categoryType(forIdentifier: identifier) else {
-            // 에러 처리를 수행합니다.
-            print("Invalid HKCategoryTypeIdentifier")
-            return
+            fatalError("identifier를 찾을 수 없습니다. 올바른 identifier를 입력했는지 확인해주세요.")
         }
         
         // 최신 데이터를 먼저 가져오도록 sort 기준 정의
@@ -36,16 +36,20 @@ class HKProvider {
         // 쿼리 수행 완료시 실행할 콜백 정의
         let query = HKSampleQuery(sampleType: sleepType,
                                   predicate: predicate,
-                                  limit: 1000,
-                                  sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+                                  limit: HKObjectQueryNoLimit,
+                                  sortDescriptors: [sortDescriptor]) { (_, samples, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.
-                print(error)
-                return
+                completion([], HKError.providerFetchSamplesFailed)
             }
-            if let result = tmpResult {
+            if let result = samples {
                 let categorySamples = result.compactMap { $0 as? HKCategorySample }
-                completion(categorySamples)
+                
+                if categorySamples.isEmpty {
+                    completion([], HKError.providerDataNotFound)
+                }
+                
+                completion(categorySamples, nil)
             }
         }
         

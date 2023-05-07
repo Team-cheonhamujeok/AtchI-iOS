@@ -71,7 +71,7 @@ struct InformationCard: View {
             InformationDetailModal(
                 title: title,
                 content: content,
-                pictureName: pictureName)
+                pictureName: pictureName).presentationDetents([.medium, .large])
             // dy TODO: Button style custom
             Button("닫기") {
                 showingDetail = false

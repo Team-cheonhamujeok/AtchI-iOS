@@ -32,7 +32,7 @@ final class SignupRequestViewModelTests: XCTestCase {
         
         // When
         // Test case 1
-        viewModel.reqeustSignup(SignupModel(email: "1234@naver.com",
+        viewModel.reqeustSignup(SignupReqeustModel(email: "1234@naver.com",
                                      pw: "1111",
                                      birthday: "010101",
                                      gender: true,

@@ -138,7 +138,7 @@ class SignupViewModel: ObservableObject {
         
         // SignupButton 누를 시 signup 실행
         $tapSignupButton.sink { [weak self] in
-            self?.signup(SignupModel(email: "1234@naver.com",
+            self?.signup(SignupReqeustModel(email: "1234@naver.com",
                                      pw: "1111",
                                      birthday: "010101",
                                      gender: true,
@@ -149,7 +149,7 @@ class SignupViewModel: ObservableObject {
     }
     
     /// AccountService를 통해 signup api를 실행시키고 결과값을 signupResult로 send함
-    func signup(_ signupModel: SignupModel){
+    func signup(_ signupModel: SignupReqeustModel){
         accountService.requestSignup(signupModel: signupModel)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {

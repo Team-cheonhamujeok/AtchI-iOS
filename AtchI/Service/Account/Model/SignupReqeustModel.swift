@@ -7,18 +7,11 @@
 
 import Foundation
 
-struct SignupModel: Encodable {
+/// 회원가입 요청  body입니다.
+struct SignupReqeustModel: Encodable {
     let email: String
     let pw: String
     let birthday: String
     let gender: Bool
     let name: String
-    
-//    enum CodingKeys: String,CodingKey {
-//        case id
-//        case name
-//        case birth
-//        case phoneNum = "phone_num"
-//
-//    }
 }

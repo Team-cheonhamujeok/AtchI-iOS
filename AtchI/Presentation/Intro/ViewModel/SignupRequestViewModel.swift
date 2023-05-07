@@ -99,7 +99,7 @@ class SignupRequestViewModel: ObservableObject {
                 let gender: Bool =
                     info.gender == "남"
                 self.reqeustSignup(
-                    SignupModel(email: info.email,
+                    SignupReqeustModel(email: info.email,
                                 pw: info.password,
                                 birthday: info.birth,
                                 gender: gender,
@@ -123,14 +123,14 @@ class SignupRequestViewModel: ObservableObject {
                 case .failure(let error):
                     self.emailVerificationState.failMessage = error.description
                 }
-            }, receiveValue: { (result: EmailVerificationModel) in
+            }, receiveValue: { (result: EmailVerificationResponseModel) in
                 self.receivedEmailVerificationCode = result.verificationCode
                 self.emailVerificationState.sended = true
             }).store(in: &cancellables)
     }
     
     /// AccountService를 통해 signup api를 실행시키고 결과값을 signupResult로 send함
-    func reqeustSignup(_ signupModel: SignupModel){
+    func reqeustSignup(_ signupModel: SignupReqeustModel){
         accountService.requestSignup(signupModel: signupModel)
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }

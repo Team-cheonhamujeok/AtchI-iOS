@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct EmailVerificationModel: Codable {
+/// 이메일 인증 응답 형식입니다.
+struct EmailVerificationResponseModel: Codable {
     let message: String
     let verificationCode: String
     
