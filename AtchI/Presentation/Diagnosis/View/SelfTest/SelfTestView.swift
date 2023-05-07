@@ -76,15 +76,22 @@ struct SelfTestView: View {
             {
                 if buttonSeletor != nil {
                     if selfTestViewModel.questionIndex == 14 {
+                        guard let buttonSeletor = buttonSeletor else { return }
+                        // 데이터 담기
+                        selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
+                        // 선택한 버튼 nil
+                        self.buttonSeletor = nil
+                        
+                        // 결과 담기
                         selfTestViewModel.makeResult()
                         // 화면 전환
                         path.append(.selfTestResult)
                     } else {
                         guard let buttonSeletor = buttonSeletor else { return }
-                        // 인덱스 증가
-                        selfTestViewModel.questionIndex += 1
                         // 데이터 담기
                         selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
+                        // 인덱스 증가
+                        selfTestViewModel.questionIndex += 1
                         // 선택한 버튼 nil
                         self.buttonSeletor = nil
                     }

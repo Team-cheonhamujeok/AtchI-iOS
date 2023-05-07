@@ -15,4 +15,9 @@ struct DiagnosisTestData {
                                                                              1,2,9,0,1,
                                                                              2,9,0,1,2],
                                                                        date: "2020-01-02T00:00:00.000+00:00")
+    
+    static var realData: DiagnosisPostModel = DiagnosisPostModel(mid: 1,
+                                                                 answerlist: [1, 0, 0, 0, 0,
+                                                                              0, 0, 0, 0, 0,
+                                                                              0, 0, 0, 0, 1], date: "2023-05-07T20:43:57.984+09:00")
 }

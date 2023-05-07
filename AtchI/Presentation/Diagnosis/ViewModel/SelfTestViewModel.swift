@@ -117,15 +117,16 @@ class SelfTestViewModel: ObservableObject {
     /// mid: Int = 멤버 아이디
     func requestResult(mid: Int) {
         let postDTO = convertPostData(mid: mid, date: currentTime())
-        
+        print(postDTO)
         let request = service.postDiagnosis(postDTO: postDTO)
         
         let cancellable = request
                             .sink(receiveCompletion: { com in
-                                print("com", com)
+                                print("post Compoletion", com)
                             }, receiveValue: { response in
-                                print("response", response)
+                                print("post Response", response)
                             })
+                            .store(in: &disposeBag)
     }
 
     /// 서버로부터 Get 하는 함수
@@ -146,16 +147,14 @@ class SelfTestViewModel: ObservableObject {
                             }, receiveValue: { response in
                                 let decoder = JSONDecoder()
                                 if let datas = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
-                                    _ = datas.map {
+                                    // MARK: 자가진단 결과 추가
+                                        datas.forEach {
                                         self.selfTestResults.append(
                                                 SelfTestResult(id: $0.mid,
-                                                              date: $0.date,
+                                                               date: self.convertDate(date: $0.date),
                                                               point: $0.result,
-                                                               level: self.measureLevel(point: $0.result)
-                                                             )
-                                            )
-                                        print(self.selfTestResults)
-                                    }
+                                                               level: self.measureLevel(point: $0.result)))
+                                        }
                                 }
                             }).store(in: &disposeBag)
     }
@@ -164,12 +163,27 @@ class SelfTestViewModel: ObservableObject {
     /// 현재 시간 계산
     private func currentTime() -> String {
         let now = Date() //"Mar 21, 2018 at 1:37 PM"
-        let dateFormmater = DateFormatter()
+        let dateFormatter = DateFormatter()
         
-        // TODO: 변경 필요
-        dateFormmater.dateFormat = "yy년MM월dd일"
-
-        return dateFormmater.string(from: now)
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        print(dateFormatter.string(from: now))
+        return dateFormatter.string(from: now)
+    }
+    
+    /// Date String 을 "yy년MM월dd일" 형식으로 변환
+    private func convertDate(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        // 아주 긴 세계 시간 형식을 받기 위한 포맷 형성
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        // Date 타입으로 변경
+        guard let convertDate = dateFormatter.date(from: date) else { return "날짜 형식 오류" }
+            
+        // 원하는 시간 형식으로 변경
+        dateFormatter.dateFormat = "yy년MM월dd일"
+        
+        // String으로 출력
+        return dateFormatter.string(from: convertDate)
     }
     
     /// answers를 종합해서 최종 점수 계산

@@ -22,6 +22,27 @@ final class DiagnosisServiceTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         self.sut = nil
     }
+    
+    func test_nowDate() throws {
+        let now = Date() //"Mar 21, 2018 at 1:37 PM"
+        let dateFormatter = DateFormatter()
+        // 목표 형식 2020-01-02T00:00:00.000+00:00
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        print("#", dateFormatter.string(from: now))
+    }
+    
+    func test_Date() throws {
+        let time = "2020-01-02T00:00:00.000+00:00"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        let convertDate = dateFormatter.date(from: time)!
+            
+        dateFormatter.dateFormat = "yy년MM월dd일"
+        
+        print(dateFormatter.string(from: convertDate))
+    }
 
     func test_자가진단_유저_결과들고오기() throws {
         let expectation = XCTestExpectation(description: "fetches data and updates properties.")

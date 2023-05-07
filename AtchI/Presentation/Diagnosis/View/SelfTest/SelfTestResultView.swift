@@ -39,6 +39,8 @@ struct SelfTestResultView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
+                // MARK: 최종 서버 요청
+                selfTestViewModel.requestResult(mid: 1)
                 path = []
                 selfTestViewModel.resetAnswers()
                 
