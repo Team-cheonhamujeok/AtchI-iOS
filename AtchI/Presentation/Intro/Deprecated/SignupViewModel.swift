@@ -158,16 +158,16 @@ class SignupViewModel: ObservableObject {
                     break
                 case .failure(let error):
                     // 에러 발생시 각각 대응
-                    switch error {
-                    case .signupFailed:
-                        self?.signupErrorMessage = error.description
-                        break
-                    case .emailDuplicated:
-                        self?.signupErrorMessage = error.description
-                        break
-                    default:
-                        break
-                    }
+//                    switch error {
+//                    case .signupFailed:
+//                        self?.signupErrorMessage = error.description
+//                        break
+//                    case .emailDuplicated:
+//                        self?.signupErrorMessage = error.description
+//                        break
+//                    default:
+//                        break
+//                    }
                     break
                 }
             }, receiveValue: { [weak self] result in

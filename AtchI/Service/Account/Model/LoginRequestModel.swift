@@ -8,7 +8,12 @@
 import Foundation
 
 /// 회원가입 요청  body입니다.
-struct LoginRequestModel: Encodable {
+struct LoginRequestModel: Encodable, Equatable {
     let id: String
     let pw: String
+}
+
+extension LoginRequestModel {
+    
+
 }

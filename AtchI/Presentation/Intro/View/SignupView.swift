@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Moya
 
 struct SignupView: View {
     
@@ -20,7 +21,7 @@ struct SignupView: View {
         self.validationViewModel = SignupValidationViewModel(
             validationServcie: ValidationService())
         self.requestViewModel = SignupRequestViewModel(
-            accountService: AccountService())
+            accountService: AccountService(provider: MoyaProvider<AccountAPI>()))
         // 두 뷰모델간 의존성 연결
         self.validationViewModel.eventFromRequestViewModel
             = self.requestViewModel.eventToValidationViewModel

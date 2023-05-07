@@ -24,13 +24,29 @@ enum CommonError: Error {
 enum AccountError: Error {
     
     /// Common Error
-    case common(_ : CommonError) // json 파싱 에러
+    case common(_ : CommonError)
     /// Account API Signup Error
-    case singup(_ :SignupError)
+    case signup(_ :SignupError)
     /// Account API Email Verification Error
     case emailVerification(_ :EmailVerificationError)
     /// Account API Login Error
     case login(_ : LoginError)
+    
+    var description: String {
+        switch self {
+        case .common(let error):
+            return error.description
+        case .signup(let error):
+            return error.description
+        case .emailVerification(let error):
+            return error.description
+        case .login(let error):
+            return error.description
+        }
+    }
+}
+
+extension AccountError {
     
     enum SignupError: Error {
         case signupFailed
@@ -75,3 +91,21 @@ enum AccountError: Error {
         }
     }
 }
+
+extension AccountError: Equatable {
+    static func == (lhs: AccountError, rhs: AccountError) -> Bool {
+        switch (lhs, rhs) {
+        case (.common(let lhsError), .common(let rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        case (.signup(let lhsError), .signup(let rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        case (.emailVerification(let lhsError), .emailVerification(let rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        case (.login(let lhsError), .login(let rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        default:
+            return false
+        }
+    }
+}
+
