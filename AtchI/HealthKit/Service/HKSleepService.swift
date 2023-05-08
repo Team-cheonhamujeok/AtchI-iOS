@@ -26,11 +26,11 @@ import Combine
 /// - 깊은 수면 총 시간
 /// - 수면 중 깨어 있었던 시간
 ///
-/// [**사용법**]
+/// **[사용법]**
 ///
 /// 1. 여러개의 수면 데이터가 한번에 필요하다면 ``getSleepAll(date:)``로 모든 정보가 담긴 구조체 인스턴스를 반환받을 수 있습니다.
 ///
-/// 2. 개별 데이터가 필요하다면 ``getSleepQuentity(date:sleepCategory:)-8xz6g``,  ``getSleepQuentity(date:sleepCategory:)-2a6jf``,  ``getSleepStartDate(date:)``,  ``getSleepEndDate(date:)`` 메서드로 Primitive type을 반환받을 수 있습니다.
+/// 2. 개별 데이터가 필요하다면 ``getSleepQuentity(date:sleepCategory:)-2dlxw``,  ``getSleepQuentity(date:sleepCategory:)-o5j``,  ``getSleepStartDate(date:)``,  ``getSleepEndDate(date:)`` 메서드로 Primitive type을 반환받을 수 있습니다.
 ///
 /// - Note: 어제 오후 6시~ 오늘 오후 6시 사이를 오늘 수면 시간으로 판단합니다.
 ///
@@ -94,7 +94,7 @@ class HKSleepService: HKSleepServiceType{
         }
     }
     
-    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory.custom) -> Future<Int, HKError> { // TODO: 에러 처리 수정
+    func getSleepQuentity(date: Date, sleepCategory: HKSleepCategory.custom) -> Future<Int, HKError> {
         return Future { promise in
             _ = self.fetchSleepSamples(date: date).sink(
                 receiveCompletion: { completion in
@@ -140,7 +140,7 @@ class HKSleepService: HKSleepServiceType{
         }
     }
 
-    func getSleepEndDate(date: Date) -> Future<Date, HKError> {// TODO: 에러 처리 수정
+    func getSleepEndDate(date: Date) -> Future<Date, HKError> {
         return Future { promise in
             _ = self.fetchSleepSamples(date: date).sink(
                 receiveCompletion: { completion in
