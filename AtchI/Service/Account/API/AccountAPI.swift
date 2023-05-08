@@ -68,19 +68,3 @@ extension AccountAPI: TargetType {
     }
 }
 
-extension AccountAPI {
-    func getLoginMockResponse(loginModel: LoginRequestModel) -> [String: Any] {
-        switch loginModel {
-        case LoginAPIMock.success.request:
-            return LoginAPIMock.success.response
-        case LoginAPIMock.wrongPassword.request:
-            return LoginAPIMock.wrongPassword.response
-        case LoginAPIMock.userNotFound.request:
-            return LoginAPIMock.userNotFound.response
-        case LoginAPIMock.loginFaild.request:
-            return LoginAPIMock.loginFaild.response
-        default:
-            return [:]
-        }
-    }
-}

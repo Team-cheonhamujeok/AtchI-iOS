@@ -22,7 +22,7 @@ final class AccountServiceTests: XCTestCase {
     override func tearDownWithError() throws {
         service = nil
     }
-
+    
     /// 로그인 성공 테스트입니다.
     func testLoginSuccess() {
         // Given
@@ -48,7 +48,7 @@ final class AccountServiceTests: XCTestCase {
     
     /// 로그인 실패(비밀번호 틀림) 테스트입니다.
     ///
-    /// - 조건값: LoginAPIMock > wrongPassword와 매치되는 LoginRequestModel
+    /// - 조건값: LoginAPIMock.wrongPassword.request (LoginRequestModel)
     /// - 기댓값: AccountError.login(.wrongPassword)
     func testLoginWrongPassword() throws {
         // Given
@@ -59,16 +59,39 @@ final class AccountServiceTests: XCTestCase {
         service.requestLogin(loginModel: requestModel)
             .sink(receiveCompletion: { completion in
                 switch completion {
+                case .finished: break
                 case .failure(let error):
                     receivedError = error
-                case .finished:
-                    XCTFail("The publisher should not have finished successfully")
                 }
             }, receiveValue: { _ in })
             .store(in: &cancellables)
         
         // Then
         XCTAssertEqual(receivedError, AccountError.login(.wrongPassword))
+    }
+    
+    /// 로그인 실패(존재하지 않는 유저) 테스트입니다.
+    ///
+    /// - 조건값: LoginAPIMock.userNotFound.request (LoginRequestModel)
+    /// - 기댓값: AccountError.login(.userNotFound)
+    func testLoginUserNotFound() throws {
+        // Given
+        let requestModel: LoginRequestModel = LoginAPIMock.userNotFound.request
+        
+        // When
+        var receivedError: AccountError?
+        service.requestLogin(loginModel: requestModel)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished: break
+                case .failure(let error):
+                    receivedError = error
+                }
+            }, receiveValue: { _ in })
+            .store(in: &cancellables)
+        
+        // Then
+        XCTAssertEqual(receivedError, AccountError.login(.userNotFound))
     }
 
     func testPerformanceExample() throws {
