@@ -99,6 +99,7 @@
 		BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BCB9C6922A0A3CDB00273F33 /* Lottie */; };
 		BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C6942A0A3D2F00273F33 /* LottieView.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
+		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
 		BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD897272A0A45A6006EC401 /* dots-loading.json */; };
 		BCDACF4029FF930A00EFF2ED /* DiagnosisError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF3D29FF930A00EFF2ED /* DiagnosisError.swift */; };
 		BCDACF4129FF930A00EFF2ED /* DiagnosisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF3E29FF930A00EFF2ED /* DiagnosisService.swift */; };
@@ -244,6 +245,7 @@
 		BCB9C68E2A0A20A100273F33 /* HKSleepIntervalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepIntervalModel.swift; sourceTree = "<group>"; };
 		BCB9C6942A0A3D2F00273F33 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
+		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
 		BCD897272A0A45A6006EC401 /* dots-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dots-loading.json"; sourceTree = "<group>"; };
 		BCDACF3D29FF930A00EFF2ED /* DiagnosisError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisError.swift; sourceTree = "<group>"; };
 		BCDACF3E29FF930A00EFF2ED /* DiagnosisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisService.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				BC0446BE29FC24AA002109A2 /* EmailVerificationResponseModel.swift */,
 				BCF6B8B92A041FA800B0FC1D /* LoginRequestModel.swift */,
 				BCF6B8BB2A04225A00B0FC1D /* LoginResponseModel.swift */,
+				BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1268,6 +1271,7 @@
 				BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
+				BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */,
 				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */,
 				BCB9C68F2A0A20A100273F33 /* HKSleepIntervalModel.swift in Sources */,
 				BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */,

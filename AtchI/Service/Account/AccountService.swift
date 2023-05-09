@@ -23,11 +23,7 @@ class AccountService: AccountServiceType {
     func requestEmailConfirm(email: String) -> AnyPublisher<EmailVerificationResponseModel, AccountError> {
         return provider.requestPublisher(.emailConfirm(email))
             .tryMap { response -> EmailVerificationResponseModel in
-                do {
-                    return try response.map(EmailVerificationResponseModel.self)
-                } catch {
-                    fatalError("Failed to parse JSON")
-                }
+                return try response.map(EmailVerificationResponseModel.self)
             }
             .mapError { error in
                 // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
@@ -36,19 +32,27 @@ class AccountService: AccountServiceType {
             .eraseToAnyPublisher()
     }
     
-    func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<Void, AccountError> {
+    func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<SignupResponseModel, AccountError> {
         return provider.requestPublisher(.signup(signupModel))
             .tryMap { response in
-                return
+                let decodedData = try response.map(SignupResponseModel.self)
+                if decodedData.message == "There are duplicate users" {
+                    throw AccountError.signup(.emailDuplicated)
+                }
+                return decodedData
             }
             .mapError { error in
                 // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
-                return AccountError.signup(.signupFailed)
+                if error is MoyaError {
+                    return AccountError.signup(.signupFailed)
+                } else {
+                    return error as! AccountError
+                }
             }
             .eraseToAnyPublisher()
     }
     
-    func requestLogin(loginModel: LoginRequestModel) -> AnyPublisher<Void, AccountError> {
+    func requestLogin(loginModel: LoginRequestModel) -> AnyPublisher<LoginResponseModel, AccountError> {
         return provider.requestPublisher(.login(loginModel))
             .tryMap { response in
                 let decodedData = try response.map(LoginResponseModel.self)
@@ -57,7 +61,7 @@ class AccountService: AccountServiceType {
                 } else if decodedData.mid == -2 {
                     throw AccountError.login(.userNotFound)
                 }
-                return
+                return decodedData
             }
             .mapError { error in
                 if error is MoyaError {

@@ -22,13 +22,13 @@ protocol AccountServiceType {
     ///
     /// - Parameters:
     ///    - signupModel: 회원가입에 필요한 정보들을 담은 Model입니다.
-    /// - Returns: 요청에 성공시 전달 값은 없습니다. 실패 시 AccountError를 throw합니다.
-    func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<Void, AccountError>
+    /// - Returns: 요청에 성공시 SignupResponseModel을 반환합니다. 실패 시 AccountError를 반환합니다.
+    func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<SignupResponseModel, AccountError>
     
     /// 로그인 요청을 보냅니다.
     ///
     /// - Parameters:
     ///    - loginModel: 로그인에 필요한 정보들을 담은 Model입니다.
-    /// - Returns: 요청에 성공시 전달 값은 없습니다. 실패 시 AccountError를 throw합니다.
-    func requestLogin(loginModel: LoginRequestModel) -> AnyPublisher<Void, AccountError>
+    /// - Returns: 요청에 성공시 LoginResponseModel을 반환합니다. 실패 시 AccountError를 반환합니다.
+    func requestLogin(loginModel: LoginRequestModel) -> AnyPublisher<LoginResponseModel, AccountError>
 }
