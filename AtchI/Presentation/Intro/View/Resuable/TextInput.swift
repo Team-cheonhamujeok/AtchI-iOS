@@ -45,7 +45,9 @@ struct TextInput: View {
                                 : Color.grayDisabled,
                                 lineWidth: 2)
                             .animation(.easeInOut(duration: 0.3), value: isFocused)
-                    )
+                    ).frame(maxWidth: .infinity,
+                            minHeight: 65,
+                            maxHeight: 65)
                 
                 // Text Field
                     TextField(placeholder,

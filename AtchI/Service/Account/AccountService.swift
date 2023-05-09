@@ -36,10 +36,10 @@ class AccountService: AccountServiceType {
             .eraseToAnyPublisher()
     }
     
-    func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<Response, AccountError> {
+    func requestSignup(signupModel: SignupReqeustModel) -> AnyPublisher<Void, AccountError> {
         return provider.requestPublisher(.signup(signupModel))
-            .tryMap { response -> Response in
-                return response
+            .tryMap { response in
+                return
             }
             .mapError { error in
                 // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
@@ -48,16 +48,16 @@ class AccountService: AccountServiceType {
             .eraseToAnyPublisher()
     }
     
-    func requestLogin(loginModel: LoginRequestModel) -> AnyPublisher<LoginResponseModel, AccountError> {
+    func requestLogin(loginModel: LoginRequestModel) -> AnyPublisher<Void, AccountError> {
         return provider.requestPublisher(.login(loginModel))
-            .tryMap { response -> LoginResponseModel in
+            .tryMap { response in
                 let decodedData = try response.map(LoginResponseModel.self)
                 if decodedData.mid == 0 {
                     throw AccountError.login(.wrongPassword)
                 } else if decodedData.mid == -2 {
                     throw AccountError.login(.userNotFound)
                 }
-                return try response.map(LoginResponseModel.self)
+                return
             }
             .mapError { error in
                 if error is MoyaError {

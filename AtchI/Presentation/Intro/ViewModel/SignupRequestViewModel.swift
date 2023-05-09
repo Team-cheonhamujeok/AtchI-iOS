@@ -43,18 +43,18 @@ class SignupRequestViewModel: ObservableObject {
     // MARK: - Bind Method
     private func bindState() {
         
-        /// 이메일 인증하기 버튼을 누르면 이메일 인증 버튼의 문구를 변경할 수 있도록 sendedEmailVerification을 변경합니다.
+        // 이메일 인증하기 버튼을 누르면 이메일 인증 버튼의 문구를 변경할 수 있도록 sendedEmailVerification을 변경합니다.
         $tapSendEmailVerificationButton.map { true }
             .assign(to: \.emailVerificationState.sendEnable, on: self)
             .store(in: &cancellables)
         
-        /// 서버로 이메일 인증 메일 전송 요청을 보냅니다.
+        // 서버로 이메일 인증 메일 전송 요청을 보냅니다.
         $tapSendEmailVerificationButton.sink { [weak self] in
             self?.reqeustEmailVerification(self?.receivedEmail ?? "")
         }
         .store(in: &cancellables)
         
-        /// 사용자가 입력한 이메일 인증코드와 서버에서 받은 인증코드가 같은지 검사합니다.
+        // 사용자가 입력한 이메일 인증코드와 서버에서 받은 인증코드가 같은지 검사합니다.
         $tapCheckEmailVerificationButton.sink { _ in
             if self.emailVerificationCode == self.receivedEmailVerificationCode {
                 self.emailVerificationState.sucess = true
@@ -66,7 +66,7 @@ class SignupRequestViewModel: ObservableObject {
         }.store(in: &cancellables)
         
         
-        /// SignupButton을 탭하면 input 정보를 받아오기 위해 ValidationViewModel에 요청을 보냅니다.
+        // SignupButton을 탭하면 input 정보를 받아오기 위해 ValidationViewModel에 요청을 보냅니다.
         $tapSignupButton.sink { [weak self] in
             self?.eventToValidationViewModel.send(.signup)
         }
