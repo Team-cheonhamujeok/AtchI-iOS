@@ -58,4 +58,11 @@ protocol HKSleepServiceType {
     ///    - sleepCategory: 시작 시간 또는 종료 시간을 선택합니다.
     /// - Returns: 수면 시작 시간을 Date형으로 반환합니다.
     func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.date) -> Future<Date, HKError>
+    
+    /// 모든 수면 간격(startDate, endDate)을 반환합니다.
+    ///
+    /// - Parameter date: 수면 데이터를 추출할 대상 날짜입니다.
+    /// - Returns: startDate와 endDate를 담은 구조체 배열을 반환합니다.
+    func getSleepInterval(date: Date) -> Future<[HKSleepIntervalModel], HKError>
+
 }

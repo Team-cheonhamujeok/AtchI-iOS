@@ -40,6 +40,7 @@ import Combine
 /// ``HKSleepServiceType``
 ///
 class HKSleepService: HKSleepServiceType{
+    
     private var provider: HKProvider
     private var dateHelper: DateHelperType
     
@@ -129,6 +130,27 @@ class HKSleepService: HKSleepServiceType{
                         promise(Result.success(self.calculateSleepEndDate(samples: samples)))
                     }
                 })
+        }
+    }
+    
+    func getSleepInterval(date: Date) -> Future<[HKSleepIntervalModel], HKError> {
+        return Future { promise in
+            _ = self.fetchSleepSamples(date: date).sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished: break
+                    case .failure(let error):
+                        promise(Result.failure(error))
+                    }
+                }, receiveValue: { samples in
+                    promise(Result.success(
+                        samples
+                            .filter { $0.value != 2 } // awake 제외
+                            .map { HKSleepIntervalModel(startDate: $0.startDate,
+                                                        endDate: $0.endDate)
+                            }))
+                }
+            )
         }
     }
 }
