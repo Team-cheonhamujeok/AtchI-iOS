@@ -119,6 +119,7 @@ struct SignupView: View {
             .scrollIndicators(.hidden)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.mainBackground)
         .onTapGesture {
             hideKeyboard()
         }

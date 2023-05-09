@@ -24,12 +24,12 @@ struct ToogleInput: View {
                     }) {
                         Text(option)
                             .padding()
-                            .foregroundColor(selected != option ? Color.mainPurple : Color.white)
+                            .foregroundColor(selected != option ? Color(hex: "#7544C6") : Color.white)
                             .font(.bodyMedium)
                             .frame(maxWidth: 65, minHeight: 65)
                     }
                     .frame(maxWidth: .infinity, minHeight: 65)
-                    .background(selected == option ? Color.mainPurple : Color.white)
+                    .background(selected == option ? Color(hex: "#7544C6") : Color.mainBackground)
                     .animation(.easeInOut(duration: 0.1), value: selected)
                 }
             }
@@ -40,7 +40,7 @@ struct ToogleInput: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
                     .strokeBorder(
-                        Color.mainPurple,
+                        Color(hex: "#7544C6"),
                         lineWidth: 2)
             )
         }

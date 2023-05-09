@@ -43,6 +43,7 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 30)
+        .background(Color.mainBackground)
         .onTapGesture {
             hideKeyboard()
         }.alert(isPresented: $viewModel.showAlert) {
