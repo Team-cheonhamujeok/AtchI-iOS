@@ -31,7 +31,7 @@ struct SecureInput: View {
                             .strokeBorder(
                                 isFocused ?
                                 Color.mainPurple:
-                                    Color.grayDisabled,
+                                    Color.mainPurpleLight,
                                 lineWidth: 2)
                             .animation(.easeInOut(duration: 0.2),
                                        value: isFocused)

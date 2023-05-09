@@ -42,7 +42,7 @@ struct TextInput: View {
                                 ? Color.mainPurple
                                 : disabled
                                 ? Color.grayBoldLine
-                                : Color.grayDisabled,
+                                : Color.mainPurpleLight,
                                 lineWidth: 2)
                             .animation(.easeInOut(duration: 0.3), value: isFocused)
                     ).frame(maxWidth: .infinity,

@@ -41,7 +41,7 @@ struct SignupView: View {
                         .font(.titleLarge)
                     
                     // MARK: Input List
-                    Spacer(minLength: 15)
+//                    Spacer(minLength: )
                     TextInput(title: "이름",
                               placeholder: "이름을 입력해주세요",
                               text: $validationViewModel.infoState.name,
