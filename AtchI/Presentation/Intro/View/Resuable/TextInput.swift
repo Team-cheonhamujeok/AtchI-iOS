@@ -39,7 +39,7 @@ struct TextInput: View {
                         RoundedRectangle(cornerRadius: 20)
                             .strokeBorder(
                                 isFocused
-                                ? Color(hex: "#7544C6")
+                                ? Color.accentColor
                                 : disabled
                                 ? Color.grayBoldLine
                                 : Color.mainPurpleLight,

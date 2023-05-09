@@ -30,7 +30,7 @@ struct SecureInput: View {
                         RoundedRectangle(cornerRadius: 20)
                             .strokeBorder(
                                 isFocused ?
-                                Color(hex: "#7544C6"):
+                                Color.accentColor:
                                     Color.mainPurpleLight,
                                 lineWidth: 2)
                             .background(Color.mainBackground)
