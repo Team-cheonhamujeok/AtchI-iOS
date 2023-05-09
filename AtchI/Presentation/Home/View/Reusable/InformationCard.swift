@@ -40,6 +40,7 @@ struct InformationCard: View {
             // Text Container
             VStack(alignment: .leading){
                 Text("\(title)")
+                    .foregroundColor(.mainText)
                     .font(.titleSmall)
                 Spacer()
                 Text("\(content)")
@@ -51,7 +52,7 @@ struct InformationCard: View {
                     alignment: .leading)
             .padding(.horizontal, 25)
             .padding(.vertical, 15)
-            .background(Color.white)
+            .background(Color.mainBackground)
         }
         // style
         .frame(maxWidth: .infinity,

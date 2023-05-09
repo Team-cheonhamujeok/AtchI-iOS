@@ -41,7 +41,7 @@ struct ContentView: View {
                     }
             }
             .onAppear() {
-                UITabBar.appearance().barTintColor = .white
+                UITabBar.appearance().barTintColor = UIColor(Color.mainBackground)
             }
 //        }
     }
