@@ -100,6 +100,7 @@
 		BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C6942A0A3D2F00273F33 /* LottieView.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
 		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
+		BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */; };
 		BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD897272A0A45A6006EC401 /* dots-loading.json */; };
 		BCDACF4029FF930A00EFF2ED /* DiagnosisError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF3D29FF930A00EFF2ED /* DiagnosisError.swift */; };
 		BCDACF4129FF930A00EFF2ED /* DiagnosisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDACF3E29FF930A00EFF2ED /* DiagnosisService.swift */; };
@@ -246,6 +247,7 @@
 		BCB9C6942A0A3D2F00273F33 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
 		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
+		BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BCD897272A0A45A6006EC401 /* dots-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dots-loading.json"; sourceTree = "<group>"; };
 		BCDACF3D29FF930A00EFF2ED /* DiagnosisError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisError.swift; sourceTree = "<group>"; };
 		BCDACF3E29FF930A00EFF2ED /* DiagnosisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosisService.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 		049ADE9029C6E3B2009B9B62 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BCD5EBB62A0AC61300F1E0F1 /* Launch */,
 				BCB9C6962A0A3D3C00273F33 /* Animation */,
 				049ADE9129C6E3BF009B9B62 /* Button */,
 			);
@@ -814,6 +817,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		BCD5EBB62A0AC61300F1E0F1 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		BCDACF3629FF927900EFF2ED /* Provider */ = {
 			isa = PBXGroup;
 			children = (
@@ -1146,6 +1157,7 @@
 			files = (
 				BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
+				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1522,6 +1534,7 @@
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "건강 데이터 접근을 위해 권한이 필요합니다. 해당 정보는 치매 진단을 위해 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1557,6 +1570,7 @@
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "건강 데이터 접근을 위해 권한이 필요합니다. 해당 정보는 치매 진단을 위해 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
