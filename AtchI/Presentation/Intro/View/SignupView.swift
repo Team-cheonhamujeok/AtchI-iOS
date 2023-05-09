@@ -97,7 +97,7 @@ struct SignupView: View {
                 Spacer(minLength: 20)
                 RoundedButton(title: "회원가입하기",
                               onTap: requestViewModel.$tapSignupButton,
-                              disabled: !requestViewModel.signupState.enable)
+                              state: requestViewModel.signupState.signupButtonState)
                 Spacer(minLength: 20)
                 
                 // Already signup

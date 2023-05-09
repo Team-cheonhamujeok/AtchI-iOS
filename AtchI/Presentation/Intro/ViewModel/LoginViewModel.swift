@@ -26,8 +26,7 @@ class LoginViewModel: ObservableObject {
     /// Result - 이벤트에 따른 결과
     @Published var emailErrorMessage: String = ""
     @Published var passwordErrorMessage: String = ""
-    @Published var enableLoginButton: Bool = false
-    @Published var sendedLoginRequest: Bool = false
+    @Published var loginButtonState: ButtonState = .disabled
     @Published var loginErrorMessage: String = ""
     @Published var showAlert: Bool = false
     
@@ -62,14 +61,15 @@ class LoginViewModel: ObservableObject {
             .map { email, password in
                 return self.validationService.isValidEmailFormat(email) && !password.isEmpty
             }
+            .map { $0 ? ButtonState.enabled : ButtonState.disabled }
             .receive(on: RunLoop.main)
-            .assign(to: \.enableLoginButton, on: self)
+            .assign(to: \.loginButtonState, on: self)
             .store(in: &cancellables)
         
         // 로그인 요청 보내기
         $tapLoginButton.sink { _ in
             self.reqeustLogin()
-            self.sendedLoginRequest = true
+            self.loginButtonState = .loading
         }.store(in: &cancellables)
         
     }
@@ -78,14 +78,13 @@ class LoginViewModel: ObservableObject {
     func reqeustLogin() {
         self.accountService
             .requestLogin(loginModel: LoginRequestModel(id: self.editEmail, pw: self.editPassword))
-            .print()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished: break
                 case .failure(let error):
                     self.loginErrorMessage = error.description
                     self.showAlert = true
-                    self.sendedLoginRequest = false
+                    self.loginButtonState = .enabled
                 }
             }, receiveValue: { _ in
                 // TODO: dismiss

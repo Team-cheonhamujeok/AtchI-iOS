@@ -37,9 +37,7 @@ struct LoginView: View {
                 // Complete Button
                 RoundedButton(title: "로그인하기",
                               onTap: viewModel.$tapLoginButton,
-                              disabled: !viewModel.enableLoginButton,
-                              loading: viewModel.sendedLoginRequest
-                )
+                              state: viewModel.loginButtonState)
             }
             Spacer()
         }

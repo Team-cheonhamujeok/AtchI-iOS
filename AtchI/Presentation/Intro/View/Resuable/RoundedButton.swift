@@ -8,15 +8,20 @@
 import SwiftUI
 import Combine
 
+enum ButtonState {
+    case enabled
+    case disabled
+    case loading
+}
+
 struct RoundedButton: View {
     let title: String
     var onTap: PassthroughSubject<Void, Never>? = nil
-    var disabled: Bool = false
-    var loading: Bool = true
-    
+    var state: ButtonState
+
     var body: some View {
         VStack {
-            if loading {
+            if state == ButtonState.loading {
                 LottieView(lottieFile: "dots-loading",
                            loopMode: .loop)
                 .frame(width: 150,
@@ -31,30 +36,30 @@ struct RoundedButton: View {
         .frame(maxWidth: .infinity,
                minHeight: 65,
                maxHeight: 65)
-        .background(backgroundColor)
+        .background(bgColor)
         .cornerRadius(20)
-        .disabled(disabled)
+        .disabled(state == ButtonState.disabled)
         .onTapGesture {
             onTap?.send()
         }.animation(.easeIn,
-                    value: backgroundColor)
+                    value: state)
     }
     
-    private var backgroundColor: Color {
-        switch (disabled, loading) {
-        case (true, _):
-            return Color.grayDisabled
-        case (_, true):
-            return Color.mainPurpleLight
-        case (_, _):
-            return Color.mainPurple
+    var bgColor: Color {
+        switch state {
+        case .enabled:
+            return .mainPurple
+        case .disabled:
+            return .grayDisabled
+        case .loading:
+            return .mainPurpleLight
         }
     }
 }
 
 struct RoundedButton_Previews: PreviewProvider {
     static var previews: some View {
-        RoundedButton(title: "안녕")
+        RoundedButton(title: "안녕", state: .disabled)
     }
 }
 

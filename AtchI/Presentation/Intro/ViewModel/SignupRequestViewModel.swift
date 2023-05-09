@@ -92,12 +92,16 @@ class SignupRequestViewModel: ObservableObject {
                 
             case .allInputValid:
                 print("event: allInputValid: \(self.emailVerificationState.sucess)")
-                self.signupState.enable = self.emailVerificationState.sucess
+                self.signupState.signupButtonState
+                    = self.emailVerificationState.sucess
+                    ? ButtonState.enabled
+                    : ButtonState.disabled
                 break
                 
             case .sendInfoForSignup(let info):
                 let gender: Bool =
                     info.gender == "남"
+                self.signupState.signupButtonState = .loading
                 self.reqeustSignup(
                     SignupReqeustModel(email: info.email,
                                 pw: info.password,
@@ -139,6 +143,7 @@ class SignupRequestViewModel: ObservableObject {
                     break
                 case .failure(let error):
                     self.signupState.failMessage = error.description
+                    self.signupState.signupButtonState = .enabled
                     break
                 }
             }, receiveValue: { [weak self] result in
