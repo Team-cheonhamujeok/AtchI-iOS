@@ -151,7 +151,10 @@ class SelfTestViewModel: ObservableObject {
             }, receiveValue: { response in
                 let decoder = JSONDecoder()
                 if let datas = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
-                    self.selfTestResults = []
+                    
+                    // Response 자가진단 결과 리스트 
+                    var response: [SelfTestResult] = []
+                    
                     // MARK: 자가진단 결과 추가
                     datas.forEach {
                         let id = $0.did
@@ -159,13 +162,15 @@ class SelfTestViewModel: ObservableObject {
                         let date = self.convertFormat(date: self.convertDate(date: $0.date))
                         let point = $0.result
                         let level = self.measureLevel(point: $0.result)
-                        self.selfTestResults.append(SelfTestResult(id: id,
+                        response.append(SelfTestResult(id: id,
                                                            mid: mid,
                                                            date: date,
                                                            point: point,
                                                            level: level))}
-
-                    print(self.selfTestResults)
+                    
+                    // 서버 배열 교체
+                    self.selfTestResults = response
+                    
                     // 배열 정렬
                     self.sortSelfTestResults()
                 }
