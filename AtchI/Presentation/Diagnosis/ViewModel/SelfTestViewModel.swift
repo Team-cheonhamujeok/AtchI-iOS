@@ -134,29 +134,34 @@ class SelfTestViewModel: ObservableObject {
         // TODO: mid 값 넣기
         let request = service.getDiagnosisList(mid: 1)
         
-        let cancellable = request
-                            .handleEvents(receiveSubscription: { _ in
-                              print("Network request will start")
-                            }, receiveOutput: { _ in
-                              print("Network request data received")
-                            }, receiveCancel: {
-                              print("Network request cancelled")
-                            })
-                            .sink(receiveCompletion: { _ in
-                                print("SelfTestInfoViewModel: Complete")
-                            }, receiveValue: { response in
-                                let decoder = JSONDecoder()
-                                if let datas = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
-                                    // MARK: 자가진단 결과 추가
-                                        datas.forEach {
-                                        self.selfTestResults.append(
-                                                SelfTestResult(id: $0.mid,
-                                                               date: self.convertDate(date: $0.date),
-                                                              point: $0.result,
-                                                               level: self.measureLevel(point: $0.result)))
-                                        }
-                                }
-                            }).store(in: &disposeBag)
+        let cancellable =
+        request
+            .handleEvents(receiveSubscription: { _ in
+              print("Network request will start")
+            }, receiveOutput: { _ in
+              print("Network request data received")
+            }, receiveCancel: {
+              print("Network request cancelled")
+            })
+            .sink(receiveCompletion: { _ in
+                print("SelfTestInfoViewModel: Complete")
+            }, receiveValue: { response in
+                let decoder = JSONDecoder()
+                if let datas = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
+                    // MARK: 자가진단 결과 추가
+                        datas.forEach {
+                        let id = $0.mid
+                        let date = self.convertFormat(date: self.convertDate(date: $0.date))
+                        let point = $0.result
+                        let level = self.measureLevel(point: $0.result)
+                        self.selfTestResults.append(
+                                SelfTestResult(id: id,
+                                               date: date,
+                                              point: point,
+                                               level: level))
+                        }
+                }
+            }).store(in: &disposeBag)
     }
     
     //MARK: - Util
@@ -170,20 +175,27 @@ class SelfTestViewModel: ObservableObject {
         return dateFormatter.string(from: now)
     }
     
-    /// Date String 을 "yy년MM월dd일" 형식으로 변환
-    private func convertDate(date: String) -> String {
+    /// 날짜 String 타입 을 Date 타입으로
+    private func convertDate(date: String) -> Date? {
         let dateFormatter = DateFormatter()
+        
         // 아주 긴 세계 시간 형식을 받기 위한 포맷 형성
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         // Date 타입으로 변경
-        guard let convertDate = dateFormatter.date(from: date) else { return "날짜 형식 오류" }
-            
+        return dateFormatter.date(from: date)
+    }
+    
+    /// 날짜  "yy년MM월dd일" 형식으로 변환
+    private func convertFormat(date: Date?) -> String {
+        guard let date = date else {return "올바르지 않은 날짜"}
+        
+        let dateFormatter = DateFormatter()
         // 원하는 시간 형식으로 변경
         dateFormatter.dateFormat = "yy년MM월dd일"
         
         // String으로 출력
-        return dateFormatter.string(from: convertDate)
+        return dateFormatter.string(from: date)
     }
     
     /// answers를 종합해서 최종 점수 계산
