@@ -23,6 +23,13 @@ final class TestSelfTestViewModel: XCTestCase {
         sut = nil
     }
 
+    func test_자가진단결과리스트_정렬() throws {
+        let sample: [SelfTestResult]
+        
+        
+        //print(sut.sortSelfTestResults(results: sample))
+    }
+    
     func testExample() throws {
         let expectation = XCTestExpectation(description: "Get Data Test Test")
         

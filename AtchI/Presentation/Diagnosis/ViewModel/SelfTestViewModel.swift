@@ -27,7 +27,7 @@ class SelfTestViewModel: ObservableObject {
     private var result: SelfTestResult?
     
     //MARK: info 데이터
-    /// 자가진단 데이터 리스트
+    /// UI용 자가진단 데이터 리스트
     @Published var selfTestResults: [SelfTestResult] = []
     
     
@@ -47,6 +47,7 @@ class SelfTestViewModel: ObservableObject {
     /// answers를 종합해서 최종 Result를 도출하는 함수
     func makeResult() {
         self.result = SelfTestResult(id: 1,
+                                    mid: 1,
                                     date: currentTime(),
                                      point: calculatorPoint(),
                                      level: measureLevel(point: calculatorPoint()))
@@ -84,11 +85,13 @@ class SelfTestViewModel: ObservableObject {
     /// 답변을 reset 하는 함수
     func resetAnswers() {
         answers = []
+        result = nil
+        questionIndex = 0.0
     }
     
-    /// 최종 result를 nil로 만드는 함수
-    func resetResult() {
-        result = nil
+    /// 자가진단 결과 리스트 정렬
+    func sortSelfTestResults() {
+        self.selfTestResults = selfTestResults.sorted { $0.id > $1.id }
     }
     
     // MARK: - Server
@@ -117,7 +120,7 @@ class SelfTestViewModel: ObservableObject {
     /// mid: Int = 멤버 아이디
     func requestResult(mid: Int) {
         let postDTO = convertPostData(mid: mid, date: currentTime())
-        print(postDTO)
+        
         let request = service.postDiagnosis(postDTO: postDTO)
         
         let cancellable = request
@@ -148,18 +151,23 @@ class SelfTestViewModel: ObservableObject {
             }, receiveValue: { response in
                 let decoder = JSONDecoder()
                 if let datas = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
+                    self.selfTestResults = []
                     // MARK: 자가진단 결과 추가
-                        datas.forEach {
-                        let id = $0.mid
+                    datas.forEach {
+                        let id = $0.did
+                        let mid = $0.mid
                         let date = self.convertFormat(date: self.convertDate(date: $0.date))
                         let point = $0.result
                         let level = self.measureLevel(point: $0.result)
-                        self.selfTestResults.append(
-                                SelfTestResult(id: id,
-                                               date: date,
-                                              point: point,
-                                               level: level))
-                        }
+                        self.selfTestResults.append(SelfTestResult(id: id,
+                                                           mid: mid,
+                                                           date: date,
+                                                           point: point,
+                                                           level: level))}
+
+                    print(self.selfTestResults)
+                    // 배열 정렬
+                    self.sortSelfTestResults()
                 }
             }).store(in: &disposeBag)
     }
@@ -169,9 +177,7 @@ class SelfTestViewModel: ObservableObject {
     private func currentTime() -> String {
         let now = Date() //"Mar 21, 2018 at 1:37 PM"
         let dateFormatter = DateFormatter()
-        
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-        print(dateFormatter.string(from: now))
         return dateFormatter.string(from: now)
     }
     
@@ -183,13 +189,21 @@ class SelfTestViewModel: ObservableObject {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         // Date 타입으로 변경
+        /// - Note:
+        /// date parameter 가 이상한 값을 들고 왔을 때 date nil이 나오는 경우가 있는데
+        /// 1. Date? 로 리턴해서 사용하는 로직에서 옵셔널 체크
+        /// 2. 뒤에서 편리하게 여기서 Date 만 리턴하도록하기,
+        ///     그런데 이렇게 하면 에러 처리를 어떻게 하지,, throw를 사용하면 로직이 복잡해네요.
+//        guard let result = dateFormatter.date(from: date) else {
+//            throw DateError.invalidFormat
+//        }
+        
         return dateFormatter.date(from: date)
     }
     
     /// 날짜  "yy년MM월dd일" 형식으로 변환
     private func convertFormat(date: Date?) -> String {
-        guard let date = date else {return "올바르지 않은 날짜"}
-        
+        guard let date else { return "Date is Nil" }
         let dateFormatter = DateFormatter()
         // 원하는 시간 형식으로 변경
         dateFormatter.dateFormat = "yy년MM월dd일"

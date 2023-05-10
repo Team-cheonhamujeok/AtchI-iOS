@@ -17,6 +17,7 @@ import Foundation
 ///
 struct SelfTestResult: Identifiable {
     var id: Int
+    var mid: Int
     var date: String
     var point: Int
     var level: String
