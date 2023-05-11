@@ -57,21 +57,9 @@ final class HKHeartRateServiceTests: XCTestCase {
                     .collect()
                     .sink(receiveCompletion: {_ in}, receiveValue: { value in
                         print("Flattened value: \(value)")
-                        
+                        let average = Double(value.reduce(0, +))/Double(value.count)
                         expectation.fulfill()
                     }).store(in: &self.cancellabe)
-
-//            combinedPublisher
-//                .flatMap { $0.publisher }
-//                .collect()
-//                .sink { value in
-//                    print("Flattened value: \(value)")
-//                }
-            
-            
-            
-            
-
         })
         
         wait(for: [expectation], timeout: 10.0)
