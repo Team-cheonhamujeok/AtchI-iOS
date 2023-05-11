@@ -41,7 +41,7 @@ struct SignupView: View {
                         .font(.titleLarge)
                     
                     // MARK: Input List
-                    Spacer(minLength: 15)
+//                    Spacer(minLength: )
                     TextInput(title: "이름",
                               placeholder: "이름을 입력해주세요",
                               text: $validationViewModel.infoState.name,
@@ -97,7 +97,7 @@ struct SignupView: View {
                 Spacer(minLength: 20)
                 RoundedButton(title: "회원가입하기",
                               onTap: requestViewModel.$tapSignupButton,
-                              disabled: !requestViewModel.signupState.enable)
+                              state: requestViewModel.signupState.signupButtonState)
                 Spacer(minLength: 20)
                 
                 // Already signup
@@ -119,6 +119,7 @@ struct SignupView: View {
             .scrollIndicators(.hidden)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.mainBackground)
         .onTapGesture {
             hideKeyboard()
         }

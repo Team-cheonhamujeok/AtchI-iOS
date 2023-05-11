@@ -8,11 +8,12 @@
 import Foundation
 
 struct HKSleepModel {
-    let startTime: Date
-    let endTime: Date
+    let total: Int
     let inbedQuentity: Int
     let remQuentity: Int
     let coreQuentity: Int
     let deepQuentity: Int
     let awakeQuentity: Int
+    let startTime: Date
+    let endTime: Date
 }

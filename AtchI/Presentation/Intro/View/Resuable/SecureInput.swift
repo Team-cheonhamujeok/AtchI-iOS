@@ -30,9 +30,10 @@ struct SecureInput: View {
                         RoundedRectangle(cornerRadius: 20)
                             .strokeBorder(
                                 isFocused ?
-                                Color.mainPurple:
-                                    Color.grayDisabled,
+                                Color.accentColor:
+                                    Color.mainPurpleLight,
                                 lineWidth: 2)
+                            .background(Color.mainBackground)
                             .animation(.easeInOut(duration: 0.2),
                                        value: isFocused)
                     )
