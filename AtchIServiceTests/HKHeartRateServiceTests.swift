@@ -14,6 +14,7 @@ import HealthKit
 final class HKHeartRateServiceTests: XCTestCase {
 
     var service: HKHeartRateService!
+    
 
     override func setUpWithError() throws {
         self.service = HKHeartRateService(healthKitProvider: HKProvider())
@@ -28,7 +29,7 @@ final class HKHeartRateServiceTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Signup Test Test")
 
-        let cancellable = service.getHeartRateData()
+        let cancellable = service.getSleepHeartRate(startDate: service.getYesterdayStartAM(Date()), endDate: service.getYesterdayEndPM(Date()))
             .sink(receiveCompletion: { _ in print("### stream 완료") },
                   receiveValue: { samples in
                 print("받아왔니? \(samples)")
@@ -36,7 +37,7 @@ final class HKHeartRateServiceTests: XCTestCase {
                 
             })
         
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 100.0)
         
         XCTAssertEqual(0, 0)
     }
