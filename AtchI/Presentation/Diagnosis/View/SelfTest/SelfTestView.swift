@@ -84,6 +84,10 @@ struct SelfTestView: View {
                         
                         // 결과 담기
                         selfTestViewModel.makeResult()
+                        
+                        // Server에 Request하기
+                        selfTestViewModel.requestResult(mid: 2)
+                        
                         // 화면 전환
                         path.append(.selfTestResult)
                     } else {

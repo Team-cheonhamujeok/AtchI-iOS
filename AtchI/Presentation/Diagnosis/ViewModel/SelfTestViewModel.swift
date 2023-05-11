@@ -28,7 +28,11 @@ class SelfTestViewModel: ObservableObject {
     
     //MARK: info 데이터
     /// UI용 자가진단 데이터 리스트
-    @Published var selfTestResults: [SelfTestResult] = []
+    @Published var selfTestResults: [SelfTestResult] = [] {
+        willSet(newVal){
+            print("#",newVal)
+       }
+    }
     
     
     //MARK: - init
@@ -47,7 +51,7 @@ class SelfTestViewModel: ObservableObject {
     /// answers를 종합해서 최종 Result를 도출하는 함수
     func makeResult() {
         self.result = SelfTestResult(id: 1,
-                                    mid: 1,
+                                    mid: 2,
                                     date: currentTime(),
                                      point: calculatorPoint(),
                                      level: measureLevel(point: calculatorPoint()))
@@ -89,12 +93,18 @@ class SelfTestViewModel: ObservableObject {
         questionIndex = 0.0
     }
     
+    /// DisposeBag 초기화
+    func clearDisposeBag() {
+        disposeBag = Set<AnyCancellable>()
+    }
+    
     /// 자가진단 결과 리스트 정렬
     func sortSelfTestResults() {
         self.selfTestResults = selfTestResults.sorted { $0.id > $1.id }
     }
     
     // MARK: - Server
+    
     /// Post Model로 변환
     private func convertPostData(mid: Int, date: String) -> DiagnosisPostModel{
         var postAnswers: [Int] = []
@@ -135,7 +145,7 @@ class SelfTestViewModel: ObservableObject {
     /// 서버로부터 Get 하는 함수
     func getData() {
         // TODO: mid 값 넣기
-        let request = service.getDiagnosisList(mid: 1)
+        let request = service.getDiagnosisList(mid: 2)
         
         let cancellable =
         request
@@ -152,7 +162,7 @@ class SelfTestViewModel: ObservableObject {
                 let decoder = JSONDecoder()
                 if let datas = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
                     
-                    // Response 자가진단 결과 리스트 
+                    // Response 자가진단 결과 리스트
                     var response: [SelfTestResult] = []
                     
                     // MARK: 자가진단 결과 추가
@@ -162,6 +172,7 @@ class SelfTestViewModel: ObservableObject {
                         let date = self.convertFormat(date: self.convertDate(date: $0.date))
                         let point = $0.result
                         let level = self.measureLevel(point: $0.result)
+                        
                         response.append(SelfTestResult(id: id,
                                                            mid: mid,
                                                            date: date,
@@ -173,6 +184,7 @@ class SelfTestViewModel: ObservableObject {
                     
                     // 배열 정렬
                     self.sortSelfTestResults()
+                    print("배열 교체")
                 }
             }).store(in: &disposeBag)
     }

@@ -14,6 +14,7 @@ struct SelfTestInfoView: View {
     @Binding var path: [DiagnosisViewStack]
     
     //MARK: - Body
+    
     var body: some View {
         Group {
             if selfTestViewModel.selfTestResults.isEmpty {
@@ -35,11 +36,11 @@ struct SelfTestInfoView: View {
             default:
                 Text("잘못된 접근")
             }
-            
         }
     }
     
     //MARK: - 자가진단을 안했을 때
+    
     var noTestView: some View {
         VStack {
             HStack {
@@ -59,8 +60,10 @@ struct SelfTestInfoView: View {
     }
     
     //MARK: - 자가진단을 했을 때
+    
     var haveTestView: some View {
         VStack(alignment: .leading) {
+            
             // 1️⃣ 자가진단 다시하기 버튼
             VStack(alignment: .leading) {
                 ExplainTestView()
@@ -81,15 +84,22 @@ struct SelfTestInfoView: View {
             }
             
             // 2️⃣ 자가진단 리스트
-            List(selfTestViewModel.selfTestResults.indices, id: \.self) { index in
-                SelfTestRow(selfTestResult: selfTestViewModel.selfTestResults[index],
-                            index: index)
-                    .listRowSeparator(.hidden)
-                
+            List(selfTestViewModel.selfTestResults) { value in
+                if let firstID =  selfTestViewModel.selfTestResults.first?.id {
+                    if firstID == value.id {
+                        SelfTestRow(result: value, isFirst: true)
+                            .listRowSeparator(.hidden)
+                    }
+                    else {
+                        SelfTestRow(result: value, isFirst: false)
+                            .listRowSeparator(.hidden)
+                    }
+                }
             }
             .scrollDisabled(true)
             .frame(height: 150)
             .listStyle(.inset)
+        
             
             // 3️⃣ 전체보기 버튼
             HStack{
@@ -112,6 +122,7 @@ struct SelfTestInfoView: View {
 }
 
 //MARK: - Other View
+
 /// 자가진단 설명 Label
 struct ExplainTestView: View {
     var body: some View {
@@ -123,12 +134,5 @@ struct ExplainTestView: View {
                 .font(.bodySmall)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
-    }
-}
-
-//MARK: - Preview
-struct SelfTestInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelfTestInfoView(selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())) , path: .constant([]))
     }
 }

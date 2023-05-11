@@ -9,9 +9,7 @@ import SwiftUI
 import Moya
 
 struct SelfTestResultView: View {
-    
     @Binding var path: [DiagnosisViewStack]
-    
     @StateObject var selfTestViewModel: SelfTestViewModel
     
     var body: some View {
@@ -39,9 +37,15 @@ struct SelfTestResultView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
-                // MARK: 최종 서버 요청
-                selfTestViewModel.requestResult(mid: 1)
                 path = []
+                
+                /// - Note: 자가진단 결과를 UserDefault로 값을 갖고 있으면
+                /// 편할 것 같지만, 로그인 해야하면 서버의 값을 가져오는게 낫겠죠?
+                
+                
+                // 업데이트 된 서버 값 가져오기
+                selfTestViewModel.getData()
+                
                 selfTestViewModel.resetAnswers()
                 
             } content: {
@@ -143,11 +147,4 @@ struct SelfTestResultExplainCardView: View {
         .cornerRadius(20)
     }
     
-}
-
-//MARK: - Preview
-struct SelfTestResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelfTestResultView(path: .constant([]), selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())) )
-    }
 }

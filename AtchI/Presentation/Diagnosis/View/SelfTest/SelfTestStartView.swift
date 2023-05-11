@@ -70,10 +70,3 @@ struct SelfTestExplainCardView: View {
         .cornerRadius(20)
     }
 }
-
-//MARK: -  Preview
-struct SelfTestStartView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelfTestStartView(path: .constant([]), selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())))
-    }
-}
