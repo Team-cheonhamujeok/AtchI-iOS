@@ -18,7 +18,7 @@ protocol HKSleepServiceType {
     ///
     /// - Parameter date: 수면 데이터를 추출할 대상 날짜입니다.
     /// - Returns: 수면 데이터를 담은 `HKSleepModel`을 반환합니다
-    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.common) -> Future <HKSleepModel, HKError>
+    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.common) -> AnyPublisher <HKSleepModel, HKError>
     /// 전체 수면 시간 중 특정 상태인 시간의 총시간(단위: 분)을 구합니다.
     ///
     /// - Note: 어제 오후 6시~ 오늘 오후 6시 사이를 오늘 수면 시간으로 판단합니다.
@@ -34,7 +34,7 @@ protocol HKSleepServiceType {
     ///     - date: 수면 데이터를 추출할 대상 날짜입니다.
     ///     - sleepCategory: 가져오고자 하는 수면 상태 종류입니다.
     /// - Returns: 총 시간을 Int(단위: 분)로 반환합니다.
-    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.origin) -> Future<Int, HKError>
+    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.origin) -> AnyPublisher<Int, HKError>
     
     /// 전체 수면 시간 중 특정 상태인 시간의 총시간(단위: 분)을 구합니다.
     ///
@@ -47,7 +47,7 @@ protocol HKSleepServiceType {
     ///    - date: 수면 데이터를 추출할 대상 날짜입니다.
     ///    - sleepCategory: 가져오고자 하는 수면 상태 종류입니다.
     /// - Returns: 총 시간을 Int(단위: 분)로 반환합니다.
-    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.quentity) -> Future<Int, HKError>
+    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.quentity) -> AnyPublisher<Int, HKError>
     
     /// 수면 시작 시간또는 종료 시간을 구합니다.
     ///
@@ -57,12 +57,12 @@ protocol HKSleepServiceType {
     ///    - date: 수면 데이터를 추출할 대상 날짜입니다.
     ///    - sleepCategory: 시작 시간 또는 종료 시간을 선택합니다.
     /// - Returns: 수면 시작 시간을 Date형으로 반환합니다.
-    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.date) -> Future<Date, HKError>
+    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.date) -> AnyPublisher<Date, HKError>
     
     /// 모든 수면 간격(startDate, endDate)을 반환합니다.
     ///
     /// - Parameter date: 수면 데이터를 추출할 대상 날짜입니다.
     /// - Returns: startDate와 endDate를 담은 구조체 배열을 반환합니다.
-    func getSleepInterval(date: Date) -> Future<[HKSleepIntervalModel], HKError>
+    func getSleepInterval(date: Date) -> AnyPublisher<[HKSleepIntervalModel], HKError>
 
 }

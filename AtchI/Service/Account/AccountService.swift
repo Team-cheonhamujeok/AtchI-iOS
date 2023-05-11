@@ -11,6 +11,11 @@ import CombineMoya
 import Combine
 
 class AccountService: AccountServiceType {
+    internal init(provider: MoyaProvider<AccountAPI>, cancellables: Set<AnyCancellable> = Set<AnyCancellable>()) {
+        self.provider = provider
+        self.cancellables = cancellables
+    }
+    
 //    let provider = MoyaProvider<AccountAPI>(plugins: [NetworkLoggerPlugin()])
     let provider: MoyaProvider<AccountAPI>
     

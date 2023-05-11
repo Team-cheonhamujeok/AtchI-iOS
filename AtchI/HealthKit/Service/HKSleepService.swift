@@ -11,7 +11,7 @@ import Combine
 
 // TODO: Future 에러 핸들링 (Provider 에러 전파) ✅
 // TODO: 오늘 이후 값에 접근할 경우 fatalError 내기 (개발자 에러)
-// TODO: HKsleepModel에 total 타임 추가하기
+// TODO: HKsleepModel에 total 타임 추가하기 ✅
 // TODO: 값이 비어있을 때 CustomError 반환하기 (워치 미착용, 앱에서 수면시간 지정 안할 시 수면 데이터가 비어 있음) ✅
 
 /// HealthKit의 수면 샘플을 가져오는 클래스입니다.
@@ -49,109 +49,75 @@ class HKSleepService: HKSleepServiceType{
         self.dateHelper = dateHelper
     }
 
-    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.common) -> Future <HKSleepModel, HKError> {
-        return Future { promise in
-            _ = self.fetchSleepSamples(date: date).sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .finished: break
-                    case .failure(let error):
-                        promise(Result.failure(error))
-                    }
-                },receiveValue: { samples in
-                    switch sleepCategory{
-                    case .all:
-                        let sleepModel = self.createSleepModel(samples: samples)
-                        promise(Result.success(sleepModel))
-                    }
-                })
-        }
-    }
-
-    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.origin) -> Future<Int, HKError> {
-        return Future { promise in
-            _ = self.fetchSleepSamples(date: date).sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .finished: break
-                    case .failure(let error):
-                        promise(Result.failure(error))
-                    }
-                }, receiveValue: { [weak self] samples in
-                    
-                    guard let self = self else { return }
-                    
-                    let quentity = self.calculateSleepTimeQuentity(sleepType: sleepCategory.identifier,
-                                                                   samples: samples)
-                    promise(Result.success(quentity))
-                    
-                })
-        }
-    }
-    
-    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.quentity) -> Future<Int, HKError> {
-        return Future { promise in
-            _ = self.fetchSleepSamples(date: date).sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .finished: break
-                    case .failure(let error):
-                        promise(Result.failure(error))
-                    }
-                }, receiveValue: { samples in
-                    
-                    switch sleepCategory {
-                    case .total:
-                        let sum = self.calculateSleepTimeQuentityAll(samples: samples)
-                        promise(Result.success(sum))
-                    }
-                    
-                })
-        }
-    }
-
-    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.date) -> Future<Date, HKError>  {
-        return Future { promise in
-            _ = self.fetchSleepSamples(date: date).sink(
-                    receiveCompletion: { completion in
-                        switch completion {
-                        case .finished: break
-                        case .failure(let error):
-                            promise(Result.failure(error))
-                        }
-                    }, receiveValue: { [weak self] samples in
-                    
-                    guard let self = self else { return }
-                        
-                    switch sleepCategory {
-                    case .start:
-                        promise(Result.success(self.calculateSleepStartDate(samples: samples)))
-                    case .end:
-                        promise(Result.success(self.calculateSleepEndDate(samples: samples)))
-                    }
-                })
-        }
-    }
-    
-    func getSleepInterval(date: Date) -> Future<[HKSleepIntervalModel], HKError> {
-        return Future { promise in
-            _ = self.fetchSleepSamples(date: date).sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .finished: break
-                    case .failure(let error):
-                        promise(Result.failure(error))
-                    }
-                }, receiveValue: { samples in
-                    promise(Result.success(
-                        samples
-                            .filter { $0.value != 2 } // awake 제외
-                            .map { HKSleepIntervalModel(startDate: $0.startDate,
-                                                        endDate: $0.endDate)
-                            }))
+    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.common) -> AnyPublisher<HKSleepModel, HKError> {
+        return self.fetchSleepSamples(date: date)
+            .tryMap { samples in
+                switch sleepCategory{
+                case .all:
+                    return self.createSleepModel(samples: samples)
                 }
-            )
-        }
+            }
+            .mapError { error in
+                return error as! HKError
+            }
+            .eraseToAnyPublisher()
+    }
+
+    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.origin) -> AnyPublisher<Int, HKError> {
+        return self.fetchSleepSamples(date: date)
+            .tryMap { samples in
+                return self.calculateSleepTimeQuentity(sleepType: sleepCategory.identifier,
+                                                       samples: samples)
+            }
+            .mapError { error in
+                return error as! HKError
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.quentity) -> AnyPublisher<Int, HKError> {
+        return self.fetchSleepSamples(date: date)
+            .tryMap { samples in
+                switch sleepCategory {
+                case .total:
+                    return self.calculateSleepTimeQuentityAll(samples: samples)
+                }
+            }
+            .mapError { error in
+                return error as! HKError
+            }
+            .eraseToAnyPublisher()
+    }
+
+    func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.date) -> AnyPublisher<Date, HKError> {
+        return self.fetchSleepSamples(date: date)
+            .tryMap { samples in
+                switch sleepCategory {
+                case .start:
+                    return self.calculateSleepStartDate(samples: samples)
+                case .end:
+                    return self.calculateSleepEndDate(samples: samples)
+                }
+            }
+            .mapError { error in
+                return error as! HKError
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func getSleepInterval(date: Date) -> AnyPublisher<[HKSleepIntervalModel], HKError> {
+        return self.fetchSleepSamples(date: date)
+            .tryMap{ samples in
+                samples
+                    .filter { $0.value != 2 } // awake 제외
+                    .map { HKSleepIntervalModel(startDate: $0.startDate,
+                                                endDate: $0.endDate)
+                    }
+            }
+            .mapError { error in
+                return error as! HKError
+            }
+            .eraseToAnyPublisher()
     }
 }
 
