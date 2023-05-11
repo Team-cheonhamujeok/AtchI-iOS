@@ -128,7 +128,7 @@ class HKProvider {
         // 쿼리 수행 완료시 실행할 콜백 정의
         let query = HKSampleQuery(sampleType: quantityType,
                                   predicate: predicate,
-                                  limit: 1000,
+                                  limit: HKObjectQueryNoLimit,
                                   sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.

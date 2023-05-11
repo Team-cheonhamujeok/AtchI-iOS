@@ -14,9 +14,14 @@ import HealthKit
 final class HKHeartRateServiceTests: XCTestCase {
 
     var service: HKHeartRateService!
+    var dateHelper: DateHelper!
+    
+//    var cancellabe = Set<AnyCancellable>()
+    
 
     override func setUpWithError() throws {
         self.service = HKHeartRateService(healthKitProvider: HKProvider())
+        self.dateHelper = DateHelper()
     }
 
     override func tearDownWithError() throws {
@@ -26,18 +31,17 @@ final class HKHeartRateServiceTests: XCTestCase {
     func testExample() throws {
         print("####")
         
-        let expectation = XCTestExpectation(description: "Signup Test Test")
-
-        let cancellable = service.getHeartRateData()
+        let expectation = XCTestExpectation(description: "Sleep HeartRate Test")
+        
+        let cancellable = service.getSleepHeartRate(startDate: dateHelper.getYesterdayStartAM(Date()), endDate: dateHelper.getYesterdayEndPM(Date()))
             .sink(receiveCompletion: { _ in print("### stream 완료") },
                   receiveValue: { samples in
                 print("받아왔니? \(samples)")
                 expectation.fulfill()
-                
             })
         
         wait(for: [expectation], timeout: 10.0)
-        
+
         XCTAssertEqual(0, 0)
     }
 
