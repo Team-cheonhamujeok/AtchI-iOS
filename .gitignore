@@ -90,3 +90,6 @@ iOSInjectionProject/
 
 /.DS_Store
 */.DS_Store
+
+# Backend API Secrets
+*.xcconfig

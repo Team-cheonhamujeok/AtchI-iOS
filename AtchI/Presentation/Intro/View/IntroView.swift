@@ -100,6 +100,9 @@ struct IntroView: View {
                     SignupView()
                 }
             }
+            .onAppear {
+                print("info \(Bundle.main.infoDictionary?["BACKEND_ENDPOINT"])")
+            }
         }
     }
 }

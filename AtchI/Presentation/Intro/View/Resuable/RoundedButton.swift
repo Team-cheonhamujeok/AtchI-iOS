@@ -38,9 +38,8 @@ struct RoundedButton: View {
                maxHeight: 65)
         .background(bgColor)
         .cornerRadius(20)
-        .disabled(state == ButtonState.disabled)
         .onTapGesture {
-            onTap?.send()
+            if self.state != .disabled { onTap?.send() }
         }.animation(.easeIn,
                     value: state)
     }
