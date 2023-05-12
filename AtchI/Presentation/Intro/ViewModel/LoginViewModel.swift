@@ -90,7 +90,6 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { response in
                 UserDefaults.standard.set(response.mid, forKey: "mid")
-                UserDefaults.standard.set(true, forKey: "isLogin")
                 // TODO: dismiss
             }).store(in: &cancellables)
     }
