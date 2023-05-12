@@ -33,8 +33,4 @@ struct Subject<Value> {
     func send(_ event: Value) {
         self.subject.send(event)
     }
-    
-    func offff() {
-        print("헤헹")
-    }
 }

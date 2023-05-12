@@ -13,8 +13,7 @@ struct SignupView: View {
     
     @ObservedObject var validationViewModel: SignupValidationViewModel
     @ObservedObject var requestViewModel: SignupRequestViewModel
-    
-//    @State var sendedEmailVerification: Bool = false
+
     
     init() {
         // ViewModel DI
@@ -30,6 +29,7 @@ struct SignupView: View {
         // bind 함수 호출
         self.requestViewModel.bindEvent()
         self.validationViewModel.bindEvent()
+        
     }
     
     var body: some View {
@@ -99,18 +99,6 @@ struct SignupView: View {
                               onTap: requestViewModel.$tapSignupButton,
                               state: requestViewModel.signupState.signupButtonState)
                 Spacer(minLength: 20)
-                
-                // Already signup
-                HStack (alignment: .center, spacing: 3) {
-                    Text("이미 가입하셨나요? ")
-                        .foregroundColor(.grayTextLight)
-                    Text("로그인하기")
-                        .foregroundColor(.grayTextLight)
-                        .underline()
-                        .onTapGesture {
-                            // 로그인뷰로 이동이동
-                        }
-                }
                 
                 // Bottom margin
                 Spacer(minLength: 30)

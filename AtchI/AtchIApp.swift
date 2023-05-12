@@ -16,7 +16,7 @@ struct AtchIApp: App {
             ContentView()
                 .onAppear{
                     hkAuthorizationProvider.setAuthorization()
-            }
+                }
         }
     }
 }
