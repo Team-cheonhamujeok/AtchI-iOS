@@ -12,6 +12,10 @@ struct LoginView: View {
     
     @ObservedObject var viewModel: LoginViewModel
     
+    init() {
+        self.viewModel = LoginViewModel(accountService: AccountService(provider: MoyaProvider<AccountAPI>()), validationService: ValidationService())
+    }
+    
     var body: some View {
         
         VStack (alignment: .leading, spacing: 15) {

@@ -48,10 +48,20 @@ struct ContentView: View {
                 UITabBar.appearance().backgroundColor = UIColor(Color.mainBackground)
             }
             .fullScreenCover(isPresented: isIntroModalOpen) {
-                LoginView(viewModel: LoginViewModel(accountService: AccountService(provider: MoyaProvider<AccountAPI>()), validationService: ValidationService()))
+                IntroView()
         }
     }
-    
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+// MARK: - Setting tab view style extension
+
+extension ContentView {
     // 보더 설정 appearance 세팅
     func setTabBarAppearance() -> UITabBarAppearance {
         let image = UIImage
@@ -71,12 +81,6 @@ struct ContentView: View {
         appearance.shadowImage = image
         
         return appearance
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 
