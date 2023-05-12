@@ -11,9 +11,7 @@ import Moya
 struct SelfTestResultList: View {
     
     @Binding var path: [DiagnosisViewStack]
-    
-    var selfTestViewModel: SelfTestViewModel
-    
+    @StateObject var selfTestViewModel: SelfTestViewModel
     
     var body: some View {
         ScrollView {
@@ -22,13 +20,18 @@ struct SelfTestResultList: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
-                
-                // 자가진단 전체 리스트
-                ForEach(selfTestViewModel.selfTestResults.indices, id: \.self) { index in
-                    SelfTestRow(selfTestResult: selfTestViewModel.selfTestResults[index],
-                                index: index)
-                    .listRowSeparator(.hidden)
-                    .padding(.vertical, 12)
+                ForEach(selfTestViewModel.selfTestResults) { value in
+                    if let firstID =  selfTestViewModel.selfTestResults.first?.id {
+                        if firstID == value.id {
+                            SelfTestRow(result: value, isFirst: true)
+                                .listRowSeparator(.hidden)
+                                .padding(.vertical, 12)
+                        } else {
+                            SelfTestRow(result: value, isFirst: false)
+                                .listRowSeparator(.hidden)
+                                .padding(.vertical, 12)
+                        }
+                    }
                     
                     Divider()
                 }
@@ -40,8 +43,3 @@ struct SelfTestResultList: View {
     }
 }
 
-struct SelfTestResultList_Previews: PreviewProvider {
-    static var previews: some View {
-        SelfTestResultList(path: .constant([]), selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())))
-    }
-}

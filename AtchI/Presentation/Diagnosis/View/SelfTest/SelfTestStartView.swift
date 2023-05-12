@@ -38,8 +38,6 @@ struct SelfTestStartView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
-                selfTestViewModel.resetResult()
-                selfTestViewModel.resetAnswers()
                 path.append(.selfTest)
             } content: {
                 Text("다음으로")
@@ -70,12 +68,5 @@ struct SelfTestExplainCardView: View {
         .padding(25)
         .background(Color.grayBoldLine)
         .cornerRadius(20)
-    }
-}
-
-//MARK: -  Preview
-struct SelfTestStartView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelfTestStartView(path: .constant([]), selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())))
     }
 }

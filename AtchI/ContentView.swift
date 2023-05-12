@@ -34,7 +34,7 @@ struct ContentView: View {
                       Image(systemName: "gear")
                       Text("설정")
                    }
-                Text("설정")
+                DiagnosisView()
                     .tabItem{
                         Image(systemName: "gear")
                         Text("설정")
