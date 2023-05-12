@@ -16,15 +16,6 @@ enum LoginAPIMock {
     case userNotFound
     case loginFaild
     
-    func getMockResponse(loginModel: LoginRequestModel) -> [String: Any] {
-        switch loginModel {
-        case self.request:
-            return self.response
-        default:
-            return [:]
-        }
-    }
-    
     var request: LoginRequestModel {
         switch self {
         case .success:
@@ -47,6 +38,23 @@ enum LoginAPIMock {
         case .userNotFound:
             return ["message": "No user exists", "mid": -2]
         case .loginFaild:
+            return [:]
+        }
+    }
+}
+
+extension AccountAPI {
+    func getLoginMockResponse(loginModel: LoginRequestModel) -> [String: Any] {
+        switch loginModel {
+        case LoginAPIMock.success.request:
+            return LoginAPIMock.success.response
+        case LoginAPIMock.wrongPassword.request:
+            return LoginAPIMock.wrongPassword.response
+        case LoginAPIMock.userNotFound.request:
+            return LoginAPIMock.userNotFound.response
+        case LoginAPIMock.loginFaild.request:
+            return LoginAPIMock.loginFaild.response
+        default:
             return [:]
         }
     }

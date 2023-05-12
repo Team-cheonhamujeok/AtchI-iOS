@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Moya
 
 struct LoginView: View {
     
     @ObservedObject var viewModel: LoginViewModel
     
     init() {
-        self.viewModel = LoginViewModel()
+        self.viewModel = LoginViewModel(accountService: AccountService(provider: MoyaProvider<AccountAPI>()), validationService: ValidationService())
     }
     
     var body: some View {
@@ -34,29 +35,19 @@ struct LoginView: View {
             
             VStack(spacing: 20) {
                 // Complete Button
-                DefaultButton(
-                    buttonSize: .large,
-                    buttonStyle: .filled,
-                    buttonColor: .mainPurple,
-                    isIndicate: false,
-                    subject: viewModel.$tapLoginButton,
-                    action: {
-                    },
-                    content: {
-                        Text("로그인하기")
-                    }
-                )
+                RoundedButton(title: "로그인하기",
+                              onTap: viewModel.$tapLoginButton,
+                              state: viewModel.loginButtonState)
             }
-            
-
-            
             Spacer()
         }
-        
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 30)
+        .background(Color.mainBackground)
         .onTapGesture {
             hideKeyboard()
+        }.alert(isPresented: $viewModel.showAlert) {
+            Alert(title: Text("로그인 실패"), message: Text(viewModel.loginErrorMessage), dismissButton: .default(Text("확인")))
         }
     }
     

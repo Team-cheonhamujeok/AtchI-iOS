@@ -9,18 +9,19 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    static let mainPurple = Color(hex: "7544C6")
-    static let mainPurpleLight = Color(hex: "7544C6").opacity(0.2)
-    static let mainBlue = Color(hex: "4478C6")
-    static let mainBlueLight = Color(hex: "4478C6").opacity(0.2)
-    static let mainError = Color(hex: "C64444")
-    static let mainComplete = Color(hex: "50A343")
-    static let mainText = Color(hex: "000000")
+    static let mainPurple = Color("mainPurple")
+    static let mainPurpleLight = Color("mainPurpleLight")
+    static let mainBlue = Color( "mainBlue")
+    static let mainBlueLight = Color("mainBlueLight")
+    static let mainError = Color("mainError")
+    static let mainComplete = Color("mainComplete")
+    static let mainText = Color("mainText")
+    static let mainBackground = Color("mainBackground")
     
-    static let grayBoldLine = Color(hex: "F5F5F5")
-    static let grayThinLine = Color(hex: "D8D8D8")
-    static let grayDisabled = Color(hex: "ABABAB")
-    static let grayTextLight = Color(hex: "767676")
+    static let grayBoldLine = Color("grayBoldLine")
+    static let grayThinLine = Color("grayThinLine")
+    static let grayDisabled = Color("grayDisabled")
+    static let grayTextLight = Color("grayTextLight")
 
 }
 

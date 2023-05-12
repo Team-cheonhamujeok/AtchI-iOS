@@ -7,6 +7,7 @@
 
 @testable import AtchI
 import XCTest
+import Moya
 
 final class SignupRequestViewModelTests: XCTestCase {
     
@@ -14,7 +15,7 @@ final class SignupRequestViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         self.viewModel = SignupRequestViewModel(
-            accountService: MockAccountService())
+            accountService: AccountService(provider: MoyaProvider<AccountAPI>())) // TODO: Mock으로 수정
     }
 
     override func tearDownWithError() throws {

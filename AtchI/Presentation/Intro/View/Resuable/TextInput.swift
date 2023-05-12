@@ -39,13 +39,17 @@ struct TextInput: View {
                         RoundedRectangle(cornerRadius: 20)
                             .strokeBorder(
                                 isFocused
-                                ? Color.mainPurple
+                                ? Color.accentColor
                                 : disabled
                                 ? Color.grayBoldLine
-                                : Color.grayDisabled,
+                                : Color.mainPurpleLight,
                                 lineWidth: 2)
+                            .background(Color.mainBackground)
                             .animation(.easeInOut(duration: 0.3), value: isFocused)
                     )
+                    .frame(maxWidth: .infinity,
+                            minHeight: 65,
+                            maxHeight: 65)
                 
                 // Text Field
                     TextField(placeholder,
