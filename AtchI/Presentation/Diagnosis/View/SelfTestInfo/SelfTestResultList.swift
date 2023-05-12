@@ -11,7 +11,6 @@ import Moya
 struct SelfTestResultList: View {
     
     @Binding var path: [DiagnosisViewStack]
-    
     @StateObject var selfTestViewModel: SelfTestViewModel
     
     var body: some View {
@@ -21,7 +20,6 @@ struct SelfTestResultList: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
-                // 2️⃣ 자가진단 리스트
                 ForEach(selfTestViewModel.selfTestResults) { value in
                     if let firstID =  selfTestViewModel.selfTestResults.first?.id {
                         if firstID == value.id {
@@ -45,8 +43,3 @@ struct SelfTestResultList: View {
     }
 }
 
-struct SelfTestResultList_Previews: PreviewProvider {
-    static var previews: some View {
-        SelfTestResultList(path: .constant([]), selfTestViewModel: SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>())))
-    }
-}

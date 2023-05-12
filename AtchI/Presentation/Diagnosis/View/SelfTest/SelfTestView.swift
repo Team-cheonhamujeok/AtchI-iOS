@@ -81,10 +81,7 @@ struct SelfTestView: View {
                         selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
                         // 선택한 버튼 nil
                         self.buttonSeletor = nil
-                        
-                        // 결과 담기
-                        selfTestViewModel.makeResult()
-                        
+                    
                         // Server에 Request하기
                         selfTestViewModel.requestResult(mid: 2)
                         

@@ -37,17 +37,16 @@ struct SelfTestResultView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
-                path = []
-                
                 /// - Note: 자가진단 결과를 UserDefault로 값을 갖고 있으면
                 /// 편할 것 같지만, 로그인 해야하면 서버의 값을 가져오는게 낫겠죠?
-                
                 
                 // 업데이트 된 서버 값 가져오기
                 selfTestViewModel.getData()
                 
                 selfTestViewModel.resetAnswers()
                 
+                path = []
+                    
             } content: {
                 Text("확인")
             }
@@ -63,18 +62,18 @@ struct SelfTestResultExplainCardView: View {
     var body: some View {
         let level = viewModel.getLevel()
         if level == "치매 안심 단계" {
-            safeLevel
+            safeLevelView
         } else if level == "치매 위험 단계" {
-            dangerousLevel
+            dangerousLevelView
         } else if level == "치매 단계"{
-            dementiaLevel
+            dementiaLevelView
         } else {
-            Text("Not Found 404")
+            againLevelView
         }
     }
     
     /// 치매 안심 단계 View
-    var safeLevel: some View {
+    var safeLevelView: some View {
         VStack(spacing: 7) {
             HStack(spacing: 0) {
                 Text("치매가 ")
@@ -98,7 +97,7 @@ struct SelfTestResultExplainCardView: View {
     }
     
     /// 치매 위험 단계 View
-    var dangerousLevel: some View {
+    var dangerousLevelView: some View {
         VStack(spacing: 7) {
             Text("치매 위험단계인 ")
             HStack(spacing: 0){
@@ -124,7 +123,7 @@ struct SelfTestResultExplainCardView: View {
     }
     
     /// 치매 단계 View
-    var dementiaLevel: some View {
+    var dementiaLevelView: some View {
         VStack(spacing: 7) {
             HStack(spacing: 0){
                 Text("현재 ")
@@ -147,4 +146,23 @@ struct SelfTestResultExplainCardView: View {
         .cornerRadius(20)
     }
     
+    /// 해당 없음 6개 이상 View
+    var againLevelView: some View {
+        VStack(spacing: 7) {
+            HStack(spacing: 0){
+                
+                Text("해당 없음")
+                    .fontWeight(.bold)
+                Text("문항을 6번 이상 ")
+            }
+            Text("선택하셨기 때문에")
+            Text("정확한 검사가 힘듭니다.")
+            Text("")
+            Text("자가진단을 재시도하시길 바랍니다.")
+        }
+        .frame(maxWidth: .infinity)
+        .padding(25)
+        .background(Color.grayBoldLine)
+        .cornerRadius(20)
+    }
 }
