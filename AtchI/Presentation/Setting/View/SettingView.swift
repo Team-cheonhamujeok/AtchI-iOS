@@ -39,6 +39,13 @@ struct SettingView: View {
                 Spacer()
             }
             Spacer()
+            Text("로그아웃하기")
+                .font(.bodySmall)
+            .foregroundColor(.grayTextLight)
+            .onTapGesture {
+                UserDefaults.standard.removeObject(forKey: "mid")
+            }
+            .frame(maxWidth: .infinity)
         }
         .padding(30)
         .background(Color.mainBackground)

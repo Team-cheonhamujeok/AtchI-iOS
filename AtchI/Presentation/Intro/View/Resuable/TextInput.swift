@@ -45,7 +45,7 @@ struct TextInput: View {
                                 : Color.mainPurpleLight,
                                 lineWidth: 2)
                             .background(Color.mainBackground)
-                            .animation(.easeInOut(duration: 0.3), value: isFocused)
+                            .animation(.easeInOut(duration: 0.1), value: isFocused)
                     )
                     .frame(maxWidth: .infinity,
                             minHeight: 65,
@@ -70,7 +70,7 @@ struct TextInput: View {
                 .foregroundColor(.red)
                 .font(.bodySmall)
                 .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
-                .animation(.easeInOut(duration: 0.3),
+                .animation(.easeInOut(duration: 0.1),
                            value: isFocused)
                 .frame(height: !errorMessage.isEmpty ? nil : 0)
         }

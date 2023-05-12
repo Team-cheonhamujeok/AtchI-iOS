@@ -10,6 +10,7 @@ import SwiftUI
 struct IntroView: View {
     
     var body: some View {
+        
         VStack (alignment: .leading, spacing: 20) {
             // 윗여백
             VStack {} .frame(height: 80)

@@ -7,36 +7,48 @@
 import SwiftUI
 import UIKit
 
+import Moya
+
 struct ContentView: View {
+    
+    @AppStorage("mid") private var mid = UserDefaults.standard.integer(forKey: "mid")
+    
     var body: some View {
-        // dy TODO: TabBar 커스텀 해야함
-        TabView {
-            HomeView()
-                .tabItem{
-                    Image(systemName: "house")
-                    Text("홈")
-                }
-            DiagnosisView()
-                .tabItem{
-                    Image(systemName: "stethoscope")
-                    Text("진단")
-                }
-            PreventView(preventViewModel: PreventViewModel())
-                .tabItem{
-                    Image(systemName: "brain.head.profile")
-                    Text("예방")
-                }
-            SettingView()
-                .tabItem{
-                    Image(systemName: "gear")
-                    Text("설정")
-                }
-        }
-        .tabViewStyle(DefaultTabViewStyle())
-        .onAppear() {
-            UITabBar.appearance().standardAppearance = setTabBarAppearance()
-            UITabBar.appearance().barTintColor = UIColor(Color.mainBackground)
-            UITabBar.appearance().backgroundColor = UIColor(Color.mainBackground)
+        let isIntroModalOpen = Binding<Bool>(
+            get: { mid == 0 },
+            set: { _ in }
+        )
+            TabView {
+                HomeView()
+                    .tabItem{
+                        Image(systemName: "house")
+                        Text("홈")
+                    }
+                DiagnosisView()
+                    .tabItem{
+                        Image(systemName: "stethoscope")
+                        Text("진단")
+                    }
+                PreventView(preventViewModel: PreventViewModel())
+                    .tabItem{
+                        Image(systemName: "brain.head.profile")
+                        Text("예방")
+                    }
+                SettingView()
+                    .tabItem{
+                        Image(systemName: "gear")
+                        Text("설정")
+                    }
+            }
+            .tabViewStyle(DefaultTabViewStyle())
+            .onAppear() {
+                // Setting tabView style
+                UITabBar.appearance().standardAppearance = setTabBarAppearance()
+                UITabBar.appearance().barTintColor = UIColor(Color.mainBackground)
+                UITabBar.appearance().backgroundColor = UIColor(Color.mainBackground)
+            }
+            .fullScreenCover(isPresented: isIntroModalOpen) {
+                LoginView(viewModel: LoginViewModel(accountService: AccountService(provider: MoyaProvider<AccountAPI>()), validationService: ValidationService()))
         }
     }
     
@@ -50,11 +62,11 @@ struct ContentView: View {
                                height: 0.5),
                 color: UIColor(Color.grayThinLine),
                 thickness: 0.5)
-
+        
         let appearance = UITabBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.backgroundColor = UIColor(Color.mainBackground)
-                
+        
         appearance.backgroundImage = UIImage()
         appearance.shadowImage = image
         

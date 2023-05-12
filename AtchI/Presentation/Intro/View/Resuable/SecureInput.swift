@@ -34,7 +34,7 @@ struct SecureInput: View {
                                     Color.mainPurpleLight,
                                 lineWidth: 2)
                             .background(Color.mainBackground)
-                            .animation(.easeInOut(duration: 0.2),
+                            .animation(.easeInOut(duration: 0.1),
                                        value: isFocused)
                     )
                 
@@ -69,7 +69,7 @@ struct SecureInput: View {
                 .font(.bodySmall)
 //                .frame(minHeight: 20)
                 .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
-                .animation(.easeInOut(duration: 0.3),
+                .animation(.easeInOut(duration: 0.1),
                            value: errorMessage)
         }
     }

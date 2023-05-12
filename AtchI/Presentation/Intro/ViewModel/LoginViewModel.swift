@@ -59,7 +59,8 @@ class LoginViewModel: ObservableObject {
         // email과 password를 통해 버튼 활성화 결정
         $editEmail.combineLatest($editPassword)
             .map { email, password in
-                return self.validationService.isValidEmailFormat(email) && !password.isEmpty
+                return self.validationService.isValidEmailFormat(email)
+                        && !password.isEmpty
             }
             .map { $0 ? ButtonState.enabled : ButtonState.disabled }
             .receive(on: RunLoop.main)
@@ -77,7 +78,8 @@ class LoginViewModel: ObservableObject {
     // MARK: - Request
     func reqeustLogin() {
         self.accountService
-            .requestLogin(loginModel: LoginRequestModel(id: self.editEmail, pw: self.editPassword))
+            .requestLogin(loginModel: LoginRequestModel(id: self.editEmail,
+                                                        pw: self.editPassword))
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished: break
@@ -86,7 +88,9 @@ class LoginViewModel: ObservableObject {
                     self.showAlert = true
                     self.loginButtonState = .enabled
                 }
-            }, receiveValue: { _ in
+            }, receiveValue: { response in
+                UserDefaults.standard.set(response.mid, forKey: "mid")
+                UserDefaults.standard.set(true, forKey: "isLogin")
                 // TODO: dismiss
             }).store(in: &cancellables)
     }
