@@ -10,17 +10,17 @@ import Combine
 import HealthKit
 
 protocol HKProviderProtocol {
-    func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
+    func getCategoryTypeSamples(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: ([HKCategorySample], HKError?))
-    func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
+                               completion: @escaping ([HKCategorySample], HKError?) -> Void)
+    func getQuantityTypeStatisticsSamples(identifier: HKQuantityTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ((Double) -> Void))
+                               completion: @escaping ((Double, HKError?) -> Void))
 }
 
 
 
-class HKProvider {
+class HKProvider: HKProviderProtocol{
     // MARK: - Properties
     let healthStore = HKHealthStore()
     

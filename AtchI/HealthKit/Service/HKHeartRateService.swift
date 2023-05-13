@@ -9,36 +9,40 @@ import Foundation
 import Combine
 import HealthKit
 
-class HKHeartRateService {
+class HKHeartRateService: HKHeartRateServiceType {
     let healthKitProvider: HKProvider
     let heartRateQuantity = HKUnit(from: "count/min")
-    
-    var cancellabe = Set<AnyCancellable>()
     
     init(healthKitProvider: HKProvider) {
         self.healthKitProvider = healthKitProvider
     }
     
-    func getSleepHeartRate(startDate: Date, endDate: Date) -> AnyPublisher<[Double], HKError> {
+    func getHeartRate(startDate: Date,
+                      endDate: Date)
+    -> AnyPublisher<[Double], HKError> {
         return self.fetchHeartRate(startDate: startDate, endDate: endDate)
-            .tryMap { samples in
+            .map { samples in
                 self.getHeartRateBPM(samples: samples)
-            }
-            .mapError { error in
-                HKError.providerDataNotFound
-                
             }
             .eraseToAnyPublisher()
     }
     
     // 특정 시간의 심박수 fetch
-    private func fetchHeartRate(startDate: Date, endDate: Date) -> Future<[HKQuantitySample], Error> {
+    private func fetchHeartRate(startDate: Date,
+                                endDate: Date)
+    -> Future<[HKQuantitySample], HKError> {
         return Future { promise in
-            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
+            let predicate = HKQuery.predicateForSamples(withStart: startDate,
+                                                        end: endDate,
+                                                        options: .strictEndDate)
             
-            self.healthKitProvider.getQuantityTypeSampleHeart(identifier: .heartRate, predicate: predicate) { samples in
-//                print("result \(samples)")
-                promise(Result.success(samples))
+            self.healthKitProvider.getQuantityTypeSamples(identifier: .heartRate,
+                                                          predicate: predicate) { samples, error in
+                if let error = error {
+                    // FIXME: 테스트 중간에 에러나면 끊기는 문제 때문에 주석처리
+//                    promise(.failure(error))
+                }
+                promise(.success(samples))
             }
         }
     }

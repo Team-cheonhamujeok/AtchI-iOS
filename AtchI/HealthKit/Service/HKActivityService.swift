@@ -37,8 +37,8 @@ class HKActivityService: HKActivityServiceProtocol {
                                                         end: endOfDay,
                                                         options: .strictStartDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .stepCount,
-                                                         predicate: predicate) { count in
+            self.healthKitProvider.getQuantityTypeStatisticsSamples(identifier: .stepCount,
+                                                                    predicate: predicate) { count, error  in
                 promise(Result.success(count))
             }
         }
@@ -51,7 +51,7 @@ class HKActivityService: HKActivityServiceProtocol {
             let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .activeEnergyBurned, predicate: predicate) { energy in
+            self.healthKitProvider.getQuantityTypeStatisticsSamples(identifier: .activeEnergyBurned, predicate: predicate) { energy, error in
                 promise(Result.success(energy))
             }
         }
@@ -63,7 +63,7 @@ class HKActivityService: HKActivityServiceProtocol {
             let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .distanceWalkingRunning, predicate: predicate) { distance in
+            self.healthKitProvider.getQuantityTypeStatisticsSamples(identifier: .distanceWalkingRunning, predicate: predicate) { distance, error in
                 promise(Result.success(distance))
             }
         }
