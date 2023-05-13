@@ -73,6 +73,7 @@
 		BC54288429EACDAE0026C175 /* XCTestCaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54288329EACDAE0026C175 /* XCTestCaseExtension.swift */; };
 		BC5A82D82A0CFB3D002EB661 /* HKSleepServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82D72A0CFB3D002EB661 /* HKSleepServiceTests.swift */; };
 		BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82DB2A0E0949002EB661 /* SettingView.swift */; };
+		BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
 		BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */; };
@@ -221,7 +222,7 @@
 		BC54288329EACDAE0026C175 /* XCTestCaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtension.swift; sourceTree = "<group>"; };
 		BC5A82D72A0CFB3D002EB661 /* HKSleepServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceTests.swift; sourceTree = "<group>"; };
 		BC5A82DB2A0E0949002EB661 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		BC5A82DD2A0E39E0002EB661 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
 		BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustModel.swift; sourceTree = "<group>"; };
@@ -618,6 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				BCDACF4729FF942A00EFF2ED /* Deprecated */,
+				BCDACF4829FFA96E00EFF2ED /* Error */,
 				BCDACF3729FF928C00EFF2ED /* Service */,
 				BCDACF3629FF927900EFF2ED /* Provider */,
 			);
@@ -697,7 +699,7 @@
 		BC8D54F329B9909C00FAA6E3 = {
 			isa = PBXGroup;
 			children = (
-				BC5A82DD2A0E39E0002EB661 /* Secrets.xcconfig */,
+				BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */,
 				BC8D54FE29B9909C00FAA6E3 /* AtchI */,
 				BC49094229EA69AC00EDDD0D /* AtchIViewModelTests */,
 				0455D41D29F7796800A8A747 /* AtchIServiceTests */,
@@ -936,7 +938,6 @@
 		BCDACF4729FF942A00EFF2ED /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
-				BCDACF4829FFA96E00EFF2ED /* Error */,
 				BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */,
 			);
 			path = Deprecated;
@@ -1194,6 +1195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */,
+				BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
@@ -1561,7 +1563,7 @@
 		};
 		BC8D550B29B9909D00FAA6E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC5A82DD2A0E39E0002EB661 /* Secrets.xcconfig */;
+			baseConfigurationReference = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1599,7 +1601,7 @@
 		};
 		BC8D550C29B9909D00FAA6E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC5A82DD2A0E39E0002EB661 /* Secrets.xcconfig */;
+			baseConfigurationReference = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

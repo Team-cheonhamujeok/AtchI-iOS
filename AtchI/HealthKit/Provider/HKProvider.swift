@@ -10,6 +10,9 @@ import Combine
 import HealthKit
 
 protocol HKProviderProtocol {
+    func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
+                               predicate: NSPredicate,
+                               completion: ([HKCategorySample], HKError?))
     func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
                                predicate: NSPredicate,
                                completion: @escaping ((Double) -> Void))
@@ -22,12 +25,15 @@ class HKProvider {
     let healthStore = HKHealthStore()
     
     //MARK: - Category Sample
-    func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
+    func getCategoryTypeSamples(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
                                completion: @escaping ([HKCategorySample], HKError?) -> Void) {
         // identifier로 Type 정의
         guard let sleepType = HKObjectType.categoryType(forIdentifier: identifier) else {
-            fatalError("identifier를 찾을 수 없습니다. 올바른 identifier를 입력했는지 확인해주세요.")
+            fatalError("""
+                Unexpected identifier \(identifier).
+                Please check if you have entered the correct identifier.
+            """)
         }
         
         // 최신 데이터를 먼저 가져오도록 sort 기준 정의
@@ -40,15 +46,16 @@ class HKProvider {
                                   sortDescriptors: [sortDescriptor]) { (_, samples, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.
-                completion([], HKError.providerFetchSamplesFailed)
+                completion([], HKError.providerFetchSamplesFailed(error: error))
             }
+            
             if let result = samples {
-                let categorySamples = result.compactMap { $0 as? HKCategorySample }
-                
-                if categorySamples.isEmpty {
+                // 결과가 비어있을 시 error throw
+                if result.isEmpty {
                     completion([], HKError.providerDataNotFound)
                 }
                 
+                let categorySamples = result.compactMap { $0 as? HKCategorySample }
                 completion(categorySamples, nil)
             }
         }
@@ -58,14 +65,16 @@ class HKProvider {
     }
 
     // MARK: - Quantity Type Sample
-    func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
+    func getQuantityTypeStatisticsSamples(identifier: HKQuantityTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ((Double) -> Void)) {
+                               completion: @escaping ((Double, HKError?) -> Void)) {
         
         // Identifier로 Type 분류
         guard let quantityType = HKQuantityType.quantityType(forIdentifier: identifier) else {
-            print("'HealthKitProvider': 올바르지 않은 ID입니다.")
-            return
+            fatalError("""
+                Unexpected identifier \(identifier).
+                Please check if you have entered the correct identifier.
+            """)
         }
         
         // Quantity Type과 날짜 Predicate로 query 작성,
@@ -104,7 +113,7 @@ class HKProvider {
             }()
 
             // escaping closure 내보내기
-            completion(sum.doubleValue(for: unit))
+            completion(sum.doubleValue(for: unit), nil)
 
         }
         
@@ -112,14 +121,16 @@ class HKProvider {
         healthStore.execute(query)
     }
     
-    func getQuantityTypeSampleHeart(identifier: HKQuantityTypeIdentifier,
+    func getQuantityTypeSamples(identifier: HKQuantityTypeIdentifier,
                                     predicate: NSPredicate,
-                                    completion: @escaping ([HKQuantitySample]) -> Void) {
+                                    completion: @escaping ([HKQuantitySample], HKError?) -> Void) {
 
         // Identifier로 Type 분류
         guard let quantityType = HKObjectType.quantityType(forIdentifier: identifier) else {
-            print("'HealthKitProvider': 올바르지 않은 ID입니다.")
-            return
+            fatalError("""
+                Unexpected identifier \(identifier).
+                Please check if you have entered the correct identifier.
+            """)
         }
 
         // 최신 데이터를 먼저 가져오도록 sort 기준 정의
@@ -129,17 +140,21 @@ class HKProvider {
         let query = HKSampleQuery(sampleType: quantityType,
                                   predicate: predicate,
                                   limit: HKObjectQueryNoLimit,
-                                  sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+                                  sortDescriptors: [sortDescriptor]) { (_, samples, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.
-                print("error: \(error.localizedDescription)")
+                completion([], HKError.providerFetchSamplesFailed(error: error))
                 return
             }
-            if let result = tmpResult {
-//                print("result \(tmpResult)")
+            if let result = samples {
+                
+                // 결과가 비어있을 시 error throw
+                if result.isEmpty {
+                    completion([], HKError.providerDataNotFound)
+                }
+                
                 let quantitySamples = result.compactMap { $0 as? HKQuantitySample }
-//                print("quantity samples \(quantitySamples)")
-                completion(quantitySamples)
+                completion(quantitySamples, nil)
             }
         }
         // HealthKit store에서 쿼리를 실행

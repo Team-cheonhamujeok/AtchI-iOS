@@ -12,7 +12,7 @@ import Foundation
 /// - Note: description을 통해 상세한 에러 설명을 확인할 수 있습니다.
 enum HKError: Error {
     /// Healhkit query 실패 오류입니다.
-    case providerFetchSamplesFailed
+    case providerFetchSamplesFailed(error: Error)
     /// Healhkit query 결과가 비어있습니다.
     case providerDataNotFound
     

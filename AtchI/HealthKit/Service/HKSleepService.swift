@@ -138,7 +138,7 @@ extension HKSleepService {
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
             
             // 수면 데이터 가져오기
-            self?.provider.getCategoryTypeSample(identifier: .sleepAnalysis,
+            self?.provider.getCategoryTypeSamples(identifier: .sleepAnalysis,
                                                  predicate: predicate) { samples, error  in
                 if let error = error { promise(Result.failure(error)) }
                 promise(Result.success(samples))
