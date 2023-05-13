@@ -122,8 +122,7 @@ class SignupRequestViewModel: ObservableObject {
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
-                case .finished:
-                    break
+                case .finished: break
                 case .failure(let error):
                     self.emailVerificationState.failMessage = error.description
                 }

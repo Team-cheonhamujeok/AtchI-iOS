@@ -38,52 +38,43 @@ extension LifePatternService {
     
     func getSleepHeartRateAverage(date: Date) -> AnyPublisher<Double, HKError> {
         return sleepService.getSleepInterval(date: date)
-            .flatMap { interval -> AnyPublisher<Double, HKError> in
-            let publishers = interval
-                    .map { sleepInterval -> AnyPublisher<[Double], HKError> in
-                self.heartRateService.getHeartRate(startDate: sleepInterval.startDate,
-                                                   endDate: sleepInterval.endDate)
-                    .eraseToAnyPublisher()
-            }
-            
-            return Publishers.Sequence(sequence: publishers)
-                .flatMap { $0 }
-                .collect()
-                .map { values -> Double in
-                    print("$$$ \(values)")
-                    let result = values.flatMap { $0 }
-                    print("$$$ \(result)")
-                    return Double(result.reduce(0.0, +))/Double(result.count)
+            .flatMap { intervals -> AnyPublisher<Double, HKError> in
+                
+                let publishers = intervals.map {
+                    self.heartRateService.getHeartRate(startDate: $0.startDate,
+                                                       endDate: $0.endDate)
                 }
-                .eraseToAnyPublisher()
+                
+                return Publishers.Sequence(sequence: publishers)
+                    .flatMap { $0 }
+                    .collect()
+                    .map { values -> Double in
+                        let result = values.flatMap { $0 }
+                        return Double(result.reduce(0.0, +))/Double(result.count)
+                    }
+                    .eraseToAnyPublisher()
             }.eraseToAnyPublisher()
     }
     
-    
-//    func getSleepHeartRateAverage(date: Date) -> AnyPublisher<Double, HKError> {
-//        let publishers = self.sleepService.getSleepInterval(date: date)
+//    
+//    func getSleepHeartRateAverage2(date: Date) -> AnyPublisher<Double, HKError> {
+//        let publishers = sleepService.getSleepInterval(date: date)
 //            .flatMap { intervals in
-//                intervals.map {
+//                
+//                let publishers = intervals.map {
 //                    self.heartRateService.getHeartRate(startDate: $0.startDate,
 //                                                       endDate: $0.endDate)
 //                }
-//            }.eraseToAnyPublisher()
-//        
-//        Publishers.concatenateMany(publishers)
-//            .map {_ in
-//                return 13.0
+//                
+//                return Publishers.concatenateMany(publishers)
+//                    .flatMap{ $0 }
+//                    .collect()
+//                    .map { values -> Double in
+//                        let result = values.flatMap { $0 }
+//                        return Double(result.reduce(0.0, +))/Double(result.count)
+//                    }
+//                    .eraseToAnyPublisher()
 //            }.eraseToAnyPublisher()
 //    }
-//    
-//    Double(value.reduce(0, +)) / Double(value.count)
-    
-//    private func getCombinePubishers(_ intervals: [HKSleepIntervalModel])
-//    -> AnyPublisher<[Double], HKError> {
-//        let publishers = intervals.map {
-//            self.heartRateService.getHeartRate(startDate: $0.startDate,
-//                                               endDate: $0.endDate)
-//            .eraseToAnyPublisher()
-//        }
-//        return Publishers.concatenateMany(publishers).eraseToAnyPublisher()
-//    }
+
 }
