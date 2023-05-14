@@ -11,12 +11,13 @@ import HealthKit
 
 protocol HKProviderProtocol {
     func getCategoryTypeSamples(identifier: HKCategoryTypeIdentifier,
-                                predicate: NSPredicate,
-                                completion: @escaping ([HKCategorySample], HKError?) -> Void)
+                               predicate: NSPredicate,
+                               completion: @escaping ([HKCategorySample], HKError?) -> Void)
     func getQuantityTypeStatisticsSamples(identifier: HKQuantityTypeIdentifier,
-                                          predicate: NSPredicate,
-                                          completion: @escaping ((Double, HKError?) -> Void))
+                               predicate: NSPredicate,
+                               completion: @escaping ((Double, HKError?) -> Void))
 }
+
 
 
 class HKProvider: HKProviderProtocol{
@@ -85,6 +86,7 @@ class HKProvider: HKProviderProtocol{
             /// resulut : 순수 결과 데이터
             guard let result = result else {
                 print("'HealthKitProvider': Result가 생성되지 않았습니다.")
+                completion(-1, HKError.providerDataNotFound)
                 return
             }
             
@@ -92,6 +94,7 @@ class HKProvider: HKProviderProtocol{
             /// sum: 기간동안 한 Activity의 양
             guard let sum = result.sumQuantity() else {
                 print("'HealthKitProvider': sumQuantity가 생성되지 않았습니다.")
+                completion(-1, HKError.providerDataNotFound)
                 return
             }
            
@@ -143,7 +146,6 @@ class HKProvider: HKProviderProtocol{
             if let error = error {
                 // 에러 처리를 수행합니다.
                 completion([], HKError.providerFetchSamplesFailed(error: error))
-                return
             }
             if let result = samples {
                 

@@ -108,12 +108,15 @@ class HKSleepService: HKSleepServiceType{
     func getSleepInterval(date: Date) -> AnyPublisher<[HKSleepIntervalModel], HKError> {
         return self.fetchSleepSamples(date: date)
             .tryMap{ samples in
-                samples
+                let watchSampels = samples
                     .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true } // 워치 착용만
                     .filter { $0.value == 0 } // inbed만
+                if watchSampels.isEmpty {
+                    throw HKError.watchDataNotFound
+                }
+                return samples
                     .map { HKSleepIntervalModel(startDate: $0.startDate,
-                                                endDate: $0.endDate)
-                    }
+                                                endDate: $0.endDate)}
             }
             .mapError { error in
                 return error as! HKError
