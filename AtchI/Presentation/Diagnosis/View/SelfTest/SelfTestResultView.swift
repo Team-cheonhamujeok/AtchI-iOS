@@ -37,16 +37,9 @@ struct SelfTestResultView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
-                /// - Note: 자가진단 결과를 UserDefault로 값을 갖고 있으면
-                /// 편할 것 같지만, 로그인 해야하면 서버의 값을 가져오는게 낫겠죠?
-                
-                // 업데이트 된 서버 값 가져오기
                 selfTestViewModel.getData()
-                
                 selfTestViewModel.resetAnswers()
-                
                 path = []
-                    
             } content: {
                 Text("확인")
             }

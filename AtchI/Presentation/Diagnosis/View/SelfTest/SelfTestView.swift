@@ -50,7 +50,6 @@ struct SelfTestView: View {
                         Spacer()
                         Text("\(Int(selfTestViewModel.questionIndex + 1)) / 15")
                     }
-                    
                     // ProgressView
                     ProgressView(value: selfTestViewModel.questionIndex, total: 14)
                         .progressViewStyle(LinearProgressViewStyle(tint: .mainPurple))
@@ -77,23 +76,14 @@ struct SelfTestView: View {
                 if buttonSeletor != nil {
                     if selfTestViewModel.questionIndex == 14 {
                         guard let buttonSeletor = buttonSeletor else { return }
-                        // 데이터 담기
                         selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
-                        // 선택한 버튼 nil
                         self.buttonSeletor = nil
-                    
-                        // Server에 Request하기
                         selfTestViewModel.requestResult(mid: 2)
-                        
-                        // 화면 전환
                         path.append(.selfTestResult)
                     } else {
                         guard let buttonSeletor = buttonSeletor else { return }
-                        // 데이터 담기
                         selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
-                        // 인덱스 증가
                         selfTestViewModel.questionIndex += 1
-                        // 선택한 버튼 nil
                         self.buttonSeletor = nil
                     }
                 }
@@ -114,16 +104,13 @@ struct SelfTestView: View {
 }
 
 // MARK: - Reusable Component CardView
-/// - Parameters:
-///     - id : 문제의 번호
-///
+
 struct SelfTestQuestionCardView: View {
     @Binding var buttonSeletor: TestAnswer?
     @Binding var id: Double
     var selfTestViewModel: SelfTestViewModel
     var body: some View {
         VStack {
-            // 문제
             VStack(alignment: .leading){
                 Text("\(SelfTestQuestions.questions[Int(id)].index)")
                     .padding(.bottom, 7)
@@ -137,16 +124,6 @@ struct SelfTestQuestionCardView: View {
             
             Spacer()
             
-            // 버튼 Set
-            /// - Note:
-            ///     - 초기에 전부 light로 할까요?
-            ///     - 선택시 vivid 해지게?
-            ///     - 아무것도 안했을땐 연한색으로
-            ///     - 버튼 위치 수정
-            ///     - 패딩 디테일 고치기
-            ///     - 프로그레스 사용해보기
-            ///     - Navigation 타이틀, Text로 고치기
-            ///
             VStack(spacing: 10) {
                 DefaultButton(buttonSize: .small,
                               width: .infinity,
@@ -164,7 +141,6 @@ struct SelfTestQuestionCardView: View {
                     Text("변화 없음")
                 }
                 
-                
                 DefaultButton(buttonSize: .small,
                               width: .infinity,
                               height: 35,
@@ -181,8 +157,6 @@ struct SelfTestQuestionCardView: View {
                     Text("조금 나빠짐")
                 }
 
-                
-                
                 DefaultButton(buttonSize: .small,
                               width: .infinity,
                               height: 35,
