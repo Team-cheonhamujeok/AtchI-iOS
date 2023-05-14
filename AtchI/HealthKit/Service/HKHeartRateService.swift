@@ -43,8 +43,7 @@ class HKHeartRateService: HKHeartRateServiceType {
             self.healthKitProvider.getQuantityTypeSamples(identifier: .heartRate,
                                                           predicate: predicate) { samples, error in
                 if let error = error {
-                    // FIXME: 테스트 중간에 에러나면 끊기는 문제 때문에 주석처리
-//                    promise(.failure(error))
+                    promise(.failure(error))
                 }
                 promise(.success(samples))
             }

@@ -31,7 +31,7 @@ final class LifePatternServiceTests: XCTestCase {
     func testCreateLifePatternModel() throws {
         let today = Date()
         let calendar = Calendar.current
-        let beforeDay = calendar.date(byAdding: .day, value: -1, to: today)!
+        let beforeDay = calendar.date(byAdding: .day, value: -2, to: today)!
         print("beforeDay \(beforeDay)")
      
         let expectation = XCTestExpectation(description: "Life Pattern Test")

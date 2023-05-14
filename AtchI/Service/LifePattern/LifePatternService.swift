@@ -60,15 +60,15 @@ extension LifePatternService {
     func getSleepHeartRateAverage(date: Date) -> AnyPublisher<Double, HKError> {
         return sleepService.getSleepInterval(date: date)
             .print("interval: ")
-            .flatMap { intervals -> AnyPublisher<Double, HKError> in
+            .flatMap { intervals -> AnyPublisher<Double, Never> in
                 
                 let publishers = intervals.map {
                     self.heartRateService.getHeartRate(startDate: $0.startDate,
                                                        endDate: $0.endDate)
+                    .replaceError(with: [])
                 }
                 
                 return Publishers.MergeMany(publishers)
-                    .print("sleep heart rate: ")
                     .collect()
                     .map { values -> Double in
                         let result = values.flatMap { $0 }
