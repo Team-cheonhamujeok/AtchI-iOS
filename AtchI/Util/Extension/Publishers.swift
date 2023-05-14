@@ -1,5 +1,5 @@
 //
-//  Publisher.swift
+//  Publishers.swift
 //  AtchI
 //
 //  Created by DOYEON LEE on 2023/05/13.

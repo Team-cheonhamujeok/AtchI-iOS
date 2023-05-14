@@ -22,4 +22,7 @@ protocol DateHelperType {
     ///    - date: 데이터를 가져오고자 하는 날짜를 주입합니다.
     /// - Returns: today를 기준으로 한 어제 오후 6시 시간을 Date형으로 반환합니다.
     func getYesterdaySixPM(_ date: Date) -> Date
+    
+    func getYesterdayStartAM(_ date: Date) -> Date
+    func getYesterdayEndPM(_ date: Date) -> Date
 }

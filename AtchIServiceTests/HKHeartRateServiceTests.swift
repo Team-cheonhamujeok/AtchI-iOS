@@ -20,7 +20,7 @@ final class HKHeartRateServiceTests: XCTestCase {
     
 
     override func setUpWithError() throws {
-        self.service = HKHeartRateService(healthKitProvider: HKProvider())
+        self.service = HKHeartRateService(healthKitProvider: HKProvider(), dateHelper: DateHelper())
         self.dateHelper = DateHelper()
     }
 

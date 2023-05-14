@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LifePatternModel {
+struct LifePatternModel: Codable {
     /// 하루 걸음 수:
     let activity_steps: Int
     /// 총 수면 시간

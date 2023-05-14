@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import HealthKit
 
 protocol HKHeartRateServiceType {
     
@@ -18,4 +19,9 @@ protocol HKHeartRateServiceType {
     func getHeartRate(startDate: Date,
                       endDate: Date)
     -> AnyPublisher<[Double], HKError>
+    
+    /// 특정 시간 내의 심박동 변이 정보를 가져옵니다.
+    /// 
+    /// - Parameter date: 대상 날짜입니다.
+    func getHeartRateVariability(date: Date) -> Future<[Double], HKError>
 }
