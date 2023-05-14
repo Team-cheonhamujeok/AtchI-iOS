@@ -230,7 +230,7 @@ extension HKSleepService {
     /// - Returns: 전반적인 수면 정보를 담은 HKSleepModel을 반환합니다.
     private func createSleepModel(samples: [HKCategorySample]) -> HKSleepModel {
         return HKSleepModel(
-            total: self.calculateSleepTimeQuentityAll(samples: samples),
+            totalQuentity: self.calculateSleepTimeQuentityAll(samples: samples),
             inbedQuentity: self.calculateSleepTimeQuentity(sleepType: .inBed, samples: samples),
             remQuentity: self.calculateSleepTimeQuentity(sleepType: .asleepREM, samples: samples),
             coreQuentity: self.calculateSleepTimeQuentity(sleepType: .asleepCore, samples: samples),

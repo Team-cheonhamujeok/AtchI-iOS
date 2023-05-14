@@ -8,7 +8,7 @@
 import Foundation
 
 struct HKSleepModel {
-    let total: Int
+    let totalQuentity: Int
     let inbedQuentity: Int
     let remQuentity: Int
     let coreQuentity: Int
