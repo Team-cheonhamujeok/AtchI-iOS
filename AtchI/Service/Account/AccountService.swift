@@ -59,6 +59,22 @@ class AccountService: AccountServiceType {
     
     func requestLogin(loginModel: LoginRequestModel) -> AnyPublisher<LoginResponseModel, AccountError> {
         return provider.requestPublisher(.login(loginModel))
+            .tryCatch { error in
+                if (500..<599) ~= error.response?.statusCode ?? 0 {
+                    return Just(())
+                      .delay(for: 3, scheduler: DispatchQueue.global())
+                      .flatMap { _ in
+                          return self.provider.requestPublisher(.login(loginModel))
+                      }
+                      .retry(3)
+                      .eraseToAnyPublisher()
+                } else {
+                    throw error
+                }
+            }
+            .mapError { _ in
+                return AccountError.login(.loginFailed)
+            }
             .tryMap { response in
                 let decodedData = try response.map(LoginResponseModel.self)
                 if decodedData.mid == 0 {
@@ -69,11 +85,7 @@ class AccountService: AccountServiceType {
                 return decodedData
             }
             .mapError { error in
-                if error is MoyaError {
-                    return AccountError.login(.loginFaild)
-                } else {
-                    return error as! AccountError
-                }
+                return error as! AccountError
             }
             .eraseToAnyPublisher()
     }

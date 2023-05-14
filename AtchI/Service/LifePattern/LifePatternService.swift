@@ -35,14 +35,15 @@ class LifePatternService {
 
 extension LifePatternService {
     /// HKService조합해서 여러 값을 LifePatternModel로 묶습니다.
-    func createLifePatternModel(date: Date)
-    -> AnyPublisher<LifePatternModel, HKError>
-    // TODO: 값 없을 시 NaN으로 채우는 로직 작성해야함
-    {
+    func createLifePatternModel(date: Date) -> AnyPublisher<LifePatternModel, Never> {
         let stepCountPub = activityService.getStepCount(date: date)
+            .replaceError(with: -1.0)
         let sleepTotalPub = sleepService.getSleepRecord(date: date, sleepCategory: .total)
+            .replaceError(with: -1)
         let heartAveragePub = getSleepHeartRateAverage(date: date)
+            .replaceError(with: -1.0)
         let heartVariabilityPub = heartRateService.getHeartRateVariability(date: date)
+            .replaceError(with: [])
         
         return Publishers
             .Zip4(stepCountPub, sleepTotalPub, heartAveragePub, heartVariabilityPub)

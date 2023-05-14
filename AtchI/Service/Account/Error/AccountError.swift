@@ -77,7 +77,7 @@ extension AccountError {
     enum LoginError: Error {
         case wrongPassword
         case userNotFound
-        case loginFaild
+        case loginFailed
         
         var description: String {
             switch self {
@@ -85,7 +85,7 @@ extension AccountError {
                 return "비밀번호가 올바르지 않습니다."
             case .userNotFound:
                 return "존재하지 않는 회원입니다."
-            case .loginFaild:
+            case .loginFailed:
                 return "예상치 못한 원인으로 회원가입에 실패하였습니다."
             }
         }
