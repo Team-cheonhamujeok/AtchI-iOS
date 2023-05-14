@@ -10,7 +10,7 @@ import HealthKit
 import Combine
 
 // TODO: Future 에러 핸들링 (Provider 에러 전파) ✅
-// TODO: 오늘 이후 값에 접근할 경우 fatalError 내기 (개발자 에러)
+// TODO: 오늘 이후 값에 접근할 경우 fatalError 내기 (개발자 에러) ✅
 // TODO: HKsleepModel에 total 타임 추가하기 ✅
 // TODO: 값이 비어있을 때 CustomError 반환하기 (워치 미착용, 앱에서 수면시간 지정 안할 시 수면 데이터가 비어 있음) ✅
 
@@ -109,7 +109,8 @@ class HKSleepService: HKSleepServiceType{
         return self.fetchSleepSamples(date: date)
             .tryMap{ samples in
                 samples
-                    .filter { $0.value != 2 } // awake 제외
+                    .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true } // 워치 착용만
+                    .filter { $0.value == 0 } // inbed만
                     .map { HKSleepIntervalModel(startDate: $0.startDate,
                                                 endDate: $0.endDate)
                     }
@@ -132,6 +133,11 @@ extension HKSleepService {
     /// - Returns: 수면 데이터를 [HKCategorySample] 형으로 Future에 담아 반환합니다.
     private func fetchSleepSamples(date: Date) -> Future<[HKCategorySample], HKError> {
         return Future() { [weak self] promise in
+            
+            if date > Date() {
+                fatalError("Future dates are not accessible.")
+            }
+            
             // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
             let endDate = self?.dateHelper.getTodaySixPM(date)
             let startDate = self?.dateHelper.getYesterdaySixPM(date)
@@ -140,8 +146,8 @@ extension HKSleepService {
             // 수면 데이터 가져오기
             self?.provider.getCategoryTypeSamples(identifier: .sleepAnalysis,
                                                  predicate: predicate) { samples, error  in
-                if let error = error { promise(Result.failure(error)) }
-                promise(Result.success(samples))
+                if let error = error { promise(.failure(error)) }
+                promise(.success(samples))
             }
         }
     }
@@ -194,7 +200,7 @@ extension HKSleepService {
         
         let calendar = Calendar.current
         let sum = claculatedSampels
-            .filter { $0.value == 0 } //inbed, awake, undifend 제외
+            .filter { $0.value == 0 } //inbed만
             .reduce(into: 0) { (result, sample) in
             let minutes = calendar.dateComponents([.minute], from: sample.startDate, to: sample.endDate).minute ?? 0
             result += minutes

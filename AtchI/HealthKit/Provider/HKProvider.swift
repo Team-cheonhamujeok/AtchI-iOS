@@ -11,13 +11,12 @@ import HealthKit
 
 protocol HKProviderProtocol {
     func getCategoryTypeSamples(identifier: HKCategoryTypeIdentifier,
-                               predicate: NSPredicate,
-                               completion: @escaping ([HKCategorySample], HKError?) -> Void)
+                                predicate: NSPredicate,
+                                completion: @escaping ([HKCategorySample], HKError?) -> Void)
     func getQuantityTypeStatisticsSamples(identifier: HKQuantityTypeIdentifier,
-                               predicate: NSPredicate,
-                               completion: @escaping ((Double, HKError?) -> Void))
+                                          predicate: NSPredicate,
+                                          completion: @escaping ((Double, HKError?) -> Void))
 }
-
 
 
 class HKProvider: HKProviderProtocol{

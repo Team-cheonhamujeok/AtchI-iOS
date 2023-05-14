@@ -12,7 +12,7 @@ import Moya
 
 class LifePatternService {
     
-    private var provicer = MoyaProvider<LifePatternAPI>() // FIXME: 주입으로 바꾸기
+    private var provider = MoyaProvider<LifePatternAPI>() // FIXME: 주입으로 바꾸기
     
     private var sleepService: HKSleepServiceType
     private var activityService: HKActivityServiceProtocol
