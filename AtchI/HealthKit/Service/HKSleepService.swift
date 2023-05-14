@@ -146,10 +146,11 @@ extension HKSleepService {
         }
     }
     
-    /// 내부적으로 수면 데이터 종류에 따라 수면 총량(분)을 구합니다.
+    /// 애플워치 측정 데이터에 대해 수면 데이터 종류에 따라 수면 총량(분)을 구합니다.
     ///
     /// 어제 오후 6시~ 오늘 오후 6시 사이에 모든 수면 데이터 중 해당 종류의
     /// 수면데이터의 startDate와 endDate의 차이를 분으로 환산해 합산합니다.
+    /// - Important: 애플워치로 측정된 데이터만 반환합니다.
     ///
     /// - Parameters:
     ///    - sleepType: 구하고자 하는 수면 데이터 종류의 식별자입니다.
@@ -157,6 +158,8 @@ extension HKSleepService {
     /// - Returns: 총량을 Int형(단위: 분)으로 반환합니다.
     private func calculateSleepTimeQuentity(sleepType: HKCategoryValueSleepAnalysis,
                                             samples: [HKCategorySample]) -> Int {
+        var watchSamples = samples
+                .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true }
         let calendar = Calendar.current
         let sum = samples.filter{ $0.value == sleepType.rawValue }
             .reduce(into: 0) { (result, sample) in
@@ -166,7 +169,7 @@ extension HKSleepService {
         return sum
     }
     
-    /// 총 수면 시간(분)을 구합니다.
+    /// 애플워치 착용 여부에 관계 없이 총 수면 시간(분)을 구합니다.
     ///
     /// 어제 오후 6시~ 오늘 오후 6시 사이에 모든 수면 데이터 중 해당 종류의
     /// 수면데이터의 startDate와 endDate의 차이를 분으로 환산해 합산합니다.
@@ -175,15 +178,31 @@ extension HKSleepService {
     ///    - samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
     /// - Returns: 총량을 Int형(단위: 분)으로 반환합니다.
     private func calculateSleepTimeQuentityAll(samples: [HKCategorySample]) -> Int {
+
+        let watchSamples = samples
+            .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true }
+        var claculatedSampels: [HKCategorySample]
+        
+        // 애플워치 데이터가 없으면 전체에서 inbed 타임만 합산해서 반환
+        if(watchSamples.isEmpty) {
+            claculatedSampels = samples
+        }
+        // 있으면 애플워치 데이터 중 inbed만 계산
+        else {
+            claculatedSampels = watchSamples
+        }
+        
         let calendar = Calendar.current
-        let sum = samples.reduce(into: 0) { (result, sample) in
+        let sum = claculatedSampels
+            .filter { $0.value == 0 } //inbed, awake, undifend 제외
+            .reduce(into: 0) { (result, sample) in
             let minutes = calendar.dateComponents([.minute], from: sample.startDate, to: sample.endDate).minute ?? 0
             result += minutes
         }
         return sum
     }
     
-    /// 내부적으로 수면 시작 시간을 구합니다.
+    /// 수면 시작 시간을 구합니다.
     ///
     /// - Parameter samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
     /// - Returns: 수면 시작 시간을 Date 형으로 반환합니다.
@@ -195,7 +214,7 @@ extension HKSleepService {
         }
     }
     
-    /// 내부적으로 수면 종료 시간을 구합니다.
+    /// 수면 종료 시간을 구합니다.
     /// - Parameter samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
     /// - Returns: 수면 종료 시간을 Date 형으로 반환합니다.
     private func calculateSleepEndDate(samples: [HKCategorySample]) -> Date {
@@ -231,7 +250,7 @@ enum HKSleepCategory {
     }
 
     enum quentity {
-        /// 애플워치 착용 여부에 관계 없는 총 수면 시간입니다.
+        /// 애플워치 착용 여부에 관계 없는 총 수면 시간입니다. 
         case total
     }
     

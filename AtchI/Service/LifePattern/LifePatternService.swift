@@ -35,7 +35,7 @@ class LifePatternService {
 
 extension LifePatternService {
     /// HKService조합해서 여러 값을 LifePatternModel로 묶습니다.
-    private func createLifePatternModel(date: Date)
+    func createLifePatternModel(date: Date)
     -> AnyPublisher<LifePatternModel, HKError>
     // TODO: 값 없을 시 NaN으로 채우는 로직 작성해야함
     {

@@ -40,7 +40,7 @@ class DateHelper: DateHelperType {
         let calendar = Calendar.current
         
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        let yesterday = calendar.date(byAdding: .day, value: -3, to: date)!
+        let yesterday = calendar.date(byAdding: .day, value: -2, to: date)!
         components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: yesterday)
         components.hour = 24 // 한국 기준 24:00:00이 시작이므로
         components.minute = 0
@@ -55,13 +55,12 @@ class DateHelper: DateHelperType {
         let calendar = Calendar.current
         
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        let yesterday = calendar.date(byAdding: .day, value: -2, to: date)!
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: date)!
         components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: yesterday)
         components.hour = 23 // 한국 기준 23:59:59가 마지막이므로
         components.minute = 59
         components.second = 59
         let yesterdayEndPM = calendar.date(from: components)!
-        print("어제 끝 시간 : \(yesterdayEndPM)")
         return yesterdayEndPM
     }
 }
