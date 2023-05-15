@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct AtchIApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     let hkAuthorizationProvider = HKAuthorizationProvider()
     
     var body: some Scene {

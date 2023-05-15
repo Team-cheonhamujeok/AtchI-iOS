@@ -45,13 +45,18 @@ extension LifePatternService {
         let heartVariabilityPub = heartRateService.getHeartRateVariability(date: date)
             .replaceError(with: [])
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: date)
+        
         return Publishers
             .Zip4(stepCountPub, sleepTotalPub, heartAveragePub, heartVariabilityPub)
             .map {
-                LifePatternModel(activity_steps: Int($0.0),
-                                 sleep_duration: $0.1,
-                                 sleep_hr_average: $0.2,
-                                 sleep_rmssd: $0.3)
+                LifePatternModel(date: dateString,
+                                 activitySteps: Int($0.0),
+                                 sleepDuration: $0.1,
+                                 sleepHrAverage: $0.2,
+                                 sleepRmssd: $0.3)
             }
             .eraseToAnyPublisher()
     }

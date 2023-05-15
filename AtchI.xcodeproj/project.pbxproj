@@ -50,7 +50,6 @@
 		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
 		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
 		BC0446BF29FC24AA002109A2 /* EmailVerificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BE29FC24AA002109A2 /* EmailVerificationResponseModel.swift */; };
-		BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BC0446C129FC40CD002109A2 /* ComposableArchitecture */; };
 		BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446C529FC42EE002109A2 /* SignupReducer.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
@@ -109,6 +108,10 @@
 		BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BCB9C6922A0A3CDB00273F33 /* Lottie */; };
 		BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C6942A0A3D2F00273F33 /* LottieView.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
+		BCCD41FC2A127B92008BD5CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCCD41FB2A127B92008BD5CB /* GoogleService-Info.plist */; };
+		BCCD41FF2A127C2C008BD5CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BCCD41FE2A127C2C008BD5CB /* FirebaseAnalytics */; };
+		BCCD42012A127C2C008BD5CB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BCCD42002A127C2C008BD5CB /* FirebaseMessaging */; };
+		BCCD42062A128519008BD5CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD42052A128519008BD5CB /* AppDelegate.swift */; };
 		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
 		BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */; };
 		BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD897272A0A45A6006EC401 /* dots-loading.json */; };
@@ -266,6 +269,8 @@
 		BCB9C68E2A0A20A100273F33 /* HKSleepIntervalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepIntervalModel.swift; sourceTree = "<group>"; };
 		BCB9C6942A0A3D2F00273F33 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
+		BCCD41FB2A127B92008BD5CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BCCD42052A128519008BD5CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
 		BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BCD897272A0A45A6006EC401 /* dots-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dots-loading.json"; sourceTree = "<group>"; };
@@ -318,10 +323,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCCD42012A127C2C008BD5CB /* FirebaseMessaging in Frameworks */,
 				BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */,
 				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
-				BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */,
+				BCCD41FF2A127C2C008BD5CB /* FirebaseAnalytics in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -726,7 +732,11 @@
 		BC8D54F329B9909C00FAA6E3 = {
 			isa = PBXGroup;
 			children = (
+				BCCD42052A128519008BD5CB /* AppDelegate.swift */,
+				BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */,
+				BC8D550129B9909C00FAA6E3 /* ContentView.swift */,
 				BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */,
+				BCCD41FB2A127B92008BD5CB /* GoogleService-Info.plist */,
 				BC8D54FE29B9909C00FAA6E3 /* AtchI */,
 				BC49094229EA69AC00EDDD0D /* AtchIViewModelTests */,
 				0455D41D29F7796800A8A747 /* AtchIServiceTests */,
@@ -756,8 +766,6 @@
 				BC9C977D29C2262D00DC6FB3 /* Info.plist */,
 				BC8D551C29B99A4A00FAA6E3 /* Presentation */,
 				BC8D551329B9951400FAA6E3 /* Util */,
-				BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */,
-				BC8D550129B9909C00FAA6E3 /* ContentView.swift */,
 				BC8D550329B9909D00FAA6E3 /* Assets.xcassets */,
 				BC8D550529B9909D00FAA6E3 /* Preview Content */,
 			);
@@ -1151,8 +1159,9 @@
 			packageProductDependencies = (
 				BC37AA5029E080760047D273 /* CombineMoya */,
 				BC37AA5229E080760047D273 /* Moya */,
-				BC0446C129FC40CD002109A2 /* ComposableArchitecture */,
 				BCB9C6922A0A3CDB00273F33 /* Lottie */,
+				BCCD41FE2A127C2C008BD5CB /* FirebaseAnalytics */,
+				BCCD42002A127C2C008BD5CB /* FirebaseMessaging */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -1194,6 +1203,7 @@
 				BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */,
 				BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				BCCD41FD2A127C2C008BD5CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -1230,6 +1240,7 @@
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
+				BCCD41FC2A127B92008BD5CB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1357,6 +1368,7 @@
 				BC81F35F29FD53E100E09958 /* InfoErrorState.swift in Sources */,
 				BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */,
 				BC3DDF6B29FB9BD200452A2B /* SignupRequestViewModel.swift in Sources */,
+				BCCD42062A128519008BD5CB /* AppDelegate.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */,
@@ -1605,6 +1617,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BACKEND_ENDPOINT = "http://$(BACKEND_ENDPOINT)";
 				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
@@ -1623,8 +1636,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.doyeon.Atchi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_DOCUMENTATION_COMPILER = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1643,6 +1657,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BACKEND_ENDPOINT = "http://$(BACKEND_ENDPOINT)";
 				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
@@ -1661,8 +1676,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.doyeon.Atchi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_DOCUMENTATION_COMPILER = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1739,14 +1755,17 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		BCCD41FD2A127C2C008BD5CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BC0446C129FC40CD002109A2 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		BC37AA5029E080760047D273 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;
@@ -1761,6 +1780,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		BCCD41FE2A127C2C008BD5CB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCCD41FD2A127C2C008BD5CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		BCCD42002A127C2C008BD5CB /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCCD41FD2A127C2C008BD5CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
