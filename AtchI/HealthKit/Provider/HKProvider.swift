@@ -10,21 +10,27 @@ import Combine
 import HealthKit
 
 protocol HKProviderProtocol {
+    func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
+                               predicate: NSPredicate,
+                               completion: @escaping ([HKCategorySample], AtchI.HKError?) -> Void)
+    
     func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ((Double) -> Void))
+                               completion: @escaping ((HKStatistics?, AtchI.HKError?) -> Void))
+    
+    func getQuantityTypeSampleHeart(identifier: HKQuantityTypeIdentifier,
+                               predicate: NSPredicate,
+                               completion: @escaping ([HKQuantitySample], AtchI.HKError?) -> Void)
 }
 
-
-
-class HKProvider {
+class HKProvider: HKProviderProtocol {
     // MARK: - Properties
     let healthStore = HKHealthStore()
     
     //MARK: - Category Sample
     func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ([HKCategorySample], HKError?) -> Void) {
+                               completion: @escaping ([HKCategorySample], AtchI.HKError?) -> Void) {
         // identifier로 Type 정의
         guard let sleepType = HKObjectType.categoryType(forIdentifier: identifier) else {
             fatalError("identifier를 찾을 수 없습니다. 올바른 identifier를 입력했는지 확인해주세요.")
@@ -48,7 +54,6 @@ class HKProvider {
                 if categorySamples.isEmpty {
                     completion([], HKError.providerDataNotFound)
                 }
-                
                 completion(categorySamples, nil)
             }
         }
@@ -60,7 +65,7 @@ class HKProvider {
     // MARK: - Quantity Type Sample
     func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ((Double) -> Void)) {
+                               completion: @escaping ((HKStatistics?, AtchI.HKError?) -> Void)) {
         
         // Identifier로 Type 분류
         guard let quantityType = HKQuantityType.quantityType(forIdentifier: identifier) else {
@@ -76,36 +81,12 @@ class HKProvider {
             /// 결과가 잘 들어왔는지 옵셔널 바인딩
             /// resulut : 순수 결과 데이터
             guard let result = result else {
-                print("'HealthKitProvider': Result가 생성되지 않았습니다.")
+                completion(nil, HKError.providerFetchSamplesFailed)
                 return
             }
-            
-            /// 합이 잘 들어왔는지 옵셔널 바인딩
-            /// sum: 기간동안 한 Activity의 양
-            guard let sum = result.sumQuantity() else {
-                print("'HealthKitProvider': sumQuantity가 생성되지 않았습니다.")
-                return
-            }
-           
-            
-            // 단위
-            let unit: HKUnit = {
-                // ID에 따른 단위 설정 후 Publisher에 맞게 send
-                switch identifier {
-                case .stepCount:
-                    return .count()
-                case .activeEnergyBurned:
-                    return .kilocalorie()
-                case .distanceWalkingRunning:
-                    return .meter()
-                default:
-                    fatalError("Unexpected identifier \(identifier)")
-                }
-            }()
-
+    
             // escaping closure 내보내기
-            completion(sum.doubleValue(for: unit))
-
+            completion(result, nil)
         }
         
         // HealthKit store에서 쿼리를 실행
@@ -113,8 +94,8 @@ class HKProvider {
     }
     
     func getQuantityTypeSampleHeart(identifier: HKQuantityTypeIdentifier,
-                                    predicate: NSPredicate,
-                                    completion: @escaping ([HKQuantitySample]) -> Void) {
+                               predicate: NSPredicate,
+                               completion: @escaping ([HKQuantitySample], AtchI.HKError?) -> Void) {
 
         // Identifier로 Type 분류
         guard let quantityType = HKObjectType.quantityType(forIdentifier: identifier) else {
@@ -136,16 +117,11 @@ class HKProvider {
                 return
             }
             if let result = tmpResult {
-//                print("result \(tmpResult)")
                 let quantitySamples = result.compactMap { $0 as? HKQuantitySample }
-//                print("quantity samples \(quantitySamples)")
-                completion(quantitySamples)
+                completion(quantitySamples, nil)
             }
         }
         // HealthKit store에서 쿼리를 실행
         healthStore.execute(query)
-
     }
-    
-    
 }

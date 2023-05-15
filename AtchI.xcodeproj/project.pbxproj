@@ -35,6 +35,10 @@
 		04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8575C2A016BF600576D61 /* DiagnosisTestData.swift */; };
 		04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8F74A29D022B50082DC29 /* TestAnswer.swift */; };
 		04A984312A11CC2500C584C2 /* SelfTestInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A984302A11CC2500C584C2 /* SelfTestInfoViewModel.swift */; };
+		04A984332A11E21500C584C2 /* MockHKStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A984322A11E21500C584C2 /* MockHKStore.swift */; };
+		04A984352A11F73500C584C2 /* MockHKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A984342A11F73500C584C2 /* MockHKData.swift */; };
+		04A984372A11FBFF00C584C2 /* MockHKQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A984362A11FBFF00C584C2 /* MockHKQuery.swift */; };
+		04A9843B2A129B4C00C584C2 /* HKActivityServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9843A2A129B4C00C584C2 /* HKActivityServiceTests.swift */; };
 		6F06DB5F29FD3D7700770596 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB5E29FD3D7700770596 /* Quiz.swift */; };
 		6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6029FD3D8600770596 /* PreventViewModel.swift */; };
 		6F06DB6329FD3DCF00770596 /* QuizViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6229FD3DCF00770596 /* QuizViewType.swift */; };
@@ -184,6 +188,10 @@
 		04A8575C2A016BF600576D61 /* DiagnosisTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisTestData.swift; sourceTree = "<group>"; };
 		04A8F74A29D022B50082DC29 /* TestAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswer.swift; sourceTree = "<group>"; };
 		04A984302A11CC2500C584C2 /* SelfTestInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoViewModel.swift; sourceTree = "<group>"; };
+		04A984322A11E21500C584C2 /* MockHKStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHKStore.swift; sourceTree = "<group>"; };
+		04A984342A11F73500C584C2 /* MockHKData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHKData.swift; sourceTree = "<group>"; };
+		04A984362A11FBFF00C584C2 /* MockHKQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHKQuery.swift; sourceTree = "<group>"; };
+		04A9843A2A129B4C00C584C2 /* HKActivityServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceTests.swift; sourceTree = "<group>"; };
 		6F06DB5E29FD3D7700770596 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		6F06DB6029FD3D8600770596 /* PreventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventViewModel.swift; sourceTree = "<group>"; };
 		6F06DB6229FD3DCF00770596 /* QuizViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewType.swift; sourceTree = "<group>"; };
@@ -335,6 +343,7 @@
 			children = (
 				0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */,
 				BC5A82D72A0CFB3D002EB661 /* HKSleepServiceTests.swift */,
+				04A9843A2A129B4C00C584C2 /* HKActivityServiceTests.swift */,
 			);
 			path = HealthKit;
 			sourceTree = "<group>";
@@ -351,6 +360,9 @@
 			isa = PBXGroup;
 			children = (
 				0491BAD529F968C4005C53E5 /* MockHealthKitProvider.swift */,
+				04A984322A11E21500C584C2 /* MockHKStore.swift */,
+				04A984342A11F73500C584C2 /* MockHKData.swift */,
+				04A984362A11FBFF00C584C2 /* MockHKQuery.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1193,10 +1205,14 @@
 				BCF6B8C12A04275300B0FC1D /* AccountServiceTests.swift in Sources */,
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
+				04A984332A11E21500C584C2 /* MockHKStore.swift in Sources */,
 				BC5A82D82A0CFB3D002EB661 /* HKSleepServiceTests.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
+				04A984372A11FBFF00C584C2 /* MockHKQuery.swift in Sources */,
 				BCDACF4429FF933400EFF2ED /* DiagnosisServiceTests.swift in Sources */,
+				04A984352A11F73500C584C2 /* MockHKData.swift in Sources */,
 				04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */,
+				04A9843B2A129B4C00C584C2 /* HKActivityServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
