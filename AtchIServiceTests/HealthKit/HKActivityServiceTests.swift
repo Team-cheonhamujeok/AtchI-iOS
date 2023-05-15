@@ -15,6 +15,7 @@ final class HKActivityServiceTests: XCTestCase {
     
     let provider: MockHealthKitProvider = MockHealthKitProvider()
     var sut: HKActivityService!
+    var disposeBag = Set<AnyCancellable>()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,19 +28,31 @@ final class HKActivityServiceTests: XCTestCase {
     }
 
     func test_Example() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        let expectation = XCTestExpectation(description: "Signup Test Test")
         
-        sut.getStepCount(date: Date())
-            .sink { err in
-                print(err)
-            } receiveValue: { double in
-                print(double)
-            }
-
+        var result = 0.0
+  
+        let cancellable = sut?.getStepCount(date: Date())
+            .handleEvents(receiveSubscription: { _ in
+              print("#start")
+            }, receiveOutput: { _ in
+              print("#received")
+            }, receiveCancel: {
+              print("#cancelled")
+            })
+            .sink(receiveCompletion: { err in
+                print("#",err)
+            }, receiveValue: { quantity in
+                result = quantity
+                expectation.fulfill()
+            })
+            .store(in: &disposeBag)
+                
+        
+        wait(for: [expectation], timeout: 10.0)
+        
+        //MARK: Assert
+        XCTAssertEqual(result, 8000)
     }
 
     func testPerformanceExample() throws {

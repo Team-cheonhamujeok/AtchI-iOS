@@ -15,12 +15,14 @@ class MockHKQuery: HKSampleQuery {
     var type: HKSampleType?
     var resultsHandler: (HKSampleQuery, [HKSample]?, Error?) -> Void
     
+    
     init(
         type: HKSampleType,
         resultsHandler: @escaping (HKSampleQuery, [HKSample]?, Error?) -> Void)
     {
         self.type = type
         self.resultsHandler = resultsHandler
+        super.init(sampleType: type, predicate: nil, limit: 0, sortDescriptors: nil, resultsHandler: resultsHandler)
     }
 }
 
@@ -38,5 +40,7 @@ class MockHKStatisticsQuery: HKStatisticsQuery {
     {
         self.type = type
         self.resultsHandler = resultsHandler
+        super.init(quantityType: type, quantitySamplePredicate: nil, completionHandler: resultsHandler)
     }
+    
 }
