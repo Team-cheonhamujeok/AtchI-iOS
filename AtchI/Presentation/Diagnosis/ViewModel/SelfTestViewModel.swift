@@ -11,15 +11,16 @@ import Combine
 
 class SelfTestViewModel: ObservableObject {
     
-    //MARK: - Properties
-    
     let service: DiagnosisServiceType
     var disposeBag = Set<AnyCancellable>()
     
+    /// 사용자의 자가진단 답변 리스트
     var answers: [TestAnswer] = []
     
+    /// 해당 없음 문항이 6개가 되어 자가진단을 다시 해야하는지 체크하는 Flag
     @Published var isAgain = false
-    @Published var selfTestResults: [SelfTestResult] = []
+
+    /// 현재 자가진단 문항 인덱스
     @Published var questionIndex = 0.0 {
         willSet(newVal) {
             if newVal == 14 {
@@ -28,14 +29,11 @@ class SelfTestViewModel: ObservableObject {
         }
     }
     
-    
     // MARK: - init
     
     init(service: DiagnosisServiceType) {
         self.service = service
     }
-    
-    // MARK: - View에서 사용되는 함수
     
     // MARK: - UI용 함수
     
@@ -152,44 +150,5 @@ class SelfTestViewModel: ObservableObject {
                 print("post Response", response)
             })
             .store(in: &disposeBag)
-    }
-
-    /// 서버로부터 Get 하는 함수
-    func getData() {
-        // TODO: mid 값 넣기
-        let request = service.getDiagnosisList(mid: 2)
-    
-        request
-            .handleEvents(receiveSubscription: { _ in
-              print("Network request will start")
-            }, receiveOutput: { _ in
-              print("Network request data received")
-            }, receiveCancel: {
-              print("Network request cancelled")
-            })
-            .sink(receiveCompletion: { _ in
-                print("SelfTestInfoViewModel: Complete")
-            }, receiveValue: { response in
-                let decoder = JSONDecoder()
-                if let datas = try? decoder.decode([DiagnosisGetModel].self, from: response.data) {
-                    var response: [SelfTestResult] = []
-                    datas.forEach {
-                        let id = $0.did
-                        let mid = $0.mid
-                        let date = $0.date
-                        let point = $0.result
-                        let level = self.measureLevel(point: point)
-                        
-                        response.append(SelfTestResult(id: id,
-                                                       mid: mid,
-                                                       date: date,
-                                                       point: point,
-                                                       level: level.rawValue))}
-                    
-                    // 서버 배열 교체
-                    self.selfTestResults = response.sorted { $0.id > $1.id }
-                    
-                }
-            }).store(in: &disposeBag)
     }
 }

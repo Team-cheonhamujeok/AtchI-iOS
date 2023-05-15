@@ -10,6 +10,7 @@ import Moya
 
 struct SelfTestInfoView: View {
     @StateObject var selfTestViewModel: SelfTestViewModel
+    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     @Binding var path: [DiagnosisViewStack]
     
@@ -17,7 +18,7 @@ struct SelfTestInfoView: View {
     
     var body: some View {
         Group {
-            if selfTestViewModel.selfTestResults.isEmpty {
+            if selfTestInfoViewModel.selfTestResults.isEmpty {
                 noTestView
             } else {
                 haveTestView
@@ -84,8 +85,8 @@ struct SelfTestInfoView: View {
             }
             
             // 2️⃣ 자가진단 리스트
-            List(selfTestViewModel.selfTestResults) { value in
-                if let firstID =  selfTestViewModel.selfTestResults.first?.id {
+            List(selfTestInfoViewModel.selfTestResults) { value in
+                if let firstID =  selfTestInfoViewModel.selfTestResults.first?.id {
                     if firstID == value.id {
                         SelfTestRow(result: value, isFirst: true)
                             .listRowSeparator(.hidden)
