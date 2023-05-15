@@ -27,13 +27,18 @@ struct SelfTestInfoView: View {
         .navigationDestination(for: DiagnosisViewStack.self) { child in
             switch child {
             case .selfTest:
-                SelfTestView(path: $path, selfTestViewModel: selfTestViewModel)
+                SelfTestView(path: $path,
+                             selfTestViewModel: selfTestViewModel)
             case .selfTestStart:
-                SelfTestStartView(path: $path, selfTestViewModel: selfTestViewModel)
+                SelfTestStartView(path: $path,
+                                  selfTestViewModel: selfTestViewModel)
             case .selfTestResult:
-                SelfTestResultView(path: $path, selfTestViewModel: selfTestViewModel)
+                SelfTestResultView(path: $path,
+                                   selfTestViewModel: selfTestViewModel,
+                                   selfTestInfoViewModel: selfTestInfoViewModel)
             case .selfTestResultList:
-                SelfTestResultList(path: $path, selfTestViewModel: selfTestViewModel)
+                SelfTestResultList(path: $path,
+                                   selfTestInfoViewModel: selfTestInfoViewModel)
             default:
                 Text("잘못된 접근")
             }

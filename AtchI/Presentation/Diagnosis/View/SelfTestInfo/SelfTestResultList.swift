@@ -11,7 +11,7 @@ import Moya
 struct SelfTestResultList: View {
     
     @Binding var path: [DiagnosisViewStack]
-    @StateObject var selfTestViewModel: SelfTestViewModel
+    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     var body: some View {
         ScrollView {
@@ -20,8 +20,8 @@ struct SelfTestResultList: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
-                ForEach(selfTestViewModel.selfTestResults) { value in
-                    if let firstID =  selfTestViewModel.selfTestResults.first?.id {
+                ForEach(selfTestInfoViewModel.selfTestResults) { value in
+                    if let firstID =  selfTestInfoViewModel.selfTestResults.first?.id {
                         if firstID == value.id {
                             SelfTestRow(result: value, isFirst: true)
                                 .listRowSeparator(.hidden)

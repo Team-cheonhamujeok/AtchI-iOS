@@ -11,6 +11,7 @@ import Moya
 struct SelfTestResultView: View {
     @Binding var path: [DiagnosisViewStack]
     @StateObject var selfTestViewModel: SelfTestViewModel
+    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     var body: some View {
         VStack {
@@ -37,7 +38,7 @@ struct SelfTestResultView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
-                selfTestViewModel.getData()
+                selfTestInfoViewModel.getData()
                 selfTestViewModel.resetAnswers()
                 path = []
             } content: {
