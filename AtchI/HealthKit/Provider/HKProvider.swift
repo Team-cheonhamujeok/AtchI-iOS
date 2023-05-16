@@ -21,6 +21,8 @@ protocol HKProviderProtocol {
                                     completion: @escaping ([HKQuantitySample], HKError?) -> Void)
 }
 
+class HKProvider: HKProviderProtocol {
+
     // MARK: - Properties
     let healthStore = HKHealthStore()
     
@@ -66,7 +68,7 @@ protocol HKProviderProtocol {
     // MARK: - Quantity Type Sample
     func getQuantityTypeStatistics(identifier: HKQuantityTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ((HKStatistics?, AtchI.HKError?) -> Void)) {
+                               completion: @escaping ((HKStatistics?, HKError?) -> Void)) {
         
         // Identifier로 Type 분류
         guard let quantityType = HKQuantityType.quantityType(forIdentifier: identifier) else {
@@ -80,11 +82,14 @@ protocol HKProviderProtocol {
         let query = HKStatisticsQuery(quantityType: quantityType,
                                       quantitySamplePredicate: predicate,
                                       options: .cumulativeSum) { _, result, error in
+            if let error = error {
+                completion(nil, HKError.providerFetchSamplesFailed(error: error))
+            }
             
             /// 결과가 잘 들어왔는지 옵셔널 바인딩
             /// resulut : 순수 결과 데이터
             guard let result = result else {
-                completion(nil, HKError.providerFetchSamplesFailed)
+                completion(nil, HKError.providerDataNotFound)
                 return
             }
     

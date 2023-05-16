@@ -37,7 +37,7 @@ class HKActivityService: HKActivityServiceProtocol {
                                                         end: endOfDay,
                                                         options: .strictStartDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .stepCount,
+            self.healthKitProvider.getQuantityTypeStatistics(identifier: .stepCount,
                                                          predicate: predicate) { result, err in
                 guard let err = err else {
                     print("\(String(describing: err))")
@@ -60,7 +60,7 @@ class HKActivityService: HKActivityServiceProtocol {
             let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
 
-            self.healthKitProvider.getQuantityTypeSample(identifier: .activeEnergyBurned,
+            self.healthKitProvider.getQuantityTypeStatistics(identifier: .activeEnergyBurned,
                                                          predicate: predicate) { result, err in
                 guard let err = err else {
                     print("\(String(describing: err))")
@@ -82,7 +82,7 @@ class HKActivityService: HKActivityServiceProtocol {
             let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
             
-            self.healthKitProvider.getQuantityTypeSample(identifier: .distanceWalkingRunning,
+            self.healthKitProvider.getQuantityTypeStatistics(identifier: .distanceWalkingRunning,
                                                          predicate: predicate) { result, err in
                 guard let err = err else {
                     print("\(String(describing: err))")
