@@ -37,12 +37,18 @@ class HKActivityService: HKActivityServiceProtocol {
                                                         end: endOfDay,
                                                         options: .strictStartDate)
             
-            self.healthKitProvider.getQuantityTypeStatisticsSamples(identifier: .stepCount,
-                                                                    predicate: predicate) { count, error  in
-                if let error = error {
-                    promise(.failure(error))
+            self.healthKitProvider.getQuantityTypeSample(identifier: .stepCount,
+                                                         predicate: predicate) { result, err in
+                guard let err = err else {
+                    print("\(String(describing: err))")
+                    return
                 }
-                promise(Result.success(count))
+                guard let sum = result?.sumQuantity() else {
+                    return
+                }
+ 
+                let value = sum.doubleValue(for: .count())
+                promise(Result.success(value))
             }
         }
     }
@@ -53,12 +59,19 @@ class HKActivityService: HKActivityServiceProtocol {
             let startOfDay = self.startDate(date: date)
             let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
-            
-            self.healthKitProvider.getQuantityTypeStatisticsSamples(identifier: .activeEnergyBurned, predicate: predicate) { energy, error in
-                if let error = error {
-                    promise(.failure(error))
+
+            self.healthKitProvider.getQuantityTypeSample(identifier: .activeEnergyBurned,
+                                                         predicate: predicate) { result, err in
+                guard let err = err else {
+                    print("\(String(describing: err))")
+                    return
                 }
-                promise(Result.success(energy))
+                guard let sum = result?.sumQuantity() else {
+                    return
+                }
+ 
+                let value = sum.doubleValue(for: .kilocalorie())
+                promise(Result.success(value))
             }
         }
     }
@@ -69,11 +82,19 @@ class HKActivityService: HKActivityServiceProtocol {
             let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
             
-            self.healthKitProvider.getQuantityTypeStatisticsSamples(identifier: .distanceWalkingRunning, predicate: predicate) { distance, error in
-                if let error = error {
-                    promise(.failure(error))
+            self.healthKitProvider.getQuantityTypeSample(identifier: .distanceWalkingRunning,
+                                                         predicate: predicate) { result, err in
+                guard let err = err else {
+                    print("\(String(describing: err))")
+                    return
                 }
-                promise(Result.success(distance))
+                guard let sum = result?.sumQuantity() else {
+                    print("'HealthKitProvider': sumQuantity가 생성되지 않았습니다.")
+                    return
+                }
+ 
+                let value = sum.doubleValue(for: .meter())
+                promise(Result.success(value))
             }
         }
     }

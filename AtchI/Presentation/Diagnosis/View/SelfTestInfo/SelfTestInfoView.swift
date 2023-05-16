@@ -10,6 +10,7 @@ import Moya
 
 struct SelfTestInfoView: View {
     @StateObject var selfTestViewModel: SelfTestViewModel
+    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     @Binding var path: [DiagnosisViewStack]
     
@@ -17,7 +18,7 @@ struct SelfTestInfoView: View {
     
     var body: some View {
         Group {
-            if selfTestViewModel.selfTestResults.isEmpty {
+            if selfTestInfoViewModel.selfTestResults.isEmpty {
                 noTestView
             } else {
                 haveTestView
@@ -26,13 +27,18 @@ struct SelfTestInfoView: View {
         .navigationDestination(for: DiagnosisViewStack.self) { child in
             switch child {
             case .selfTest:
-                SelfTestView(path: $path, selfTestViewModel: selfTestViewModel)
+                SelfTestView(path: $path,
+                             selfTestViewModel: selfTestViewModel)
             case .selfTestStart:
-                SelfTestStartView(path: $path, selfTestViewModel: selfTestViewModel)
+                SelfTestStartView(path: $path,
+                                  selfTestViewModel: selfTestViewModel)
             case .selfTestResult:
-                SelfTestResultView(path: $path, selfTestViewModel: selfTestViewModel)
+                SelfTestResultView(path: $path,
+                                   selfTestViewModel: selfTestViewModel,
+                                   selfTestInfoViewModel: selfTestInfoViewModel)
             case .selfTestResultList:
-                SelfTestResultList(path: $path, selfTestViewModel: selfTestViewModel)
+                SelfTestResultList(path: $path,
+                                   selfTestInfoViewModel: selfTestInfoViewModel)
             default:
                 Text("잘못된 접근")
             }
@@ -84,8 +90,8 @@ struct SelfTestInfoView: View {
             }
             
             // 2️⃣ 자가진단 리스트
-            List(selfTestViewModel.selfTestResults) { value in
-                if let firstID =  selfTestViewModel.selfTestResults.first?.id {
+            List(selfTestInfoViewModel.selfTestResults) { value in
+                if let firstID =  selfTestInfoViewModel.selfTestResults.first?.id {
                     if firstID == value.id {
                         SelfTestRow(result: value, isFirst: true)
                             .listRowSeparator(.hidden)
