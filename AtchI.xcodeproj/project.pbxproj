@@ -55,12 +55,12 @@
 		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
 		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
 		BC0446BF29FC24AA002109A2 /* EmailVerificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BE29FC24AA002109A2 /* EmailVerificationResponseModel.swift */; };
-		BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BC0446C129FC40CD002109A2 /* ComposableArchitecture */; };
 		BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446C529FC42EE002109A2 /* SignupReducer.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
 		BC2E1F612A137CE000B4E713 /* PushNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */; };
 		BC2E1F632A138A8900B4E713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F622A138A8900B4E713 /* AppDelegate.swift */; };
+		BC2E1F652A139B7600B4E713 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F642A139B7600B4E713 /* HapticHelper.swift */; };
 		BC305CB429FF8402001388EA /* HKAuthorizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC305CB329FF8402001388EA /* HKAuthorizationHelper.swift */; };
 		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
 		BC37AA5329E080760047D273 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5229E080760047D273 /* Moya */; };
@@ -222,6 +222,7 @@
 		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationHelper.swift; sourceTree = "<group>"; };
 		BC2E1F622A138A8900B4E713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BC2E1F642A139B7600B4E713 /* HapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticHelper.swift; sourceTree = "<group>"; };
 		BC305CB329FF8402001388EA /* HKAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKAuthorizationHelper.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
@@ -335,7 +336,6 @@
 				BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */,
 				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
-				BC0446C229FC40CD002109A2 /* ComposableArchitecture in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1097,6 +1097,7 @@
 				BCF6B8B62A03BBC100B0FC1D /* Protocol */,
 				BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */,
 				BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */,
+				BC2E1F642A139B7600B4E713 /* HapticHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1172,7 +1173,6 @@
 			packageProductDependencies = (
 				BC37AA5029E080760047D273 /* CombineMoya */,
 				BC37AA5229E080760047D273 /* Moya */,
-				BC0446C129FC40CD002109A2 /* ComposableArchitecture */,
 				BCB9C6922A0A3CDB00273F33 /* Lottie */,
 			);
 			productName = AtchI;
@@ -1213,7 +1213,6 @@
 			mainGroup = BC8D54F329B9909C00FAA6E3;
 			packageReferences = (
 				BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */,
-				BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
@@ -1333,6 +1332,7 @@
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
 				BC81F36429FD615400E09958 /* SignupReqeustViewModelEvent.swift in Sources */,
+				BC2E1F652A139B7600B4E713 /* HapticHelper.swift in Sources */,
 				BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */,
 				BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */,
 				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
@@ -1743,14 +1743,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.52.0;
-			};
-		};
 		BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -1770,11 +1762,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BC0446C129FC40CD002109A2 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BC0446C029FC40CD002109A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		BC37AA5029E080760047D273 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;

@@ -12,6 +12,7 @@ import Moya
 struct ContentView: View {
     
     @AppStorage("mid") private var mid = UserDefaults.standard.integer(forKey: "mid")
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         let isIntroModalOpen = Binding<Bool>(
@@ -70,7 +71,7 @@ extension ContentView {
                                y: 0,
                                width: UIScreen.main.scale,
                                height: 0.5),
-                color: UIColor(Color.grayBoldLine),
+                color: UIColor(Color.grayThinLine),
                 thickness: 0.5)
         
         let appearance = UITabBarAppearance()

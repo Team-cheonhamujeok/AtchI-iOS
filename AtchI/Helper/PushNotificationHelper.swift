@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import UIKit
 
 class PushNotificationHelper {
     static let shared = PushNotificationHelper()
@@ -14,22 +15,29 @@ class PushNotificationHelper {
     private init() {}
     
     func setAuthorization() {
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound] // 필요한 알림 권한을 설정
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound, .provisional] // 필요한 알림 권한을 설정
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
             completionHandler: { _, _ in }
         )
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
-    }
+    func pushNotification(title: String, body: String, seconds: Double, identifier: String) {
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .badge, .sound])
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = title
+        notificationContent.body = body
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: notificationContent,
+                                            trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
     }
 }

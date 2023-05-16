@@ -21,6 +21,9 @@ struct HomeView: View {
                         Text("AI 진단 결과")
                             .font(.titleMedium)
                         AIDiagnosisCard()
+                            .onTapGesture {
+                                PushNotificationHelper.shared.pushNotification(title: "안녕하세요", body: "푸시 알림 테스트입니다.", seconds: 1, identifier: "pushTest")
+                            }
                     }
                     
                     // 바로가기 카드
