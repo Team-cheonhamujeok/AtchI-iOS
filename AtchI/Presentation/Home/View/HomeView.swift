@@ -22,7 +22,7 @@ struct HomeView: View {
                             .font(.titleMedium)
                         AIDiagnosisCard()
                             .onTapGesture {
-                                PushNotificationHelper.shared.pushNotification(title: "안녕하세요", body: "푸시 알림 테스트입니다.", seconds: 0.1, identifier: "PUSH_TEST")
+                                PushNotificationHelper.shared.pushImmediateNotification(title: "안녕하세요", body: "푸시 알림 테스트입니다.", seconds: 0.1, identifier: "PUSH_TEST")
                             }
                     }
                     
