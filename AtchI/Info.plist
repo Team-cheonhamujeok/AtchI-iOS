@@ -13,7 +13,7 @@
 			<string>com.cheonhamujeok.Atchi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>AtchI</string>
+				<string>atchi</string>
 			</array>
 		</dict>
 	</array>

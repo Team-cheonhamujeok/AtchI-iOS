@@ -15,6 +15,16 @@ struct AtchIApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onOpenURL { url in // 딥링크로 들어오면 실행
+                    print(url)
+                    if (UserDefaults.standard.integer(forKey: "mid") != 0)  {
+                        guard let deepLinkIdentifier = url.deepLinkIdentifier else {
+                          return
+                        }
+                        
+                    }
+                }
         }
     }
 }
+
