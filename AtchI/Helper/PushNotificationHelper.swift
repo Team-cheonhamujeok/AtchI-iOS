@@ -15,7 +15,7 @@ class PushNotificationHelper {
     private init() {}
     
     func setAuthorization() {
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound, .provisional] // 필요한 알림 권한을 설정
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound] // 필요한 알림 권한을 설정
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
             completionHandler: { _, _ in }

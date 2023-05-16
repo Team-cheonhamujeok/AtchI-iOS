@@ -93,8 +93,8 @@ class LoginViewModel: ObservableObject {
                 Task {
                     try await Task.sleep(nanoseconds: 1 * 1_000_000_000 / 2)
                     PushNotificationHelper.shared.setAuthorization()
-                    HKAuthorizationHelper.shared.setAuthorization()
                 }
+                HKAuthorizationHelper.shared.setAuthorization()
             }).store(in: &cancellables)
     }
 }

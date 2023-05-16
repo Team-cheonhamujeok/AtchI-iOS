@@ -7,8 +7,14 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string></string>
+			<string>com.cheonhamujeok.Atchi</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>AtchI</string>
+			</array>
 		</dict>
 	</array>
 	<key>UIApplicationSceneManifest</key>
