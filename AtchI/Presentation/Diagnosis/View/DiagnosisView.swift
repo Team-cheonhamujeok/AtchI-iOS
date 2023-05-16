@@ -12,6 +12,7 @@ import Moya
 struct DiagnosisView: View {
     let watchInfoViewModel = WatchInfoViewModel()
     let selfTestViewModel = SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
+    let selfTestInfoViewModel = SelfTestInfoViewModel(service:  DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
     
     @State private var path: [DiagnosisViewStack] = []
     
@@ -25,7 +26,7 @@ struct DiagnosisView: View {
                         .padding(.bottom, 18)
                     
                     SelfTestInfoView(
-                        selfTestViewModel: selfTestViewModel,
+                        selfTestViewModel: selfTestViewModel, selfTestInfoViewModel: selfTestInfoViewModel,
                         path: $path)
                     
                 }
@@ -44,7 +45,7 @@ struct DiagnosisView: View {
         }
         .onAppear {
             //MARK: 서버 데이터 들고오기
-            selfTestViewModel.getData()
+            selfTestInfoViewModel.getData()
         }
     }
 }

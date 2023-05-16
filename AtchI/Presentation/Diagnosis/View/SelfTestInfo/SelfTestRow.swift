@@ -21,7 +21,7 @@ struct SelfTestRow: View {
                     if isFirst {
                         Text("최근")
                     }
-                    Text(result.date)
+                    Text(DateHelper.convertFormat(string: result.date))
                         .foregroundColor(.grayTextLight)
                 }
                 .font(.bodyLarge)

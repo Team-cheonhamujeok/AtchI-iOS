@@ -36,7 +36,7 @@ class HKHeartRateService {
         return Future { promise in
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
             
-            self.healthKitProvider.getQuantityTypeSampleHeart(identifier: .heartRate, predicate: predicate) { samples in
+            self.healthKitProvider.getQuantityTypeSampleHeart(identifier: .heartRate, predicate: predicate) { samples, err in
 //                print("result \(samples)")
                 promise(Result.success(samples))
             }

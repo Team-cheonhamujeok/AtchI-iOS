@@ -64,4 +64,22 @@ class DateHelper: DateHelperType {
         print("어제 끝 시간 : \(yesterdayEndPM)")
         return yesterdayEndPM
     }
+    
+    // 현재 시간 계산
+    static func currentTime() -> String {
+        let now = Date() //"Mar 21, 2018 at 1:37 PM"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        return dateFormatter.string(from: now)
+    }
+    
+    // 날짜  "yy년MM월dd일" 형식으로 변환
+    static func convertFormat(string: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        guard let date = dateFormatter.date(from: string) else { return "Date is Nil" }
+        
+        dateFormatter.dateFormat = "yy년MM월dd일"
+        return dateFormatter.string(from: date)
+    }
 }
