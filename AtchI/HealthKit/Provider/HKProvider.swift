@@ -10,30 +10,30 @@ import Combine
 import HealthKit
 
 protocol HKProviderProtocol {
-    func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
+    func getCategoryTypeSamples(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ([HKCategorySample], AtchI.HKError?) -> Void)
-    
-    func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
-                               predicate: NSPredicate,
-                               completion: @escaping ((HKStatistics?, AtchI.HKError?) -> Void))
-    
-    func getQuantityTypeSampleHeart(identifier: HKQuantityTypeIdentifier,
-                               predicate: NSPredicate,
-                               completion: @escaping ([HKQuantitySample], AtchI.HKError?) -> Void)
+                               completion: @escaping ([HKCategorySample], HKError?) -> Void)
+    func getQuantityTypeStatistics(identifier: HKQuantityTypeIdentifier,
+                             predicate: NSPredicate,
+                             completion: @escaping ((HKStatistics?, HKError?) -> Void))
+    func getQuantityTypeSamples(identifier: HKQuantityTypeIdentifier,
+                                    predicate: NSPredicate,
+                                    completion: @escaping ([HKQuantitySample], HKError?) -> Void)
 }
 
-class HKProvider: HKProviderProtocol {
     // MARK: - Properties
     let healthStore = HKHealthStore()
     
     //MARK: - Category Sample
-    func getCategoryTypeSample(identifier: HKCategoryTypeIdentifier,
+    func getCategoryTypeSamples(identifier: HKCategoryTypeIdentifier,
                                predicate: NSPredicate,
-                               completion: @escaping ([HKCategorySample], AtchI.HKError?) -> Void) {
+                               completion: @escaping ([HKCategorySample], HKError?) -> Void) {
         // identifier로 Type 정의
         guard let sleepType = HKObjectType.categoryType(forIdentifier: identifier) else {
-            fatalError("identifier를 찾을 수 없습니다. 올바른 identifier를 입력했는지 확인해주세요.")
+            fatalError("""
+                Unexpected identifier \(identifier).
+                Please check if you have entered the correct identifier.
+            """)
         }
         
         // 최신 데이터를 먼저 가져오도록 sort 기준 정의
@@ -46,14 +46,15 @@ class HKProvider: HKProviderProtocol {
                                   sortDescriptors: [sortDescriptor]) { (_, samples, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.
-                completion([], HKError.providerFetchSamplesFailed)
+                completion([], HKError.providerFetchSamplesFailed(error: error))
             }
+            
             if let result = samples {
-                let categorySamples = result.compactMap { $0 as? HKCategorySample }
-                
-                if categorySamples.isEmpty {
+                // 결과가 비어있을 시 error throw
+                if result.isEmpty {
                     completion([], HKError.providerDataNotFound)
-                }
+                }  
+                let categorySamples = result.compactMap { $0 as? HKCategorySample }
                 completion(categorySamples, nil)
             }
         }
@@ -63,14 +64,16 @@ class HKProvider: HKProviderProtocol {
     }
 
     // MARK: - Quantity Type Sample
-    func getQuantityTypeSample(identifier: HKQuantityTypeIdentifier,
+    func getQuantityTypeStatistics(identifier: HKQuantityTypeIdentifier,
                                predicate: NSPredicate,
                                completion: @escaping ((HKStatistics?, AtchI.HKError?) -> Void)) {
         
         // Identifier로 Type 분류
         guard let quantityType = HKQuantityType.quantityType(forIdentifier: identifier) else {
-            print("'HealthKitProvider': 올바르지 않은 ID입니다.")
-            return
+            fatalError("""
+                Unexpected identifier \(identifier).
+                Please check if you have entered the correct identifier.
+            """)
         }
         
         // Quantity Type과 날짜 Predicate로 query 작성,
@@ -92,15 +95,17 @@ class HKProvider: HKProviderProtocol {
         // HealthKit store에서 쿼리를 실행
         healthStore.execute(query)
     }
-    
-    func getQuantityTypeSampleHeart(identifier: HKQuantityTypeIdentifier,
-                               predicate: NSPredicate,
-                               completion: @escaping ([HKQuantitySample], AtchI.HKError?) -> Void) {
+
+    func getQuantityTypeSamples(identifier: HKQuantityTypeIdentifier,
+                                    predicate: NSPredicate,
+                                    completion: @escaping ([HKQuantitySample], HKError?) -> Void) {
 
         // Identifier로 Type 분류
         guard let quantityType = HKObjectType.quantityType(forIdentifier: identifier) else {
-            print("'HealthKitProvider': 올바르지 않은 ID입니다.")
-            return
+            fatalError("""
+                Unexpected identifier \(identifier).
+                Please check if you have entered the correct identifier.
+            """)
         }
 
         // 최신 데이터를 먼저 가져오도록 sort 기준 정의
@@ -110,13 +115,17 @@ class HKProvider: HKProviderProtocol {
         let query = HKSampleQuery(sampleType: quantityType,
                                   predicate: predicate,
                                   limit: HKObjectQueryNoLimit,
-                                  sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+                                  sortDescriptors: [sortDescriptor]) { (_, samples, error) -> Void in
             if let error = error {
                 // 에러 처리를 수행합니다.
-                print("error: \(error.localizedDescription)")
-                return
+                completion([], HKError.providerFetchSamplesFailed(error: error))
             }
-            if let result = tmpResult {
+            if let result = samples {
+                
+                // 결과가 비어있을 시 error throw
+                if result.isEmpty {
+                    completion([], HKError.providerDataNotFound)
+                }
                 let quantitySamples = result.compactMap { $0 as? HKQuantitySample }
                 completion(quantitySamples, nil)
             }

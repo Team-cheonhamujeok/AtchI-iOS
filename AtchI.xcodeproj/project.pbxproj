@@ -78,9 +78,15 @@
 		BC54288429EACDAE0026C175 /* XCTestCaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54288329EACDAE0026C175 /* XCTestCaseExtension.swift */; };
 		BC5A82D82A0CFB3D002EB661 /* HKSleepServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82D72A0CFB3D002EB661 /* HKSleepServiceTests.swift */; };
 		BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82DB2A0E0949002EB661 /* SettingView.swift */; };
+		BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
+		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
 		BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */; };
+		BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */; };
+		BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719272A0F81A700F692C6 /* LifePatternModel.swift */; };
+		BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */; };
+		BC77192D2A0F856E00F692C6 /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192C2A0F856E00F692C6 /* Publishers.swift */; };
 		BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78196E29E07884005C4CF5 /* AccountService.swift */; };
 		BC81F35629FCC26700E09958 /* TypeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35529FCC26700E09958 /* TypeState.swift */; };
 		BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81F35829FD38DA00E09958 /* SignupState.swift */; };
@@ -231,10 +237,15 @@
 		BC54288329EACDAE0026C175 /* XCTestCaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtension.swift; sourceTree = "<group>"; };
 		BC5A82D72A0CFB3D002EB661 /* HKSleepServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceTests.swift; sourceTree = "<group>"; };
 		BC5A82DB2A0E0949002EB661 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		BC5A82DD2A0E39E0002EB661 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
+		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
 		BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustModel.swift; sourceTree = "<group>"; };
+		BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceType.swift; sourceTree = "<group>"; };
+		BC7719272A0F81A700F692C6 /* LifePatternModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternModel.swift; sourceTree = "<group>"; };
+		BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPI.swift; sourceTree = "<group>"; };
+		BC77192C2A0F856E00F692C6 /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		BC78196E29E07884005C4CF5 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		BC81F35529FCC26700E09958 /* TypeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeState.swift; sourceTree = "<group>"; };
 		BC81F35829FD38DA00E09958 /* SignupState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupState.swift; sourceTree = "<group>"; };
@@ -331,6 +342,7 @@
 		0455D41D29F7796800A8A747 /* AtchIServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				BC6FB3692A10BDD90009186B /* LifePattern */,
 				BCF6B8BF2A04273800B0FC1D /* Account */,
 				0491BAD429F968A2005C53E5 /* Mock */,
 				BCDACF4529FF936A00EFF2ED /* Diagnosis */,
@@ -633,10 +645,19 @@
 			isa = PBXGroup;
 			children = (
 				BCDACF4729FF942A00EFF2ED /* Deprecated */,
+				BCDACF4829FFA96E00EFF2ED /* Error */,
 				BCDACF3729FF928C00EFF2ED /* Service */,
 				BCDACF3629FF927900EFF2ED /* Provider */,
 			);
 			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		BC6FB3692A10BDD90009186B /* LifePattern */ = {
+			isa = PBXGroup;
+			children = (
+				BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */,
+			);
+			path = LifePattern;
 			sourceTree = "<group>";
 		};
 		BC70470C29E7E8D800FA265A /* Model */ = {
@@ -649,6 +670,14 @@
 				BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BC7719292A0F824800F692C6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		BC78196D29E07867005C4CF5 /* Service */ = {
@@ -712,7 +741,7 @@
 		BC8D54F329B9909C00FAA6E3 = {
 			isa = PBXGroup;
 			children = (
-				BC5A82DD2A0E39E0002EB661 /* Secrets.xcconfig */,
+				BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */,
 				BC8D54FE29B9909C00FAA6E3 /* AtchI */,
 				BC49094229EA69AC00EDDD0D /* AtchIViewModelTests */,
 				0455D41D29F7796800A8A747 /* AtchIServiceTests */,
@@ -777,6 +806,7 @@
 				BC8D551529B9957900FAA6E3 /* Colors.swift */,
 				BC8D551729B9959100FAA6E3 /* Fonts.swift */,
 				BCF6DA3929C42D1C00E1ACBF /* View.swift */,
+				BC77192C2A0F856E00F692C6 /* Publishers.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -951,7 +981,6 @@
 		BCDACF4729FF942A00EFF2ED /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
-				BCDACF4829FFA96E00EFF2ED /* Error */,
 				BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */,
 			);
 			path = Deprecated;
@@ -1008,6 +1037,7 @@
 		BCF6B8A32A02788100B0FC1D /* LifePattern */ = {
 			isa = PBXGroup;
 			children = (
+				BC7719292A0F824800F692C6 /* API */,
 				BCF6B8A52A027C5D00B0FC1D /* Error */,
 				BCF6B8A42A027C5600B0FC1D /* Model */,
 				BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */,
@@ -1018,6 +1048,7 @@
 		BCF6B8A42A027C5600B0FC1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC7719272A0F81A700F692C6 /* LifePatternModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1050,6 +1081,7 @@
 			isa = PBXGroup;
 			children = (
 				BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */,
+				BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1209,6 +1241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */,
+				BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
@@ -1228,6 +1261,7 @@
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
 				04A984332A11E21500C584C2 /* MockHKStore.swift in Sources */,
 				BC5A82D82A0CFB3D002EB661 /* HKSleepServiceTests.swift in Sources */,
+				BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
 				04A984372A11FBFF00C584C2 /* MockHKQuery.swift in Sources */,
 				BCDACF4429FF933400EFF2ED /* DiagnosisServiceTests.swift in Sources */,
@@ -1255,6 +1289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC77192D2A0F856E00F692C6 /* Publishers.swift in Sources */,
 				049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */,
 				042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */,
 				6F06DB5F29FD3D7700770596 /* Quiz.swift in Sources */,
@@ -1278,6 +1313,7 @@
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
+				BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */,
 				BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
@@ -1302,10 +1338,12 @@
 				BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */,
 				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
+				BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */,
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
+				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
 				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
@@ -1581,7 +1619,7 @@
 		};
 		BC8D550B29B9909D00FAA6E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC5A82DD2A0E39E0002EB661 /* Secrets.xcconfig */;
+			baseConfigurationReference = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1619,7 +1657,7 @@
 		};
 		BC8D550C29B9909D00FAA6E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC5A82DD2A0E39E0002EB661 /* Secrets.xcconfig */;
+			baseConfigurationReference = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

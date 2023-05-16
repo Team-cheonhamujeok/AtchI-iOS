@@ -63,7 +63,7 @@ struct IntroView: View {
                         Text("회원가입하기")
                             .font(.titleSmall)
                             .frame(maxWidth: .infinity, minHeight: 65)
-                            .background(Color.mainPurple)
+                            .background(Color.accentColor)
                             .foregroundColor(Color.white)
                             .cornerRadius(20)
                             .onTapGesture {
@@ -99,9 +99,6 @@ struct IntroView: View {
                 case .signup:
                     SignupView()
                 }
-            }
-            .onAppear {
-                print("info \(Bundle.main.infoDictionary?["BACKEND_ENDPOINT"])")
             }
         }
     }

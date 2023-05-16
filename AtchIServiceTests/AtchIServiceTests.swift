@@ -13,7 +13,7 @@ import HealthKit
 
 
 final class AtchIServiceTests: XCTestCase {
-
+    
     override func setUpWithError() throws {
     }
 
@@ -21,7 +21,6 @@ final class AtchIServiceTests: XCTestCase {
     }
 
     func testExample() throws {
-
     }
 
     func testPerformanceExample() throws {

@@ -12,9 +12,9 @@ import HealthKit
 /// - Note: Protocol이 필요할까요?
 protocol HKActivityServiceProtocol {
     var healthKitProvider: HKProviderProtocol { get }
-    func getStepCount(date: Date) -> Future<Double, Error>
-    func getEnergy(date: Date) -> Future<Double, Error>
-    func getDistance(date: Date) -> Future<Double, Error>
+    func getStepCount(date: Date) -> Future<Double, HKError>
+    func getEnergy(date: Date) -> Future<Double, HKError>
+    func getDistance(date: Date) -> Future<Double, HKError>
 }
 
 class HKActivityService: HKActivityServiceProtocol {
@@ -29,7 +29,7 @@ class HKActivityService: HKActivityServiceProtocol {
     //MARK: - Sending Function
     /// - Note: 값을 구하는 기간은 다 똑같으니 predicate는 묶는게 낫겠죠?
     //MARK: 걸음 수
-    func getStepCount(date: Date) -> Future<Double, Error> {
+    func getStepCount(date: Date) -> Future<Double, HKError> {
         return Future { promise in
             let startOfDay = self.startDate(date: date)
             let endOfDay = self.endDate(date: date)
@@ -54,12 +54,12 @@ class HKActivityService: HKActivityServiceProtocol {
     }
     
     // MARK: 열량
-    func getEnergy(date: Date) -> Future<Double, Error>  {
+    func getEnergy(date: Date) -> Future<Double, HKError>  {
         return Future { promise in
             let startOfDay = self.startDate(date: date)
             let endOfDay = self.endDate(date: date)
             let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
-            
+
             self.healthKitProvider.getQuantityTypeSample(identifier: .activeEnergyBurned,
                                                          predicate: predicate) { result, err in
                 guard let err = err else {
@@ -76,7 +76,7 @@ class HKActivityService: HKActivityServiceProtocol {
         }
     }
     // MARK: 거리
-    func getDistance(date: Date) -> Future<Double, Error>  {
+    func getDistance(date: Date) -> Future<Double, HKError>  {
         return Future { promise in
             let startOfDay = self.startDate(date: date)
             let endOfDay = self.endDate(date: date)

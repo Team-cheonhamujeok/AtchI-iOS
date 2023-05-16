@@ -11,7 +11,6 @@ import Combine
 import HealthKit
 
 class MockHealthKitProvider: HKProviderProtocol {
-    
     /// [Mock] HealthKit Data Store입니다.
     var healthStore = MockHKStore()
     
@@ -126,5 +125,13 @@ class MockHealthKitProvider: HKProviderProtocol {
         // 가짜 Store에 query 실행
         // query에 해당하는 값이 있으면 resultsHandler에 값이 들어감
         healthStore.execute(query)
+    }
+    
+    func getCategoryTypeSamples(
+        identifier: HKCategoryTypeIdentifier,
+        predicate: NSPredicate,
+        completion: @escaping ([HKCategorySample], AtchI.HKError?)
+        -> Void) {
+        
     }
 }
