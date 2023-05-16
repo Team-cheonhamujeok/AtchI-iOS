@@ -70,7 +70,7 @@ extension ContentView {
                                y: 0,
                                width: UIScreen.main.scale,
                                height: 0.5),
-                color: UIColor(Color.grayThinLine),
+                color: UIColor(Color.grayBoldLine),
                 thickness: 0.5)
         
         let appearance = UITabBarAppearance()
