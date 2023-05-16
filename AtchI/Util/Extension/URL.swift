@@ -15,13 +15,22 @@ extension URL {
         return scheme == "atchi" // matches my-url-scheme://<rest-of-the-url>
     }
     
-    /// URL의 host를 enum에 매핑하여 반환합니다.
-    var deepLinkIdentifier: DeepLinkIdentifier? {
+    /// URL의 host(스키마 이후 처음 값)를 반환합니다.
+    var deepLinkHost: String? {
+        guard isDeeplink else { return nil }
+        
+        return host
+    }
+    
+    /// URL의 host로 들어온 string을 TabBarType에 매핑하여 반환합니다.
+    var deepLinkHostMapTabBar: TabBarType? {
         guard isDeeplink else { return nil }
         
         switch host {
-        case "home": return .home // matches my-url-scheme://home/
-        case "settings": return .settings // matches my-url-scheme://settings/
+        case "home": return .home
+        case "diagnosis": return .diagnosis
+        case "prevent": return .prevent
+        case "setting": return .setting
         default: return nil
         }
     }
@@ -37,7 +46,7 @@ extension URL {
     }
     
     /// URL의 query string 값을 딕셔너리 형태로 반환합니다.
-    var queryItems: [String : String] {
+    var deepLinkQueryItems: [String : String] {
         var queryItems: [String : String] = [:]
         var components: NSURLComponents? = nil
         let linkUrl = URL(string: self.absoluteString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")

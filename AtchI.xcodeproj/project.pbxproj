@@ -62,7 +62,7 @@
 		BC2E1F632A138A8900B4E713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F622A138A8900B4E713 /* AppDelegate.swift */; };
 		BC2E1F652A139B7600B4E713 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F642A139B7600B4E713 /* HapticHelper.swift */; };
 		BC2E1F672A13CE9000B4E713 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F662A13CE9000B4E713 /* URL.swift */; };
-		BC2E1F692A13CFAB00B4E713 /* DeepLinkIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F682A13CFAB00B4E713 /* DeepLinkIdentifier.swift */; };
+		BC2E1F6B2A13D2CC00B4E713 /* TabBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F6A2A13D2CC00B4E713 /* TabBarType.swift */; };
 		BC305CB429FF8402001388EA /* HKAuthorizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC305CB329FF8402001388EA /* HKAuthorizationHelper.swift */; };
 		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
 		BC37AA5329E080760047D273 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5229E080760047D273 /* Moya */; };
@@ -226,7 +226,7 @@
 		BC2E1F622A138A8900B4E713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC2E1F642A139B7600B4E713 /* HapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticHelper.swift; sourceTree = "<group>"; };
 		BC2E1F662A13CE9000B4E713 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
-		BC2E1F682A13CFAB00B4E713 /* DeepLinkIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkIdentifier.swift; sourceTree = "<group>"; };
+		BC2E1F6A2A13D2CC00B4E713 /* TabBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarType.swift; sourceTree = "<group>"; };
 		BC305CB329FF8402001388EA /* HKAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKAuthorizationHelper.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
@@ -578,7 +578,7 @@
 				6F06DB6229FD3DCF00770596 /* QuizViewType.swift */,
 				6F06DB6429FD3DDA00770596 /* TodayQuiz.swift */,
 				045F769B2A0DC2BD00AA3418 /* SelfTestLevel.swift */,
-				BC2E1F682A13CFAB00B4E713 /* DeepLinkIdentifier.swift */,
+				BC2E1F6A2A13D2CC00B4E713 /* TabBarType.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -1327,6 +1327,7 @@
 				BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */,
 				BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
+				BC2E1F6B2A13D2CC00B4E713 /* TabBarType.swift in Sources */,
 				BCDDE0C029BE17FA003E364C /* AIDiagnosisCard.swift in Sources */,
 				BC88B7FC29EA521E00F484AF /* AccountError.swift in Sources */,
 				BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */,
@@ -1334,7 +1335,6 @@
 				0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */,
 				BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */,
 				BC0446BF29FC24AA002109A2 /* EmailVerificationResponseModel.swift in Sources */,
-				BC2E1F692A13CFAB00B4E713 /* DeepLinkIdentifier.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,

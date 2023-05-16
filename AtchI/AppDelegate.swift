@@ -42,9 +42,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler([.list, .banner])
     }
     
-        
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 openSettingsFor notification: UNNotification?) {
         
+        let settingURL = URL(string: "atchi://setting/")!
+        if UIApplication.shared.canOpenURL(settingURL) {
+            UIApplication.shared.open(settingURL)
+        }
     }
 }
