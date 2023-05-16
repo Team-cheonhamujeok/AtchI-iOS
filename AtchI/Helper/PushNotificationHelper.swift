@@ -142,30 +142,4 @@ class PushNotificationHelper {
             .current()
             .removeDeliveredNotifications(withIdentifiers: identifiers)
     }
-    
-    func test() {
-        
-        let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "되나"
-        // UserDefaults에 저장된 값 가져오기
-        let defaults = UserDefaults.standard
-        if let storedValue = defaults.string(forKey: "StoredValueKey") {
-            notificationContent.body = storedValue
-        } else {
-            notificationContent.body = "기본 알림 내용"
-        }
-        notificationContent.categoryIdentifier = "GROUP_\("TT")"
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: "TT",
-                                            content: notificationContent,
-                                            trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Notification Error: ", error)
-            }
-        }
-    }
 }
