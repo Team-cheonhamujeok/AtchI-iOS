@@ -40,6 +40,7 @@ class PushNotificationHelper {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = title
         notificationContent.body = body
+        notificationContent.categoryIdentifier = "GROUP_\(identifier)"
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
         
@@ -66,6 +67,7 @@ class PushNotificationHelper {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = title
         notificationContent.body = body
+        notificationContent.categoryIdentifier = "GROUP_\(identifier)"
         
         let triggerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: false)
@@ -95,12 +97,68 @@ class PushNotificationHelper {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = title
         notificationContent.body = body
+        notificationContent.categoryIdentifier = "GROUP_\(identifier)"
         
         var dateComponents = DateComponents()
         dateComponents.hour = hour  // 알림을 보낼 시간 (24시간 형식)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: identifier,
+                                            content: notificationContent,
+                                            trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
+    }
+    
+    /// 대기중인 Push Notification을 출력합니다.
+    func printPendingNotification() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            for request in requests {
+                print("Identifier: \(request.identifier)")
+                print("Title: \(request.content.title)")
+                print("Body: \(request.content.body)")
+                print("Trigger: \(String(describing: request.trigger))")
+                print("---")
+            }
+        }
+    }
+    
+    /// 대기중인 Push Notification을 취소합니다.
+    /// - Parameter identifiers: 삭제하고자하는 알림 식별자 리스트입니다.
+    func removePendingNotification(identifiers: [String]){
+        UNUserNotificationCenter
+            .current()
+            .removePendingNotificationRequests(withIdentifiers: identifiers)
+    }
+    
+    /// 이미 전달된 Push Notification을 알림센터에서 삭제합니다.
+    /// - Parameter identifiers: 삭제하고자하는 알림 식별자 리스트입니다.
+    func removeDeliveredNotification(identifiers: [String]){
+        UNUserNotificationCenter
+            .current()
+            .removeDeliveredNotifications(withIdentifiers: identifiers)
+    }
+    
+    func test() {
+        
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "되나"
+        // UserDefaults에 저장된 값 가져오기
+        let defaults = UserDefaults.standard
+        if let storedValue = defaults.string(forKey: "StoredValueKey") {
+            notificationContent.body = storedValue
+        } else {
+            notificationContent.body = "기본 알림 내용"
+        }
+        notificationContent.categoryIdentifier = "GROUP_\("TT")"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "TT",
                                             content: notificationContent,
                                             trigger: trigger)
         
