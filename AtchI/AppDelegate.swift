@@ -8,12 +8,13 @@
 import Foundation
 import UserNotifications
 import UIKit
+import HealthKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    let store = HKHealthStore()
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        // 앱 실행 시 사용자에게 알림 허용 권한을 받음
         UNUserNotificationCenter.current().delegate = self
         
         PushNotificationHelper
@@ -22,7 +23,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                                        body: "지금 바로 풀어보세요",
                                        hour: 12,
                                        identifier: "QUIZ_YET")
-        PushNotificationHelper.shared.printPendingNotification()
+//        PushNotificationHelper.shared.printPendingNotification()
         
         return true
     }

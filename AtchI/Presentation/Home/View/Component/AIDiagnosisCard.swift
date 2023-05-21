@@ -22,6 +22,17 @@ struct AIDiagnosisCard: View {
             Text("*AI 진단 정보는 참고용입니다. 정확한 진단은 의사와 상담하세요.")
                 .font(.bodyTiny)
                 .foregroundColor(.grayTextLight)
+            Spacer(minLength: 10)
+            VStack(alignment: .center) {
+                Text("MMSE검사로 정확도 높이기")
+                    .font(.bodyMedium)
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity, maxHeight: 40)
+            .background(Color.mainBlue)
+            .cornerRadius(20)
+
+
         }
         .padding(25)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

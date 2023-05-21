@@ -83,6 +83,7 @@
 		BC5A82D82A0CFB3D002EB661 /* HKSleepServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82D72A0CFB3D002EB661 /* HKSleepServiceTests.swift */; };
 		BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82DB2A0E0949002EB661 /* SettingView.swift */; };
 		BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */; };
+		BC5E243E2A19F0D7005278D5 /* WatchActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
@@ -247,6 +248,7 @@
 		BC5A82D72A0CFB3D002EB661 /* HKSleepServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceTests.swift; sourceTree = "<group>"; };
 		BC5A82DB2A0E0949002EB661 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActivityView.swift; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
@@ -443,8 +445,8 @@
 		049ADEA429C98326009B9B62 /* WatchInfo */ = {
 			isa = PBXGroup;
 			children = (
-				049ADEA829C9837C009B9B62 /* WatchInfoView.swift */,
 				049ADEB729CC209D009B9B62 /* WatchInfoRow.swift */,
+				049ADEA829C9837C009B9B62 /* WatchInfoView.swift */,
 			);
 			path = WatchInfo;
 			sourceTree = "<group>";
@@ -1008,6 +1010,7 @@
 		BCDDE0BE29BE17D0003E364C /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */,
 				BCDDE0BF29BE17FA003E364C /* AIDiagnosisCard.swift */,
 				BCDDE0C129BE286C003E364C /* AppTitleBar.swift */,
 				BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */,
@@ -1356,6 +1359,7 @@
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
+				BC5E243E2A19F0D7005278D5 /* WatchActivityView.swift in Sources */,
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
 				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,

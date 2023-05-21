@@ -13,40 +13,49 @@ struct HomeView: View {
             VStack {
                 // 로고 + 앱이름
                 AppTitleBar()
+                    .padding(.leading, 20)
+                    .padding(.top, 5)
                 
                 ScrollView {
                     // AI 진단 결과 카드
-                    Spacer(minLength: 30)
+                    Spacer(minLength: 15)
                     VStack(alignment: .leading){
                         Text("AI 진단 결과")
                             .font(.titleMedium)
                         AIDiagnosisCard()
-                            .onTapGesture {
-                                PushNotificationHelper.shared.pushImmediateNotification(title: "안녕하세요", body: "푸시 알림 테스트입니다.", seconds: 0.1, identifier: "PUSH_TEST")
-                            }
-                    }
-                    
-                    // 바로가기 카드
-                    Spacer(minLength: 50)
-                    VStack(alignment: .leading){
-                        Text("바로가기")
-                            .font(.titleMedium)
-                        HStack{
-                            SelfDiagnosisShortcutCard()
-                            QuizShortcutCard()
+                        
+                        Spacer(minLength: 30)
+                        Divider()
+                        Spacer(minLength: 30)
+                        
+                        // 애플워치 정보
+                        VStack(alignment: .leading, spacing: 10){
+                            Text("현재 활동 정보")
+                                .font(.titleSmall)
+                            Text("AI 진단에 쓰이고 있는 활동 정보들입니다!")
+                                .font(.bodySmall)
+                            Spacer(minLength: 10)
+                            WatchActivityView()
                         }
                     }
+                    .padding([.leading, .trailing, .bottom], 30)
                     
-                    // 치매 정보 카드 리스트
-                    Spacer(minLength: 50)
-                    InformationCardList()
+                    
+                    Rectangle()
+                        .frame(height: 15)
+                        .foregroundColor(.grayBoldLine)
+                    
+                    VStack {
+                        // 치매 정보 카드 리스트
+                        InformationCardList()
+                    }
+                    .padding(30)
                     
                     // 바닥 여백
                     Spacer(minLength: 40)
                 }
             }
             .scrollIndicators(.hidden)
-            .padding(.horizontal, 30)
             .frame(maxWidth: .infinity,
                    maxHeight: .infinity,
                    alignment: .leading)
