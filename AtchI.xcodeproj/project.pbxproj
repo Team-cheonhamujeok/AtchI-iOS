@@ -138,6 +138,10 @@
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
 		BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDA92729E0356D00F301B1 /* Subject.swift */; };
+		BCEDF1CE2A1BC9B30030CD75 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = BCEDF1CD2A1BC9B30030CD75 /* MarkdownUI */; };
+		BCEDF1D12A1BCE060030CD75 /* SettingCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDF1D02A1BCE060030CD75 /* SettingCategoriesView.swift */; };
+		BCEDF1D42A1BCEE70030CD75 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDF1D32A1BCEE70030CD75 /* PrivacyPolicyView.swift */; };
+		BCEDF1D62A1BD4560030CD75 /* PrivacyPolicyText.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCEDF1D52A1BD4560030CD75 /* PrivacyPolicyText.rtf */; };
 		BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */; };
 		BCF6B8AE2A03B38B00B0FC1D /* HKSleepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */; };
 		BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */; };
@@ -306,6 +310,9 @@
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
 		BCEDA92729E0356D00F301B1 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		BCEDF1D02A1BCE060030CD75 /* SettingCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCategoriesView.swift; sourceTree = "<group>"; };
+		BCEDF1D32A1BCEE70030CD75 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		BCEDF1D52A1BD4560030CD75 /* PrivacyPolicyText.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = PrivacyPolicyText.rtf; sourceTree = "<group>"; };
 		BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternService.swift; sourceTree = "<group>"; };
 		BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepModel.swift; sourceTree = "<group>"; };
 		BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceType.swift; sourceTree = "<group>"; };
@@ -343,6 +350,7 @@
 				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
+				BCEDF1CE2A1BC9B30030CD75 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +655,8 @@
 		BC5A82DA2A0E093B002EB661 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BCEDF1D22A1BCEC20030CD75 /* SubPage */,
+				BCEDF1CF2A1BCD990030CD75 /* Component */,
 				BC5A82DB2A0E0949002EB661 /* SettingView.swift */,
 			);
 			path = View;
@@ -802,6 +812,7 @@
 		BC8D551329B9951400FAA6E3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BCEDF1C12A1B94FE0030CD75 /* Resource */,
 				04818F722A0B8AF4002B8EB2 /* Error */,
 				BCEDA92629E0355F00F301B1 /* PropertyWrapper */,
 				049ADE9029C6E3B2009B9B62 /* UI */,
@@ -1048,6 +1059,30 @@
 			path = PropertyWrapper;
 			sourceTree = "<group>";
 		};
+		BCEDF1C12A1B94FE0030CD75 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BCEDF1D52A1BD4560030CD75 /* PrivacyPolicyText.rtf */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BCEDF1CF2A1BCD990030CD75 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BCEDF1D02A1BCE060030CD75 /* SettingCategoriesView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		BCEDF1D22A1BCEC20030CD75 /* SubPage */ = {
+			isa = PBXGroup;
+			children = (
+				BCEDF1D32A1BCEE70030CD75 /* PrivacyPolicyView.swift */,
+			);
+			path = SubPage;
+			sourceTree = "<group>";
+		};
 		BCF6B8A32A02788100B0FC1D /* LifePattern */ = {
 			isa = PBXGroup;
 			children = (
@@ -1183,6 +1218,7 @@
 				BC37AA5029E080760047D273 /* CombineMoya */,
 				BC37AA5229E080760047D273 /* Moya */,
 				BCB9C6922A0A3CDB00273F33 /* Lottie */,
+				BCEDF1CD2A1BC9B30030CD75 /* MarkdownUI */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -1223,6 +1259,7 @@
 			packageReferences = (
 				BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */,
 				BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				BCEDF1CC2A1BC9B30030CD75 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -1256,6 +1293,7 @@
 			files = (
 				BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */,
 				BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */,
+				BCEDF1D62A1BD4560030CD75 /* PrivacyPolicyText.rtf in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
@@ -1351,6 +1389,7 @@
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
 				BCDACF4029FF930A00EFF2ED /* DiagnosisError.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
+				BCEDF1D42A1BCEE70030CD75 /* PrivacyPolicyView.swift in Sources */,
 				BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */,
 				BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */,
 				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
@@ -1359,6 +1398,7 @@
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
+				BCEDF1D12A1BCE060030CD75 /* SettingCategoriesView.swift in Sources */,
 				BC5E243E2A19F0D7005278D5 /* WatchActivityView.swift in Sources */,
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
 				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
@@ -1771,6 +1811,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		BCEDF1CC2A1BC9B30030CD75 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1788,6 +1836,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		BCEDF1CD2A1BC9B30030CD75 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCEDF1CC2A1BC9B30030CD75 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
