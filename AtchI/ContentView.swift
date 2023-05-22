@@ -39,6 +39,10 @@ struct ContentView: View {
                         Image(systemName: "gear")
                         Text("설정")
                     }
+                TestUIView()
+                    .tabItem {
+                        Text("테스트")
+                    }
             }
             .tabViewStyle(DefaultTabViewStyle())
             .onAppear() {
