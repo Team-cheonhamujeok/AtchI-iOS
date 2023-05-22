@@ -28,7 +28,7 @@ struct HomeView: View {
                         AIDiagnosisCard()
                         
                         Divider()
-                            .padding(.vertical, 25)
+                            .padding(.vertical, 15)
                         
                         // 애플워치 정보
                         VStack(alignment: .leading, spacing: 10){
