@@ -36,6 +36,7 @@ class SelfTestInfoViewModel: ObservableObject {
                 }
             })
             .store(in: &disposeBag)
+        
     }
     
     // MARK: - UI
