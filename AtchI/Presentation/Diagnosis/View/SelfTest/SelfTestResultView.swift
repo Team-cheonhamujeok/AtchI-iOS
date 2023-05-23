@@ -38,7 +38,7 @@ struct SelfTestResultView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
-                selfTestInfoViewModel.getData()
+                selfTestInfoViewModel.requestData()
                 selfTestViewModel.resetAnswers()
                 path = []
             } content: {

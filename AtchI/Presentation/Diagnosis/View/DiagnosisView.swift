@@ -45,7 +45,7 @@ struct DiagnosisView: View {
         }
         .onAppear {
             //MARK: 서버 데이터 들고오기
-            selfTestInfoViewModel.getData()
+            selfTestInfoViewModel.requestData()
         }
     }
 }
