@@ -66,6 +66,11 @@
 		BC305CB429FF8402001388EA /* HKAuthorizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC305CB329FF8402001388EA /* HKAuthorizationHelper.swift */; };
 		BC37AA5129E080760047D273 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5029E080760047D273 /* CombineMoya */; };
 		BC37AA5329E080760047D273 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5229E080760047D273 /* Moya */; };
+		BC38FBE72A1C82A9005F172B /* MMSEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBE62A1C82A9005F172B /* MMSEViewModel.swift */; };
+		BC38FBE92A1C87C5005F172B /* MMSEQuestions.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */; };
+		BC38FBEB2A1C9814005F172B /* BundelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEA2A1C9814005F172B /* BundelHelper.swift */; };
+		BC38FBF02A1C9CBD005F172B /* TextInputWithSuffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */; };
+		BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
@@ -142,6 +147,7 @@
 		BCEDF1D12A1BCE060030CD75 /* SettingCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDF1D02A1BCE060030CD75 /* SettingCategoriesView.swift */; };
 		BCEDF1D42A1BCEE70030CD75 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDF1D32A1BCEE70030CD75 /* PrivacyPolicyView.swift */; };
 		BCEDF1D62A1BD4560030CD75 /* PrivacyPolicyText.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCEDF1D52A1BD4560030CD75 /* PrivacyPolicyText.rtf */; };
+		BCEDF1D92A1BE4420030CD75 /* MMSEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */; };
 		BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */; };
 		BCF6B8AE2A03B38B00B0FC1D /* HKSleepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */; };
 		BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */; };
@@ -233,6 +239,11 @@
 		BC2E1F662A13CE9000B4E713 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		BC2E1F6A2A13D2CC00B4E713 /* TabBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarType.swift; sourceTree = "<group>"; };
 		BC305CB329FF8402001388EA /* HKAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKAuthorizationHelper.swift; sourceTree = "<group>"; };
+		BC38FBE62A1C82A9005F172B /* MMSEViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEViewModel.swift; sourceTree = "<group>"; };
+		BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MMSEQuestions.plist; sourceTree = "<group>"; };
+		BC38FBEA2A1C9814005F172B /* BundelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundelHelper.swift; sourceTree = "<group>"; };
+		BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputWithSuffix.swift; sourceTree = "<group>"; };
+		BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithBackButton.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -313,6 +324,7 @@
 		BCEDF1D02A1BCE060030CD75 /* SettingCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCategoriesView.swift; sourceTree = "<group>"; };
 		BCEDF1D32A1BCEE70030CD75 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		BCEDF1D52A1BD4560030CD75 /* PrivacyPolicyText.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = PrivacyPolicyText.rtf; sourceTree = "<group>"; };
+		BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEView.swift; sourceTree = "<group>"; };
 		BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternService.swift; sourceTree = "<group>"; };
 		BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepModel.swift; sourceTree = "<group>"; };
 		BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceType.swift; sourceTree = "<group>"; };
@@ -567,6 +579,46 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		BC38FBE52A1C8032005F172B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FBE62A1C82A9005F172B /* MMSEViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BC38FBEE2A1C9C85005F172B /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		BC38FBF12A1CA4E6005F172B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FBF22A1CA4F2005F172B /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BC38FBF22A1CA4F2005F172B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FBF32A1CA4F6005F172B /* Component */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC38FBF32A1CA4F6005F172B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		BC3CA1A829BF664800C8AE3D /* ViewModel */ = {
@@ -838,6 +890,8 @@
 		BC8D551C29B99A4A00FAA6E3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				BC38FBF12A1CA4E6005F172B /* Common */,
+				BCEDF1D72A1BE4320030CD75 /* MMSE */,
 				BC5A82D92A0E0934002EB661 /* Setting */,
 				6F16514629D1339700CC228F /* Prevent */,
 				049ADE9F29C95CF6009B9B62 /* Diagnosis */,
@@ -1063,6 +1117,7 @@
 			isa = PBXGroup;
 			children = (
 				BCEDF1D52A1BD4560030CD75 /* PrivacyPolicyText.rtf */,
+				BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1081,6 +1136,24 @@
 				BCEDF1D32A1BCEE70030CD75 /* PrivacyPolicyView.swift */,
 			);
 			path = SubPage;
+			sourceTree = "<group>";
+		};
+		BCEDF1D72A1BE4320030CD75 /* MMSE */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FBE52A1C8032005F172B /* ViewModel */,
+				BCEDF1DA2A1BE6500030CD75 /* View */,
+			);
+			path = MMSE;
+			sourceTree = "<group>";
+		};
+		BCEDF1DA2A1BE6500030CD75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FBEE2A1C9C85005F172B /* Reusable */,
+				BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BCF6B8A32A02788100B0FC1D /* LifePattern */ = {
@@ -1142,6 +1215,7 @@
 				BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */,
 				BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */,
 				BC2E1F642A139B7600B4E713 /* HapticHelper.swift */,
+				BC38FBEA2A1C9814005F172B /* BundelHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1295,6 +1369,7 @@
 				BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */,
 				BCEDF1D62A1BD4560030CD75 /* PrivacyPolicyText.rtf in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
+				BC38FBE92A1C87C5005F172B /* MMSEQuestions.plist in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
 			);
@@ -1363,6 +1438,7 @@
 				BCDACF4A29FFA97F00EFF2ED /* HKError.swift in Sources */,
 				BCF6B8AE2A03B38B00B0FC1D /* HKSleepModel.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
+				BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
 				BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */,
@@ -1394,8 +1470,10 @@
 				BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */,
 				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
+				BC38FBE72A1C82A9005F172B /* MMSEViewModel.swift in Sources */,
 				BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */,
 				049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */,
+				BC38FBF02A1C9CBD005F172B /* TextInputWithSuffix.swift in Sources */,
 				BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */,
 				049ADEBF29CD4183009B9B62 /* SelfTestResultView.swift in Sources */,
 				BCEDF1D12A1BCE060030CD75 /* SettingCategoriesView.swift in Sources */,
@@ -1423,6 +1501,7 @@
 				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
 				6F06DB6329FD3DCF00770596 /* QuizViewType.swift in Sources */,
 				BC4E1EBB29C2333600915AB6 /* SignupView.swift in Sources */,
+				BCEDF1D92A1BE4420030CD75 /* MMSEView.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
@@ -1442,6 +1521,7 @@
 				BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */,
 				BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
+				BC38FBEB2A1C9814005F172B /* BundelHelper.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */,
 				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */,

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AIDiagnosisCard: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
             Text("치매 진단 결과")
@@ -26,15 +29,18 @@ struct AIDiagnosisCard: View {
             Spacer(minLength: 5)
             
             // MMSE button
-            VStack(alignment: .center) {
-                Text("MMSE검사로 정확도 높이기")
-                    .font(.bodyMedium)
-                    .foregroundColor(.mainBackground)
+            NavigationLink(destination: MMSEView(viewModel: MMSEViewModel())){
+                VStack(alignment: .center) {
+                    Text("MMSE검사로 정확도 높이기")
+                        .font(.bodyMedium)
+                        .foregroundColor(.mainBackground)
+                }
+                .padding(.vertical, 8)
+                .frame(maxWidth: .infinity)
+                .background(Color.mainBlue)
+                .cornerRadius(20)
             }
-            .padding(.vertical, 8)
-            .frame(maxWidth: .infinity)
-            .background(Color.mainBlue)
-            .cornerRadius(20)
+            
         }
         .padding(25)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
