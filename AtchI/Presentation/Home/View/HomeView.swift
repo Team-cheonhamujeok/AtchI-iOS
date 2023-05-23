@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    let watchInfoViewModel = WatchInfoViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -18,21 +21,13 @@ struct HomeView: View {
                     // AI 진단 결과 카드
                     Spacer(minLength: 30)
                     VStack(alignment: .leading){
-                        Text("AI 진단 결과")
+                        Text("AI 진단")
                             .font(.titleMedium)
                         AIDiagnosisCard()
                     }
                     
-                    // 바로가기 카드
                     Spacer(minLength: 50)
-                    VStack(alignment: .leading){
-                        Text("바로가기")
-                            .font(.titleMedium)
-                        HStack{
-                            SelfDiagnosisShortcutCard()
-                            QuizShortcutCard()
-                        }
-                    }
+                    WatchInfoView(viewModel: watchInfoViewModel)
                     
                     // 치매 정보 카드 리스트
                     Spacer(minLength: 50)

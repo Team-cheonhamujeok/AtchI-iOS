@@ -10,7 +10,7 @@ import SwiftUI
 import Moya
 
 struct DiagnosisView: View {
-    let watchInfoViewModel = WatchInfoViewModel()
+    
     let selfTestViewModel = SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
     let selfTestInfoViewModel = SelfTestInfoViewModel(service:  DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
     
@@ -37,8 +37,9 @@ struct DiagnosisView: View {
                     .frame(height: 15)
                     .foregroundColor(.grayBoldLine)
                 
-                WatchInfoView(viewModel: watchInfoViewModel)
-                    .padding(.all, 30)
+                // TODO: MMSE 넣기
+//                WatchInfoView(viewModel: watchInfoViewModel)
+//                    .padding(.all, 30)
                 
                 Spacer()
             }

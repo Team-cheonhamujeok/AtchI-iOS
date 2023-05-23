@@ -22,6 +22,20 @@ struct AIDiagnosisCard: View {
             Text("*AI 진단 정보는 참고용입니다. 정확한 진단은 의사와 상담하세요.")
                 .font(.bodyTiny)
                 .foregroundColor(.grayTextLight)
+            
+            DefaultButton(buttonSize: .small,
+                          width: .infinity,
+                          height: 40,
+                          buttonStyle: .filled,
+                          buttonColor: .mainBlue,
+                          isIndicate: false)
+            {
+                // TODO: Navigation 넣기
+                print("HI")
+            } content: {
+                Text("MMSE 검사로 정확도 높이기")
+            }
+            .padding(.top, 10)
         }
         .padding(25)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
