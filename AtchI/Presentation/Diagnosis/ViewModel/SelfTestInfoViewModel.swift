@@ -13,7 +13,6 @@ import Moya
 class SelfTestInfoViewModel: ObservableObject {
     
     let service: DiagnosisServiceType
-    
     var subject = CurrentValueSubject<Bool, Never>(false)
     var disposeBag = Set<AnyCancellable>()
     
@@ -22,12 +21,10 @@ class SelfTestInfoViewModel: ObservableObject {
     
     init(service: DiagnosisServiceType) {
         self.service = service
-        
         bind()
     }
     
     private func bind() {
-        
         subject
             .sink(receiveValue: { isRequest in
                 if isRequest {
@@ -36,7 +33,6 @@ class SelfTestInfoViewModel: ObservableObject {
                 }
             })
             .store(in: &disposeBag)
-        
     }
     
     // MARK: - UI
