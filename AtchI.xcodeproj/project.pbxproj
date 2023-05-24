@@ -53,6 +53,13 @@
 		6F16515529D134DD00CC228F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515429D134DD00CC228F /* QuizView.swift */; };
 		6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16515629D134FD00CC228F /* QuizDoneView.swift */; };
 		6F3A92EF29FF9DC3000B118D /* HKHeartRateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A92EE29FF9DC3000B118D /* HKHeartRateServiceTests.swift */; };
+		6F7387BB2A19E9B300671413 /* QuizAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7387BA2A19E9B300671413 /* QuizAPI.swift */; };
+		6F7387BD2A19ED5400671413 /* QuizCheckRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7387BC2A19ED5400671413 /* QuizCheckRequestModel.swift */; };
+		6F7387BF2A19F43300671413 /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7387BE2A19F43300671413 /* QuizService.swift */; };
+		6F8A31302A1DFCDD001CA7F4 /* QuizCheckResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A312F2A1DFCDD001CA7F4 /* QuizCheckResponseModel.swift */; };
+		6FA9F1992A1CB34000757B27 /* QuizServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9F1982A1CB34000757B27 /* QuizServiceType.swift */; };
+		6FA9F19B2A1CBAD400757B27 /* GetQuizResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9F19A2A1CBAD400757B27 /* GetQuizResponseModel.swift */; };
+		6FA9F19D2A1CCA7100757B27 /* QuizError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9F19C2A1CCA7100757B27 /* QuizError.swift */; };
 		BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00906529C2CA5D008D6F0C /* TextInput.swift */; };
 		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
 		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
@@ -236,6 +243,13 @@
 		6F16515429D134DD00CC228F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		6F16515629D134FD00CC228F /* QuizDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDoneView.swift; sourceTree = "<group>"; };
 		6F3A92EE29FF9DC3000B118D /* HKHeartRateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceTests.swift; sourceTree = "<group>"; };
+		6F7387BA2A19E9B300671413 /* QuizAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAPI.swift; sourceTree = "<group>"; };
+		6F7387BC2A19ED5400671413 /* QuizCheckRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCheckRequestModel.swift; sourceTree = "<group>"; };
+		6F7387BE2A19F43300671413 /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
+		6F8A312F2A1DFCDD001CA7F4 /* QuizCheckResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCheckResponseModel.swift; sourceTree = "<group>"; };
+		6FA9F1982A1CB34000757B27 /* QuizServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceType.swift; sourceTree = "<group>"; };
+		6FA9F19A2A1CBAD400757B27 /* GetQuizResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuizResponseModel.swift; sourceTree = "<group>"; };
+		6FA9F19C2A1CCA7100757B27 /* QuizError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizError.swift; sourceTree = "<group>"; };
 		BC00906529C2CA5D008D6F0C /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelType.swift; sourceTree = "<group>"; };
 		BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelType.swift; sourceTree = "<group>"; };
@@ -589,6 +603,52 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		6F7387B52A19E80400671413 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				6F7387BE2A19F43300671413 /* QuizService.swift */,
+				6F7387B92A19E9A700671413 /* Protocol */,
+				6F7387B82A19E9A200671413 /* Error */,
+				6F7387B72A19E99E00671413 /* Model */,
+				6F7387B62A19E99400671413 /* API */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		6F7387B62A19E99400671413 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6F7387BA2A19E9B300671413 /* QuizAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		6F7387B72A19E99E00671413 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F7387BC2A19ED5400671413 /* QuizCheckRequestModel.swift */,
+				6FA9F19A2A1CBAD400757B27 /* GetQuizResponseModel.swift */,
+				6F8A312F2A1DFCDD001CA7F4 /* QuizCheckResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F7387B82A19E9A200671413 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				6FA9F19C2A1CCA7100757B27 /* QuizError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		6F7387B92A19E9A700671413 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6FA9F1982A1CB34000757B27 /* QuizServiceType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		BC0446C729FC4536002109A2 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
@@ -800,6 +860,7 @@
 		BC78196D29E07867005C4CF5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6F7387B52A19E80400671413 /* Quiz */,
 				BC38FBFF2A1DD51E005F172B /* MMSE */,
 				BCF6B8A32A02788100B0FC1D /* LifePattern */,
 				BCDACF3C29FF930A00EFF2ED /* Diagnosis */,
@@ -1485,9 +1546,11 @@
 				6F16514B29D1342400CC228F /* PreventView.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */,
+				6FA9F19D2A1CCA7100757B27 /* QuizError.swift in Sources */,
 				BCDACF4A29FFA97F00EFF2ED /* HKError.swift in Sources */,
 				BCF6B8AE2A03B38B00B0FC1D /* HKSleepModel.swift in Sources */,
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
+				6F7387BF2A19F43300671413 /* QuizService.swift in Sources */,
 				BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
@@ -1500,7 +1563,9 @@
 				BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */,
 				BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */,
 				0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */,
+				6F8A31302A1DFCDD001CA7F4 /* QuizCheckResponseModel.swift in Sources */,
 				BC81F35929FD38DA00E09958 /* SignupState.swift in Sources */,
+				6F7387BB2A19E9B300671413 /* QuizAPI.swift in Sources */,
 				BC0446BF29FC24AA002109A2 /* EmailVerificationResponseModel.swift in Sources */,
 				BCF6DA3E29C4344F00E1ACBF /* RoundedButton.swift in Sources */,
 				BCF6DA3A29C42D1C00E1ACBF /* View.swift in Sources */,
@@ -1537,7 +1602,9 @@
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
 				BC305CB429FF8402001388EA /* HKAuthorizationHelper.swift in Sources */,
 				6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */,
+				6F7387BD2A19ED5400671413 /* QuizCheckRequestModel.swift in Sources */,
 				BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */,
+				6FA9F19B2A1CBAD400757B27 /* GetQuizResponseModel.swift in Sources */,
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */,
 				6F0F94AE29FE4DA400993A52 /* HKHeartRateService.swift in Sources */,
@@ -1565,6 +1632,7 @@
 				BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */,
 				6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
+				6FA9F1992A1CB34000757B27 /* QuizServiceType.swift in Sources */,
 				BC81F35F29FD53E100E09958 /* InfoErrorState.swift in Sources */,
 				04A984312A11CC2500C584C2 /* SelfTestInfoViewModel.swift in Sources */,
 				BC2E1F612A137CE000B4E713 /* PushNotificationHelper.swift in Sources */,
@@ -1824,7 +1892,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = 8B3LP78353;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -1839,7 +1907,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spring.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_DOCUMENTATION_COMPILER = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1862,7 +1930,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = 8B3LP78353;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -1877,7 +1945,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spring.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_DOCUMENTATION_COMPILER = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
