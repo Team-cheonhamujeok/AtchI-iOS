@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import Combine
 
 class PreventViewModel: ObservableObject {
     
     @Published var quizCount: Int = 0
-//    var today: String = getNowDay()
+    
+    //let quizService: QuizServiceType?
+    
+    // MARK: - State
+    
+    /// Result - 이벤트에 따른 결과
+    @Published var getQuizErrorMessage: String = ""
     
     func quizCountUp() {
         quizCount = quizCount + 1
@@ -28,4 +35,22 @@ class PreventViewModel: ObservableObject {
         return date_string
     }
     
+    private var cancellables = Set<AnyCancellable>()
+    
+//    init(quizService: QuizServiceType) {
+//        self.quizService = quizService
+//    }
+    
+    func requestQuiz() {
+//        self.quizService.getQuiz(mid: 1).sink(receiveCompletion: { completion in
+//            switch completion {
+//            case .finished: break
+//            case .failure(let error):
+//                self.getQuizErrorMessage = error.description
+//
+//            }
+//        }, receiveValue: { response in
+//
+//        })
+    }
 }

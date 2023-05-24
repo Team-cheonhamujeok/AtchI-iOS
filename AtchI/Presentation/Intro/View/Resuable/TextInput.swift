@@ -64,6 +64,9 @@ struct TextInput: View {
                         }
                         .disabled(disabled)
             }
+            .onTapGesture {
+                isFocused = true
+            }
             
             // Show error message
             Text(errorMessage)

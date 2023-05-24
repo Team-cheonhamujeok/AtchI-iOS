@@ -8,9 +8,13 @@
 import Foundation
 import HealthKit
 
-class HKAuthorizationProvider {
+class HKAuthorizationHelper {
     
-    let healthStore = HKHealthStore()
+    static let shared = HKAuthorizationHelper()
+    
+    private let healthStore = HKHealthStore()
+    
+    private init() { }
     
     // 읽기 및 쓰기 권한 설정
     let readAndshare = Set([HKCategoryType.categoryType(forIdentifier: .sleepAnalysis)!, HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!, HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRateVariabilitySDNN)!, HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.restingHeartRate)!,             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,

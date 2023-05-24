@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>identifier</key>
+		<string>Q01_REPLY_YEAR</string>
+		<key>question</key>
+		<string>올해는 몇 년도 인가요?</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q03_REPLY_DAY</string>
+		<key>question</key>
+		<string>오늘은 며칠인가요?</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q04_REPLY_WEEK</string>
+		<key>question</key>
+		<string>오늘은 무슨 요일인가요?</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q05_REPLY_MONTH</string>
+		<key>question</key>
+		<string>오늘은 몇 월인가요?</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q06_REPLY_COUNTRY</string>
+		<key>question</key>
+		<string>지금 있는 이곳은 어느 나라인가요?</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q07_REPLY_CITY</string>
+		<key>question</key>
+		<string>지금 무슨 시(도)에 있나요?</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q011-1_SHOW_AIRPLANE</string>
+		<key>question</key>
+		<string>지금부터 물건 이름 3개를 보여드리겠습니다. 그대로 외워서 잠시 후에 작성해주세요.</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q011-2_SHOW_PENCIL</string>
+		<key>question</key>
+		<string>지금부터 물건 이름 3개를 보여드리겠습니다. 그대로 외워서 잠시 후에 작성해주세요.</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q011-3_SHOW_TREE</string>
+		<key>question</key>
+		<string>지금부터 물건 이름 3개를 보여드리겠습니다. 그대로 외워서 잠시 후에 작성해주세요.</string>
+		<key>answer</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q012-1_ARITHMETIC_SUBTRACKTION</string>
+		<key>question</key>
+		<string>100에서 7을 빼면 얼마가 되나요?</string>
+		<key>answer</key>
+		<string>93</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q012-2_ARITHMETIC_SUBTRACKTION</string>
+		<key>question</key>
+		<string>거기에서 7을 빼면 얼마가 되나요?</string>
+		<key>answer</key>
+		<string>86</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q012-3_ARITHMETIC_SUBTRACKTION</string>
+		<key>question</key>
+		<string>거기에서 7을 빼면 얼마가 되나요?</string>
+		<key>answer</key>
+		<string>79</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q012-4_ARITHMETIC_SUBTRACKTION</string>
+		<key>question</key>
+		<string>거기에서 7을 빼면 얼마가 되나요?</string>
+		<key>answer</key>
+		<string>72</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q012-5_ARITHMETIC_SUBTRACKTION</string>
+		<key>question</key>
+		<string>거기에서 7을 빼면 얼마가 되나요?</string>
+		<key>answer</key>
+		<string>65</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q013-1_REPLY_AIRPLANE</string>
+		<key>question</key>
+		<string>좀 전에 외웠던 물건 이름 세가지 기억나시요? 차례대로 적어주세요.</string>
+		<key>answer</key>
+		<string>비행기</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q013-2_REPLY_PENCIL</string>
+		<key>question</key>
+		<string>좀 전에 외웠던 물건 이름 세가지 기억나시요? 차례대로 적어주세요.</string>
+		<key>answer</key>
+		<string>연필</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q013-3_REPLY_TREE</string>
+		<key>question</key>
+		<string>좀 전에 외웠던 물건 이름 세가지 기억나시요? 차례대로 적어주세요.</string>
+		<key>answer</key>
+		<string>소나무</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q014-1_IMAGE_CLOCK</string>
+		<key>question</key>
+		<string>이것이 무엇인가요?</string>
+		<key>answer</key>
+		<string>시계</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>Q014-2_IMAGE_MIRROR</string>
+		<key>question</key>
+		<string>이것이 무엇인가요?</string>
+		<key>answer</key>
+		<string>거울</string>
+	</dict>
+</array>
+</plist>
