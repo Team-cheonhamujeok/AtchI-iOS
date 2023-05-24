@@ -50,7 +50,7 @@ struct SelfTestInfoView: View {
     var noTestView: some View {
         VStack {
             HStack {
-                ExplainTestView()
+                ExplainDiagnosisView(title: "치매 자가진단 해보세요!", subTitle: "몇가지 질문으로 간단하게 치매 진단을 받아보세요")
                 Spacer()
             }
             DefaultButton(buttonSize: .large,
@@ -69,10 +69,8 @@ struct SelfTestInfoView: View {
     
     var haveTestView: some View {
         VStack(alignment: .leading) {
-            
-            // 1️⃣ 자가진단 다시하기 버튼
             VStack(alignment: .leading) {
-                ExplainTestView()
+                ExplainDiagnosisView(title: "치매 자가진단 해보세요!", subTitle: "몇가지 질문으로 간단하게 치매 진단을 받아보세요")
                 DefaultButton(buttonSize: .small,
                               width: 153,
                               height: 35,
@@ -123,22 +121,6 @@ struct SelfTestInfoView: View {
                 }
                 Spacer()
             }
-        }
-    }
-}
-
-//MARK: - Other View
-
-/// 자가진단 설명 Label
-struct ExplainTestView: View {
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("치매 자가진단 해보세요!")
-                .font(.titleMedium)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            Text("몇가지 질문으로 간단하게 치매 진단을 받아보세요")
-                .font(.bodySmall)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
     }
 }

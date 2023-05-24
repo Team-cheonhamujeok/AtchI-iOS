@@ -14,6 +14,7 @@
 		0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */; };
 		0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */; };
 		045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F769B2A0DC2BD00AA3418 /* SelfTestLevel.swift */; };
+		0477F2652A1E01810081F0C2 /* ExplainDiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477F2642A1E01810081F0C2 /* ExplainDiagnosisView.swift */; };
 		04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04818F732A0B8B22002B8EB2 /* DateError.swift */; };
 		0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491BAD529F968C4005C53E5 /* MockHealthKitProvider.swift */; };
 		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
@@ -177,6 +178,7 @@
 		0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIServiceTests.swift; sourceTree = "<group>"; };
 		0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceTest.swift; sourceTree = "<group>"; };
 		045F769B2A0DC2BD00AA3418 /* SelfTestLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestLevel.swift; sourceTree = "<group>"; };
+		0477F2642A1E01810081F0C2 /* ExplainDiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainDiagnosisView.swift; sourceTree = "<group>"; };
 		04818F732A0B8B22002B8EB2 /* DateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateError.swift; sourceTree = "<group>"; };
 		0491BAD529F968C4005C53E5 /* MockHealthKitProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHealthKitProvider.swift; sourceTree = "<group>"; };
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
@@ -369,6 +371,14 @@
 			path = HealthKit;
 			sourceTree = "<group>";
 		};
+		0477F2632A1E015E0081F0C2 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				0477F2642A1E01810081F0C2 /* ExplainDiagnosisView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		04818F722A0B8AF4002B8EB2 /* Error */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +430,7 @@
 		049ADEA029C95D05009B9B62 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0477F2632A1E015E0081F0C2 /* Component */,
 				049ADEB929CC493A009B9B62 /* SelfTest */,
 				049ADEA529C98349009B9B62 /* SelfTestInfo */,
 				049ADEA229C97003009B9B62 /* DiagnosisView.swift */,
@@ -1391,6 +1402,7 @@
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */,
 				6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */,
+				0477F2652A1E01810081F0C2 /* ExplainDiagnosisView.swift in Sources */,
 				6F16515329D134AA00CC228F /* QuizStateCard.swift in Sources */,
 				BC81F35F29FD53E100E09958 /* InfoErrorState.swift in Sources */,
 				04A984312A11CC2500C584C2 /* SelfTestInfoViewModel.swift in Sources */,
