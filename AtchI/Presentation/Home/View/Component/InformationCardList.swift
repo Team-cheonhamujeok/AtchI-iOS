@@ -17,8 +17,6 @@ struct InformationCardList: View {
     
     var body: some View {
         VStack(alignment: .leading){
-            Text("치매 정보")
-                .font(.titleMedium)
             VStack(spacing: 20) {
                 ForEach(alzheimerInformations, id: \.title) {
                     InformationCard(

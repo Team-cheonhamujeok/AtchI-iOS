@@ -83,6 +83,7 @@ struct IntroView: View {
                                 path.append(.login)
                             }
                     }
+                    .padding(.bottom, 30)
                     
                 }
             }

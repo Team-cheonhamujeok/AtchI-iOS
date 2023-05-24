@@ -62,6 +62,9 @@ struct SecureInput: View {
             }.frame(maxWidth: .infinity,
                     minHeight: 65,
                     maxHeight: 65)
+            .onTapGesture {
+                isFocused = true
+            }
             
             // Error message
             Text(errorMessage)
