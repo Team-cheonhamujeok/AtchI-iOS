@@ -10,7 +10,8 @@ import SwiftUI
 struct TextInputWithSuffix: View {
 
     @Binding var text: String
-    let suffix: String
+    var suffix: String = ""
+    var keyboardType: UIKeyboardType = .default
     
     // private
     @FocusState private var isFocused: Bool
@@ -40,7 +41,7 @@ struct TextInputWithSuffix: View {
                               text: $text)
                         .font(.titleSmall)
                         .foregroundColor(.accentColor)
-                        .keyboardType(.numberPad)
+                        .keyboardType(keyboardType)
                         .padding(.horizontal, 16)
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity,

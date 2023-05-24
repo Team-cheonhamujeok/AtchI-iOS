@@ -35,8 +35,21 @@ struct MMSEView: View {
                     .animation(.easeIn, value: viewModel.currentIndex)
                     
                     // MARK: Answer
-//                    TextInputWithSuffix(text: $viewModel.editTextInput)
-//                        .padding([.horizontal, .top], 30)
+                    VStack {
+                        switch viewModel.questions[viewModel.currentIndex].viewType {
+                        case .reply(let reply):
+                            ReplyAnswerInput(text: $viewModel.editTextInput,
+                                             viewType: reply)
+                        case .arithmetic(let arithmetic):
+                            EmptyView()
+                        case .show(let show):
+                            EmptyView()
+                        case .image(let image):
+                            EmptyView()
+                        case .undefined:
+                            EmptyView()
+                        }
+                    }.padding(30)
                     Spacer()
                 }
                 
@@ -59,7 +72,6 @@ struct MMSEView: View {
             }
         }
     }
-    
 }
 
 struct MMSEView_Previews: PreviewProvider {

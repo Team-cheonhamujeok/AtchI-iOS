@@ -20,7 +20,7 @@
 	</dict>
 	<dict>
 		<key>identifier</key>
-		<string>Q04_REPLY_WEEKDAY</string>
+		<string>Q04_REPLY_WEEK</string>
 		<key>question</key>
 		<string>오늘은 무슨 요일인가요?</string>
 		<key>answer</key>
@@ -76,7 +76,7 @@
 	</dict>
 	<dict>
 		<key>identifier</key>
-		<string>Q012_1_SUBTRACKTION</string>
+		<string>Q012_1_ARITHMETIC_SUBTRACKTION</string>
 		<key>question</key>
 		<string>100에서 7을 빼면 얼마가 되나요?</string>
 		<key>answer</key>
@@ -84,7 +84,7 @@
 	</dict>
 	<dict>
 		<key>identifier</key>
-		<string>Q012_2_SUBTRACKTION</string>
+		<string>Q012_2_ARITHMETIC_SUBTRACKTION</string>
 		<key>question</key>
 		<string>거기에서 7을 빼면 얼마가 되나요?</string>
 		<key>answer</key>
@@ -92,7 +92,7 @@
 	</dict>
 	<dict>
 		<key>identifier</key>
-		<string>Q012_3_SUBTRACKTION</string>
+		<string>Q012_3_ARITHMETIC_SUBTRACKTION</string>
 		<key>question</key>
 		<string>거기에서 7을 빼면 얼마가 되나요?</string>
 		<key>answer</key>
@@ -100,7 +100,7 @@
 	</dict>
 	<dict>
 		<key>identifier</key>
-		<string>Q012_4_SUBTRACKTION</string>
+		<string>Q012_4_ARITHMETIC_SUBTRACKTION</string>
 		<key>question</key>
 		<string>거기에서 7을 빼면 얼마가 되나요?</string>
 		<key>answer</key>
@@ -108,7 +108,7 @@
 	</dict>
 	<dict>
 		<key>identifier</key>
-		<string>Q012_5_SUBTRACKTION</string>
+		<string>Q012_5_ARITHMETIC_SUBTRACKTION</string>
 		<key>question</key>
 		<string>거기에서 7을 빼면 얼마가 되나요?</string>
 		<key>answer</key>
@@ -140,11 +140,11 @@
 	</dict>
 	<dict>
 		<key>identifier</key>
-		<string>Q014_1_IMAGE_WATCH</string>
+		<string>Q014_1_IMAGE_CLOCK</string>
 		<key>question</key>
 		<string>이것이 무엇인가요?</string>
 		<key>answer</key>
-		<string></string>
+		<string>시계</string>
 	</dict>
 	<dict>
 		<key>identifier</key>
@@ -152,7 +152,7 @@
 		<key>question</key>
 		<string>이것이 무엇인가요?</string>
 		<key>answer</key>
-		<string></string>
+		<string>거울</string>
 	</dict>
 </array>
 </plist>

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MMSEViewType {
+enum MMSEViewType: Equatable {
     
     case reply(Reply)
     case arithmetic(Arithmetic)
@@ -36,7 +36,7 @@ enum MMSEViewType {
     }
     
     enum Image: String, CaseIterable {
-        case watch
+        case clock
         case mirror
     }
 }
@@ -45,7 +45,18 @@ struct MMSEQuestionModel {
     let identifier: String
     let order: String
     let question: String
-    let answer: String
+    private let staticAnswer: String
+    
+    init(identifier: String, order: String, question: String, answer: String) {
+        self.identifier = identifier
+        self.order = order
+        self.question = question
+        self.staticAnswer = answer
+    }
+    
+    var answer: String {
+        return staticAnswer
+    }
     
     /// identifier을 MMSEViewType에 매핑하여 반환합니다.
     var viewType: MMSEViewType {
@@ -97,4 +108,6 @@ class MMSEService {
                                      answer: answer)
         }
     }
+    
+    
 }
