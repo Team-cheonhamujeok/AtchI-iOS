@@ -26,10 +26,11 @@ struct NavigationBarWithBackButton: View {
                     .foregroundColor(bgColor == .white
                                      ? .accentColor
                                      : .white)
+                    .fontWeight(.medium)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .padding(.leading, 10)
+        .padding([.leading, .top], 10)
         .background(bgColor == .white
                     ? .white
                     : .accentColor)

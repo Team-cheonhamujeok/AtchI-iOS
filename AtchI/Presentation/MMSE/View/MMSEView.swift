@@ -9,9 +9,7 @@ import SwiftUI
 
 struct MMSEView: View {
     
-    @StateObject var viewModel: MMSEViewModel
-    
-    @State var tempText: String = ""
+    @ObservedObject var viewModel: MMSEViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -21,7 +19,6 @@ struct MMSEView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     // MARK: Question
                     VStack(alignment: .leading, spacing: 10) {
-                        
                         Text(viewModel.questions[viewModel.currentIndex].order)
                             .foregroundColor(.white)
                             .opacity(0.8)
@@ -33,13 +30,13 @@ struct MMSEView: View {
                     .frame(maxWidth: .infinity,
                            alignment: .leading)
                     .frame(minHeight: 150)
-                    .padding()
+                    .padding(.horizontal, 30)
                     .background(Color.accentColor)
                     .animation(.easeIn, value: viewModel.currentIndex)
                     
                     // MARK: Answer
-                    TextInputWithSuffix(text: $tempText)
-                        .padding([.horizontal, .top], 30)
+//                    TextInputWithSuffix(text: $viewModel.editTextInput)
+//                        .padding([.horizontal, .top], 30)
                     Spacer()
                 }
                 
@@ -50,11 +47,12 @@ struct MMSEView: View {
                     RoundedButton(title: viewModel.currentIndex == viewModel.questions.count - 1
                                   ? "완료하기"
                                   : "다음으로",
-                                  onTap: viewModel.$tabNextButton,
-                                  state: viewModel.buttonState)
+                                  onTap: viewModel.$tapNextButton,
+                                  state: viewModel.nextButtonState)
                     .padding(30)
                 }
             }
+            .toolbar(.hidden, for: .navigationBar)
             .background(Color.mainBackground)
             .onTapGesture {
                 hideKeyboard()

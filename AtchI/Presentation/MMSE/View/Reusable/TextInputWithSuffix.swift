@@ -10,6 +10,7 @@ import SwiftUI
 struct TextInputWithSuffix: View {
 
     @Binding var text: String
+    let suffix: String
     
     // private
     @FocusState private var isFocused: Bool
@@ -51,7 +52,7 @@ struct TextInputWithSuffix: View {
                 isFocused = true
             }
             
-            Text("년")
+            Text(suffix)
                 .font(.titleMedium)
                 .foregroundColor(isFocused
                                  ? .mainText

@@ -71,6 +71,10 @@
 		BC38FBEB2A1C9814005F172B /* BundelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEA2A1C9814005F172B /* BundelHelper.swift */; };
 		BC38FBF02A1C9CBD005F172B /* TextInputWithSuffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */; };
 		BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */; };
+		BC38FBF82A1CB7F7005F172B /* ReplyAnswerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF72A1CB7F7005F172B /* ReplyAnswerInput.swift */; };
+		BC38FBFA2A1DC3BA005F172B /* ImageAnswerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF92A1DC3BA005F172B /* ImageAnswerInput.swift */; };
+		BC38FBFC2A1DC3D2005F172B /* ArithmeticAnswerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBFB2A1DC3D2005F172B /* ArithmeticAnswerInput.swift */; };
+		BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FC002A1DD530005F172B /* MMSEService.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
@@ -244,6 +248,10 @@
 		BC38FBEA2A1C9814005F172B /* BundelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundelHelper.swift; sourceTree = "<group>"; };
 		BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputWithSuffix.swift; sourceTree = "<group>"; };
 		BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithBackButton.swift; sourceTree = "<group>"; };
+		BC38FBF72A1CB7F7005F172B /* ReplyAnswerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyAnswerInput.swift; sourceTree = "<group>"; };
+		BC38FBF92A1DC3BA005F172B /* ImageAnswerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnswerInput.swift; sourceTree = "<group>"; };
+		BC38FBFB2A1DC3D2005F172B /* ArithmeticAnswerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticAnswerInput.swift; sourceTree = "<group>"; };
+		BC38FC002A1DD530005F172B /* MMSEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEService.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -621,6 +629,24 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		BC38FBF62A1CB7DF005F172B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FBF72A1CB7F7005F172B /* ReplyAnswerInput.swift */,
+				BC38FBF92A1DC3BA005F172B /* ImageAnswerInput.swift */,
+				BC38FBFB2A1DC3D2005F172B /* ArithmeticAnswerInput.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		BC38FBFF2A1DD51E005F172B /* MMSE */ = {
+			isa = PBXGroup;
+			children = (
+				BC38FC002A1DD530005F172B /* MMSEService.swift */,
+			);
+			path = MMSE;
+			sourceTree = "<group>";
+		};
 		BC3CA1A829BF664800C8AE3D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,6 +782,7 @@
 		BC78196D29E07867005C4CF5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BC38FBFF2A1DD51E005F172B /* MMSE */,
 				BCF6B8A32A02788100B0FC1D /* LifePattern */,
 				BCDACF3C29FF930A00EFF2ED /* Diagnosis */,
 				BCDACF3929FF92C700EFF2ED /* Validation */,
@@ -1150,6 +1177,7 @@
 		BCEDF1DA2A1BE6500030CD75 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC38FBF62A1CB7DF005F172B /* Component */,
 				BC38FBEE2A1C9C85005F172B /* Reusable */,
 				BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */,
 			);
@@ -1417,6 +1445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC77192D2A0F856E00F692C6 /* Publishers.swift in Sources */,
+				BC38FBF82A1CB7F7005F172B /* ReplyAnswerInput.swift in Sources */,
 				049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */,
 				042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */,
 				6F06DB5F29FD3D7700770596 /* Quiz.swift in Sources */,
@@ -1459,6 +1488,7 @@
 				BC2E1F652A139B7600B4E713 /* HapticHelper.swift in Sources */,
 				BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */,
 				BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */,
+				BC38FBFA2A1DC3BA005F172B /* ImageAnswerInput.swift in Sources */,
 				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				BC2E1F672A13CE9000B4E713 /* URL.swift in Sources */,
@@ -1489,6 +1519,7 @@
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */,
 				6F0F94AE29FE4DA400993A52 /* HKHeartRateService.swift in Sources */,
+				BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */,
 				04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
 				BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */,
@@ -1506,6 +1537,7 @@
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
+				BC38FBFC2A1DC3D2005F172B /* ArithmeticAnswerInput.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */,
 				6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */,

@@ -8,74 +8,67 @@
 import Foundation
 import Combine
 
-struct MMSEQuestionModel {
-    let identifier: String
-    let order: String
-    let question: String
+
+struct MMSEAnswerModel {
+    let answer: String
+    var isCorrect: Bool = false
 }
 
 class MMSEViewModel: ObservableObject {
     
     // MARK: - Dependency
-    var bundelHelper = BundelHelper()
+    private var mmseService = MMSEService()
     
     // MARK: - Input State
-    @Subject var tabNextButton: Void = ()
+    /// Next button 클릭 이벤트입니다.
+    @Subject var tapNextButton: Void = ()
+    /// 사용자가 입력하는 Text Input 값입니다.
+    @Published var editTextInput: String = ""
     
     // MARK: - Ouput State
-    @Published var buttonState: ButtonState = .disabled
+    /// Next button 상태입니다.
+    @Published var nextButtonState: ButtonState = .disabled
+    /// 현재 질문 인덱스입니다.
     @Published var currentIndex: Int = 0
+    
+    // MARK: - Data
     var questions: [MMSEQuestionModel] = []
+    var answers: [String] = []
+    
 
     // MARK: - Cancellabe
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
     init() {
+        self.questions = mmseService.getMMSEQuestions()
         bind()
-        getMMSEQuestions()
     }
     
     // MARK: - Binding
     func bind() {
-        $tabNextButton
+        
+        $tapNextButton
+            .sink {
+                // 정답 저장
+                
+                // 질문 인덱스 관리
+                self.currentIndex = self.currentIndex >= 0
+                                    ? self.currentIndex + 1
+                                    : self.currentIndex
+                // Text field 초기화
+                self.editTextInput = ""
+            }
+            .store(in: &cancellables)
+
+        
+        // Next button 상태 관리
+        $editTextInput
+            .share()
             .map {
-                self.currentIndex + 1
+                $0.count > 0 ? .enabled : .disabled
             }
-            .filter {
-                $0 < self.questions.count
-            }
-            .assign(to: \.currentIndex , on: self)
+            .assign(to: \.nextButtonState , on: self)
             .store(in: &cancellables)
     }
-    
-    // MARK: - Other...
-    /// MMSE plist 파일에 있는 식별자와 질문을 파싱해 MMSEQuestionModel로 변환합니다.
-    private func getMMSEQuestions() {
-        // plist 파일 가져오기 & 파싱
-        let plist = bundelHelper.parsePlist("MMSEQuestions")
-        
-        self.questions = plist.enumerated().compactMap { idx, item in
-            guard let identifier = item["identifier"],
-                  let question = item["question"]
-            else { return nil }
-            
-            return MMSEQuestionModel(identifier: identifier,
-                                     order: numberToKoreanOrdinal(idx+1),
-                                     question: question)
-        }
-    }
-    
-    /// 기수를 서수로 변환합니다.
-    ///
-    /// 1, 2, 3 ... -> "첫번째", "두번째", "세번째" 로 변환합니다. 근데 안대냉 ㅎㅎ
-    private func numberToKoreanOrdinal(_ number: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        guard let numberString = formatter.string(from: NSNumber(value: number)) else {
-            return ""
-        }
-        return numberString + "번째"
-    }
-
 }
