@@ -32,7 +32,9 @@ enum MMSEViewType: Equatable {
     }
     
     enum Show: String, CaseIterable {
-        case text
+        case airplane
+        case pencil
+        case tree
     }
     
     enum Image: String, CaseIterable {
@@ -60,26 +62,32 @@ struct MMSEQuestionModel {
     
     /// identifier을 MMSEViewType에 매핑하여 반환합니다.
     var viewType: MMSEViewType {
-        if identifier.contains("REPLY") {
+// FIXME: 중첩은 나중에 고칩시다..
+        let subIdentifiers = identifier.components(separatedBy: "_")
+        if subIdentifiers[1] == "REPLY" {
             // String 형 rawValue를 이용해 매핑
             for replyCase in MMSEViewType.Reply.allCases {
-                if identifier.contains(replyCase.rawValue.uppercased()) {
+                if subIdentifiers[2] == replyCase.rawValue.uppercased() {
                     return .reply(replyCase)
                 }
             }
         }
-        else if identifier.contains("IMAGE") {
-            for replyCase in MMSEViewType.Reply.allCases {
-                if identifier.contains(replyCase.rawValue.uppercased()) {
-                    return .reply(replyCase)
+        else if subIdentifiers[1] == "IMAGE" {
+            for imageCase in MMSEViewType.Image.allCases {
+                if subIdentifiers[2] == imageCase.rawValue.uppercased() {
+                    return .image(imageCase)
                 }
             }
         }
-        else if identifier.contains("ARITHMETIC") {
+        else if subIdentifiers[1] == "ARITHMETIC" {
             return .arithmetic(.subtraction)
         }
-        else if identifier.contains("SHOW") {
-            return .show(.text)
+        else if subIdentifiers[1] == "SHOW" {
+            for showCase in MMSEViewType.Show.allCases {
+                if subIdentifiers[2] == showCase.rawValue.uppercased() {
+                    return .show(showCase)
+                }
+            }
         }
         
         return .undefined

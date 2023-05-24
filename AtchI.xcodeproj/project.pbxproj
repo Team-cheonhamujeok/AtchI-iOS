@@ -75,6 +75,7 @@
 		BC38FBFA2A1DC3BA005F172B /* ImageAnswerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF92A1DC3BA005F172B /* ImageAnswerInput.swift */; };
 		BC38FBFC2A1DC3D2005F172B /* ArithmeticAnswerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBFB2A1DC3D2005F172B /* ArithmeticAnswerInput.swift */; };
 		BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FC002A1DD530005F172B /* MMSEService.swift */; };
+		BC38FC032A1E0EF6005F172B /* ShowTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FC022A1E0EF6005F172B /* ShowTextView.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
 		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
 		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
@@ -83,6 +84,7 @@
 		BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C529C0886D0094333B /* InformationCardList.swift */; };
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
+		BC4607A52A1E1E3F00015447 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4607A42A1E1E3F00015447 /* String.swift */; };
 		BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */; };
 		BC49094B29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */; };
 		BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC88B57229D5F47C003CA752 /* Combine.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -252,6 +254,7 @@
 		BC38FBF92A1DC3BA005F172B /* ImageAnswerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnswerInput.swift; sourceTree = "<group>"; };
 		BC38FBFB2A1DC3D2005F172B /* ArithmeticAnswerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticAnswerInput.swift; sourceTree = "<group>"; };
 		BC38FC002A1DD530005F172B /* MMSEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEService.swift; sourceTree = "<group>"; };
+		BC38FC022A1E0EF6005F172B /* ShowTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTextView.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
@@ -260,6 +263,7 @@
 		BC4317C529C0886D0094333B /* InformationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardList.swift; sourceTree = "<group>"; };
 		BC4317C829C094530094333B /* AlzheimerInformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformationType.swift; sourceTree = "<group>"; };
 		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
+		BC4607A42A1E1E3F00015447 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BC49094129EA69AB00EDDD0D /* AtchIViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchIViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIViewModelTests.swift; sourceTree = "<group>"; };
 		BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelTests.swift; sourceTree = "<group>"; };
@@ -635,6 +639,7 @@
 				BC38FBF72A1CB7F7005F172B /* ReplyAnswerInput.swift */,
 				BC38FBF92A1DC3BA005F172B /* ImageAnswerInput.swift */,
 				BC38FBFB2A1DC3D2005F172B /* ArithmeticAnswerInput.swift */,
+				BC38FC022A1E0EF6005F172B /* ShowTextView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -910,6 +915,7 @@
 				BCF6DA3929C42D1C00E1ACBF /* View.swift */,
 				BC77192C2A0F856E00F692C6 /* Publishers.swift */,
 				BC2E1F662A13CE9000B4E713 /* URL.swift */,
+				BC4607A42A1E1E3F00015447 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1511,6 +1517,7 @@
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
 				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
+				BC38FC032A1E0EF6005F172B /* ShowTextView.swift in Sources */,
 				049ADEB429CC1C72009B9B62 /* WatchInfoViewModel.swift in Sources */,
 				049ADEA929C9837C009B9B62 /* WatchInfoView.swift in Sources */,
 				BC305CB429FF8402001388EA /* HKAuthorizationHelper.swift in Sources */,
@@ -1537,6 +1544,7 @@
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
+				BC4607A52A1E1E3F00015447 /* String.swift in Sources */,
 				BC38FBFC2A1DC3D2005F172B /* ArithmeticAnswerInput.swift in Sources */,
 				049ADEB829CC209D009B9B62 /* WatchInfoRow.swift in Sources */,
 				BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */,

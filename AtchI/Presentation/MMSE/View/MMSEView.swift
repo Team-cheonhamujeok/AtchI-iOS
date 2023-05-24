@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MMSEView: View {
     
-    @ObservedObject var viewModel: MMSEViewModel
+    @StateObject var viewModel: MMSEViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -26,10 +26,11 @@ struct MMSEView: View {
                         Text(viewModel.questions[viewModel.currentIndex].question)
                             .foregroundColor(.white)
                             .font(.titleMedium)
+                            .lineSpacing(1.2)
                     }
                     .frame(maxWidth: .infinity,
                            alignment: .leading)
-                    .frame(minHeight: 150)
+                    .frame(minHeight: 200)
                     .padding(.horizontal, 30)
                     .background(Color.accentColor)
                     .animation(.easeIn, value: viewModel.currentIndex)
@@ -37,19 +38,25 @@ struct MMSEView: View {
                     // MARK: Answer
                     VStack {
                         switch viewModel.questions[viewModel.currentIndex].viewType {
-                        case .reply(let reply):
+                        case .reply(let replyType):
                             ReplyAnswerInput(text: $viewModel.editTextInput,
-                                             viewType: reply)
-                        case .arithmetic(let arithmetic):
-                            EmptyView()
-                        case .show(let show):
-                            EmptyView()
-                        case .image(let image):
-                            EmptyView()
+                                             viewType: replyType)
+                        case .arithmetic(let arithmeticType):
+                            ArithmeticAnswerInput(text: $viewModel.editTextInput,
+                                                  viewType: arithmeticType)
+                        case .show(let showType):
+                            ShowTextView(text: $viewModel.editTextInput,
+                                         viewType: showType)
+                        case .image(let imageType):
+                            ImageAnswerInput(text: $viewModel.editTextInput,
+                                  viewType: imageType)
                         case .undefined:
                             EmptyView()
                         }
-                    }.padding(30)
+                    }
+                    .padding(30)
+                    .animation(.easeIn, value: viewModel.currentIndex)
+                    
                     Spacer()
                 }
                 

@@ -10,20 +10,29 @@ import SwiftUI
 extension MMSEViewType.Image {
     var imageName: String {
         switch self {
-        case .clock: return ""
+        case .clock: return "mmse_clock"
         case .mirror: return ""
         }
     }
 }
 
 struct ImageAnswerInput: View {
+    
+    @Binding var text: String
+    let viewType: MMSEViewType.Image
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(viewType.imageName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 300)
+        TextInputWithSuffix(text: $text)
     }
 }
 
-struct ImageAnswerInput_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageAnswerInput()
-    }
-}
+//struct ImageAnswerInput_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ImageAnswerInput(viewType: .clock)
+//    }
+//}
+

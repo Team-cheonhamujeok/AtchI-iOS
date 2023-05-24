@@ -7,14 +7,20 @@
 
 import SwiftUI
 
-struct ArithmeticAnswerInput: View {
-    var body: some View {
-        Text("")
+extension MMSEViewType.Arithmetic {
+    
+    var keyboardType: UIKeyboardType {
+        return .numberPad
     }
 }
 
-struct ArithmeticAnswerInput_Previews: PreviewProvider {
-    static var previews: some View {
-        ArithmeticAnswerInput()
+struct ArithmeticAnswerInput: View {
+    
+    @Binding var text: String
+    let viewType: MMSEViewType.Arithmetic
+    
+    var body: some View {
+        TextInputWithSuffix(text: $text,
+                            keyboardType: viewType.keyboardType)
     }
 }

@@ -40,7 +40,7 @@ struct TextInputWithSuffix: View {
                     TextField("",
                               text: $text)
                         .font(.titleSmall)
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(.mainPurple)
                         .keyboardType(keyboardType)
                         .padding(.horizontal, 16)
                         .multilineTextAlignment(.center)

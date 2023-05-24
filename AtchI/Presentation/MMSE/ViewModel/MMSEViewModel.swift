@@ -34,7 +34,6 @@ class MMSEViewModel: ObservableObject {
     // MARK: - Data
     var questions: [MMSEQuestionModel] = []
     var answers: [String] = []
-    
 
     // MARK: - Cancellabe
     var cancellables = Set<AnyCancellable>()
@@ -42,6 +41,9 @@ class MMSEViewModel: ObservableObject {
     // MARK: - Constructor
     init() {
         self.questions = mmseService.getMMSEQuestions()
+        questions.forEach {
+            print("\($0.identifier), \($0.viewType)")
+        }
         bind()
     }
     
@@ -53,6 +55,12 @@ class MMSEViewModel: ObservableObject {
                 // 정답 저장
                 
                 // 질문 인덱스 관리
+                let viewType: MMSEViewType = .reply(.year)
+
+                if case .reply(let replyCase) = viewType {
+                    // reply 케이스인 경우
+                    print("Reply case: \(replyCase)")
+                }
                 self.currentIndex = self.currentIndex >= 0
                                     ? self.currentIndex + 1
                                     : self.currentIndex
@@ -64,9 +72,11 @@ class MMSEViewModel: ObservableObject {
         
         // Next button 상태 관리
         $editTextInput
-            .share()
-            .map {
-                $0.count > 0 ? .enabled : .disabled
+            .map { text in
+                switch self.questions[self.currentIndex].viewType {
+                case .show(_): return .enabled
+                default: return text.count > 0 ? .enabled : .disabled
+                }
             }
             .assign(to: \.nextButtonState , on: self)
             .store(in: &cancellables)
