@@ -107,6 +107,7 @@ class SelfTestViewModel: ObservableObject {
     /// 점수로 단계를 계산하는 함수
     func calculateLevel(point: Int) -> SelfTestLevel {
         if isAgain { return .again }
+        
         if point <= 3 {
             return .safety
         }
