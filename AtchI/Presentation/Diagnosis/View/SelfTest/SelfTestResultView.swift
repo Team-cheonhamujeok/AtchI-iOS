@@ -19,10 +19,10 @@ struct SelfTestResultView: View {
             Spacer()
             
             // Title
-            Text(selfTestViewModel.getEmoji())
+            Text(selfTestViewModel.emoji)
                 .font(.titleLarge)
                 .padding(.all, 14)
-            Text(selfTestViewModel.getLevel())
+            Text(selfTestViewModel.level)
                 .font(.titleLarge)
                 .foregroundColor(.mainPurple)
             
@@ -38,7 +38,7 @@ struct SelfTestResultView: View {
                           buttonColor: .mainPurple,
                           isIndicate: false)
             {
-                selfTestInfoViewModel.getData()
+                selfTestInfoViewModel.requestData()
                 selfTestViewModel.resetAnswers()
                 path = []
             } content: {
@@ -54,7 +54,7 @@ struct SelfTestResultView: View {
 struct SelfTestResultExplainCardView: View {
     var viewModel: SelfTestViewModel
     var body: some View {
-        let level = viewModel.getLevel()
+        let level = viewModel.level
         if level == "치매 안심 단계" {
             safeLevelView
         } else if level == "치매 위험 단계" {
