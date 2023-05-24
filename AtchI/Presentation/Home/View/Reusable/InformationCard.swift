@@ -62,7 +62,7 @@ struct InformationCard: View {
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .strokeBorder(Color.grayThinLine, lineWidth: 1.5)
+                .strokeBorder(Color.grayBoldLine, lineWidth: 1.5)
         )
         // action - show modal
         .onTapGesture {
