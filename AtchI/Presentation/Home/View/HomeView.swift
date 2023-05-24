@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+ 
+    let watchInfoViewModel = WatchInfoViewModel()
+
     @State var richText: String = ""
     
     var body: some View {
@@ -36,7 +38,7 @@ struct HomeView: View {
                         Text("AI 진단에 쓰이고 있는 활동 정보들입니다!")
                             .font(.bodySmall)
                         Spacer(minLength: 10)
-                        WatchActivityView()
+                        WatchInfoView(viewModel: watchInfoViewModel)
                     }
                 }
                 .padding([.leading, .trailing, .bottom], 30)
