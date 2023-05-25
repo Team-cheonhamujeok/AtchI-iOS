@@ -90,6 +90,7 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { response in
                 UserDefaults.standard.set(response.mid, forKey: "mid")
+                // Login창 내려가자마자 권한요청 뜨는 UX가 별로라 지연 넣음
                 Task.detached {
                     try await Task.sleep(nanoseconds: 1 * 1_000_000_000 / 2)
                     PushNotificationHelper.shared.setAuthorization()

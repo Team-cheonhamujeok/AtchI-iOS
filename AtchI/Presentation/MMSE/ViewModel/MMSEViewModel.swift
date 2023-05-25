@@ -33,37 +33,38 @@ class MMSEViewModel: ObservableObject {
     @Published var currentIndex: Int = 0
     
     // MARK: - Data
+    /// MMSE 문항 목록입니다.
     var questions: [MMSEQuestionModel] = []
-    var answers: [String] = []
-
+    /// 정답 확인 배열입니다. 맞으면 1 틀리면 2입니다.
+    /// - Note: 문항 순서(인덱스)가 Key값입니다.
+    var isCorrect: [Int: String] = [:]
+    
     // MARK: - Cancellabe
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
     init() {
-        locationHelper.getCurrentLocation {
-            print("location \(String(describing: $0))")
-        }
+        locationHelper.requestAuthorization()
         self.questions = mmseService.getMMSEQuestions()
         bind()
     }
     
     // MARK: - Binding
-    func bind() {
+    private func bind() {
         
         $tapNextButton
             .sink {
                 // 정답 저장
-                
-                // 질문 인덱스 관리
-                if case .reply(let replyCase) = self.questions[self.currentIndex].viewType {
-                    // reply 케이스인 경우
-                    print("Reply case: \(replyCase)")
-                }
+                self.mmseService
+                    .checkIsCorrect(questionModel: self.questions[self.currentIndex],
+                                    userAnswer: self.editTextInput) {
+                        self.isCorrect[self.currentIndex] = $0 ? "1" : "2"
+                        print("answer: \(self.editTextInput), correct: \($0) isCorrect: \(self.isCorrect)")
+                    }
                 
                 self.currentIndex = self.currentIndex >= 0
-                                    ? self.currentIndex + 1
-                                    : self.currentIndex
+                ? self.currentIndex + 1
+                : self.currentIndex
                 // Text field 초기화
                 self.editTextInput = ""
             }

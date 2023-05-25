@@ -8,40 +8,29 @@
 import Foundation
 import CoreLocation
 
+/// CoreLocation을 이용해 사용자의 위치정보를 받아오는 헬퍼클래스입니다.
 class LocationHelper: NSObject {
-    private let locationManager = CLLocationManager()
+    
+    let locationManager = CLLocationManager()
     
     override init() {
         super.init()
         self.locationManager.delegate = self
     }
     
-    func getCurrentLocation(completion: @escaping (CLLocationCoordinate2D?) -> Void) {
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        
-        // 위치 정보 업데이트를 위한 클로저 내에서 외부로 위치 정보를 반환
-        locationManager.didUpdateLocationsCallback = { locations in
-            guard let coordinate = locations.last?.coordinate else {
-                completion(nil)
-                return
-            }
-            
-            completion(coordinate)
-        }
-        
-        locationManager.stopUpdatingLocation()
-    }
-    
+    /// 위치 접근 권한 허용 기능입니다.
     func requestAuthorization() {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    func getLocationName(latitude: Double, longitude: Double, completion: @escaping (String?) -> Void) {
-        let location = CLLocation(latitude: latitude, longitude: longitude)
-        let geocoder = CLGeocoder()
+    /// 위도와 경도를 받아 지역명으로 변환합니다.
+    func getLocationName(locationType: LocationNameType,
+                         completion: @escaping (String?) -> Void) {
         
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+        guard let location = locationManager.location
+        else { completion(nil); return }
+        
+        CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
             guard error == nil else {
                 print("Reverse geocoding error: \(error!.localizedDescription)")
                 completion(nil)
@@ -49,17 +38,20 @@ class LocationHelper: NSObject {
             }
             
             if let placemark = placemarks?.first {
-                // 지역명 가져오기
-                let locality = placemark.locality ?? ""
-                let subLocality = placemark.subLocality ?? ""
-                let thoroughfare = placemark.thoroughfare ?? ""
-                let address = "\(subLocality) \(thoroughfare)"
-                
-                // 변환된 지역명 반환
-                completion(locality + " " + address)
-            } else {
-                completion(nil)
-            }
+                // 주소 정보 가져오기
+                switch locationType {
+                case .country:
+                    completion(placemark.country ?? "") // FIXME: 예외처리
+                    return
+                case .locality:
+                    completion(placemark.locality)
+                    return
+                case .subLocality:
+                    completion("\(placemark.subLocality ?? "") \(placemark.thoroughfare ?? "")")
+                case .address:
+                    completion("\(placemark.locality ?? "") \(placemark.subLocality ?? "") \(placemark.thoroughfare ?? "")")
+                }
+            } else { completion(nil) }
         }
     }
 }
@@ -68,8 +60,8 @@ extension LocationHelper: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            print(coordinate.latitude)
-            print(coordinate.longitude)
+            // print(coordinate.latitude)
+            // print(coordinate.longitude)
         }
     }
     
@@ -79,18 +71,16 @@ extension LocationHelper: CLLocationManagerDelegate {
     }
 }
 
-extension CLLocationManager {
-    // 위치 정보 업데이트 시 외부로 위치 정보를 반환하기 위한 콜백 클로저
-    fileprivate var didUpdateLocationsCallback: (([CLLocation]) -> Void)? {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.didUpdateLocationsCallback) as? ([CLLocation]) -> Void
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.didUpdateLocationsCallback, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-        }
-    }
-    
-    private struct AssociatedKeys {
-        static var didUpdateLocationsCallback = "didUpdateLocationsCallback"
+extension LocationHelper {
+    /// 위치, 지역명 종류입니다.
+    enum LocationNameType {
+        /// 나라명
+        case country
+        /// 시/도
+        case locality
+        /// 동/읍/면
+        case subLocality
+        /// 시/도 + 동/읍/면
+        case address
     }
 }
