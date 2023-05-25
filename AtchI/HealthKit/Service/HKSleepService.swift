@@ -135,19 +135,19 @@ extension HKSleepService {
     ///    - completion: sample을 전달받는 콜백 클로저입니다.
     /// - Returns: 수면 데이터를 [HKCategorySample] 형으로 Future에 담아 반환합니다.
     private func fetchSleepSamples(date: Date) -> Future<[HKCategorySample], HKError> {
-        return Future() { [weak self] promise in
+        return Future() { promise in
             
             if date > Date() {
                 fatalError("Future dates are not accessible.")
             }
             
             // 조건 날짜 정의 (그날 오후 6시 - 다음날 오후 6시)
-            let endDate = self?.dateHelper.getTodaySixPM(date)
-            let startDate = self?.dateHelper.getYesterdaySixPM(date)
+            let endDate = self.dateHelper.getTodaySixPM(date)
+            let startDate = self.dateHelper.getYesterdaySixPM(date)
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
             
             // 수면 데이터 가져오기
-            self?.provider.getCategoryTypeSamples(identifier: .sleepAnalysis,
+            self.provider.getCategoryTypeSamples(identifier: .sleepAnalysis,
                                                  predicate: predicate) { samples, error  in
                 if let error = error { promise(.failure(error)) }
                 promise(.success(samples))

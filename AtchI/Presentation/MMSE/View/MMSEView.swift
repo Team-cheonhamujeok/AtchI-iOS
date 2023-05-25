@@ -46,7 +46,7 @@ struct MMSEView: View {
                         }
                         .frame(maxWidth: .infinity,
                                alignment: .leading)
-                        .frame(minHeight: !(isImageViewType && keyboardHelper.isKeyboardVisible) ? 0 : rootGeometry.size.height * 0.3)
+                        .frame(minHeight: (isImageViewType && keyboardHelper.isKeyboardVisible) ? 0 : rootGeometry.size.height * 0.3)
                         .padding(.horizontal, 30)
                         .background(Color.accentColor)
                         .animation(.easeIn(duration: 0.2), value: viewModel.currentIndex)

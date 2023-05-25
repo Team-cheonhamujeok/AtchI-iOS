@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum LifePatternAPI{
-    case sendLifePattern(_ lifePatternModel: LifePatternModel)
+    case sendLifePattern(_ lifePatternModel: [LifePatternModel])
 }
 
 extension LifePatternAPI: TargetType {
@@ -39,7 +39,7 @@ extension LifePatternAPI: TargetType {
     var task: Moya.Task {
         switch self {
         case .sendLifePattern(let model):
-            return .requestPlain
+            return .requestJSONEncodable(model)
         }
     }
     

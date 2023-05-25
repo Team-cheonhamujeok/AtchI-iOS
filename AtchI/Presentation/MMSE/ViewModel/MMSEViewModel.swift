@@ -18,6 +18,7 @@ class MMSEViewModel: ObservableObject {
     
     // MARK: - Dependency
     private var mmseService = MMSEService()
+    private var locationHelper = LocationHelper()
     
     // MARK: - Input State
     /// Next button 클릭 이벤트입니다.
@@ -40,6 +41,9 @@ class MMSEViewModel: ObservableObject {
     
     // MARK: - Constructor
     init() {
+        locationHelper.getCurrentLocation {
+            print("location \(String(describing: $0))")
+        }
         self.questions = mmseService.getMMSEQuestions()
         bind()
     }

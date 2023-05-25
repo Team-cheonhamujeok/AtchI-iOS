@@ -1,5 +1,5 @@
 //
-//  KeyboardHeightHelper.swift
+//  KeyboardHelper.swift
 //  AtchI
 //
 //  Created by DOYEON LEE on 2023/05/25.
