@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelfTestRow: View {
+struct TestRow: View {
     var result: SelfTestResult
     var isFirst: Bool
     
@@ -15,7 +15,7 @@ struct SelfTestRow: View {
         HStack {
             Circle()
                 .frame(width: 5)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
+            
             VStack(alignment: .leading) {
                 HStack {
                     if isFirst {
@@ -26,6 +26,7 @@ struct SelfTestRow: View {
                 }
                 .font(.bodyLarge)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
+                
                 HStack {
                     Text("\(result.point)점 /")
                     Text(result.level)

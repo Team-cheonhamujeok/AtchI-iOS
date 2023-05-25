@@ -1,23 +1,20 @@
 //
-//  SelfTestInfoView.swift
+//  MMSEInfoView.swift
 //  AtchI
 //
-//  Created by 강민규 on 2023/03/21.
+//  Created by 강민규 on 2023/05/25.
 //
 
 import SwiftUI
-import Moya
 
-struct SelfTestInfoView: View {
-    @StateObject var viewModel: SelfTestInfoViewModel
+struct MMSEInfoView: View {
+    @StateObject var viewModel: MMSEInfoViewModel
     
     @Binding var path: [DiagnosisViewStack]
     
-    //MARK: - Body
-    
     var body: some View {
         Group {
-            if viewModel.selfTestResults.isEmpty {
+            if viewModel.testResults.isEmpty {
                 noTestView
             } else {
                 haveTestView
@@ -25,61 +22,75 @@ struct SelfTestInfoView: View {
         }
     }
     
-    //MARK: - 자가진단을 안했을 때
-    
+    //MARK: - Test 안했을 때
     var noTestView: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
-                VStack(alignment: .leading) {
-                    Text("치매 자가진단 해보세요!")
-                        .font(.titleMedium)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                    
-                    Text("몇가지 질문으로 간단하게 치매 진단을 받아보세요")
-                        .font(.bodySmall)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
-                }
+                Text("간단한 MMSE 검사를 해보세요")
+                    .font(.titleMedium)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                 Spacer()
+                Image(systemName: "questionmark.circle")
+                    .foregroundColor(.mainText)
+                    .padding(.trailing, 20)
             }
-            .padding(.horizontal, 30)
+            
+            Group {
+                VStack(alignment: .leading, spacing: 7) {
+                    Text("💡 MMSE 검사란?")
+                        .font(.titleSmall)
+                    VStack (alignment: .leading){
+                        Text("MMSE 검사는 인지 기능 평가 도구로 인지 손상, 치매 등의 질환을 조기에 발견하기 위한 검사입니다. 앱에서는 간략화한 검사를 제공하고 있으며, 보다 정확한 검사는 전문가와 상담하시길 권장드립니다.")
+                    }
+                }
+                .frame(maxWidth:.infinity ,alignment: .leading)
+                .padding(25)
+                .background(Color.grayBoldLine)
+                .cornerRadius(20)
+            }
+            .padding(.vertical, 20)
+            
             
             DefaultButton(buttonSize: .large,
                           buttonStyle: .filled,
                           buttonColor: .mainPurple,
                           isIndicate: true)
             {
+                // TODO: TEST 뷰로 이동
                 path.append(.selfTestStart)
             } content: {
-                Text("자가진단 시작하기")
+                Text("MMSE 검사하기")
             }
-            .padding(25)
+            
         }
+        .padding(25)
     }
-    
-    //MARK: - 자가진단을 했을 때
-    
+        
+    //MARK: - Test 했을 때
     var haveTestView: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
-                VStack(alignment: .leading) {
-                    Text("치매 자가진단 해보세요!")
+                HStack {
+                    Text("간단한 MMSE 검사를 해보세요")
                         .font(.titleMedium)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                    
-                    Text("몇가지 질문으로 간단하게 치매 진단을 받아보세요")
-                        .font(.bodySmall)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
+                    Spacer()
+                    Image(systemName: "questionmark.circle")
+                        .foregroundColor(.mainText)
+                        .padding(.trailing, 20)
                 }
                 DefaultButton(buttonSize: .small,
-                              width: 153,
+                              width: 173,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: .mainPurple,
+                              buttonColor: .mainPurpleLight,
                               isIndicate: false)
                 {
+                    //TODO: 테스트 화면
                     path.append(.selfTestStart)
                 } content: {
-                    Text("자가진단 다시하기")
+                    Text("MMSE 검사 다시하기")
+                        .foregroundColor(.mainPurple)
                 }
                 .padding(.bottom, 5)
                 
@@ -88,8 +99,8 @@ struct SelfTestInfoView: View {
             .padding(.horizontal, 30)
             
             // 2️⃣ 자가진단 리스트
-            List(viewModel.selfTestResults) { value in
-                if let firstID =  viewModel.selfTestResults.first?.id {
+            List(viewModel.testResults) { value in
+                if let firstID =  viewModel.testResults.first?.id {
                     if firstID == value.id {
                         TestRow(result: value, isFirst: true)
                             .listRowSeparator(.hidden)
@@ -115,7 +126,7 @@ struct SelfTestInfoView: View {
                               buttonColor: .grayDisabled,
                               isIndicate: false)
                 {
-                    path.append(.selfTestResultList)
+                    path.append(.mmseResultList)
                 } content: {
                     Text("전체보기")
                 }
@@ -126,7 +137,8 @@ struct SelfTestInfoView: View {
     }
 }
 
-struct DiagnosisViewm_Previews: PreviewProvider {
+
+struct DiagnosisView2_Previews: PreviewProvider {
     static var previews: some View {
         DiagnosisView()
     }

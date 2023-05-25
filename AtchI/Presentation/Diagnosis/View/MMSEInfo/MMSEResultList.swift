@@ -1,17 +1,16 @@
 //
-//  SelfTestResultList.swift
+//  MMSEResultList.swift
 //  AtchI
 //
-//  Created by 강민규 on 2023/03/31.
+//  Created by 강민규 on 2023/05/25.
 //
 
 import SwiftUI
-import Moya
 
-struct SelfTestResultList: View {
+struct MMSEResultList: View {
     
     @Binding var path: [DiagnosisViewStack]
-    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
+    @StateObject var mmseInfoViewModel: MMSEInfoViewModel
     
     var body: some View {
         ScrollView {
@@ -20,8 +19,8 @@ struct SelfTestResultList: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
-                ForEach(selfTestInfoViewModel.selfTestResults) { value in
-                    if let firstID =  selfTestInfoViewModel.selfTestResults.first?.id {
+                ForEach(mmseInfoViewModel.testResults) { value in
+                    if let firstID =  mmseInfoViewModel.testResults.first?.id {
                         if firstID == value.id {
                             TestRow(result: value, isFirst: true)
                                 .listRowSeparator(.hidden)
@@ -42,4 +41,3 @@ struct SelfTestResultList: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
-
