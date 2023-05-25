@@ -25,7 +25,7 @@ final class AtchIServiceTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        service = nil
+//        service = nil
     }
     
     func testExample() throws {
@@ -36,18 +36,19 @@ final class AtchIServiceTests: XCTestCase {
         let currentDate = Date()
         
         // Calendar와 DateComponents를 사용하여 100일 전(임시)의 날짜 계산
-        let lifePatternPublishers = (0...0).reversed()
+        let lifePatternPublishers = (0...100).reversed()
             .compactMap { subtractDay -> AnyPublisher<LifePatternModel, Never>? in
                 var dateComponents = DateComponents()
                 dateComponents.day = -subtractDay
                 let calendar = Calendar.current
                 guard let calculatedDate = calendar.date(byAdding: dateComponents, to: currentDate)
-                else { return nil }
+                else {
+                    return nil }
                 
                 return service.createLifePatternModel(date: calculatedDate)
             }
         
-        let cancellable = lifePatternPublishers[0]
+        let cancellable = Publishers.MergeMany(lifePatternPublishers)
             .collect()
             .sink {
                 expectation.fulfill()
