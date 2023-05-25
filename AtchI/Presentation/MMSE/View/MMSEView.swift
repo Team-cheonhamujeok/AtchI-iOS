@@ -77,10 +77,6 @@ struct MMSEView: View {
                         
                         Spacer()
                     }
-                    .onTapGesture {
-                        print("taptap")
-                        hideKeyboard()
-                    }
                 }
                 
                 // z layer 2
@@ -96,6 +92,11 @@ struct MMSEView: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                print("taptap")
+                hideKeyboard()
+            }
         }
     }
     
