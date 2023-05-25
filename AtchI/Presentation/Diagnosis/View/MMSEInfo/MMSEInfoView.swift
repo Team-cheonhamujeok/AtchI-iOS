@@ -9,8 +9,9 @@ import SwiftUI
 
 struct MMSEInfoView: View {
     @StateObject var viewModel: MMSEInfoViewModel
-    
     @Binding var path: [DiagnosisViewStack]
+    
+    @State var isPresentModal = false
     
     var body: some View {
         Group {
@@ -19,6 +20,32 @@ struct MMSEInfoView: View {
             } else {
                 haveTestView
             }
+        }
+        .sheet(isPresented: $isPresentModal) {
+            VStack(alignment: .leading) {
+                Text("💡 MMSE 검사란?")
+                    .font(.titleMedium)
+                Text("")
+                Text("MMSE 검사는 인지 기능 평가 도구로 인지 손상, 치매 등의 질환을 조기에 발견하기 위한 검사입니다.")
+                Text("")
+                Text("앱에서는 간략화한 검사를 제공하고 있으며, 보다 정확한 검사는 전문가와 상담하시길 권장드립니다.")
+                Text("")
+                Text("")
+                
+                DefaultButton(buttonSize: .large,
+                              buttonStyle: .filled,
+                              buttonColor: .mainPurpleLight,
+                              isIndicate: false)
+                {
+                    self.isPresentModal = false
+                } content: {
+                    Text("닫기")
+                        .foregroundColor(.mainPurple)
+                }
+                
+            }
+            .padding(20)
+            .presentationDetents([.height(300)])
         }
     }
     
@@ -30,9 +57,6 @@ struct MMSEInfoView: View {
                     .font(.titleMedium)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                 Spacer()
-                Image(systemName: "questionmark.circle")
-                    .foregroundColor(.mainText)
-                    .padding(.trailing, 20)
             }
             
             Group {
@@ -73,11 +97,13 @@ struct MMSEInfoView: View {
                 HStack {
                     Text("간단한 MMSE 검사를 해보세요")
                         .font(.titleMedium)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                     Spacer()
                     Image(systemName: "questionmark.circle")
                         .foregroundColor(.mainText)
                         .padding(.trailing, 20)
+                        .onTapGesture {
+                            self.isPresentModal = true
+                        }
                 }
                 DefaultButton(buttonSize: .small,
                               width: 173,
