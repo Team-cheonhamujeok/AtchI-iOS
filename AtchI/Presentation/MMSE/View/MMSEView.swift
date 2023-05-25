@@ -27,7 +27,7 @@ struct MMSEView: View {
             NavigationBarWithBackButton(bgColor: .mainPurple)
             ZStack {
                 GeometryReader { rootGeometry in
-                    // layer 1
+                    // z layer 1
                     VStack(alignment: .leading, spacing: 0) {
                         // MARK: Question
                         VStack(alignment: .leading, spacing: 10) {
@@ -50,7 +50,7 @@ struct MMSEView: View {
                         .padding(.horizontal, 30)
                         .background(Color.accentColor)
                         .animation(.easeIn(duration: 0.2), value: viewModel.currentIndex)
-                        .animation(.easeIn(duration: 0.1), value: keyboardHelper.isKeyboardVisible)
+                        .animation(.easeIn(duration: 0.2), value: keyboardHelper.isKeyboardVisible)
                         
                         // MARK: Answer
                         VStack {
@@ -74,12 +74,16 @@ struct MMSEView: View {
                         .padding(30)
                         .padding(.bottom, 80)
                         .animation(.easeIn, value: viewModel.currentIndex)
+                        
+                        Spacer()
                     }
-                    Spacer()
+                    .onTapGesture {
+                        print("taptap")
+                        hideKeyboard()
+                    }
                 }
                 
-                
-                // layer 2
+                // z layer 2
                 VStack {
                     Spacer()
                     // MARK: Next button
@@ -91,10 +95,7 @@ struct MMSEView: View {
                     .padding(30)
                 }
             }
-        }
-        .toolbar(.hidden, for: .navigationBar)
-        .onTapGesture {
-            hideKeyboard()
+            .toolbar(.hidden, for: .navigationBar)
         }
     }
     

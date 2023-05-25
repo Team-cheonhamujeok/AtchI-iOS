@@ -60,7 +60,7 @@ class LifePatternService {
 
 extension LifePatternService {
     /// HKService조합해서 여러 값을 LifePatternModel로 묶습니다.
-    func createLifePatternModel(date: Date) -> AnyPublisher<LifePatternModel, Never> {
+    private func createLifePatternModel(date: Date) -> AnyPublisher<LifePatternModel, Never> {
         let stepCountPub = activityService.getStepCount(date: date)
             .replaceError(with: -1.0)
         let sleepTotalPub = sleepService.getSleepRecord(date: date, sleepCategory: .total)
@@ -87,7 +87,7 @@ extension LifePatternService {
     }
     
     /// 수면 심박 평균 구합니다.
-    func getSleepHeartRateAverage(date: Date) -> AnyPublisher<Double, HKError> {
+    private func getSleepHeartRateAverage(date: Date) -> AnyPublisher<Double, HKError> {
         return sleepService.getSleepInterval(date: date)
             .flatMap { intervals -> AnyPublisher<Double, Never> in
                 
