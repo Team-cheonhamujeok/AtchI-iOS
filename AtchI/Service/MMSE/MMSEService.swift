@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 enum MMSEViewType: Equatable {
     
@@ -116,6 +117,4 @@ class MMSEService {
                                      answer: answer)
         }
     }
-    
-    
 }

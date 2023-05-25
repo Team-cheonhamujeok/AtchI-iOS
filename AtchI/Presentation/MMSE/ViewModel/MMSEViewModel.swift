@@ -41,9 +41,6 @@ class MMSEViewModel: ObservableObject {
     // MARK: - Constructor
     init() {
         self.questions = mmseService.getMMSEQuestions()
-        questions.forEach {
-            print("\($0.identifier), \($0.viewType)")
-        }
         bind()
     }
     
@@ -55,12 +52,11 @@ class MMSEViewModel: ObservableObject {
                 // 정답 저장
                 
                 // 질문 인덱스 관리
-                let viewType: MMSEViewType = .reply(.year)
-
-                if case .reply(let replyCase) = viewType {
+                if case .reply(let replyCase) = self.questions[self.currentIndex].viewType {
                     // reply 케이스인 경우
                     print("Reply case: \(replyCase)")
                 }
+                
                 self.currentIndex = self.currentIndex >= 0
                                     ? self.currentIndex + 1
                                     : self.currentIndex
@@ -68,14 +64,14 @@ class MMSEViewModel: ObservableObject {
                 self.editTextInput = ""
             }
             .store(in: &cancellables)
-
         
         // Next button 상태 관리
         $editTextInput
             .map { text in
-                switch self.questions[self.currentIndex].viewType {
-                case .show(_): return .enabled
-                default: return text.count > 0 ? .enabled : .disabled
+                if case .show(_) = self.questions[self.currentIndex].viewType {
+                    return .enabled
+                } else {
+                    return text.count > 0 ? .enabled : .disabled
                 }
             }
             .assign(to: \.nextButtonState , on: self)

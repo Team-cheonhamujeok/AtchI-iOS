@@ -47,7 +47,7 @@ struct RoundedButton: View {
     var bgColor: Color {
         switch state {
         case .enabled:
-            return .mainPurple
+            return .accentColor
         case .disabled:
             return .grayDisabled
         case .loading:
