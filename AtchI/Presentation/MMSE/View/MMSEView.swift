@@ -22,7 +22,6 @@ struct MMSEView: View {
             return true
         }
         
-        
         VStack(alignment: .leading, spacing: 0) {
             NavigationBarWithBackButton(bgColor: .mainPurple)
             ZStack {
@@ -41,16 +40,15 @@ struct MMSEView: View {
                                     .foregroundColor(.white)
                                     .font(.titleMedium)
                                     .lineSpacing(1.2)
-                                
                             }
                         }
                         .frame(maxWidth: .infinity,
                                alignment: .leading)
-                        .frame(minHeight: (isImageViewType && keyboardHelper.isKeyboardVisible) ? 0 : rootGeometry.size.height * 0.3)
+                        .frame(minHeight: (isImageViewType && keyboardHelper.isKeyboardVisible)
+                               ? 0
+                               : rootGeometry.size.height * 0.3)
                         .padding(.horizontal, 30)
                         .background(Color.accentColor)
-                        .animation(.easeIn(duration: 0.2), value: viewModel.currentIndex)
-                        .animation(.easeIn(duration: 0.2), value: keyboardHelper.isKeyboardVisible)
                         
                         // MARK: Answer
                         VStack {
@@ -73,10 +71,10 @@ struct MMSEView: View {
                         }
                         .padding(30)
                         .padding(.bottom, 80)
-                        .animation(.easeIn, value: viewModel.currentIndex)
                         
                         Spacer()
                     }
+                    .background(Color.mainBackground)
                 }
                 
                 // z layer 2
@@ -94,12 +92,11 @@ struct MMSEView: View {
             .toolbar(.hidden, for: .navigationBar)
             .contentShape(Rectangle())
             .onTapGesture {
-                print("taptap")
                 hideKeyboard()
             }
+//            .animation(.easeIn(duration: 0.1), value: keyboardHelper.isKeyboardVisible)
         }
     }
-    
 }
 
 struct MMSEView_Previews: PreviewProvider {

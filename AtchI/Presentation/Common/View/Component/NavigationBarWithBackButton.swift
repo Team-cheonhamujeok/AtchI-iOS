@@ -27,7 +27,7 @@ struct NavigationBarWithBackButton: View {
                     .foregroundColor(bgColor == .white
                                      ? .accentColor
                                      : .white)
-                    .fontWeight(.medium)
+                    .fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
