@@ -9,6 +9,9 @@ import Foundation
 
 /// 특정 날짜 계산을 위임받는 클래스입니다.
 class DateHelper: DateHelperType {
+    
+    static let shared: DateHelper = DateHelper()
+    
     func getTodaySixPM(_ date: Date) -> Date {
         let calendar = Calendar.current
         // 그날 오후 6시
