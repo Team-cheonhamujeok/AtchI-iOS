@@ -92,7 +92,7 @@ extension LifePatternService {
             .flatMap { intervals -> AnyPublisher<Double, Never> in
                 
                 let publishers = intervals.map {
-                    self.heartRateService.getHeartRate(startDate: $0.startDate,
+                    self.heartRateService.getHeartRateAveragePerMin(startDate: $0.startDate,
                                                        endDate: $0.endDate)
                     .replaceError(with: [])
                 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @StateObject private var viewModel = HomeViewModel()
+    
     @State var richText: String = ""
     
     var body: some View {
@@ -31,12 +33,22 @@ struct HomeView: View {
                     
                     // 애플워치 정보
                     VStack(alignment: .leading, spacing: 10){
-                        Text("현재 활동 정보")
-                            .font(.titleSmall)
+                        HStack {
+                            Text("현재 활동 정보")
+                                .font(.titleSmall)
+                            Spacer()
+                            Image(systemName: "arrow.clockwise")
+                                .foregroundColor(.grayDisabled)
+                                .onTapGesture {
+                                    viewModel.$onTapRefreshButton.send(())
+                                }
+                        }
                         Text("AI 진단에 쓰이고 있는 활동 정보들입니다!")
-                            .font(.bodySmall)
+                            .font(.bodyMedium)
                         Spacer(minLength: 10)
-                        WatchActivityView()
+                        WatchActivityView(stepCount: $viewModel.stepCount,
+                                          heartAverage: $viewModel.heartAverage,
+                                          sleepTotal: $viewModel.sleepTotal)
                     }
                 }
                 .padding([.leading, .trailing, .bottom], 30)
@@ -62,6 +74,9 @@ struct HomeView: View {
                maxHeight: .infinity,
                alignment: .leading)
         .background(Color.mainBackground)
+        .onAppear {
+            viewModel.$viewOnAppear.send(())
+        }
     }
 }
 
