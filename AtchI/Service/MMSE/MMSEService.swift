@@ -8,94 +8,7 @@
 import Foundation
 import CoreLocation
 
-enum MMSEViewType: Equatable {
-    
-    case reply(Reply)
-    case arithmetic(Arithmetic)
-    case show(Show)
-    case image(Image)
-    case undefined
-    
-    enum Reply: String, CaseIterable {
-        case year
-        case day
-        case week
-        case month
-        case country
-        case city
-        case airplane
-        case pencil
-        case tree
-    }
-    
-    enum Arithmetic: String, CaseIterable {
-        case subtraction
-    }
-    
-    enum Show: String, CaseIterable {
-        case airplane
-        case pencil
-        case tree
-    }
-    
-    enum Image: String, CaseIterable {
-        case clock
-        case mirror
-    }
-}
-
-struct MMSEQuestionModel {
-    let identifier: String
-    let order: String
-    let question: String
-    private let staticAnswer: String
-    
-    init(identifier: String, order: String, question: String, answer: String) {
-        self.identifier = identifier
-        self.order = order
-        self.question = question
-        self.staticAnswer = answer
-    }
-    
-    var answer: String {
-        return staticAnswer
-    }
-    
-    /// identifier을 MMSEViewType에 매핑하여 반환합니다.
-    var viewType: MMSEViewType {
-// FIXME: 중복은 나중에 고칩시다..
-        let subIdentifiers = identifier.components(separatedBy: "_")
-        if subIdentifiers[1] == "REPLY" {
-            // String 형 rawValue를 이용해 매핑
-            for replyCase in MMSEViewType.Reply.allCases {
-                if subIdentifiers[2] == replyCase.rawValue.uppercased() {
-                    return .reply(replyCase)
-                }
-            }
-        }
-        else if subIdentifiers[1] == "IMAGE" {
-            for imageCase in MMSEViewType.Image.allCases {
-                if subIdentifiers[2] == imageCase.rawValue.uppercased() {
-                    return .image(imageCase)
-                }
-            }
-        }
-        else if subIdentifiers[1] == "ARITHMETIC" {
-            return .arithmetic(.subtraction)
-        }
-        else if subIdentifiers[1] == "SHOW" {
-            for showCase in MMSEViewType.Show.allCases {
-                if subIdentifiers[2] == showCase.rawValue.uppercased() {
-                    return .show(showCase)
-                }
-            }
-        }
-        
-        return .undefined
-    }
-}
-
-
+/// MMSE 내부 계산 및 문항 파싱을 담당하는 Service입니다.
 class MMSEService {
     
     private let bundelHelper = BundelHelper()
@@ -146,7 +59,6 @@ class MMSEService {
                 
             case .year:
                 let currentYear = Calendar.current.component(.year, from: Date())
-                print(String(currentYear))
                 completion(String(currentYear) == userAnswer)
                 return
                 
@@ -176,8 +88,5 @@ class MMSEService {
             completion(questionModel.answer == userAnswer)
             return
         }
-        
-        print("### 디버깅 디버깅: \(false)")
-        completion(false)
     }
 }

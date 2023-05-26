@@ -105,6 +105,8 @@
 		BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82DB2A0E0949002EB661 /* SettingView.swift */; };
 		BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */; };
 		BC5E243E2A19F0D7005278D5 /* WatchActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */; };
+		BC69482B2A20700D006DED29 /* MMSEViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482A2A20700D006DED29 /* MMSEViewType.swift */; };
+		BC69482E2A207030006DED29 /* MMSEQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
@@ -299,6 +301,8 @@
 		BC5A82DB2A0E0949002EB661 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActivityView.swift; sourceTree = "<group>"; };
+		BC69482A2A20700D006DED29 /* MMSEViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEViewType.swift; sourceTree = "<group>"; };
+		BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionModel.swift; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
@@ -728,6 +732,8 @@
 		BC38FBFF2A1DD51E005F172B /* MMSE */ = {
 			isa = PBXGroup;
 			children = (
+				BC69482C2A207023006DED29 /* Model */,
+				BC6948292A206FFB006DED29 /* Enum */,
 				BC38FC002A1DD530005F172B /* MMSEService.swift */,
 			);
 			path = MMSE;
@@ -824,6 +830,22 @@
 				BC5A82DB2A0E0949002EB661 /* SettingView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BC6948292A206FFB006DED29 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				BC69482A2A20700D006DED29 /* MMSEViewType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		BC69482C2A207023006DED29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BC6F0F6229EFAE3A00F3FBD1 /* HealthKit */ = {
@@ -1556,6 +1578,7 @@
 				BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */,
 				6F16515729D134FD00CC228F /* QuizDoneView.swift in Sources */,
 				6F16514B29D1342400CC228F /* PreventView.swift in Sources */,
+				BC69482E2A207030006DED29 /* MMSEQuestionModel.swift in Sources */,
 				BCF6DA3829C4293C00E1ACBF /* ToogleInput.swift in Sources */,
 				BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */,
 				6FA9F19D2A1CCA7100757B27 /* QuizError.swift in Sources */,
@@ -1665,6 +1688,7 @@
 				04285B972A1B626700E7EF42 /* ReadMeView.swift in Sources */,
 				BCB9C68F2A0A20A100273F33 /* HKSleepIntervalModel.swift in Sources */,
 				BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */,
+				BC69482B2A20700D006DED29 /* MMSEViewType.swift in Sources */,
 				6F06DB6529FD3DDA00770596 /* TodayQuiz.swift in Sources */,
 				BCE398C62A1EE8DD007E4242 /* KeyboardHelper.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* SelfTestRow.swift in Sources */,
