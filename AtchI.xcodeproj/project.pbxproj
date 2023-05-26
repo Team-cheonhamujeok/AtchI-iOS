@@ -107,6 +107,8 @@
 		BC5E243E2A19F0D7005278D5 /* WatchActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */; };
 		BC69482B2A20700D006DED29 /* MMSEViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482A2A20700D006DED29 /* MMSEViewType.swift */; };
 		BC69482E2A207030006DED29 /* MMSEQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */; };
+		BC6948312A20AC65006DED29 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BC6948302A20AC65006DED29 /* Factory */; };
+		BC6948332A20AC70006DED29 /* Container+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6948322A20AC70006DED29 /* Container+Extension.swift */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
@@ -303,6 +305,7 @@
 		BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActivityView.swift; sourceTree = "<group>"; };
 		BC69482A2A20700D006DED29 /* MMSEViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEViewType.swift; sourceTree = "<group>"; };
 		BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionModel.swift; sourceTree = "<group>"; };
+		BC6948322A20AC70006DED29 /* Container+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Extension.swift"; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
@@ -403,6 +406,7 @@
 				BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */,
 				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
+				BC6948312A20AC65006DED29 /* Factory in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
 				BCEDF1CE2A1BC9B30030CD75 /* MarkdownUI in Frameworks */,
 			);
@@ -973,6 +977,7 @@
 		BC8D54FE29B9909C00FAA6E3 /* AtchI */ = {
 			isa = PBXGroup;
 			children = (
+				BC6948322A20AC70006DED29 /* Container+Extension.swift */,
 				BC2E1F622A138A8900B4E713 /* AppDelegate.swift */,
 				BC8D550329B9909D00FAA6E3 /* Assets.xcassets */,
 				0455D41729F61A1100A8A747 /* AtchI.entitlements */,
@@ -1436,6 +1441,7 @@
 				BC37AA5229E080760047D273 /* Moya */,
 				BCB9C6922A0A3CDB00273F33 /* Lottie */,
 				BCEDF1CD2A1BC9B30030CD75 /* MarkdownUI */,
+				BC6948302A20AC65006DED29 /* Factory */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -1477,6 +1483,7 @@
 				BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */,
 				BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				BCEDF1CC2A1BC9B30030CD75 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				BC69482F2A20AC65006DED29 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -1683,6 +1690,7 @@
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
 				BC38FBEB2A1C9814005F172B /* BundelHelper.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
+				BC6948332A20AC70006DED29 /* Container+Extension.swift in Sources */,
 				BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */,
 				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */,
 				04285B972A1B626700E7EF42 /* ReadMeView.swift in Sources */,
@@ -2049,6 +2057,14 @@
 				kind = branch;
 			};
 		};
+		BC69482F2A20AC65006DED29 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -2077,6 +2093,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		BC6948302A20AC65006DED29 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC69482F2A20AC65006DED29 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 		BCB9C6922A0A3CDB00273F33 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
