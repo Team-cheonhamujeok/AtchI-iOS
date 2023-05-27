@@ -33,10 +33,6 @@ struct HomeView: View {
                     
                     // 애플워치 정보
                     VStack(alignment: .leading, spacing: 10){
-                        Text("현재 활동 정보")
-                            .font(.titleSmall)
-                        Text("AI 진단에 쓰이고 있는 활동 정보들입니다!")
-                            .font(.bodySmall)
                         Spacer(minLength: 10)
                         WatchInfoView(viewModel: watchInfoViewModel)
                     }
