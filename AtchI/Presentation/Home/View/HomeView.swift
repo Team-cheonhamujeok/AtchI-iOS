@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct HomeView: View {
- 
-    let watchInfoViewModel = WatchInfoViewModel()
 
     @State var richText: String = ""
     
@@ -34,7 +32,7 @@ struct HomeView: View {
                     // 애플워치 정보
                     VStack(alignment: .leading, spacing: 10){
                         Spacer(minLength: 10)
-                        WatchInfoView(viewModel: watchInfoViewModel)
+                        
                     }
                 }
                 .padding([.leading, .trailing, .bottom], 30)
