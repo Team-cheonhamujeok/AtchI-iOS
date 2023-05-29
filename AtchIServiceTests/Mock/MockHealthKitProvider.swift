@@ -11,6 +11,14 @@ import Combine
 import HealthKit
 
 class MockHealthKitProvider: HKProviderProtocol {
+    func getQuantityTypeStatistics(identifier: HKQuantityTypeIdentifier,
+                                   predicate: NSPredicate,
+                                   completion: @escaping ((HKStatistics?, AtchI.HKError?) -> Void)) {
+    }
+    
+    func getQuantityTypeSamples(identifier: HKQuantityTypeIdentifier, predicate: NSPredicate, completion: @escaping ([HKQuantitySample], AtchI.HKError?) -> Void) {
+    }
+    
     /// [Mock] HealthKit Data Store입니다.
     var healthStore = MockHKStore()
     
@@ -40,7 +48,7 @@ class MockHealthKitProvider: HKProviderProtocol {
         let query = MockHKQuery(type: sleepType) { _, samples, err in
         
             if let err = err {
-                completion([], HKError.providerFetchSamplesFailed)
+                completion([], AtchI.HKError.providerDataNotFound)
             }
             
             if let result = samples {
@@ -76,7 +84,7 @@ class MockHealthKitProvider: HKProviderProtocol {
         
         let query = MockHKStatisticsQuery(type: quantityType) { _, result, err in
             guard let result = result else {
-                completion(nil, HKError.providerFetchSamplesFailed)
+                completion(nil, AtchI.HKError.providerDataNotFound)
                 return
             }
             completion(result, nil)
@@ -111,7 +119,7 @@ class MockHealthKitProvider: HKProviderProtocol {
         // 가짜 쿼리 생성
         let query = MockHKQuery(type: quantityType) { _, samples, err in
             if let err = err {
-                completion([], HKError.providerFetchSamplesFailed)
+                completion([], AtchI.HKError.providerDataNotFound)
             }
             if let result = samples {
                 let quantitySamples = result.compactMap { $0 as? HKQuantitySample }

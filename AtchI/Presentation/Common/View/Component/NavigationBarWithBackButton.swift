@@ -23,14 +23,15 @@ struct NavigationBarWithBackButton: View {
                                      ? .accentColor
                                      : .white)
                 Text("뒤로가기")
+                    .font(.bodySmall)
                     .foregroundColor(bgColor == .white
                                      ? .accentColor
                                      : .white)
-                    .fontWeight(.medium)
+                    .fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .padding([.leading, .top], 10)
+        .padding([.leading, .top, .bottom], 10)
         .background(bgColor == .white
                     ? .white
                     : .accentColor)

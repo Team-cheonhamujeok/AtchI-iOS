@@ -18,6 +18,7 @@ class MMSEViewModel: ObservableObject {
     
     // MARK: - Dependency
     private var mmseService = MMSEService()
+    private var locationHelper = LocationHelper()
     
     // MARK: - Input State
     /// Next button 클릭 이벤트입니다.
@@ -32,50 +33,50 @@ class MMSEViewModel: ObservableObject {
     @Published var currentIndex: Int = 0
     
     // MARK: - Data
+    /// MMSE 문항 목록입니다.
     var questions: [MMSEQuestionModel] = []
-    var answers: [String] = []
-
+    /// 정답 확인 배열입니다. 맞으면 1 틀리면 2입니다.
+    /// - Note: 문항 순서(인덱스)가 Key값입니다.
+    var isCorrect: [Int: String] = [:]
+    
     // MARK: - Cancellabe
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
     init() {
+        locationHelper.requestAuthorization()
         self.questions = mmseService.getMMSEQuestions()
-        questions.forEach {
-            print("\($0.identifier), \($0.viewType)")
-        }
         bind()
     }
     
     // MARK: - Binding
-    func bind() {
+    private func bind() {
         
         $tapNextButton
             .sink {
                 // 정답 저장
+                self.mmseService
+                    .checkIsCorrect(questionModel: self.questions[self.currentIndex],
+                                    userAnswer: self.editTextInput) {
+                        self.isCorrect[self.currentIndex] = $0 ? "1" : "2"
+                        print("answer: \(self.editTextInput), correct: \($0) isCorrect: \(self.isCorrect)")
+                    }
                 
-                // 질문 인덱스 관리
-                let viewType: MMSEViewType = .reply(.year)
-
-                if case .reply(let replyCase) = viewType {
-                    // reply 케이스인 경우
-                    print("Reply case: \(replyCase)")
-                }
                 self.currentIndex = self.currentIndex >= 0
-                                    ? self.currentIndex + 1
-                                    : self.currentIndex
+                ? self.currentIndex + 1
+                : self.currentIndex
                 // Text field 초기화
                 self.editTextInput = ""
             }
             .store(in: &cancellables)
-
         
         // Next button 상태 관리
         $editTextInput
             .map { text in
-                switch self.questions[self.currentIndex].viewType {
-                case .show(_): return .enabled
-                default: return text.count > 0 ? .enabled : .disabled
+                if case .show(_) = self.questions[self.currentIndex].viewType {
+                    return .enabled
+                } else {
+                    return text.count > 0 ? .enabled : .disabled
                 }
             }
             .assign(to: \.nextButtonState , on: self)

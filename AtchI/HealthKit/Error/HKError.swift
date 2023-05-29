@@ -17,6 +17,8 @@ enum HKError: Error {
     case providerDataNotFound
     /// 애플워치 데이터가 없습니다.
     case watchDataNotFound
+    /// StatisticsSample 합산 계산 실패 오류입니다.
+    case sumQuentityFailed
     
     var description: String {
         switch self {
@@ -26,6 +28,8 @@ enum HKError: Error {
             return "(provider) query는 성공했으나, 값이 비어있습니다."
         case .watchDataNotFound:
             return "애플워치 데이터가 없습니다"
+        case .sumQuentityFailed:
+            return "StatisticsSample의 sumQuentity()를 호출할 수 없습니다."
         }
     }
 }
