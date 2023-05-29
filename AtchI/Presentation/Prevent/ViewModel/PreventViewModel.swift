@@ -12,7 +12,7 @@ class PreventViewModel: ObservableObject {
     
     @Published var quizCount: Int = 0
     
-    let quizService: QuizServiceType
+    //let quizService: QuizServiceType?
     
     // MARK: - State
     
@@ -39,9 +39,9 @@ class PreventViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(quizService: QuizServiceType) {
-        self.quizService = quizService
-    }
+//    init(quizService: QuizServiceType) {
+//        self.quizService = quizService
+//    }
     
     func requestQuiz() {
         self.quizService.getQuiz(mid: 1).print().sink(receiveCompletion: { completion in

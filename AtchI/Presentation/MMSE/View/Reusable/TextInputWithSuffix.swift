@@ -30,7 +30,6 @@ struct TextInputWithSuffix: View {
                                 : Color.mainPurpleLight,
                                 lineWidth: 2)
                             .background(Color.mainBackground)
-                            .animation(.easeInOut(duration: 0.1), value: isFocused)
                     )
                     .frame(maxWidth: .infinity,
                             minHeight: 65,
@@ -52,13 +51,14 @@ struct TextInputWithSuffix: View {
             .onTapGesture {
                 isFocused = true
             }
+            .animation(.easeIn(duration: 0.1), value: isFocused)
             
             Text(suffix)
                 .font(.titleMedium)
                 .foregroundColor(isFocused
                                  ? .mainText
                                  : .grayTextLight)
-                .animation(.easeIn(duration: 0.1), value: isFocused)
         }
+        
     }
 }

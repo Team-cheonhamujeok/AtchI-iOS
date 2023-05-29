@@ -39,11 +39,12 @@ class HKActivityService: HKActivityServiceProtocol {
             
             self.healthKitProvider.getQuantityTypeStatistics(identifier: .stepCount,
                                                          predicate: predicate) { result, err in
-                guard let err = err else {
-                    print("\(String(describing: err))")
+                if let err = err {
+                    promise(.failure(HKError.providerFetchSamplesFailed(error: err)))
                     return
                 }
                 guard let sum = result?.sumQuantity() else {
+                    promise(.failure(HKError.sumQuentityFailed))
                     return
                 }
  
@@ -62,11 +63,12 @@ class HKActivityService: HKActivityServiceProtocol {
 
             self.healthKitProvider.getQuantityTypeStatistics(identifier: .activeEnergyBurned,
                                                          predicate: predicate) { result, err in
-                guard let err = err else {
-                    print("\(String(describing: err))")
+                if let err = err {
+                    promise(.failure(HKError.providerFetchSamplesFailed(error: err)))
                     return
                 }
                 guard let sum = result?.sumQuantity() else {
+                    promise(.failure(HKError.sumQuentityFailed))
                     return
                 }
  
@@ -84,12 +86,12 @@ class HKActivityService: HKActivityServiceProtocol {
             
             self.healthKitProvider.getQuantityTypeStatistics(identifier: .distanceWalkingRunning,
                                                          predicate: predicate) { result, err in
-                guard let err = err else {
-                    print("\(String(describing: err))")
+                if let err = err {
+                    promise(.failure(HKError.providerFetchSamplesFailed(error: err)))
                     return
                 }
                 guard let sum = result?.sumQuantity() else {
-                    print("'HealthKitProvider': sumQuantity가 생성되지 않았습니다.")
+                    promise(.failure(HKError.sumQuentityFailed))
                     return
                 }
  

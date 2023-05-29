@@ -8,6 +8,10 @@
 import Foundation
 
 struct LifePatternModel: Codable {
+    /// 유저 mid
+    let mid: Int
+    /// 생활 정보 출처 날짜
+    let date: Date
     /// 하루 걸음 수:
     let activity_steps: Int
     /// 총 수면 시간

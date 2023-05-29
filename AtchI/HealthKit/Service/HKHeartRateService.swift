@@ -21,7 +21,7 @@ class HKHeartRateService: HKHeartRateServiceType {
         self.dateHelper = dateHelper
     }
     
-    func getHeartRate(startDate: Date,
+    func getHeartRateAveragePerMin(startDate: Date,
                       endDate: Date)
     -> AnyPublisher<[Double], HKError> {
         return self.fetchHeartRate(startDate: startDate, endDate: endDate)
