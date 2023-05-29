@@ -28,8 +28,13 @@ struct TestRow: View {
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                 
                 HStack {
-                    Text("\(result.point)점 /")
-                    Text(result.level ?? "")
+                    Text("\(result.point)점 ")
+                    if let level = result.level
+                    {
+                        Text("/")
+                        Text(level)
+                    }
+                    
                 }
                 .font(.bodySmall)
             }
