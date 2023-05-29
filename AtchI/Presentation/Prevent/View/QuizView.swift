@@ -9,18 +9,36 @@ import SwiftUI
 
 struct QuizView: View {
     var quiz: Quiz
-    @State var tag:Int? = nil
+//    @State var tag:Int? = nil
     var preventViewModel: PreventViewModel
     @Binding var quizPath: [QuizStack]
+//    @State var quizIdx: String
+    
     
     var body: some View {
         ZStack{
             Color.mainPurple.ignoresSafeArea()
             VStack(alignment: .leading, spacing: 10) {
-                Text(quiz.index + "번째 퀴즈")
-                    .font(.titleSmall)
-                    .foregroundColor(.white)
-                Text(quiz.content)
+                switch (quiz.index!) {
+                case 1:
+                    Text("첫번째 퀴즈")
+                        .font(.titleSmall)
+                        .foregroundColor(.white)
+                case 2:
+                    Text("두번째 퀴즈")
+                        .font(.titleSmall)
+                        .foregroundColor(.white)
+                case 3:
+                    Text("세번째 퀴즈")
+                        .font(.titleSmall)
+                        .foregroundColor(.white)
+                default:
+                    Text("퀴즈 없음")
+                }
+//                Text(String(quiz.index!) + "번째 퀴즈")
+//                    .font(.titleSmall)
+//                    .foregroundColor(.white)
+                Text(quiz.content!)
                     .font(.titleLarge)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -33,8 +51,9 @@ struct QuizView: View {
                 
                 DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
                     print("퀴즈풀기 완료")
-                    self.tag = 1
+//                    self.tag = 1
                     preventViewModel.quizCountUp()
+                    preventViewModel.checkQuiz(quizNum: quiz.index!)
                     print(preventViewModel.quizCount)
                     quizPath.append(QuizStack(type: .quizDoneView, data: quiz))
                 }, content: {
