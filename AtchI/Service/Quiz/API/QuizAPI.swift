@@ -33,8 +33,10 @@ extension QuizAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getQuiz, .checkQuiz:
+        case .getQuiz:
             return .get
+        case .checkQuiz:
+            return .post
         }
     }
     

@@ -31,6 +31,7 @@ class QuizService: QuizServiceType {
                 response.map(GetQuizResponseModel.self)
             }
             .mapError { error in
+                print(error)
                 return QuizError.getQuiz(.fetchFailed)
             }
             .eraseToAnyPublisher()
@@ -48,6 +49,11 @@ class QuizService: QuizServiceType {
             }
             .mapError { error in
                 if error is MoyaError {
+//                    if {
+//
+//                    } else {
+//
+//                    }
                     return QuizError.checkQuiz(.checkError)
                 } else {
                     return error as! QuizError
