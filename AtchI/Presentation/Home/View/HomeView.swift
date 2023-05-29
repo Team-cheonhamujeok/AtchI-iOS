@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+
     @StateObject private var viewModel = HomeViewModel()
-    
     @State var richText: String = ""
     @State private var rotationAngle: Double = 0.0
     
@@ -34,6 +33,7 @@ struct HomeView: View {
                     
                     // 애플워치 정보
                     VStack(alignment: .leading, spacing: 10){
+
                         HStack {
                             Text("현재 활동 정보")
                                 .font(.titleSmall)

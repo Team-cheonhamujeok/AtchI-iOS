@@ -26,6 +26,7 @@ struct AIDiagnosisCard: View {
             Text("*AI 진단 정보는 참고용입니다. 정확한 진단은 의사와 상담하세요.")
                 .font(.bodyTiny)
                 .foregroundColor(.grayTextLight)
+          
             Spacer(minLength: 5)
             
             // MMSE button
@@ -40,7 +41,6 @@ struct AIDiagnosisCard: View {
                 .background(Color.mainBlue)
                 .cornerRadius(20)
             }
-            
         }
         .padding(25)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

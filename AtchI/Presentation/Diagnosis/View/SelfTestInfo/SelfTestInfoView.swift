@@ -9,8 +9,7 @@ import SwiftUI
 import Moya
 
 struct SelfTestInfoView: View {
-    @StateObject var selfTestViewModel: SelfTestViewModel
-    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
+    @StateObject var viewModel: SelfTestInfoViewModel
     
     @Binding var path: [DiagnosisViewStack]
     
@@ -18,29 +17,10 @@ struct SelfTestInfoView: View {
     
     var body: some View {
         Group {
-            if selfTestInfoViewModel.selfTestResults.isEmpty {
+            if viewModel.selfTestResults.isEmpty {
                 noTestView
             } else {
                 haveTestView
-            }
-        }
-        .navigationDestination(for: DiagnosisViewStack.self) { child in
-            switch child {
-            case .selfTest:
-                SelfTestView(path: $path,
-                             selfTestViewModel: selfTestViewModel)
-            case .selfTestStart:
-                SelfTestStartView(path: $path,
-                                  selfTestViewModel: selfTestViewModel)
-            case .selfTestResult:
-                SelfTestResultView(path: $path,
-                                   selfTestViewModel: selfTestViewModel,
-                                   selfTestInfoViewModel: selfTestInfoViewModel)
-            case .selfTestResultList:
-                SelfTestResultList(path: $path,
-                                   selfTestInfoViewModel: selfTestInfoViewModel)
-            default:
-                Text("잘못된 접근")
             }
         }
     }
@@ -50,9 +30,19 @@ struct SelfTestInfoView: View {
     var noTestView: some View {
         VStack {
             HStack {
-                ExplainTestView()
+                VStack(alignment: .leading) {
+                    Text("치매 자가진단 해보세요!")
+                        .font(.titleMedium)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
+                    
+                    Text("몇가지 질문으로 간단하게 치매 진단을 받아보세요")
+                        .font(.bodySmall)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
+                }
                 Spacer()
             }
+            .padding(.horizontal, 30)
+            
             DefaultButton(buttonSize: .large,
                           buttonStyle: .filled,
                           buttonColor: .mainPurple,
@@ -62,6 +52,7 @@ struct SelfTestInfoView: View {
             } content: {
                 Text("자가진단 시작하기")
             }
+            .padding(25)
         }
     }
     
@@ -69,10 +60,16 @@ struct SelfTestInfoView: View {
     
     var haveTestView: some View {
         VStack(alignment: .leading) {
-            
-            // 1️⃣ 자가진단 다시하기 버튼
             VStack(alignment: .leading) {
-                ExplainTestView()
+                VStack(alignment: .leading) {
+                    Text("치매 자가진단 해보세요!")
+                        .font(.titleMedium)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
+                    
+                    Text("몇가지 질문으로 간단하게 치매 진단을 받아보세요")
+                        .font(.bodySmall)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
+                }
                 DefaultButton(buttonSize: .small,
                               width: 153,
                               height: 35,
@@ -84,28 +81,29 @@ struct SelfTestInfoView: View {
                 } content: {
                     Text("자가진단 다시하기")
                 }
-                .padding(.bottom, 15)
+                .padding(.bottom, 5)
                 
                 Divider()
             }
+            .padding(.horizontal, 30)
             
             // 2️⃣ 자가진단 리스트
-            List(selfTestInfoViewModel.selfTestResults) { value in
-                if let firstID =  selfTestInfoViewModel.selfTestResults.first?.id {
+            List(viewModel.selfTestResults) { value in
+                if let firstID =  viewModel.selfTestResults.first?.id {
                     if firstID == value.id {
-                        SelfTestRow(result: value, isFirst: true)
+                        TestRow(result: value, isFirst: true)
                             .listRowSeparator(.hidden)
                     }
                     else {
-                        SelfTestRow(result: value, isFirst: false)
+                        TestRow(result: value, isFirst: false)
                             .listRowSeparator(.hidden)
                     }
                 }
             }
             .scrollDisabled(true)
             .frame(height: 150)
-            .listStyle(.inset)
-        
+            .listStyle(.plain)
+            .padding(.horizontal, 10)
             
             // 3️⃣ 전체보기 버튼
             HStack{
@@ -123,22 +121,13 @@ struct SelfTestInfoView: View {
                 }
                 Spacer()
             }
+            .padding(.bottom, 10)
         }
     }
 }
 
-//MARK: - Other View
-
-/// 자가진단 설명 Label
-struct ExplainTestView: View {
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("치매 자가진단 해보세요!")
-                .font(.titleMedium)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            Text("몇가지 질문으로 간단하게 치매 진단을 받아보세요")
-                .font(.bodySmall)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-        }
+struct DiagnosisViewm_Previews: PreviewProvider {
+    static var previews: some View {
+        DiagnosisView()
     }
 }

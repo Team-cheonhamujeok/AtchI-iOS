@@ -10,9 +10,10 @@ import SwiftUI
 import Moya
 
 struct DiagnosisView: View {
-    let watchInfoViewModel = WatchInfoViewModel()
+    
     let selfTestViewModel = SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
-    let selfTestInfoViewModel = SelfTestInfoViewModel(service:  DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
+    let selfTestInfoViewModel = SelfTestInfoViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
+    let mmseInfoViewModel = MMSEInfoViewModel(service: MMSEInfoService(provider: MoyaProvider<MMSEInfoAPI>()))
     
     @State private var path: [DiagnosisViewStack] = []
     
@@ -24,28 +25,52 @@ struct DiagnosisView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.bottom, 18)
+                        .padding(.horizontal, 30)
                     
                     SelfTestInfoView(
-                        selfTestViewModel: selfTestViewModel, selfTestInfoViewModel: selfTestInfoViewModel,
+                        viewModel: selfTestInfoViewModel,
                         path: $path)
                     
+                    
+                    Rectangle()
+                        .frame(height: 10)
+                        .foregroundColor(.grayBoldLine)
+                        .padding(.bottom, 10)
+                    
+                    MMSEInfoView(viewModel: mmseInfoViewModel,
+                                 path: $path)
+                    
+                    Spacer()
                 }
-                .padding(.horizontal, 30)
-                .padding(.vertical, 20)
-                
-                Rectangle()
-                    .frame(height: 15)
-                    .foregroundColor(.grayBoldLine)
-                
-                WatchInfoView(viewModel: watchInfoViewModel)
-                    .padding(.all, 30)
-                
-                Spacer()
             }
+            .navigationDestination(for: DiagnosisViewStack.self) { child in
+                switch child {
+                case .selfTest:
+                    SelfTestView(path: $path,
+                                 selfTestViewModel: selfTestViewModel)
+                case .selfTestStart:
+                    SelfTestStartView(path: $path,
+                                      selfTestViewModel: selfTestViewModel)
+                case .selfTestResult:
+                    SelfTestResultView(path: $path,
+                                       selfTestViewModel: selfTestViewModel,
+                                       selfTestInfoViewModel: selfTestInfoViewModel)
+                case .selfTestResultList:
+                    SelfTestResultList(path: $path,
+                                       selfTestInfoViewModel: selfTestInfoViewModel)
+                case .mmseResultList:
+                    MMSEResultList(path: $path,
+                                   mmseInfoViewModel: mmseInfoViewModel)
+                default:
+                    Text("잘못된 접근")
+                }
+            }
+            .scrollDisabled(true)
         }
         .onAppear {
             //MARK: 서버 데이터 들고오기
             selfTestInfoViewModel.requestData()
+            mmseInfoViewModel.requestData()
         }
     }
 }
