@@ -53,7 +53,7 @@ class HomeViewModel: ObservableObject {
         
         refreshWatchDataTrigger
             .flatMap {
-                self.hkSleepService
+                self.hkHeartRateService
                     .getHeartRateAveragePerMin(startDate: DateHelper.shared.getYesterdayStartAM(Date()),
                                            endDate: DateHelper.shared.getYesterdayEndPM(Date()))
                 .replaceError(with: [0])
@@ -66,7 +66,7 @@ class HomeViewModel: ObservableObject {
         
         refreshWatchDataTrigger
             .flatMap {
-                hkSleepService
+                self.hkSleepService
                     .getSleepRecord(date: Date(),
                                     sleepCategory: .total)
                     .replaceError(with: 0)

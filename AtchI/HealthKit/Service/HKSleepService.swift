@@ -170,7 +170,7 @@ extension HKSleepService {
         var watchSamples = samples
                 .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true }
         let calendar = Calendar.current
-        let sum = samples.filter{ $0.value == sleepType.rawValue }
+        let sum = watchSamples.filter{ $0.value == sleepType.rawValue }
             .reduce(into: 0) { (result, sample) in
                 let minutes = calendar.dateComponents([.minute], from: sample.startDate, to: sample.endDate).minute ?? 0
                 result += minutes
