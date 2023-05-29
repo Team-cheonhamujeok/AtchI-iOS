@@ -20,5 +20,5 @@ struct GetQuizResponseModel: Codable {
     let quiz3Id: Int
     let quiz3Check: Bool
     let solve: Bool
-    let quizdate: Date
+    let quizdate: String
 }

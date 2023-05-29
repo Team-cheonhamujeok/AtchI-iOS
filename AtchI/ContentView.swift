@@ -37,7 +37,7 @@ struct ContentView: View {
                         Text("진단")
                     }
                     .tag(TabBarType.diagnosis)
-                PreventView(preventViewModel: PreventViewModel())
+                PreventView(preventViewModel: PreventViewModel(quizService: QuizService(provider: MoyaProvider<QuizAPI>())))
                     .tabItem{
                         Image(systemName: "brain.head.profile")
                         Text("예방")

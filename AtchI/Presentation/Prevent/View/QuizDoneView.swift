@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuizDoneView: View {
-    var quizOrder: String
+    var quizOrder: Int
     var preventViewModel: PreventViewModel
     @Binding var quizStack: [QuizStack]
     
@@ -18,8 +18,21 @@ struct QuizDoneView: View {
             VStack(spacing: 15) {
                 Text("🎉")
                     .font(.titleLarge)
-                Text(quizOrder + "번째 퀴즈 완료")
-                    .font(.titleLarge)
+                switch (quizOrder) {
+                case 1:
+                    Text("첫번째 퀴즈 완료")
+                        .font(.titleLarge)
+                case 2:
+                    Text("두번째 퀴즈 완료")
+                        .font(.titleLarge)
+                case 3:
+                    Text("세번째 퀴즈 완료")
+                        .font(.titleLarge)
+                default:
+                    Text("퀴즈 없음")
+                }
+//                Text( + "번째 퀴즈 완료")
+//                    .font(.titleLarge)
                 Text("이제 오늘 퀴즈는 " + String(3 - preventViewModel.quizCount) + "개가 남았어요 :)")
                     .font(.bodyMedium)
                 let _ = print(3 - preventViewModel.quizCount)

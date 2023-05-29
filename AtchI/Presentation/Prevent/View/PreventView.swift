@@ -37,8 +37,12 @@ struct PreventView: View {
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
                     
                     // 이번주 퀴즈 현황
-                    QuizStateCard()
-                        .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
+                    if preventViewModel.todayQuiz.count >= 3 {
+                        QuizStateCard(preventViewModel: preventViewModel, quiz: preventViewModel.todayQuiz[0])
+                            .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
+                    } else {
+                        EmptyView()
+                    }
                     // 굵은 구분선
                     BoldDivider()
                         .padding(.top, 30)
@@ -59,15 +63,19 @@ struct PreventView: View {
                     }
                     .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 30))
                     
-                    VStack {
-                        QuizTemplate(quiz: TodayQuiz.quizzes[0], viewStack: $viewStack, preventViewModel: preventViewModel)
-                            .padding(.bottom, 20)
-                        QuizTemplate(quiz: TodayQuiz.quizzes[1], viewStack: $viewStack, preventViewModel: preventViewModel)
-                            .padding(.bottom, 20)
-                        QuizTemplate(quiz: TodayQuiz.quizzes[2], viewStack: $viewStack, preventViewModel: preventViewModel)
-                            .padding(.bottom, 20)
+                    if preventViewModel.todayQuiz.count >= 3 {
+                        VStack {
+                            QuizTemplate(quiz: preventViewModel.todayQuiz[0], viewStack: $viewStack, preventViewModel: preventViewModel)
+                                .padding(.bottom, 20)
+                            QuizTemplate(quiz: preventViewModel.todayQuiz[1], viewStack: $viewStack, preventViewModel: preventViewModel)
+                                .padding(.bottom, 20)
+                            QuizTemplate(quiz: preventViewModel.todayQuiz[2], viewStack: $viewStack, preventViewModel: preventViewModel)
+                                .padding(.bottom, 20)
+                        }
+                        .padding(.horizontal, 30)
+                    } else {
+                        /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
                     }
-                    .padding(.horizontal, 30)
                     Spacer()
                 }
             }
@@ -79,17 +87,20 @@ struct PreventView: View {
                 case .quizView:
                     QuizView(quiz: value.data, preventViewModel: preventViewModel, quizPath: $viewStack)
                 case .quizDoneView:
-                    QuizDoneView(quizOrder: value.data.index, preventViewModel: preventViewModel, quizStack: $viewStack)
+                    QuizDoneView(quizOrder: value.data.index!, preventViewModel: preventViewModel, quizStack: $viewStack)
                 }
             }
             
+        }
+        .onAppear {
+            preventViewModel.requestQuiz()
         }
     }
     
 }
 
-struct PreventView_Previews: PreviewProvider {
-    static var previews: some View {
-        PreventView(preventViewModel: PreventViewModel())
-    }
-}
+//struct PreventView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PreventView(preventViewModel: PreventViewModel())
+//    }
+//}

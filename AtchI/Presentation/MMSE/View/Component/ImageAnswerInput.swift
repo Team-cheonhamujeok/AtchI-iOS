@@ -25,14 +25,17 @@ struct ImageAnswerInput: View {
         Image(viewType.imageName)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 300)
+            .frame(minWidth: 250, maxWidth: 250)
+            .padding(.bottom, 30)
         TextInputWithSuffix(text: $text)
     }
 }
 
-//struct ImageAnswerInput_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImageAnswerInput(viewType: .clock)
-//    }
-//}
+struct ImageAnswerInput_Previews: PreviewProvider {
+    @State var text: String
+    static var previews: some View {
+        ImageAnswerInput(text: .constant(""),
+                         viewType: .clock)
+    }
+}
 

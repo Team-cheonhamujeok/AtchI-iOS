@@ -9,16 +9,28 @@ import SwiftUI
 
 struct QuizTemplate: View {
     var quiz: Quiz
-    @State var tag:Int? = nil
+//    @State var tag:Int? = nil
     @Binding var viewStack: [QuizStack]
     var preventViewModel: PreventViewModel
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 15) {
-                Text(quiz.index + "번째 퀴즈")
-                    .font(.titleSmall)
-                Text(quiz.content)
+                switch (quiz.index!) {
+                case 1:
+                    Text("첫번째 퀴즈")
+                        .font(.titleSmall)
+                case 2:
+                    Text("두번째 퀴즈")
+                        .font(.titleSmall)
+                case 3:
+                    Text("세번째 퀴즈")
+                        .font(.titleSmall)
+                default:
+                    Text("퀴즈 없음")
+                }
+
+                Text(quiz.content!)
                     .font(.bodyMedium)
                     .lineLimit(1)
                     .truncationMode(.tail)
@@ -31,7 +43,8 @@ struct QuizTemplate: View {
             .font(.bodySmall)
             .foregroundColor(.white)
             .padding(EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20))
-            .background(Capsule().fill(Color.mainPurple))
+            .background(quiz.check! ? Capsule().fill(Color.grayDisabled) : Capsule().fill(Color.mainPurple))
+            let _ = print("불값 확인 \(quiz.check!)")
         
         }
     }

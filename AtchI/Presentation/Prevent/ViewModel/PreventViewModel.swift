@@ -12,12 +12,14 @@ class PreventViewModel: ObservableObject {
     
     @Published var quizCount: Int = 0
     
-    //let quizService: QuizServiceType?
+    let quizService: QuizServiceType?
     
     // MARK: - State
     
     /// Result - 이벤트에 따른 결과
     @Published var getQuizErrorMessage: String = ""
+    @Published var checkQuizErrorMessage: String = ""
+    @Published var todayQuiz = [Quiz]()
     
     func quizCountUp() {
         quizCount = quizCount + 1
@@ -37,20 +39,38 @@ class PreventViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-//    init(quizService: QuizServiceType) {
-//        self.quizService = quizService
-//    }
+    init(quizService: QuizServiceType) {
+        self.quizService = quizService
+    }
     
     func requestQuiz() {
-//        self.quizService.getQuiz(mid: 1).sink(receiveCompletion: { completion in
-//            switch completion {
-//            case .finished: break
-//            case .failure(let error):
-//                self.getQuizErrorMessage = error.description
-//
-//            }
-//        }, receiveValue: { response in
-//
-//        })
+        self.quizService!.getQuiz(mid: 1).print().sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished: break
+            case .failure(let error):
+                self.getQuizErrorMessage = error.localizedDescription
+                
+            }
+        }, receiveValue: { response in
+            self.todayQuiz.append(Quiz(index: 1, content: response.quiz1, check: response.quiz1Check, solved: response.solve))
+            self.todayQuiz.append(Quiz(index: 2, content: response.quiz2, check: response.quiz2Check, solved: response.solve))
+            self.todayQuiz.append(Quiz(index: 3, content: response.quiz3, check: response.quiz3Check, solved: response.solve))
+            UserDefaults.standard.set(response.tqid, forKey: "tqid")
+            
+        }).store(in: &cancellables)
+    }
+    
+    func checkQuiz(quizNum: Int) {
+        let tqId = UserDefaults.standard.integer(forKey: "tqid")
+        print(tqId)
+        self.quizService!.checkQuiz(quizCheckModel: QuizCheckRequestModel(tqid:tqId, quizNum: quizNum)).print().sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished: break
+            case .failure(let error):
+                self.checkQuizErrorMessage = error.localizedDescription
+            }
+        }, receiveValue: { reponse in
+            print(reponse.message)
+        }).store(in: &cancellables)
     }
 }

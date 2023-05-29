@@ -11,13 +11,14 @@ import CombineMoya
 import Combine
 
 class QuizService: QuizServiceType {
-   internal init(provider: MoyaProvider<QuizAPI>, cancellables:
-                    Set<AnyCancellable> = Set<AnyCancellable>()) {
-        self.provider = provider
-        self.cancellables = cancellables
-    }
+//   internal init(provider: MoyaProvider<QuizAPI>, cancellables:
+//                    Set<AnyCancellable> = Set<AnyCancellable>()) {
+//        self.provider = provider
+//        self.cancellables = cancellables
+//    }
     
     let provider: MoyaProvider<QuizAPI>
+    
     init(provider: MoyaProvider<QuizAPI>) {
         self.provider = provider
     }
@@ -31,6 +32,7 @@ class QuizService: QuizServiceType {
                 response.map(GetQuizResponseModel.self)
             }
             .mapError { error in
+                print(error)
                 return QuizError.getQuiz(.fetchFailed)
             }
             .eraseToAnyPublisher()
@@ -48,6 +50,11 @@ class QuizService: QuizServiceType {
             }
             .mapError { error in
                 if error is MoyaError {
+//                    if {
+//
+//                    } else {
+//
+//                    }
                     return QuizError.checkQuiz(.checkError)
                 } else {
                     return error as! QuizError
