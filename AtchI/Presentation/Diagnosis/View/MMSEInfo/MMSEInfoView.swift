@@ -162,10 +162,3 @@ struct MMSEInfoView: View {
         }
     }
 }
-
-
-struct DiagnosisView2_Previews: PreviewProvider {
-    static var previews: some View {
-        DiagnosisView()
-    }
-}

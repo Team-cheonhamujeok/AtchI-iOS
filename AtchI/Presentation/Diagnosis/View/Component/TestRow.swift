@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestRow: View {
-    var result: SelfTestResult
+    var result: TestRowModel
     var isFirst: Bool
     
     var body: some View {
@@ -29,7 +29,7 @@ struct TestRow: View {
                 
                 HStack {
                     Text("\(result.point)점 /")
-                    Text(result.level)
+                    Text(result.level ?? "")
                 }
                 .font(.bodySmall)
             }

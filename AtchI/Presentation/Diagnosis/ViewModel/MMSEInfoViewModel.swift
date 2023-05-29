@@ -6,19 +6,61 @@
 //
 
 import Foundation
-import SwiftUI
+
+import Combine
+import Moya
 
 class MMSEInfoViewModel: ObservableObject {
     
-    let service: DiagnosisServiceType
+    let service: MMSEInfoService
+    var subject = CurrentValueSubject<Bool, Never>(false)
+    var disposeBag = Set<AnyCancellable>()
     
-    @Published var testResults: [SelfTestResult] = []
+    @Published var testResults: [TestRowModel] = []
     
-    init(service: DiagnosisServiceType) {
+    init(service: MMSEInfoService) {
         self.service = service
         
-        testResults.append(SelfTestResult(id: 0, mid: 1, date: "0", point: 1, level: "1"))
+        bind()
     }
+    
+    private func bind() {
+        subject.sink(receiveValue: { isRequest in
+            if isRequest {
+                self.getData
+                    .assign(to: &self.$testResults)
+            }
+        })
+        .store(in: &disposeBag)
+    }
+    
+    func requestData() {
+        subject.send(true)
+    }
+    
+    private lazy var getData: AnyPublisher<[TestRowModel], Never> = {
+        return self.service
+            .getMMSEResults(mid: 1)
+            .map{ $0.data }
+            .decode(type: [MMSEInfoGetModel].self, decoder: JSONDecoder())
+            .map{ self.makeUIDatas(datas: $0) }
+            .map{$0.sorted {$0.id > $1.id }}
+            .replaceError(with: [])
+            .eraseToAnyPublisher()
+    }()
+    
+    func makeUIDatas(datas: [MMSEInfoGetModel]) -> [TestRowModel] {
+        var response: [TestRowModel] = []
+        datas.forEach {
+            let id = $0.mmseid
+            let date = $0.date
+            let point = $0.result
+            
+            response.append(TestRowModel(id: id,
+                                           date: date,
+                                           point: point))
+        }
 
-    //TODO: 서버에서 데이터 들고오기 
+        return response
+    }
 }

@@ -17,7 +17,7 @@ class SelfTestInfoViewModel: ObservableObject {
     var disposeBag = Set<AnyCancellable>()
     
     /// 사용자가 이 때까지 한 자가진단 결과 리스트
-    @Published var selfTestResults: [SelfTestResult] = []
+    @Published var selfTestResults: [TestRowModel] = []
     
     init(service: DiagnosisServiceType) {
         self.service = service
@@ -52,7 +52,7 @@ class SelfTestInfoViewModel: ObservableObject {
     }
     
     /// 서버로부터 Get 하는 함수
-    private lazy var getData: AnyPublisher<[SelfTestResult], Never> = {
+    private lazy var getData: AnyPublisher<[TestRowModel], Never> = {
         // TODO: mid 값 넣기
         return self.service.getDiagnosisList(mid: 2)
             .map{ $0.data }
@@ -64,17 +64,15 @@ class SelfTestInfoViewModel: ObservableObject {
     }()
 
     /// UI 전용 데이터로 변환
-    func makeUIDatas(datas: [DiagnosisGetModel]) -> [SelfTestResult] {
-        var response: [SelfTestResult] = []
+    func makeUIDatas(datas: [DiagnosisGetModel]) -> [TestRowModel] {
+        var response: [TestRowModel] = []
         datas.forEach {
             let id = $0.did
-            let mid = $0.mid
             let date = $0.date
             let point = $0.result
             let level = self.measureLevel(point: point).rawValue
             
-            response.append(SelfTestResult(id: id,
-                                           mid: mid,
+            response.append(TestRowModel(id: id,
                                            date: date,
                                            point: point,
                                            level: level))
