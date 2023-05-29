@@ -11,13 +11,14 @@ import CombineMoya
 import Combine
 
 class QuizService: QuizServiceType {
-   internal init(provider: MoyaProvider<QuizAPI>, cancellables:
-                    Set<AnyCancellable> = Set<AnyCancellable>()) {
-        self.provider = provider
-        self.cancellables = cancellables
-    }
+//   internal init(provider: MoyaProvider<QuizAPI>, cancellables:
+//                    Set<AnyCancellable> = Set<AnyCancellable>()) {
+//        self.provider = provider
+//        self.cancellables = cancellables
+//    }
     
     let provider: MoyaProvider<QuizAPI>
+    
     init(provider: MoyaProvider<QuizAPI>) {
         self.provider = provider
     }
