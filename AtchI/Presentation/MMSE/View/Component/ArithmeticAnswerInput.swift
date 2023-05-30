@@ -17,10 +17,11 @@ extension MMSEQuestionType.Arithmetic {
 struct ArithmeticAnswerInput: View {
     
     @Binding var text: String
+    @Binding var keyboardType: UIKeyboardType
     let viewType: MMSEQuestionType.Arithmetic
     
     var body: some View {
         TextInputWithSuffix(text: $text,
-                            keyboardType: viewType.keyboardType)
+                            keyboardType: $keyboardType)
     }
 }

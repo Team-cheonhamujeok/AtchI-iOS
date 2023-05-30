@@ -31,11 +31,12 @@ extension MMSEQuestionType.Reply {
 struct ReplyAnswerInput: View {
     
     @Binding var text: String
+    @Binding var keybaordType: UIKeyboardType
     let viewType: MMSEQuestionType.Reply
     
     var body: some View {
         TextInputWithSuffix(text: $text,
-                            suffix: viewType.suffix,
-                            keyboardType: viewType.keyboardType)
+                            keyboardType: $keybaordType,
+                            suffix: viewType.suffix)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 extension MMSEQuestionType.Image {
     var imageName: String {
@@ -19,6 +20,7 @@ extension MMSEQuestionType.Image {
 struct ImageAnswerInput: View {
     
     @Binding var text: String
+    @Binding var keybaordType: UIKeyboardType
     let viewType: MMSEQuestionType.Image
     
     var body: some View {
@@ -27,7 +29,8 @@ struct ImageAnswerInput: View {
             .aspectRatio(contentMode: .fit)
             .frame(minWidth: 250, maxWidth: 250)
             .padding(.bottom, 30)
-        TextInputWithSuffix(text: $text)
+        TextInputWithSuffix(text: $text,
+                            keyboardType: $keybaordType)
     }
 }
 
@@ -35,6 +38,7 @@ struct ImageAnswerInput_Previews: PreviewProvider {
     @State var text: String
     static var previews: some View {
         ImageAnswerInput(text: .constant(""),
+                         keybaordType: .constant(.numberPad),
                          viewType: .ball)
     }
 }

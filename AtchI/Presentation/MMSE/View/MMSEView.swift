@@ -54,16 +54,16 @@ struct MMSEView: View {
                         VStack {
                             switch viewModel.questions[viewModel.currentIndex].viewType {
                             case .reply(let replyType):
-                                ReplyAnswerInput(text: $viewModel.editTextInput,
+                                ReplyAnswerInput(text: $viewModel.editTextInput, keybaordType: $viewModel.keyboardType,
                                                  viewType: replyType)
                             case .arithmetic(let arithmeticType):
-                                ArithmeticAnswerInput(text: $viewModel.editTextInput,
+                                ArithmeticAnswerInput(text: $viewModel.editTextInput, keyboardType: $viewModel.keyboardType,
                                                       viewType: arithmeticType)
                             case .show(let showType):
                                 ShowTextView(text: $viewModel.editTextInput,
                                              viewType: showType)
                             case .image(let imageType):
-                                ImageAnswerInput(text: $viewModel.editTextInput,
+                                ImageAnswerInput(text: $viewModel.editTextInput, keybaordType: $viewModel.keyboardType,
                                                  viewType: imageType)
                             case .undefined:
                                 EmptyView()
@@ -101,7 +101,7 @@ struct MMSEView: View {
             .onTapGesture {
                 hideKeyboard()
             }
-//            .animation(.easeIn(duration: 0.1), value: keyboardHelper.isKeyboardVisible)
+            //            .animation(.easeIn(duration: 0.1), value: keyboardHelper.isKeyboardVisible)
         }
     }
 }

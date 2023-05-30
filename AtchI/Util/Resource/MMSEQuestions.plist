@@ -142,7 +142,7 @@
 		<key>identifier</key>
 		<string>Q014-1_IMAGE_CLOCK</string>
 		<key>question</key>
-		<string>이것이 무엇인가요?</string>
+		<string>이것이 무엇인가요? (2글자)</string>
 		<key>answer</key>
 		<string>시계</string>
 	</dict>
@@ -150,7 +150,7 @@
 		<key>identifier</key>
 		<string>Q014-2_IMAGE_BALL</string>
 		<key>question</key>
-		<string>이것이 무엇인가요?</string>
+		<string>이것이 무엇인가요? (3글자)</string>
 		<key>answer</key>
 		<string>축국공</string>
 	</dict>

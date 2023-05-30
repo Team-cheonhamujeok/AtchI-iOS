@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 import Factory
 
@@ -28,6 +29,7 @@ class MMSEViewModel: ObservableObject {
     /// 현재 질문 인덱스입니다.
     @Published var currentIndex: Int = 0
     @Published var isResultPage: Bool = false
+    @Published var keyboardType: UIKeyboardType = .numberPad
     
     // MARK: - Data
     /// MMSE 문항 목록입니다.
@@ -57,9 +59,10 @@ class MMSEViewModel: ObservableObject {
                 // 마지막 인덱스 일 시
                 if self.currentIndex >= self.questions.count - 1 {
                     self.goResultPage()
-                    self.requestSaveMMSE()
+//                    self.requestSaveMMSE()
                 } else if self.currentIndex >= 0 {
                     self.goNextQuestion()
+                    self.updateKeyboardType()
                 }
                 
                 self.resetEditTextInput()
@@ -101,11 +104,11 @@ class MMSEViewModel: ObservableObject {
             }
     }
     
-    func resetEditTextInput() {
+    private func resetEditTextInput() {
         self.editTextInput = ""
     }
     
-    func updateButtonState() -> ButtonState {
+    private func updateButtonState() -> ButtonState {
         let currentQuestion = self.questions[self.currentIndex]
         
         if case .show(_) = currentQuestion.viewType {
@@ -113,6 +116,20 @@ class MMSEViewModel: ObservableObject {
         } else {
             return self.editTextInput.count > 0 ? .enabled : .disabled
         }
+    }
+    
+    private func updateKeyboardType() {
+        self.keyboardType = {
+            switch self.questions[self.currentIndex].viewType {
+            case .reply(let type): return type.keyboardType
+            case .arithmetic(let type): return type.keyboardType
+            case .image(_): return .default
+            default: return .default
+            }
+        }()
+        
+        print("###")
+        print(self.keyboardType)
     }
 
 }

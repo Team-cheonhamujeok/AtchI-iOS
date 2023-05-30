@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MMSEResultView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     let resultScores: [String: String]
     
     var body: some View {
@@ -47,6 +49,10 @@ struct MMSEResultView: View {
             VStack {
                 Spacer()
                 RoundedButton(title: "확인", state: .enabled)
+                    .onTapGesture {
+                        // 모든 뷰 dismiss
+                        presentationMode.wrappedValue.dismiss()
+                    }
             }
             .padding(.horizontal, 30)
         }
