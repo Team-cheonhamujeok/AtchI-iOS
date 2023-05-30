@@ -10,12 +10,6 @@ import Combine
 
 import Factory
 
-
-struct MMSEAnswerModel {
-    let answer: String
-    var isCorrect: Bool = false
-}
-
 class MMSEViewModel: ObservableObject {
     
     // MARK: - Dependency
@@ -33,6 +27,7 @@ class MMSEViewModel: ObservableObject {
     @Published var nextButtonState: ButtonState = .disabled
     /// 현재 질문 인덱스입니다.
     @Published var currentIndex: Int = 0
+    @Published var goResultPage: Bool = false
     
     // MARK: - Data
     /// MMSE 문항 목록입니다.
@@ -64,9 +59,22 @@ class MMSEViewModel: ObservableObject {
                         print("answer: \(self.editTextInput), correct: \($0) isCorrect: \(self.correctAnswers)")
                     }
                 
-                self.currentIndex = self.currentIndex >= 0
-                ? self.currentIndex + 1
-                : self.currentIndex
+                // 마지막 인덱스일 시 저장 요청
+                if self.currentIndex >= self.questions.count - 1 {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let dateString = dateFormatter.string(from: Date())
+                    self.mmseService.requestSaveMMESE(
+                        MMSESaveRequestModel(mid: UserDefaults.standard.integer(forKey: "mid"),
+                                             questions: Array(self.correctAnswers.values),
+                                             date: dateString))
+                    .sink(receiveCompletion: { _ in }, receiveValue: { _ in})
+                    .store(in: &self.cancellables)
+                // 첫 인덱스보다 클 시 인덱스++
+                } else if self.currentIndex >= 0 {
+                    self.currentIndex += 1
+                }
+                
                 // Text field 초기화
                 self.editTextInput = ""
             }

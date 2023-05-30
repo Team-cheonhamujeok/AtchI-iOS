@@ -88,6 +88,13 @@ struct MMSEView: View {
                                   state: viewModel.nextButtonState)
                     .padding(30)
                 }
+                
+                // 결과 페이지 링크
+                NavigationLink(
+                    destination: MMSEResultView(),
+                    isActive: $viewModel.goResultPage,
+                    label: { EmptyView() }
+                )
             }
             .toolbar(.hidden, for: .navigationBar)
             .contentShape(Rectangle())
