@@ -91,8 +91,8 @@ struct MMSEView: View {
                 
                 // 결과 페이지 링크
                 NavigationLink(
-                    destination: MMSEResultView(),
-                    isActive: $viewModel.goResultPage,
+                    destination: MMSEResultView(resultScores: viewModel.resultScores),
+                    isActive: $viewModel.isResultPage,
                     label: { EmptyView() }
                 )
             }

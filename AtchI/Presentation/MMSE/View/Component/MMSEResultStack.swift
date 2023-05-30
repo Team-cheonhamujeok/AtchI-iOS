@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MMSEResultStack: View {
     
-    let titles = ["시간 지남력", "장소 지남력", "주의 집중 및 계산", "기억 등록 / 기억 회상", "언어(이름 대기)"]
+    let resultScores: [String: String]
     
     var body: some View {
         VStack(spacing: 20) {
@@ -19,13 +19,13 @@ struct MMSEResultStack: View {
             Divider()
                 .foregroundColor(.grayThinLine)
             
-            ForEach(titles, id: \.self) { title in
+            ForEach(Array(resultScores), id: \.self.key) { title, score in
                 VStack(spacing: 5) {
                     Text(title)
                         .font(.bodyMedium)
                         .fontWeight(.bold)
                         .foregroundColor(.grayTextLight)
-                    Text("2/3")
+                    Text(score)
                         .font(.bodyMedium)
                         .fontWeight(.bold)
                         .foregroundColor(.mainPurple)
@@ -42,6 +42,6 @@ struct MMSEResultStack: View {
 
 struct MMSEResultStack_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEResultStack()
+        MMSEResultStack(resultScores: [:])
     }
 }

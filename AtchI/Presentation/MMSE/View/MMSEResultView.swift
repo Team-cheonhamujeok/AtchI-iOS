@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MMSEResultView: View {
+    
+    let resultScores: [String: String]
+    
     var body: some View {
         ZStack {
             ScrollView {
@@ -30,7 +33,7 @@ struct MMSEResultView: View {
                     
                     // 검사 결과
                     Spacer(minLength: 5)
-                    MMSEResultStack()
+                    MMSEResultStack(resultScores: resultScores)
                     Spacer(minLength: 50)
                     
                     // 확인 버튼
@@ -53,6 +56,6 @@ struct MMSEResultView: View {
 
 struct MMSEResultView_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEResultView()
+        MMSEResultView(resultScores: [:])
     }
 }
