@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-
-
 struct MMSEQuestionModel {
     let identifier: String
     let order: String

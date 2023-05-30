@@ -5,14 +5,44 @@
 //  Created by DOYEON LEE on 2023/05/24.
 //
 
-import Foundation
 import CoreLocation
+import Combine
+import Foundation
+
+import CombineMoya
+import Moya
 
 /// MMSE 내부 계산 및 문항 파싱을 담당하는 Service입니다.
 class MMSEService {
     
+    let provider: MoyaProvider<MMSEAPI>
     private let bundelHelper = BundelHelper()
     private let locationHelper = LocationHelper()
+    
+    init(provider: MoyaProvider<MMSEAPI>) {
+        self.provider = provider
+    }
+    
+    var cancellables = Set<AnyCancellable>()
+    
+    func reqeustMMSEResults(mid: Int) -> AnyPublisher<Moya.Response, MMSEError> {
+        return provider.requestPublisher(.getList(mid: mid))
+            .tryMap { response -> Response in
+                return response
+            }
+            .mapError { error in
+                return MMSEError.getFail
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    
+    func requestSaveMMESE(_ MMSESaveRequestModel: MMSESaveRequestModel) -> AnyPublisher<Void, MMSEError> {
+        return provider.requestPublisher(.saveMMES(model: MMSESaveRequestModel))
+            .tryMap{ _ in }
+            .mapError { _ in return MMSEError.saveFailed }
+            .eraseToAnyPublisher()
+    }
     
     /// MMSE plist 파일에 있는 식별자와 질문을 파싱해 MMSEQuestionModel로 변환합니다.
     func getMMSEQuestions() -> [MMSEQuestionModel] {
@@ -59,7 +89,9 @@ class MMSEService {
                 
             case .year:
                 let currentYear = Calendar.current.component(.year, from: Date())
-                completion(String(currentYear) == userAnswer)
+                let currentYearStr = String(currentYear)
+                let lastTwoChars = String(currentYearStr.suffix(2))
+                completion(currentYearStr == userAnswer || lastTwoChars == userAnswer)
                 return
                 
             case .month:
@@ -84,6 +116,9 @@ class MMSEService {
                 completion(questionModel.answer == userAnswer)
                 return
             }
+        case .show(_):
+            completion(false)
+            return
         default:
             completion(questionModel.answer == userAnswer)
             return

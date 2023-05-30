@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum MMSEInfoError: Error {
+enum MMSEError: Error {
     case getFail
+    case saveFailed
 }

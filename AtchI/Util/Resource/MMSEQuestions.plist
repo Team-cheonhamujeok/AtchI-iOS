@@ -148,11 +148,11 @@
 	</dict>
 	<dict>
 		<key>identifier</key>
-		<string>Q014-2_IMAGE_MIRROR</string>
+		<string>Q014-2_IMAGE_BALL</string>
 		<key>question</key>
 		<string>이것이 무엇인가요?</string>
 		<key>answer</key>
-		<string>거울</string>
+		<string>축국공</string>
 	</dict>
 </array>
 </plist>

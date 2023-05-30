@@ -13,7 +13,7 @@ struct DiagnosisView: View {
     
     let selfTestViewModel = SelfTestViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
     let selfTestInfoViewModel = SelfTestInfoViewModel(service: DiagnosisService(provider: MoyaProvider<DiagnosisAPI>()))
-    let mmseInfoViewModel = MMSEInfoViewModel(service: MMSEInfoService(provider: MoyaProvider<MMSEInfoAPI>()))
+    let mmseInfoViewModel = MMSEInfoViewModel(service: MMSEService(provider: MoyaProvider<MMSEAPI>()))
     
     @State private var path: [DiagnosisViewStack] = []
     

@@ -11,7 +11,7 @@ extension MMSEViewType.Image {
     var imageName: String {
         switch self {
         case .clock: return "mmse_clock"
-        case .mirror: return ""
+        case .ball: return "mmse_soccer_ball"
         }
     }
 }
@@ -35,7 +35,7 @@ struct ImageAnswerInput_Previews: PreviewProvider {
     @State var text: String
     static var previews: some View {
         ImageAnswerInput(text: .constant(""),
-                         viewType: .clock)
+                         viewType: .ball)
     }
 }
 

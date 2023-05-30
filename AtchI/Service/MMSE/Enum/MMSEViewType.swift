@@ -39,6 +39,6 @@ enum MMSEViewType: Equatable {
     
     enum Image: String, CaseIterable {
         case clock
-        case mirror
+        case ball
     }
 }

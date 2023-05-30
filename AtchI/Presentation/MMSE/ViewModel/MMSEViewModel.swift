@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+import Factory
+
 
 struct MMSEAnswerModel {
     let answer: String
@@ -17,7 +19,7 @@ struct MMSEAnswerModel {
 class MMSEViewModel: ObservableObject {
     
     // MARK: - Dependency
-    private var mmseService = MMSEService()
+    @Injected(\.mmseService) var mmseService
     private var locationHelper = LocationHelper()
     
     // MARK: - Input State
@@ -37,7 +39,7 @@ class MMSEViewModel: ObservableObject {
     var questions: [MMSEQuestionModel] = []
     /// 정답 확인 배열입니다. 맞으면 1 틀리면 2입니다.
     /// - Note: 문항 순서(인덱스)가 Key값입니다.
-    var isCorrect: [Int: String] = [:]
+    var correctAnswers: [Int: String] = [:]
     
     // MARK: - Cancellabe
     var cancellables = Set<AnyCancellable>()
@@ -58,8 +60,8 @@ class MMSEViewModel: ObservableObject {
                 self.mmseService
                     .checkIsCorrect(questionModel: self.questions[self.currentIndex],
                                     userAnswer: self.editTextInput) {
-                        self.isCorrect[self.currentIndex] = $0 ? "1" : "2"
-                        print("answer: \(self.editTextInput), correct: \($0) isCorrect: \(self.isCorrect)")
+                        self.correctAnswers[self.currentIndex] = $0 ? "1" : "2"
+                        print("answer: \(self.editTextInput), correct: \($0) isCorrect: \(self.correctAnswers)")
                     }
                 
                 self.currentIndex = self.currentIndex >= 0
