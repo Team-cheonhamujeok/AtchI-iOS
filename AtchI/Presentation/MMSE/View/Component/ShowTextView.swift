@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension MMSEViewType.Show {
+extension MMSEQuestionType.Show {
     var text: String {
         switch self {
         case .airplane: return "비행기"
@@ -20,7 +20,7 @@ extension MMSEViewType.Show {
 struct ShowTextView: View {
     
     @Binding var text: String
-    let viewType: MMSEViewType.Show
+    let viewType: MMSEQuestionType.Show
     
     var body: some View {
         HStack {

@@ -34,7 +34,7 @@ class MMSEViewModel: ObservableObject {
     var questions: [MMSEQuestionModel] = []
     /// 정답 확인 배열입니다. 맞으면 1 틀리면 2입니다.
     /// - Note: 문항 순서(인덱스)가 Key값입니다.
-    var correctAnswers: [Int: String] = [:]
+    var correctAnswers: [MMSEQuestionModel: String] = [:]
     
     // MARK: - Cancellabe
     var cancellables = Set<AnyCancellable>()
@@ -55,21 +55,21 @@ class MMSEViewModel: ObservableObject {
                 self.mmseService
                     .checkIsCorrect(questionModel: self.questions[self.currentIndex],
                                     userAnswer: self.editTextInput) {
-                        self.correctAnswers[self.currentIndex] = $0 ? "1" : "2"
+                        self.correctAnswers[self.questions[self.currentIndex]] = $0 ? "1" : "2"
                         print("answer: \(self.editTextInput), correct: \($0) isCorrect: \(self.correctAnswers)")
                     }
                 
-                // 마지막 인덱스일 시 저장 요청
+                // 마지막 인덱스일 시
                 if self.currentIndex >= self.questions.count - 1 {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                    let dateString = dateFormatter.string(from: Date())
-                    self.mmseService.requestSaveMMESE(
-                        MMSESaveRequestModel(mid: UserDefaults.standard.integer(forKey: "mid"),
-                                             questions: Array(self.correctAnswers.values),
-                                             date: dateString))
+                    
+                    // Result 화면으로
+                    self.goResultPage = true
+                    
+                    // 서버에 저장
+                    self.mmseService.requestSaveMMESE(Array(self.correctAnswers.values))
                     .sink(receiveCompletion: { _ in }, receiveValue: { _ in})
                     .store(in: &self.cancellables)
+                    
                 // 첫 인덱스보다 클 시 인덱스++
                 } else if self.currentIndex >= 0 {
                     self.currentIndex += 1

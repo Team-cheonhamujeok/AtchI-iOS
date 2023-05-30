@@ -29,9 +29,9 @@ struct MMSEResultView: View {
                     .lineSpacing(5)
                     
                     // 검사 결과
-                    Spacer(minLength: 20)
+                    Spacer(minLength: 5)
                     MMSEResultStack()
-                    Spacer(minLength: 20)
+                    Spacer(minLength: 50)
                     
                     // 확인 버튼
                 }

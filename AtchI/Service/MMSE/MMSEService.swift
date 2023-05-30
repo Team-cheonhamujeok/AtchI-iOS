@@ -37,8 +37,18 @@ class MMSEService {
     }
     
     
-    func requestSaveMMESE(_ MMSESaveRequestModel: MMSESaveRequestModel) -> AnyPublisher<Void, MMSEError> {
-        return provider.requestPublisher(.saveMMES(model: MMSESaveRequestModel))
+    func requestSaveMMESE(_ correctAnswers: [String]) -> AnyPublisher<Void, MMSEError> {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: Date())
+        
+        let mid = UserDefaults.standard.integer(forKey: "mid")
+        if mid <= 0 { fatalError("잘못된 접근입니다. 해당 API는 로그인된 상태에서 호출되어야합니다.") }
+        
+        return provider
+            .requestPublisher(.saveMMES(model: MMSESaveRequestModel(mid: mid,
+                                                                    questions: correctAnswers,
+                                                                    date: dateString)))
             .tryMap{ _ in }
             .mapError { _ in return MMSEError.saveFailed }
             .eraseToAnyPublisher()
@@ -124,4 +134,34 @@ class MMSEService {
             return
         }
     }
+    
+    func getMMSEResults(_ correctAnswers: [MMSEQuestionModel: String]) -> [String: String] {
+        // 총 질문 개수 카운트
+        var totalResultTypeCount: [MMSEResultType: Int] = [:]
+        // 정답 수 카운트
+        var correctResultCounts: [MMSEResultType: Int] = [:]
+        
+        // 배열 초기화
+        MMSEResultType.allCases.forEach {
+            correctResultCounts[$0] = 0
+            totalResultTypeCount[$0] = 0
+        }
+        
+        // 정답 수와 질문 개수 카운트
+        for (key, value) in correctAnswers {
+            totalResultTypeCount[key.viewType.resultType]! += 1
+            if value == "1" {
+                correctResultCounts[key.viewType.resultType]! += 1
+            }
+        }
+        
+        // 새로운 딕셔너리로 합쳐 반환
+        return MMSEResultType.allCases.reduce(into: [:]) { (dict, resultType) in
+            let total = totalResultTypeCount[resultType] ?? 0
+            let correct = correctResultCounts[resultType] ?? 0
+            dict[resultType.description] = "\(correct)/\(total)"
+        }
+        
+    }
 }
+

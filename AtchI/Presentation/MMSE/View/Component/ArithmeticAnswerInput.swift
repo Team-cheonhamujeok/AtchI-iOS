@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension MMSEViewType.Arithmetic {
+extension MMSEQuestionType.Arithmetic {
     
     var keyboardType: UIKeyboardType {
         return .numberPad
@@ -17,7 +17,7 @@ extension MMSEViewType.Arithmetic {
 struct ArithmeticAnswerInput: View {
     
     @Binding var text: String
-    let viewType: MMSEViewType.Arithmetic
+    let viewType: MMSEQuestionType.Arithmetic
     
     var body: some View {
         TextInputWithSuffix(text: $text,

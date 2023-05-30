@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension MMSEViewType.Image {
+extension MMSEQuestionType.Image {
     var imageName: String {
         switch self {
         case .clock: return "mmse_clock"
@@ -19,7 +19,7 @@ extension MMSEViewType.Image {
 struct ImageAnswerInput: View {
     
     @Binding var text: String
-    let viewType: MMSEViewType.Image
+    let viewType: MMSEQuestionType.Image
     
     var body: some View {
         Image(viewType.imageName)
