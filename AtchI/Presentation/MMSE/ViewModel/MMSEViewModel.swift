@@ -28,7 +28,9 @@ class MMSEViewModel: ObservableObject {
     @Published var nextButtonState: ButtonState = .disabled
     /// 현재 질문 인덱스입니다.
     @Published var currentIndex: Int = 0
+    /// 결과 페이지로 넘어가는 NavigationLink와 바인딩된 변수입니다.
     @Published var isResultPage: Bool = false
+    /// 현재 문항에 맞는 키보드 타입입니다.
     @Published var keyboardType: UIKeyboardType = .numberPad
     
     // MARK: - Data
@@ -127,9 +129,6 @@ class MMSEViewModel: ObservableObject {
             default: return .default
             }
         }()
-        
-        print("###")
-        print(self.keyboardType)
     }
 
 }

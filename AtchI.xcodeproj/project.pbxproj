@@ -144,6 +144,7 @@
 		BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */; };
 		BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551529B9957900FAA6E3 /* Colors.swift */; };
 		BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551729B9959100FAA6E3 /* Fonts.swift */; };
+		BC98E65D2A2792EC00CA43D2 /* View+InjectIII.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98E65C2A2792EC00CA43D2 /* View+InjectIII.swift */; };
 		BC9D00BF2A07880F00E2C6CE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D00BE2A07880F00E2C6CE /* AccountAPI.swift */; };
 		BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D00C12A07893700E2C6CE /* LoginAPIMock.swift */; };
 		BCA1486029D5F149001F390D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1485F29D5F149001F390D /* LoginViewModel.swift */; };
@@ -351,6 +352,7 @@
 		BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC8D551529B9957900FAA6E3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BC8D551729B9959100FAA6E3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BC98E65C2A2792EC00CA43D2 /* View+InjectIII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+InjectIII.swift"; sourceTree = "<group>"; };
 		BC9C977D29C2262D00DC6FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BC9D00BE2A07880F00E2C6CE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
 		BC9D00C12A07893700E2C6CE /* LoginAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIMock.swift; sourceTree = "<group>"; };
@@ -1064,6 +1066,7 @@
 				BC77192C2A0F856E00F692C6 /* Publishers.swift */,
 				BC2E1F662A13CE9000B4E713 /* URL.swift */,
 				BC4607A42A1E1E3F00015447 /* String.swift */,
+				BC98E65C2A2792EC00CA43D2 /* View+InjectIII.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1693,6 +1696,7 @@
 				BC5E243E2A19F0D7005278D5 /* WatchActivityView.swift in Sources */,
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
 				BC482D2E2A25DBD10091787D /* MMSEAPI.swift in Sources */,
+				BC98E65D2A2792EC00CA43D2 /* View+InjectIII.swift in Sources */,
 				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
 				BC38FC032A1E0EF6005F172B /* ShowTextView.swift in Sources */,
@@ -2014,9 +2018,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_DOCUMENTATION_COMPILER = YES;
+				RUN_DOCUMENTATION_COMPILER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -2055,7 +2063,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_DOCUMENTATION_COMPILER = YES;
+				RUN_DOCUMENTATION_COMPILER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
