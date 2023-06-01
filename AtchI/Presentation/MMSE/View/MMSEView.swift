@@ -13,8 +13,11 @@ struct MMSEView: View {
     
     @ObservedObject var keyboardHelper = KeyboardHelper()
     
+    // 상위뷰에서 현재 뷰를 pop하기 위한 변수입니다.
+    @Binding var isThisViewPresented: Bool
+    
     var body: some View {
-        // 현재 문항이 image 형식이면서 키보드가 올라와있는지 ->에 따라 문항 섹션 변경
+        // 현재 문항이 image 형식이면서 키보드가 올라와있는지 -> 에 따라 문항 섹션 show/hide
         var isImageViewType: Bool {
             guard case .image(_) = viewModel.questions[viewModel.currentIndex].questionType else {
                 return false
@@ -91,7 +94,8 @@ struct MMSEView: View {
                 
                 // 결과 페이지 링크
                 NavigationLink(
-                    destination: MMSEResultView(resultScores: viewModel.resultScores),
+                    destination: MMSEResultView(isPreviousViewPresented: $isThisViewPresented,
+                                                resultScores: viewModel.resultScores),
                     isActive: $viewModel.isResultPage,
                     label: { EmptyView() }
                 )
@@ -101,14 +105,14 @@ struct MMSEView: View {
             .onTapGesture {
                 hideKeyboard()
             }
-            //            .animation(.easeIn(duration: 0.1), value: keyboardHelper.isKeyboardVisible)
         }
     }
 }
 
 struct MMSEView_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEView(viewModel: MMSEViewModel())
+        MMSEView(viewModel: MMSEViewModel(),
+                 isThisViewPresented: .constant(true))
     }
 }
 

@@ -11,6 +11,8 @@ struct MMSEResultView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @Binding var isPreviousViewPresented: Bool
+    
     let resultScores: [String: String]
     
     var body: some View {
@@ -48,11 +50,19 @@ struct MMSEResultView: View {
             // 확인 버튼
             VStack {
                 Spacer()
-                RoundedButton(title: "확인", state: .enabled)
-                    .onTapGesture {
-                        // 모든 뷰 dismiss
-                        presentationMode.wrappedValue.dismiss()
-                    }
+                VStack {
+                    Text("확인")
+                        .font(.titleSmall)
+                        .foregroundColor(.white)
+                }
+                .frame(maxWidth: .infinity, maxHeight: 65)
+                .background(Color.accentColor)
+                .cornerRadius(20)
+                .onTapGesture {
+                    // 모든 뷰 dismiss
+                    isPreviousViewPresented = false
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
             .padding(.horizontal, 30)
         }
@@ -62,6 +72,6 @@ struct MMSEResultView: View {
 
 struct MMSEResultView_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEResultView(resultScores: [:])
+        MMSEResultView(isPreviousViewPresented: .constant(true), resultScores: [:])
     }
 }

@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct HomeView: View {
+import Factory
 
+struct HomeView: View {
+    
     @StateObject private var viewModel = HomeViewModel()
     @State var richText: String = ""
     @State private var rotationAngle: Double = 0.0
@@ -33,7 +35,7 @@ struct HomeView: View {
                     
                     // 애플워치 정보
                     VStack(alignment: .leading, spacing: 10){
-
+                        
                         HStack {
                             Text("현재 활동 정보")
                                 .font(.titleSmall)
@@ -50,46 +52,46 @@ struct HomeView: View {
                                     }
                                 }
                         }
-                            Text("AI 진단에 쓰이고 있는 활동 정보들입니다!")
-                                .font(.bodyMedium)
-                            Spacer(minLength: 10)
-                            WatchActivityView(stepCount: $viewModel.stepCount,
-                                              heartAverage: $viewModel.heartAverage,
-                                              sleepTotal: $viewModel.sleepTotal)
-                        }
+                        Text("AI 진단에 쓰이고 있는 활동 정보들입니다!")
+                            .font(.bodyMedium)
+                        Spacer(minLength: 10)
+                        WatchActivityView(stepCount: $viewModel.stepCount,
+                                          heartAverage: $viewModel.heartAverage,
+                                          sleepTotal: $viewModel.sleepTotal)
                     }
-                    .padding([.leading, .trailing, .bottom], 30)
-                    
-                    
-                    // 중간 보더
-                    Rectangle()
-                        .frame(height: 15)
-                        .foregroundColor(.grayBoldLine)
-                    
-                    // MARK: 치매 정보 섹션
-                    VStack(alignment: .leading, spacing: 20){
-                        Text("치매 정보")
-                            .font(.titleMedium)
-                        InformationCardList()
-                    }
-                    .padding(30)
-                    
                 }
-            }
-            .scrollIndicators(.hidden)
-            .frame(maxWidth: .infinity,
-                   maxHeight: .infinity,
-                   alignment: .leading)
-            .background(Color.mainBackground)
-            .onAppear {
-                viewModel.$viewOnAppear.send(())
+                .padding([.leading, .trailing, .bottom], 30)
+                
+                
+                // 중간 보더
+                Rectangle()
+                    .frame(height: 15)
+                    .foregroundColor(.grayBoldLine)
+                
+                // MARK: 치매 정보 섹션
+                VStack(alignment: .leading, spacing: 20){
+                    Text("치매 정보")
+                        .font(.titleMedium)
+                    InformationCardList()
+                }
+                .padding(30)
+                
             }
         }
-    }
-    
-    struct HomeView_Previews: PreviewProvider {
-        static var previews: some View {
-            HomeView()
+        .scrollIndicators(.hidden)
+        .frame(maxWidth: .infinity,
+               maxHeight: .infinity,
+               alignment: .leading)
+        .background(Color.mainBackground)
+        .onAppear {
+            viewModel.$viewOnAppear.send(())
         }
     }
-    
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}
+
