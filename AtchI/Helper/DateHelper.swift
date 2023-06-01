@@ -84,4 +84,27 @@ class DateHelper: DateHelperType {
         dateFormatter.dateFormat = "yy년MM월dd일"
         return dateFormatter.string(from: date)
     }
+    
+    // String을 Date형으로 변환합니다.
+    static func convertStringToDate(string: String, format: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: string)!
+    }
+    
+    static func generateBetweenDates(from startDate: Date, to endDate: Date) -> [Date] {
+        var dates: [Date] = []
+        var currentDate = startDate
+
+        let calendar = Calendar.current
+        let endDate = calendar.startOfDay(for: endDate)
+
+        while currentDate <= endDate {
+            dates.append(currentDate)
+            guard let newDate = calendar.date(byAdding: .day, value: 1, to: currentDate) else { break }
+            currentDate = newDate
+        }
+
+        return dates
+    }
 }

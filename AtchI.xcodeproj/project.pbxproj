@@ -172,6 +172,7 @@
 		BCE398C82A1F4565007E4242 /* LifePatternResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */; };
 		BCE398CA2A1F47D8007E4242 /* LifePatternError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C92A1F47D8007E4242 /* LifePatternError.swift */; };
 		BCE743822A2828AF0073914B /* MMSEServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743812A2828AF0073914B /* MMSEServiceTests.swift */; };
+		BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743832A28632A0073914B /* LastDateResponseModel.swift */; };
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
@@ -382,6 +383,7 @@
 		BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternResponseModel.swift; sourceTree = "<group>"; };
 		BCE398C92A1F47D8007E4242 /* LifePatternError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternError.swift; sourceTree = "<group>"; };
 		BCE743812A2828AF0073914B /* MMSEServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEServiceTests.swift; sourceTree = "<group>"; };
+		BCE743832A28632A0073914B /* LastDateResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateResponseModel.swift; sourceTree = "<group>"; };
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
@@ -1378,6 +1380,7 @@
 			children = (
 				BC7719272A0F81A700F692C6 /* LifePatternModel.swift */,
 				BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */,
+				BCE743832A28632A0073914B /* LastDateResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1661,6 +1664,7 @@
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
 				BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */,
 				BC4607A72A1E4C7700015447 /* LocationHelper.swift in Sources */,
+				BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */,
 				BC482D302A25DE8F0091787D /* MMSESaveRequestModel.swift in Sources */,
 				BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,

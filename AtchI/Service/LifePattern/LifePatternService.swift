@@ -26,23 +26,49 @@ class LifePatternService {
         self.heartRateService = heartRateService
     }
     
+    /// 생활패턴 정보를 서버에 저장합니다.
+    ///
+    /// 내부 로직은 다음과 같습니다.
+    /// 1. 서버에서 마지막 업데이트일 받아오기
+    /// 2. 마지막 업데이트일과 현재까지의 모든 날짜를 Date()형으로 저장
+    /// 3. 각 Date형에 맞는 LifePatternModel 생성
+    /// 4. LifePatternModel들을 배열로 합쳐 서버에 저장
+    ///
+    /// - Returns: 요청 성공/실패에 대한 응답을 반환하는 퍼블리셔를 반환합니다.
     func requestPostLifePattern() -> AnyPublisher<LifePatternResponseModel, Error> {
-        // 현재 날짜 가져오기
-        let currentDate = Date()
-
-        // Calendar와 DateComponents를 사용하여 100일 전(임시)의 날짜 계산
-        let lifePatternPublishers = (0...100).reversed()
-            .compactMap { subtractDay -> AnyPublisher<LifePatternModel, Never>? in
-                var dateComponents = DateComponents()
-                dateComponents.day = -subtractDay
-                let calendar = Calendar.current
-                guard let calculatedDate = calendar.date(byAdding: dateComponents, to: currentDate)
-                else { return nil }
-                
-                return createLifePatternModel(date: calculatedDate)
-            }
         
-        return Publishers.MergeMany(lifePatternPublishers)
+        let mid = UserDefaults.standard.integer(forKey: "mid")
+        if mid <= 0 { fatalError("잘못된 접근입니다. 해당 API는 로그인된 상태에서 호출되어야합니다.") }
+        
+        // 마지막 업데이트일 받아오기
+        let lastDatePublisher = reuqestLastDate(mid: mid)
+            .map { model in
+                return DateHelper.convertStringToDate(string: model.response.lastDate,
+                                                      format: "yyyy-mm-dd")
+            }
+
+        // 마지막 업데이트일과 오늘 사이의 모든 날짜에 대한 LifePatternModel구하기
+        //  -> AnyPublisher<LifePatternModel, Never>
+        let lifePatternPublisher = lastDatePublisher
+            .replaceError(with: Date())
+            .map { lastDate -> [AnyPublisher<LifePatternModel, Never>]  in
+                // 사이의 모든 날짜 구하기
+                let dates = DateHelper.generateBetweenDates(from: lastDate, to: Date())
+
+                // Calendar와 DateComponents를 사용하여 100일 전(임시)의 날짜 계산
+                return dates.compactMap { date -> AnyPublisher<LifePatternModel, Never>? in
+                        return self.createLifePatternModel(date: date)
+                    }
+            }
+            .replaceError(with: nil)
+            .compactMap { $0 }
+            .eraseToAnyPublisher()
+        
+        // LifePattern모델들을 배열로 합쳐서 서버에 푸시하기
+        return lifePatternPublisher
+            .flatMap {
+                Publishers.MergeMany($0)
+            }
             .collect()
             .flatMap { lifePatternModels in
                 self.provider.requestPublisher(.sendLifePattern(lifePatternModels))
@@ -53,6 +79,19 @@ class LifePatternService {
                         return LifePatternError.sendFailed
                     }
                     .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func reuqestLastDate(mid: Int) -> AnyPublisher<ResponseModel<LastDateResponseModel>, Error> {
+        
+        // 마지막 업데이트일 받아오기
+       return provider.requestPublisher(.lastDate(mid))
+            .tryMap { response in
+                return try response.map(ResponseModel<LastDateResponseModel>.self)
+            }
+            .mapError { _ in
+                return LifePatternError.sendFailed
             }
             .eraseToAnyPublisher()
     }
