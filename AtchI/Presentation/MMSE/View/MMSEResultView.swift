@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MMSEResultView: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     @Binding var isPreviousViewPresented: Bool
     
@@ -61,12 +61,12 @@ struct MMSEResultView: View {
                 .onTapGesture {
                     // 모든 뷰 dismiss
                     isPreviousViewPresented = false
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }
             }
             .padding(.horizontal, 30)
         }
-        
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

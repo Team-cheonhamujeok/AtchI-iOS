@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MMSEView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @StateObject var viewModel: MMSEViewModel
     
     @ObservedObject var keyboardHelper = KeyboardHelper()
@@ -25,87 +27,96 @@ struct MMSEView: View {
             return true
         }
         
-        VStack(alignment: .leading, spacing: 0) {
-            NavigationBarWithBackButton(bgColor: .mainPurple)
-            ZStack {
-                GeometryReader { rootGeometry in
-                    // z layer 1
-                    VStack(alignment: .leading, spacing: 0) {
-                        // MARK: Question
-                        VStack(alignment: .leading, spacing: 10) {
-                            // 사진 있을 시 자리부족
-                            if !(isImageViewType && keyboardHelper.isKeyboardVisible) {
-                                Text(viewModel.questions[viewModel.currentIndex].order)
-                                    .foregroundColor(.white)
-                                    .opacity(0.8)
-                                    .font(.titleSmall)
-                                Text(viewModel.questions[viewModel.currentIndex].question)
-                                    .foregroundColor(.white)
-                                    .font(.titleMedium)
-                                    .lineSpacing(1.2)
-                            }
+        
+        ZStack {
+            GeometryReader { rootGeometry in
+                // z layer 1
+                VStack(alignment: .leading, spacing: 0) {
+                    // MARK: Question
+                    VStack(alignment: .leading, spacing: 10) {
+                        // 사진 있을 시 자리부족
+                        if !(isImageViewType && keyboardHelper.isKeyboardVisible) {
+                            Text(viewModel.questions[viewModel.currentIndex].order)
+                                .foregroundColor(.white)
+                                .opacity(0.8)
+                                .font(.titleSmall)
+                            Text(viewModel.questions[viewModel.currentIndex].question)
+                                .foregroundColor(.white)
+                                .font(.titleMedium)
+                                .lineSpacing(1.2)
                         }
-                        .frame(maxWidth: .infinity,
-                               alignment: .leading)
-                        .frame(minHeight: (isImageViewType && keyboardHelper.isKeyboardVisible)
-                               ? 0
-                               : rootGeometry.size.height * 0.3)
-                        .padding(.horizontal, 30)
-                        .background(Color.accentColor)
-                        
-                        // MARK: Answer
-                        VStack {
-                            switch viewModel.questions[viewModel.currentIndex].questionType {
-                            case .reply(let replyType):
-                                ReplyAnswerInput(text: $viewModel.editTextInput, keybaordType: $viewModel.keyboardType,
-                                                 viewType: replyType)
-                            case .arithmetic(let arithmeticType):
-                                ArithmeticAnswerInput(text: $viewModel.editTextInput, keyboardType: $viewModel.keyboardType,
-                                                      viewType: arithmeticType)
-                            case .show(let showType):
-                                ShowTextView(text: $viewModel.editTextInput,
-                                             viewType: showType)
-                            case .image(let imageType):
-                                ImageAnswerInput(text: $viewModel.editTextInput, keybaordType: $viewModel.keyboardType,
-                                                 viewType: imageType)
-                            case .undefined:
-                                EmptyView()
-                            }
-                        }
-                        .padding(30)
-                        .padding(.bottom, 80)
-                        
-                        Spacer()
                     }
-                    .background(Color.mainBackground)
-                }
-                
-                // z layer 2
-                VStack {
-                    Spacer()
-                    // MARK: Next button
-                    RoundedButton(title: viewModel.currentIndex == viewModel.questions.count - 1
-                                  ? "완료하기"
-                                  : "다음으로",
-                                  onTap: viewModel.$tapNextButton,
-                                  state: viewModel.nextButtonState)
+                    .frame(maxWidth: .infinity,
+                           alignment: .leading)
+                    .frame(minHeight: (isImageViewType && keyboardHelper.isKeyboardVisible)
+                           ? 0
+                           : rootGeometry.size.height * 0.3)
+                    .padding(.horizontal, 30)
+                    .background(Color.accentColor)
+                    
+                    // MARK: Answer
+                    VStack {
+                        switch viewModel.questions[viewModel.currentIndex].questionType {
+                        case .reply(let replyType):
+                            ReplyAnswerInput(text: $viewModel.editTextInput, keybaordType: $viewModel.keyboardType,
+                                             viewType: replyType)
+                        case .arithmetic(let arithmeticType):
+                            ArithmeticAnswerInput(text: $viewModel.editTextInput, keyboardType: $viewModel.keyboardType,
+                                                  viewType: arithmeticType)
+                        case .show(let showType):
+                            ShowTextView(text: $viewModel.editTextInput,
+                                         viewType: showType)
+                        case .image(let imageType):
+                            ImageAnswerInput(text: $viewModel.editTextInput, keybaordType: $viewModel.keyboardType,
+                                             viewType: imageType)
+                        case .undefined:
+                            EmptyView()
+                        }
+                    }
                     .padding(30)
+                    .padding(.bottom, 80)
+                    
+                    Spacer()
                 }
-                
-                // 결과 페이지 링크
-                NavigationLink(
-                    destination: MMSEResultView(isPreviousViewPresented: $isThisViewPresented,
-                                                resultScores: viewModel.resultScores),
-                    isActive: $viewModel.isResultPage,
-                    label: { EmptyView() }
-                )
+                .background(Color.mainBackground)
             }
-            .toolbar(.hidden, for: .navigationBar)
-            .contentShape(Rectangle())
-            .onTapGesture {
-                hideKeyboard()
+            
+            // z layer 2
+            VStack {
+                Spacer()
+                // MARK: Next button
+                RoundedButton(title: viewModel.currentIndex == viewModel.questions.count - 1
+                              ? "완료하기"
+                              : "다음으로",
+                              onTap: viewModel.$tapNextButton,
+                              state: viewModel.nextButtonState)
+                .padding(30)
+            }
+            
+            // 결과 페이지 링크
+            NavigationLink(
+                destination: MMSEResultView(isPreviousViewPresented: $isThisViewPresented,
+                                            resultScores: viewModel.resultScores),
+                isActive: $viewModel.isResultPage,
+                label: { EmptyView() }
+            )
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar{
+            ToolbarItem(placement: .navigationBarLeading) {
+                HStack{
+                    Image("arrow_back").foregroundColor(.white)
+                    Text("이전으로").foregroundColor(.white)
+                }.onTapGesture {
+                    dismiss()
+                }
             }
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            hideKeyboard()
+        }
+        
     }
 }
 
