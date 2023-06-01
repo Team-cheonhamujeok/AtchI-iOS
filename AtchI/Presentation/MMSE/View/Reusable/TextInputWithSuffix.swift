@@ -53,7 +53,7 @@ struct TextInputWithSuffix: View {
                              DispatchQueue.main.async {
                                  if isFocused {
                                      isFocused = false
-                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
                                          isFocused = true
                                      }
                                  }

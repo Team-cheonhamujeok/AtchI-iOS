@@ -11,6 +11,7 @@ import Moya
 
 enum LifePatternAPI{
     case sendLifePattern(_ lifePatternModel: [LifePatternModel])
+    case lastDate(_ mid: Int)
 }
 
 extension LifePatternAPI: TargetType {
@@ -25,7 +26,9 @@ extension LifePatternAPI: TargetType {
     var path: String {
         switch self {
         case .sendLifePattern:
-            return "/lifePattern" // FIXME: 임시
+            return "/lifePattern"
+        case .lastDate:
+            return "/lifePattern/lastDate"
         }
     }
     
@@ -33,6 +36,8 @@ extension LifePatternAPI: TargetType {
         switch self {
         case .sendLifePattern:
             return .post
+        case .lastDate:
+            return .get
         }
     }
     
@@ -40,6 +45,9 @@ extension LifePatternAPI: TargetType {
         switch self {
         case .sendLifePattern(let model):
             return .requestJSONEncodable(model)
+        case .lastDate(let mid):
+            return .requestParameters(parameters: ["mid" : mid],
+                                      encoding: URLEncoding.queryString)
         }
     }
     
