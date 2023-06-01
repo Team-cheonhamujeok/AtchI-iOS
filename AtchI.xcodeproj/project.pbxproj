@@ -80,7 +80,7 @@
 		BC37AA5329E080760047D273 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5229E080760047D273 /* Moya */; };
 		BC38FBE72A1C82A9005F172B /* MMSEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBE62A1C82A9005F172B /* MMSEViewModel.swift */; };
 		BC38FBE92A1C87C5005F172B /* MMSEQuestions.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */; };
-		BC38FBEB2A1C9814005F172B /* BundelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEA2A1C9814005F172B /* BundelHelper.swift */; };
+		BC38FBEB2A1C9814005F172B /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEA2A1C9814005F172B /* BundleHelper.swift */; };
 		BC38FBF02A1C9CBD005F172B /* TextInputWithSuffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */; };
 		BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */; };
 		BC38FBF82A1CB7F7005F172B /* ReplyAnswerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF72A1CB7F7005F172B /* ReplyAnswerInput.swift */; };
@@ -175,6 +175,10 @@
 		BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743832A28632A0073914B /* LastDateResponseModel.swift */; };
 		BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743862A289AD60073914B /* LifePatternAPIMock.swift */; };
 		BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743892A28AA9A0073914B /* DateHelperTests.swift */; };
+		BCE743932A28BA910073914B /* DementiaArticelsMeta.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */; };
+		BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */; };
+		BCE743982A28BC120073914B /* DementiaArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743972A28BC120073914B /* DementiaArticleService.swift */; };
+		BCE7439B2A28BFB30073914B /* DementiaArticleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */; };
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
@@ -289,7 +293,7 @@
 		BC305CB329FF8402001388EA /* HKAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKAuthorizationHelper.swift; sourceTree = "<group>"; };
 		BC38FBE62A1C82A9005F172B /* MMSEViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEViewModel.swift; sourceTree = "<group>"; };
 		BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MMSEQuestions.plist; sourceTree = "<group>"; };
-		BC38FBEA2A1C9814005F172B /* BundelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundelHelper.swift; sourceTree = "<group>"; };
+		BC38FBEA2A1C9814005F172B /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 		BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputWithSuffix.swift; sourceTree = "<group>"; };
 		BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithBackButton.swift; sourceTree = "<group>"; };
 		BC38FBF72A1CB7F7005F172B /* ReplyAnswerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyAnswerInput.swift; sourceTree = "<group>"; };
@@ -388,6 +392,10 @@
 		BCE743832A28632A0073914B /* LastDateResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateResponseModel.swift; sourceTree = "<group>"; };
 		BCE743862A289AD60073914B /* LifePatternAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPIMock.swift; sourceTree = "<group>"; };
 		BCE743892A28AA9A0073914B /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
+		BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DementiaArticelsMeta.plist; sourceTree = "<group>"; };
+		BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = WhatIsDementiaArticle.rtf; sourceTree = "<group>"; };
+		BCE743972A28BC120073914B /* DementiaArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleService.swift; sourceTree = "<group>"; };
+		BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleServiceTests.swift; sourceTree = "<group>"; };
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
@@ -453,6 +461,7 @@
 		0455D41D29F7796800A8A747 /* AtchIServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				BCE743992A28BF900073914B /* DementiaArticle */,
 				BCE743882A28AA8D0073914B /* Helper */,
 				BCE743802A28289F0073914B /* MMSE */,
 				BC6FB3692A10BDD90009186B /* LifePattern */,
@@ -945,6 +954,7 @@
 		BC78196D29E07867005C4CF5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BCE743962A28BC020073914B /* DementiaArticle */,
 				6F7387B52A19E80400671413 /* Quiz */,
 				BC38FBFF2A1DD51E005F172B /* MMSE */,
 				BCF6B8A32A02788100B0FC1D /* LifePattern */,
@@ -1041,6 +1051,7 @@
 				BC8D550529B9909D00FAA6E3 /* Preview Content */,
 				BC78196D29E07867005C4CF5 /* Service */,
 				BC8D551329B9951400FAA6E3 /* Util */,
+				BCEDF1C12A1B94FE0030CD75 /* Resource */,
 			);
 			path = AtchI;
 			sourceTree = "<group>";
@@ -1056,7 +1067,6 @@
 		BC8D551329B9951400FAA6E3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				BCEDF1C12A1B94FE0030CD75 /* Resource */,
 				04818F722A0B8AF4002B8EB2 /* Error */,
 				BCEDA92629E0355F00F301B1 /* PropertyWrapper */,
 				049ADE9029C6E3B2009B9B62 /* UI */,
@@ -1331,6 +1341,30 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		BCE7438B2A28B2D50073914B /* DementiaArticles */ = {
+			isa = PBXGroup;
+			children = (
+				BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */,
+			);
+			path = DementiaArticles;
+			sourceTree = "<group>";
+		};
+		BCE743962A28BC020073914B /* DementiaArticle */ = {
+			isa = PBXGroup;
+			children = (
+				BCE743972A28BC120073914B /* DementiaArticleService.swift */,
+			);
+			path = DementiaArticle;
+			sourceTree = "<group>";
+		};
+		BCE743992A28BF900073914B /* DementiaArticle */ = {
+			isa = PBXGroup;
+			children = (
+				BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */,
+			);
+			path = DementiaArticle;
+			sourceTree = "<group>";
+		};
 		BCEDA92629E0355F00F301B1 /* PropertyWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1343,8 +1377,10 @@
 		BCEDF1C12A1B94FE0030CD75 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BCE7438B2A28B2D50073914B /* DementiaArticles */,
 				BCEDF1D52A1BD4560030CD75 /* PrivacyPolicyText.rtf */,
 				BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */,
+				BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1448,7 +1484,7 @@
 				BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */,
 				BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */,
 				BC2E1F642A139B7600B4E713 /* HapticHelper.swift */,
-				BC38FBEA2A1C9814005F172B /* BundelHelper.swift */,
+				BC38FBEA2A1C9814005F172B /* BundleHelper.swift */,
 				BC4607A62A1E4C7700015447 /* LocationHelper.swift */,
 				BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */,
 			);
@@ -1603,10 +1639,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */,
+				BCE743932A28BA910073914B /* DementiaArticelsMeta.plist in Resources */,
 				BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */,
 				BCEDF1D62A1BD4560030CD75 /* PrivacyPolicyText.rtf in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BC38FBE92A1C87C5005F172B /* MMSEQuestions.plist in Resources */,
+				BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
 			);
@@ -1620,6 +1658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3A92EF29FF9DC3000B118D /* HKHeartRateServiceTests.swift in Sources */,
+				BCE7439B2A28BFB30073914B /* DementiaArticleServiceTests.swift in Sources */,
 				BCF6B8C12A04275300B0FC1D /* AccountServiceTests.swift in Sources */,
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
@@ -1708,6 +1747,7 @@
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
 				BC81F36429FD615400E09958 /* SignupReqeustViewModelEvent.swift in Sources */,
 				BC2E1F652A139B7600B4E713 /* HapticHelper.swift in Sources */,
+				BCE743982A28BC120073914B /* DementiaArticleService.swift in Sources */,
 				BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */,
 				BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */,
 				BC38FBFA2A1DC3BA005F172B /* ImageAnswerInput.swift in Sources */,
@@ -1787,7 +1827,7 @@
 				BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */,
 				BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
-				BC38FBEB2A1C9814005F172B /* BundelHelper.swift in Sources */,
+				BC38FBEB2A1C9814005F172B /* BundleHelper.swift in Sources */,
 				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
 				BC6948332A20AC70006DED29 /* DIContainer.swift in Sources */,
 				BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */,

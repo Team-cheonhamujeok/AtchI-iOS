@@ -16,7 +16,7 @@ import Moya
 class MMSEService {
     
     let provider: MoyaProvider<MMSEAPI>
-    private let bundelHelper = BundelHelper()
+    private let bundelHelper = BundleHelper.shared
     private let locationHelper = LocationHelper()
     
     init(provider: MoyaProvider<MMSEAPI>) {
@@ -57,7 +57,7 @@ class MMSEService {
     /// MMSE plist 파일에 있는 식별자와 질문을 파싱해 MMSEQuestionModel로 변환합니다.
     func getMMSEQuestions() -> [MMSEQuestionModel] {
         // plist 파일 가져오기 & 파싱
-        let plist = bundelHelper.parsePlist("MMSEQuestions")
+        let plist = bundelHelper.parsePlistFile("MMSEQuestions")
         
         return plist.enumerated().compactMap { idx, item -> MMSEQuestionModel? in
             guard let identifier = item["identifier"],
