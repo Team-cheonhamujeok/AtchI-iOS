@@ -28,7 +28,7 @@ struct MMSEQuestionModel: Hashable {
 
 extension MMSEQuestionModel {
     /// identifier을 MMSEViewType에 매핑하여 반환합니다.
-    var viewType: MMSEQuestionType {
+    var questionType: MMSEQuestionType {
 // FIXME: 중복은 나중에 고칩시다..
         let subIdentifiers = identifier.components(separatedBy: "_")
         if subIdentifiers[1] == "REPLY" {

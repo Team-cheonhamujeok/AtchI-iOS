@@ -171,6 +171,7 @@
 		BCE398C62A1EE8DD007E4242 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */; };
 		BCE398C82A1F4565007E4242 /* LifePatternResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */; };
 		BCE398CA2A1F47D8007E4242 /* LifePatternError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C92A1F47D8007E4242 /* LifePatternError.swift */; };
+		BCE743822A2828AF0073914B /* MMSEServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743812A2828AF0073914B /* MMSEServiceTests.swift */; };
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
@@ -380,6 +381,7 @@
 		BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternResponseModel.swift; sourceTree = "<group>"; };
 		BCE398C92A1F47D8007E4242 /* LifePatternError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternError.swift; sourceTree = "<group>"; };
+		BCE743812A2828AF0073914B /* MMSEServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEServiceTests.swift; sourceTree = "<group>"; };
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 		0455D41D29F7796800A8A747 /* AtchIServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				BCE743802A28289F0073914B /* MMSE */,
 				BC6FB3692A10BDD90009186B /* LifePattern */,
 				BCF6B8BF2A04273800B0FC1D /* Account */,
 				0491BAD429F968A2005C53E5 /* Mock */,
@@ -1297,6 +1300,14 @@
 			path = Reusable;
 			sourceTree = "<group>";
 		};
+		BCE743802A28289F0073914B /* MMSE */ = {
+			isa = PBXGroup;
+			children = (
+				BCE743812A2828AF0073914B /* MMSEServiceTests.swift */,
+			);
+			path = MMSE;
+			sourceTree = "<group>";
+		};
 		BCEDA92629E0355F00F301B1 /* PropertyWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1588,6 +1599,7 @@
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
 				04A984332A11E21500C584C2 /* MockHKStore.swift in Sources */,
+				BCE743822A2828AF0073914B /* MMSEServiceTests.swift in Sources */,
 				BC5A82D82A0CFB3D002EB661 /* HKSleepServiceTests.swift in Sources */,
 				BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,

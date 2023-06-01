@@ -16,7 +16,7 @@ struct MMSEView: View {
     var body: some View {
         // 현재 문항이 image 형식이면서 키보드가 올라와있는지 ->에 따라 문항 섹션 변경
         var isImageViewType: Bool {
-            guard case .image(_) = viewModel.questions[viewModel.currentIndex].viewType else {
+            guard case .image(_) = viewModel.questions[viewModel.currentIndex].questionType else {
                 return false
             }
             return true
@@ -52,7 +52,7 @@ struct MMSEView: View {
                         
                         // MARK: Answer
                         VStack {
-                            switch viewModel.questions[viewModel.currentIndex].viewType {
+                            switch viewModel.questions[viewModel.currentIndex].questionType {
                             case .reply(let replyType):
                                 ReplyAnswerInput(text: $viewModel.editTextInput, keybaordType: $viewModel.keyboardType,
                                                  viewType: replyType)

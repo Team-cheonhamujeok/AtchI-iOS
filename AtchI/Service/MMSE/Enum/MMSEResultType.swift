@@ -17,7 +17,7 @@ extension MMSEQuestionType {
             case .airplane, .pencil, .tree: return .memoryEncodingRecall
             }
         case .arithmetic(_): return .attentionCalculation
-        case .image(_): return .memoryEncodingRecall
+        case .image(_): return .language
         default: return .nothing
             
         }

@@ -16,7 +16,7 @@ private var loadInjection: () = {
     #else
     let bundleName = "maciOSInjection.bundle"
     #endif
-    Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/"+bundleName)!.load()
+//    Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/"+bundleName)!.load()
 }()
 
 import Combine

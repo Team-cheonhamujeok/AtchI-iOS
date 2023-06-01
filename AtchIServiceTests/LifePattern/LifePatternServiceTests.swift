@@ -28,18 +28,19 @@ final class LifePatternServiceTests: XCTestCase {
         service = nil
     }
 
+    /// 실제 값 테스트입니다. 시뮬레이터에서 실행하지 마세요.
     func testCreateLifePatternModel() throws {
-        let today = Date()
-        let calendar = Calendar.current
-        let beforeDay = calendar.date(byAdding: .day, value: -2, to: today)!
-        print("beforeDay \(beforeDay)")
-     
-        let expectation = XCTestExpectation(description: "Life Pattern Test")
-        let cancellable = service.createLifePatternModel(date: beforeDay)
-            .print()
-            .sink(receiveCompletion: { _ in},
-                  receiveValue: { _ in expectation.fulfill()})
-        wait(for: [expectation], timeout: 10.0)
+//        let today = Date()
+//        let calendar = Calendar.current
+//        let beforeDay = calendar.date(byAdding: .day, value: -2, to: today)!
+//        print("beforeDay \(beforeDay)")
+//
+//        let expectation = XCTestExpectation(description: "Life Pattern Test")
+//        let cancellable = service.createLifePatternModel(date: beforeDay)
+//            .print()
+//            .sink(receiveCompletion: { _ in},
+//                  receiveValue: { _ in expectation.fulfill()})
+//        wait(for: [expectation], timeout: 10.0)
     }
 
     func testPerformanceExample() throws {
