@@ -27,7 +27,7 @@ struct ImageAnswerInput: View {
         Image(viewType.imageName)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(minWidth: 250, maxWidth: 250)
+            .frame(width: 200, height: 200)
             .padding(.bottom, 30)
         TextInputWithSuffix(text: $text,
                             keyboardType: $keybaordType)

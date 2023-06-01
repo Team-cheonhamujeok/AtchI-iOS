@@ -27,7 +27,6 @@ struct MMSEView: View {
             return true
         }
         
-        
         ZStack {
             GeometryReader { rootGeometry in
                 // z layer 1
@@ -116,7 +115,6 @@ struct MMSEView: View {
         .onTapGesture {
             hideKeyboard()
         }
-        
     }
 }
 
