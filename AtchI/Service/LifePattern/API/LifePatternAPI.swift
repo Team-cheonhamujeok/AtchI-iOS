@@ -56,15 +56,16 @@ extension LifePatternAPI: TargetType {
     }
     
     // MARK: - For test
-//    var sampleData: Data {
-//        switch self {
-//        case .login(let loginModel):
-//            let response = getLoginMockResponse(loginModel: loginModel)
-//            return try! JSONSerialization.data(withJSONObject: response, options: [])
-//        default:
-//            let response: [String: Any] = ["": ""]
-//            return try! JSONSerialization.data(withJSONObject: response, options: [])
-//        }
-//    }
+    var sampleData: Data {
+        switch self {
+        case .lastDate(let mid):
+            let response = getLastDateMockResponse(mid: mid)
+            let jsonData = response.data(using: .utf8) ?? Data()
+            return jsonData
+        default:
+            let response: [String: Any] = ["": ""]
+            return try! JSONSerialization.data(withJSONObject: response, options: [])
+        }
+    }
 }
 

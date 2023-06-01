@@ -12,15 +12,17 @@ import Moya
 
 class LifePatternService {
     
-    private var provider = MoyaProvider<LifePatternAPI>() // FIXME: 주입으로 바꾸기
+    private var provider: MoyaProvider<LifePatternAPI> // FIXME: 주입으로 바꾸기
     
     private var sleepService: HKSleepServiceType
     private var activityService: HKActivityServiceProtocol
     private var heartRateService: HKHeartRateServiceType
     
-    init(sleepService: HKSleepServiceType,
+    init(provider: MoyaProvider<LifePatternAPI>,
+         sleepService: HKSleepServiceType,
          activityService: HKActivityServiceProtocol,
          heartRateService: HKHeartRateServiceType) {
+        self.provider = provider
         self.sleepService = sleepService
         self.activityService = activityService
         self.heartRateService = heartRateService
@@ -29,10 +31,11 @@ class LifePatternService {
     /// 생활패턴 정보를 서버에 저장합니다.
     ///
     /// 내부 로직은 다음과 같습니다.
-    /// 1. 서버에서 마지막 업데이트일 받아오기
-    /// 2. 마지막 업데이트일과 현재까지의 모든 날짜를 Date()형으로 저장
-    /// 3. 각 Date형에 맞는 LifePatternModel 생성
-    /// 4. LifePatternModel들을 배열로 합쳐 서버에 저장
+    /// 1. 서버에서 마지막 업데이트일 받아옵니다.
+    ///     1-1. 만약 마지막 업데이트일이 없다면 120일 이전 데이터부터 추출합니다.
+    /// 2. 마지막 업데이트일과 현재까지의 모든 날짜를 Date()형으로 저장합니다.
+    /// 3. 각 날짜에 맞는 HealthKit 데이터를 추출하고 LifePatternModel로 만듭니다.
+    /// 4. LifePatternModel들을 배열로 합쳐 서버에 저장합니다.
     ///
     /// - Returns: 요청 성공/실패에 대한 응답을 반환하는 퍼블리셔를 반환합니다.
     func requestPostLifePattern() -> AnyPublisher<LifePatternResponseModel, Error> {
@@ -43,8 +46,12 @@ class LifePatternService {
         // 마지막 업데이트일 받아오기
         let lastDatePublisher = reuqestLastDate(mid: mid)
             .map { model in
-                return DateHelper.convertStringToDate(string: model.response.lastDate,
-                                                      format: "yyyy-mm-dd")
+                if let lastDate = model.response.lastDate {
+                    return DateHelper.convertStringToDate(string: lastDate,
+                                                          format: "yyyy-mm-dd")
+                } else {
+                    return DateHelper.subtractDays(from: Date(), days: 120)
+                }
             }
 
         // 마지막 업데이트일과 오늘 사이의 모든 날짜에 대한 LifePatternModel구하기

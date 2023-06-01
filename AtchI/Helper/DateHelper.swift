@@ -92,12 +92,21 @@ class DateHelper: DateHelperType {
         return dateFormatter.date(from: string)!
     }
     
+    /// 특정 날짜들의 사이 날짜를 모두 구합니다.
+    /// - Parameters:
+    ///   - startDate: 시작 날짜입니다.
+    ///   - endDate: 끝 날짜입니다.
+    /// - Returns: 구한 날짜를 Date형 배열로 반환합니다.
+    /// - Warning: endDate는 startDate보다 나중이어야합니다.
     static func generateBetweenDates(from startDate: Date, to endDate: Date) -> [Date] {
+        
+        assert(startDate < endDate, "끝 날짜는 시작 날짜보다 나중이어야합니다.")
+        
         var dates: [Date] = []
         var currentDate = startDate
 
         let calendar = Calendar.current
-        let endDate = calendar.startOfDay(for: endDate)
+        let endDate = calendar.startOfDay(for: endDate) // 00:00시 가져오기
 
         while currentDate <= endDate {
             dates.append(currentDate)
@@ -107,4 +116,21 @@ class DateHelper: DateHelperType {
 
         return dates
     }
+    
+    /// 기준 날짜에 특정 일 수를 뺀 날짜를 반환합니다.
+    /// - Parameters:
+    ///   - date: 기준 날짜입니다.
+    ///   - days: 뺄 일 수 입니다.
+    /// - Returns: 날짜형을 반환합니다.
+    static func subtractDays(from date: Date, days: Int) -> Date {
+        
+        assert(days >= 0, "일 수는 0보다 커야합니다.")
+        
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.day = -days
+        
+        return calendar.date(byAdding: dateComponents, to: date)!
+    }
+
 }

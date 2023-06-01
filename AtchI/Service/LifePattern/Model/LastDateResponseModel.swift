@@ -30,6 +30,6 @@ struct ResponseModel<T>: Codable where T: Codable {
 }
 
 struct LastDateResponseModel: Codable {
-    let mid: Int
-    let lastDate: String
+    let mid: Int?
+    let lastDate: String?
 }

@@ -17,15 +17,49 @@ final class LifePatternServiceTests: XCTestCase {
     var service: LifePatternService!
 
     override func setUpWithError() throws {
-        service = LifePatternService(sleepService: HKSleepService(provider: HKProvider(),
-                                                                  dateHelper: DateHelper()),
-                                     activityService: HKActivityService(healthkitProvicer: HKProvider()),
-                                     heartRateService: HKHeartRateService(healthKitProvider: HKProvider(),
-                                                                          dateHelper: DateHelper()))
+        service = LifePatternService(
+            provider: MoyaProvider<LifePatternAPI>(stubClosure: MoyaProvider.immediatelyStub),
+            sleepService: HKSleepService(provider: HKProvider(),
+                                         dateHelper: DateHelper()),
+            activityService: HKActivityService(healthkitProvicer: HKProvider()),
+            heartRateService: HKHeartRateService(healthKitProvider: HKProvider(),
+                                                 dateHelper: DateHelper()))
     }
 
     override func tearDownWithError() throws {
         service = nil
+    }
+    
+    func testLastDateExistsResponse() {
+        // given
+        let request = LifePatternAPIMock.lastDate(.exists).request
+        var received: String?
+        
+        // when
+        let cancellable = service.reuqestLastDate(mid: request)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { response in
+                received = response.response.lastDate ?? ""
+            })
+        
+        // then
+        XCTAssertEqual("2024-05-26T15:00:00.000+00:00", received)
+    }
+    
+    func testLastDateDoesNotExistResponse() {
+        // given
+        let request = LifePatternAPIMock.lastDate(.doesNotExist).request
+        var received: String?
+        
+        // when
+        let cancellable = service.reuqestLastDate(mid: request)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { response in
+                received = response.response.lastDate ?? ""
+            })
+        
+        // then
+        XCTAssertEqual("", received)
     }
 
     /// 실제 값 테스트입니다. 시뮬레이터에서 실행하지 마세요.
