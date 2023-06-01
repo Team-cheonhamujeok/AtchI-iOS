@@ -20,6 +20,7 @@
 		045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F769B2A0DC2BD00AA3418 /* SelfTestLevel.swift */; };
 		04619F642A28D8F3007B6BFD /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04619F632A28D8F3007B6BFD /* NetworkErrorView.swift */; };
 		04619F662A28DB00007B6BFD /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04619F652A28DB00007B6BFD /* NetworkMonitor.swift */; };
+		04619F682A291481007B6BFD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04619F672A291481007B6BFD /* LoadingView.swift */; };
 		047505B52A1E6D2600E7A13E /* MMSEInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047505B42A1E6D2600E7A13E /* MMSEInfoView.swift */; };
 		047505BD2A1F6C5700E7A13E /* MMSEInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047505BC2A1F6C5700E7A13E /* MMSEInfoViewModel.swift */; };
 		047505C12A1F75CF00E7A13E /* MMSEResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047505C02A1F75CF00E7A13E /* MMSEResultList.swift */; };
@@ -224,6 +225,7 @@
 		045F769B2A0DC2BD00AA3418 /* SelfTestLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestLevel.swift; sourceTree = "<group>"; };
 		04619F632A28D8F3007B6BFD /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		04619F652A28DB00007B6BFD /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		04619F672A291481007B6BFD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		047505B42A1E6D2600E7A13E /* MMSEInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEInfoView.swift; sourceTree = "<group>"; };
 		047505BC2A1F6C5700E7A13E /* MMSEInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEInfoViewModel.swift; sourceTree = "<group>"; };
 		047505C02A1F75CF00E7A13E /* MMSEResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEResultList.swift; sourceTree = "<group>"; };
@@ -748,6 +750,7 @@
 			isa = PBXGroup;
 			children = (
 				BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */,
+				04619F672A291481007B6BFD /* LoadingView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1689,6 +1692,7 @@
 				045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */,
 				6F0F94AE29FE4DA400993A52 /* HKHeartRateService.swift in Sources */,
 				04457F892A249A8C007DDA30 /* MMSEInfoError.swift in Sources */,
+				04619F682A291481007B6BFD /* LoadingView.swift in Sources */,
 				BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */,
 				04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
@@ -1979,6 +1983,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BACKEND_ENDPOINT = "http://203.255.3.48:1224";
 				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
@@ -1998,8 +2003,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cheonhamo-ujeok.Atchi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamoujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_DOCUMENTATION_COMPILER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -2018,6 +2024,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BACKEND_ENDPOINT = "http://203.255.3.48:1224";
 				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
@@ -2037,8 +2044,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cheonhamo-ujeok.Atchi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamoujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_DOCUMENTATION_COMPILER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
