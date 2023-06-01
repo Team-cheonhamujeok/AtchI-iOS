@@ -20,6 +20,12 @@ extension Container {
         }
     }
     
+    var dementiaArticleService: Factory<DementiaArticleService> {
+        Factory(self) {
+            DementiaArticleService()
+        }
+    }
+    
     // MARK: - HKService
     var hkSleepService: Factory<HKSleepServiceType> {
         Factory(self) { HKSleepService(provider: HKProvider(),

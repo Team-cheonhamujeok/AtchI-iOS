@@ -13,16 +13,16 @@ import SwiftUI
 struct InformationCardList: View {
     
     // dy TODO: 이거 allCases할 수 없나?
-    var alzheimerInformations = [ AlzheimerInformationType.whatIsAlzheimer, AlzheimerInformationType.howMuchTreatment]
+    let articles: [DementiaArticleModel]
     
     var body: some View {
         VStack(alignment: .leading){
             VStack(spacing: 20) {
-                ForEach(alzheimerInformations, id: \.title) {
+                ForEach(articles, id: \.title) {
                     InformationCard(
-                        pictureName: $0.pictureName,
+                        pictureName: $0.imageName,
                         title: $0.title,
-                        content: $0.content
+                        content: $0.content ?? "오류가 발생했습니다 😓"
                     )
                 }
             }

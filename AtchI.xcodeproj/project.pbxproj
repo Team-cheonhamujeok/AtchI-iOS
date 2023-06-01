@@ -179,6 +179,7 @@
 		BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */; };
 		BCE743982A28BC120073914B /* DementiaArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743972A28BC120073914B /* DementiaArticleService.swift */; };
 		BCE7439B2A28BFB30073914B /* DementiaArticleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */; };
+		BCE7439E2A28C2680073914B /* DementiaArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */; };
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
@@ -396,6 +397,7 @@
 		BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = WhatIsDementiaArticle.rtf; sourceTree = "<group>"; };
 		BCE743972A28BC120073914B /* DementiaArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleService.swift; sourceTree = "<group>"; };
 		BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleServiceTests.swift; sourceTree = "<group>"; };
+		BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleModel.swift; sourceTree = "<group>"; };
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
@@ -1352,6 +1354,7 @@
 		BCE743962A28BC020073914B /* DementiaArticle */ = {
 			isa = PBXGroup;
 			children = (
+				BCE7439C2A28C25C0073914B /* Model */,
 				BCE743972A28BC120073914B /* DementiaArticleService.swift */,
 			);
 			path = DementiaArticle;
@@ -1363,6 +1366,14 @@
 				BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */,
 			);
 			path = DementiaArticle;
+			sourceTree = "<group>";
+		};
+		BCE7439C2A28C25C0073914B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BCEDA92629E0355F00F301B1 /* PropertyWrapper */ = {
@@ -1795,6 +1806,7 @@
 				BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
+				BCE7439E2A28C2680073914B /* DementiaArticleModel.swift in Sources */,
 				BC88B80329EA535000F484AF /* AccountServiceType.swift in Sources */,
 				BCDACF4129FF930A00EFF2ED /* DiagnosisService.swift in Sources */,
 				BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */,
