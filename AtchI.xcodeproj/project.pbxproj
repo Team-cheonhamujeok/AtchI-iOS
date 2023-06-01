@@ -174,6 +174,7 @@
 		BCE743822A2828AF0073914B /* MMSEServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743812A2828AF0073914B /* MMSEServiceTests.swift */; };
 		BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743832A28632A0073914B /* LastDateResponseModel.swift */; };
 		BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743862A289AD60073914B /* LifePatternAPIMock.swift */; };
+		BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743892A28AA9A0073914B /* DateHelperTests.swift */; };
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
@@ -386,6 +387,7 @@
 		BCE743812A2828AF0073914B /* MMSEServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEServiceTests.swift; sourceTree = "<group>"; };
 		BCE743832A28632A0073914B /* LastDateResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateResponseModel.swift; sourceTree = "<group>"; };
 		BCE743862A289AD60073914B /* LifePatternAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPIMock.swift; sourceTree = "<group>"; };
+		BCE743892A28AA9A0073914B /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 		0455D41D29F7796800A8A747 /* AtchIServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				BCE743882A28AA8D0073914B /* Helper */,
 				BCE743802A28289F0073914B /* MMSE */,
 				BC6FB3692A10BDD90009186B /* LifePattern */,
 				BCF6B8BF2A04273800B0FC1D /* Account */,
@@ -1320,6 +1323,14 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		BCE743882A28AA8D0073914B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BCE743892A28AA9A0073914B /* DateHelperTests.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		BCEDA92629E0355F00F301B1 /* PropertyWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1622,6 +1633,7 @@
 				04A984352A11F73500C584C2 /* MockHKData.swift in Sources */,
 				04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */,
 				04A9843B2A129B4C00C584C2 /* HKActivityServiceTests.swift in Sources */,
+				BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -46,9 +46,8 @@ class LifePatternService {
         // 마지막 업데이트일 받아오기
         let lastDatePublisher = reuqestLastDate(mid: mid)
             .map { model in
-                if let lastDate = model.response.lastDate {
-                    return DateHelper.convertStringToDate(string: lastDate,
-                                                          format: "yyyy-mm-dd")
+                if let lastModifiedDate = model.response.lastDate {
+                    return DateHelper.convertStringToDate(string: lastModifiedDate)
                 } else {
                     return DateHelper.subtractDays(from: Date(), days: 120)
                 }

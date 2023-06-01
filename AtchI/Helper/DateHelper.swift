@@ -86,9 +86,9 @@ class DateHelper: DateHelperType {
     }
     
     // String을 Date형으로 변환합니다.
-    static func convertStringToDate(string: String, format: String) -> Date {
+    static func convertStringToDate(string: String) -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return dateFormatter.date(from: string)!
     }
     
