@@ -59,7 +59,7 @@ class QuizService: QuizServiceType {
     }
     
     func getWeekQuiz(mid: Int) -> AnyPublisher<GetWeekQuizResponseModel, Error> {
-        return provider.requestPublisher(.getQuiz(mid))
+        return provider.requestPublisher(.getWeekQuiz(mid))
             .tryMap { response -> GetWeekQuizResponseModel in
                 return try response.map(GetWeekQuizResponseModel.self)
             }

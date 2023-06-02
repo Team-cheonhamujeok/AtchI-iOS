@@ -57,7 +57,7 @@ struct QuizStateCard: View {
                             .font(.bodyMedium)
                         
                     }
-                    if item != 6 { // match everything but the last
+                    if item != 5 { // match everything but the last
                         Spacer()
                         
                     }
