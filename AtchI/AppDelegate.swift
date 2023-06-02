@@ -24,6 +24,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                                        hour: 12,
                                        identifier: "QUIZ_YET")
 //        PushNotificationHelper.shared.printPendingNotification()
+            
+        NetworkMonitor.shared.startMonitoring()
         
         return true
     }

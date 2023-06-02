@@ -17,6 +17,9 @@
 		0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */; };
 		0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */; };
 		045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F769B2A0DC2BD00AA3418 /* SelfTestLevel.swift */; };
+		04619F642A28D8F3007B6BFD /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04619F632A28D8F3007B6BFD /* NetworkErrorView.swift */; };
+		04619F662A28DB00007B6BFD /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04619F652A28DB00007B6BFD /* NetworkMonitor.swift */; };
+		04619F682A291481007B6BFD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04619F672A291481007B6BFD /* LoadingView.swift */; };
 		047505B52A1E6D2600E7A13E /* MMSEInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047505B42A1E6D2600E7A13E /* MMSEInfoView.swift */; };
 		047505BD2A1F6C5700E7A13E /* MMSEInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047505BC2A1F6C5700E7A13E /* MMSEInfoViewModel.swift */; };
 		047505C12A1F75CF00E7A13E /* MMSEResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047505C02A1F75CF00E7A13E /* MMSEResultList.swift */; };
@@ -35,6 +38,7 @@
 		049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */; };
 		049ADEC529CDFF2C009B9B62 /* SelfTestQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */; };
 		049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */; };
+		04A5518D2A29240800E5A73B /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5518C2A29240800E5A73B /* ProfileSettingView.swift */; };
 		04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8575C2A016BF600576D61 /* DiagnosisTestData.swift */; };
 		04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8F74A29D022B50082DC29 /* TestAnswer.swift */; };
 		04A984312A11CC2500C584C2 /* SelfTestInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A984302A11CC2500C584C2 /* SelfTestInfoViewModel.swift */; };
@@ -235,6 +239,9 @@
 		0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIServiceTests.swift; sourceTree = "<group>"; };
 		0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceTest.swift; sourceTree = "<group>"; };
 		045F769B2A0DC2BD00AA3418 /* SelfTestLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestLevel.swift; sourceTree = "<group>"; };
+		04619F632A28D8F3007B6BFD /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
+		04619F652A28DB00007B6BFD /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		04619F672A291481007B6BFD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		047505B42A1E6D2600E7A13E /* MMSEInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEInfoView.swift; sourceTree = "<group>"; };
 		047505BC2A1F6C5700E7A13E /* MMSEInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEInfoViewModel.swift; sourceTree = "<group>"; };
 		047505C02A1F75CF00E7A13E /* MMSEResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEResultList.swift; sourceTree = "<group>"; };
@@ -253,6 +260,7 @@
 		049ADEC029CD5BDF009B9B62 /* TestQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestion.swift; sourceTree = "<group>"; };
 		049ADEC429CDFF2C009B9B62 /* SelfTestQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestQuestions.swift; sourceTree = "<group>"; };
 		049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestViewModel.swift; sourceTree = "<group>"; };
+		04A5518C2A29240800E5A73B /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
 		04A8575C2A016BF600576D61 /* DiagnosisTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisTestData.swift; sourceTree = "<group>"; };
 		04A8F74A29D022B50082DC29 /* TestAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswer.swift; sourceTree = "<group>"; };
 		04A984302A11CC2500C584C2 /* SelfTestInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestInfoViewModel.swift; sourceTree = "<group>"; };
@@ -489,6 +497,15 @@
 				04A9843A2A129B4C00C584C2 /* HKActivityServiceTests.swift */,
 			);
 			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		04619F622A28D8DE007B6BFD /* NetworkError */ = {
+			isa = PBXGroup;
+			children = (
+				04619F632A28D8F3007B6BFD /* NetworkErrorView.swift */,
+				04619F652A28DB00007B6BFD /* NetworkMonitor.swift */,
+			);
+			path = NetworkError;
 			sourceTree = "<group>";
 		};
 		047505B32A1E63DD00E7A13E /* MMSEInfo */ = {
@@ -770,6 +787,7 @@
 			isa = PBXGroup;
 			children = (
 				BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */,
+				04619F672A291481007B6BFD /* LoadingView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1100,6 +1118,7 @@
 		BC8D551C29B99A4A00FAA6E3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				04619F622A28D8DE007B6BFD /* NetworkError */,
 				04285B952A1B625000E7EF42 /* ReadMe */,
 				BC38FBF12A1CA4E6005F172B /* Common */,
 				BCEDF1D72A1BE4320030CD75 /* MMSE */,
@@ -1414,6 +1433,7 @@
 			isa = PBXGroup;
 			children = (
 				BCEDF1D32A1BCEE70030CD75 /* PrivacyPolicyView.swift */,
+				04A5518C2A29240800E5A73B /* ProfileSettingView.swift */,
 			);
 			path = SubPage;
 			sourceTree = "<group>";
@@ -1798,6 +1818,7 @@
 				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
 				BC38FC032A1E0EF6005F172B /* ShowTextView.swift in Sources */,
+				04A5518D2A29240800E5A73B /* ProfileSettingView.swift in Sources */,
 				BC305CB429FF8402001388EA /* HKAuthorizationHelper.swift in Sources */,
 				6F16515129D1348D00CC228F /* QuizTemplate.swift in Sources */,
 				6F7387BD2A19ED5400671413 /* QuizCheckRequestModel.swift in Sources */,
@@ -1807,7 +1828,7 @@
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */,
 				6F0F94AE29FE4DA400993A52 /* HKHeartRateService.swift in Sources */,
-				04457F892A249A8C007DDA30 /* MMSEError.swift in Sources */,
+				04619F682A291481007B6BFD /* LoadingView.swift in Sources */,
 				BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */,
 				04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
@@ -1842,6 +1863,7 @@
 				BC482D342A25F4960091787D /* MMSEResultStack.swift in Sources */,
 				BC3DDF6B29FB9BD200452A2B /* SignupRequestViewModel.swift in Sources */,
 				BCE398CA2A1F47D8007E4242 /* LifePatternError.swift in Sources */,
+				04619F642A28D8F3007B6BFD /* NetworkErrorView.swift in Sources */,
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */,
@@ -1870,6 +1892,7 @@
 				049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */,
 				BC9D00BF2A07880F00E2C6CE /* AccountAPI.swift in Sources */,
 				BCDACF4229FF930A00EFF2ED /* DiagnosisModel.swift in Sources */,
+				04619F662A28DB00007B6BFD /* NetworkMonitor.swift in Sources */,
 				BCDACF4229FF930A00EFF2ED /* DiagnosisModel.swift in Sources */,
 				BCE398C82A1F4565007E4242 /* LifePatternResponseModel.swift in Sources */,
 			);
@@ -2099,10 +2122,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BACKEND_ENDPOINT = "http://203.255.3.48:1224";
 				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -2142,10 +2166,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BACKEND_ENDPOINT = "http://203.255.3.48:1224";
 				CODE_SIGN_ENTITLEMENTS = AtchI/AtchI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -2161,8 +2186,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamoujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_DOCUMENTATION_COMPILER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

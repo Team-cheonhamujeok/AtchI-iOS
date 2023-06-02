@@ -16,12 +16,10 @@ struct SelfTestInfoView: View {
     //MARK: - Body
     
     var body: some View {
-        Group {
-            if viewModel.selfTestResults.isEmpty {
-                noTestView
-            } else {
-                haveTestView
-            }
+        if viewModel.selfTestResults.isEmpty {
+            noTestView
+        } else {
+            haveTestView
         }
     }
     
