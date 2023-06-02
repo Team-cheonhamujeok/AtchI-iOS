@@ -2147,7 +2147,7 @@
 					"-Xlinker",
 					"-interposable",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamoujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_DOCUMENTATION_COMPILER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
