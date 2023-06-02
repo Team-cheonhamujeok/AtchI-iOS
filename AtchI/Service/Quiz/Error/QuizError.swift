@@ -12,6 +12,7 @@ enum QuizError: Error {
     case common(_ :CommonError)
     case getQuiz(_ :GetQuizError)
     case checkQuiz(_ :CheckQuizError)
+    case getWeekQuiz(_ :GetWeekQuizError)
     
     var description: String {
         switch self {
@@ -20,6 +21,8 @@ enum QuizError: Error {
         case .getQuiz(let error):
             return error.decription
         case .checkQuiz(let error):
+            return error.description
+        case .getWeekQuiz(let error):
             return error.description
         }
     }
@@ -55,6 +58,17 @@ extension QuizError {
             case .noID:
                 return "해당되는 오늘의 퀴즈 ID가 없습니다."
             case .checkError:
+                return "확인하는 중 알 수 없는 오류가 발생했습니다. 다시 시도해주세요."
+            }
+        }
+    }
+    
+    enum GetWeekQuizError: Error {
+        case errorCase
+        
+        var description: String {
+            switch self {
+            case .errorCase:
                 return "확인하는 중 알 수 없는 오류가 발생했습니다. 다시 시도해주세요."
             }
         }

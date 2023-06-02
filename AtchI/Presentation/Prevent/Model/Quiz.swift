@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct TodayQuiz: Decodable {
-    let quizzes: [Quiz]
-}
-
 struct Quiz: Decodable {
     var index: Int?
     var content: String?

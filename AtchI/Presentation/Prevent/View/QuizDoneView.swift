@@ -31,11 +31,9 @@ struct QuizDoneView: View {
                 default:
                     Text("퀴즈 없음")
                 }
-//                Text( + "번째 퀴즈 완료")
-//                    .font(.titleLarge)
                 Text("이제 오늘 퀴즈는 " + String(3 - preventViewModel.quizCount) + "개가 남았어요 :)")
                     .font(.bodyMedium)
-                let _ = print(3 - preventViewModel.quizCount)
+//                let _ = print(3 - preventViewModel.quizCount)
             }
             .foregroundColor(.white)
             VStack {
@@ -45,6 +43,7 @@ struct QuizDoneView: View {
                 DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
                     print("퀴즈풀기 완료")
                     quizStack = []
+                    preventViewModel.requestQuiz()
                 }, content: {
                     Text("확인")
                         .foregroundColor(.mainPurple)

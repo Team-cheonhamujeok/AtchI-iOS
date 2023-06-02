@@ -37,8 +37,8 @@ struct PreventView: View {
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
                     
                     // 이번주 퀴즈 현황
-                    if preventViewModel.todayQuiz.count >= 3 {
-                        QuizStateCard(preventViewModel: preventViewModel, quiz: preventViewModel.todayQuiz[0])
+                    if preventViewModel.thisWeekQuizState.count >= 7 {
+                        QuizStateCard(preventViewModel: preventViewModel, weekQuizState: preventViewModel.thisWeekQuizState)
                             .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
                     } else {
                         EmptyView()
@@ -54,9 +54,13 @@ struct PreventView: View {
                                 .font(.titleMedium)
                                 .foregroundColor(.mainPurple)
                             Spacer()
-                            Text("1/3")
-                                .font(.titleMedium)
-                                .foregroundColor(.mainPurple)
+                            if preventViewModel.todayQuiz.count >= 3 {
+                                Text("\(preventViewModel.quizCount)/3")
+                                    .font(.titleMedium)
+                                    .foregroundColor(.mainPurple)
+                            } else {
+                                EmptyView()
+                            }
                         }
                         Divider()
                             .padding(.vertical)
@@ -93,7 +97,10 @@ struct PreventView: View {
             
         }
         .onAppear {
-            preventViewModel.requestQuiz()
+            preventViewModel.requestQuiz() // 오늘의 퀴즈 요청
+//            preventViewModel.CalQuizCount() // 남은 퀴즈 개수 계산
+            preventViewModel.getWeekQuiz()
+            print("아니 이번 주 퀴즈 현황 안 불러와짐?? \(preventViewModel.thisWeekQuizState.count)")
         }
     }
     

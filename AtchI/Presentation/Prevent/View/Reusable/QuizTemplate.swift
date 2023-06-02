@@ -44,7 +44,8 @@ struct QuizTemplate: View {
             .foregroundColor(.white)
             .padding(EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20))
             .background(quiz.check! ? Capsule().fill(Color.grayDisabled) : Capsule().fill(Color.mainPurple))
-            let _ = print("불값 확인 \(quiz.check!)")
+            .disabled(quiz.check! ? true : false)
+            
         
         }
     }

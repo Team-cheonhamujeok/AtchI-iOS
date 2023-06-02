@@ -11,6 +11,7 @@ import Moya
 enum QuizAPI {
     case getQuiz(_ mid: Int)
     case checkQuiz(_ quizCheckModel: QuizCheckRequestModel)
+    case getWeekQuiz(_ mid: Int)
 }
 
 extension QuizAPI: TargetType {
@@ -28,12 +29,14 @@ extension QuizAPI: TargetType {
             return "/newTodayQuiz"
         case .checkQuiz:
             return "/checkQuiz"
+        case .getWeekQuiz(_):
+            return "/newWeek"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getQuiz:
+        case .getQuiz, .getWeekQuiz:
             return .get
         case .checkQuiz:
             return .post
@@ -42,11 +45,14 @@ extension QuizAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .getQuiz:
-            return .requestParameters(parameters: ["mid" : 1],
+        case .getQuiz(let mid):
+            return .requestParameters(parameters: ["mid" : mid],
                                       encoding: URLEncoding.queryString)
         case .checkQuiz(let quizCheckModel):
             return .requestJSONEncodable(quizCheckModel)
+        case .getWeekQuiz(let mid):
+            return .requestParameters(parameters: ["mid" : mid],
+                                      encoding: URLEncoding.queryString)
         }
     }
     
