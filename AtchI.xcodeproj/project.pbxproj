@@ -11,7 +11,6 @@
 		04285B972A1B626700E7EF42 /* ReadMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04285B962A1B626700E7EF42 /* ReadMeView.swift */; };
 		042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */; };
 		04457F872A2492F8007DDA30 /* MMSEInfoGetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F862A2492F8007DDA30 /* MMSEInfoGetModel.swift */; };
-		04457F892A249A8C007DDA30 /* MMSEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F882A249A8C007DDA30 /* MMSEError.swift */; };
 		044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */; };
 		0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41529F58E5A00A8A747 /* HKActivityService.swift */; };
 		0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */; };
@@ -159,6 +158,7 @@
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
 		BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */; };
 		BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */; };
+		BCCCAF762A29A44800B9176E /* MMSEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F882A249A8C007DDA30 /* MMSEError.swift */; };
 		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
 		BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */; };
 		BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD897272A0A45A6006EC401 /* dots-loading.json */; };
@@ -1731,6 +1731,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCCCAF762A29A44800B9176E /* MMSEError.swift in Sources */,
 				BC77192D2A0F856E00F692C6 /* Publishers.swift in Sources */,
 				BC38FBF82A1CB7F7005F172B /* ReplyAnswerInput.swift in Sources */,
 				049ADEC729CFF3B7009B9B62 /* SelfTestViewModel.swift in Sources */,
