@@ -6,9 +6,25 @@
 //
 
 import Foundation
+
 import Factory
+import Moya
 
 extension Container {
+
+    
+    // MARK: - Servcie
+    var mmseService: Factory<MMSEService> {
+        Factory(self) {
+            MMSEService(provider: MoyaProvider<MMSEAPI>())
+        }
+    }
+    
+    var dementiaArticleService: Factory<DementiaArticleService> {
+        Factory(self) {
+            DementiaArticleService()
+        }
+    }
     
     // MARK: - HKService
     var hkSleepService: Factory<HKSleepServiceType> {

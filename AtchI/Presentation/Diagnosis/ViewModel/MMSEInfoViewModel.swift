@@ -12,13 +12,13 @@ import Moya
 
 class MMSEInfoViewModel: ObservableObject {
     
-    let service: MMSEInfoService
+    let service: MMSEService
     var subject = CurrentValueSubject<Bool, Never>(false)
     var disposeBag = Set<AnyCancellable>()
     
     @Published var testResults: [TestRowModel] = []
     
-    init(service: MMSEInfoService) {
+    init(service: MMSEService) {
         self.service = service
         
         bind()
@@ -40,7 +40,7 @@ class MMSEInfoViewModel: ObservableObject {
     
     private lazy var getData: AnyPublisher<[TestRowModel], Never> = {
         return self.service
-            .getMMSEResults(mid: 1)
+            .reqeustMMSEResults(mid: 1)
             .map{ $0.data }
             .decode(type: [MMSEInfoGetModel].self, decoder: JSONDecoder())
             .map{ self.makeUIDatas(datas: $0) }

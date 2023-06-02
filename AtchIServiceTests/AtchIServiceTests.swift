@@ -17,11 +17,11 @@ final class AtchIServiceTests: XCTestCase {
     var service: LifePatternService!
     
     override func setUpWithError() throws {
-        service = LifePatternService(sleepService: HKSleepService(provider: HKProvider(),
-                                                                  dateHelper: DateHelper()),
-                                     activityService: HKActivityService(healthkitProvicer: HKProvider()),
-                                     heartRateService: HKHeartRateService(healthKitProvider: HKProvider(),
-                                                                          dateHelper: DateHelper()))
+//        service = LifePatternService(sleepService: HKSleepService(provider: HKProvider(),
+//                                                                  dateHelper: DateHelper()),
+//                                     activityService: HKActivityService(healthkitProvicer: HKProvider()),
+//                                     heartRateService: HKHeartRateService(healthKitProvider: HKProvider(),
+//                                                                          dateHelper: DateHelper()))
     }
     
     override func tearDownWithError() throws {

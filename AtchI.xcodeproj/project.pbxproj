@@ -10,9 +10,8 @@
 		041E7F632A03A9B10059B816 /* TestSelfTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E7F622A03A9B10059B816 /* TestSelfTestViewModel.swift */; };
 		04285B972A1B626700E7EF42 /* ReadMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04285B962A1B626700E7EF42 /* ReadMeView.swift */; };
 		042F6A9029D1AAF700093B64 /* DiagnosisViewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */; };
-		04457F852A249265007DDA30 /* MMSEInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F842A249265007DDA30 /* MMSEInfoService.swift */; };
 		04457F872A2492F8007DDA30 /* MMSEInfoGetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F862A2492F8007DDA30 /* MMSEInfoGetModel.swift */; };
-		04457F892A249A8C007DDA30 /* MMSEInfoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F882A249A8C007DDA30 /* MMSEInfoError.swift */; };
+		04457F892A249A8C007DDA30 /* MMSEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F882A249A8C007DDA30 /* MMSEError.swift */; };
 		044A7EA229D6F25E00FDC221 /* SelfTestResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */; };
 		0455D41629F58E5A00A8A747 /* HKActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41529F58E5A00A8A747 /* HKActivityService.swift */; };
 		0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */; };
@@ -85,7 +84,7 @@
 		BC37AA5329E080760047D273 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BC37AA5229E080760047D273 /* Moya */; };
 		BC38FBE72A1C82A9005F172B /* MMSEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBE62A1C82A9005F172B /* MMSEViewModel.swift */; };
 		BC38FBE92A1C87C5005F172B /* MMSEQuestions.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */; };
-		BC38FBEB2A1C9814005F172B /* BundelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEA2A1C9814005F172B /* BundelHelper.swift */; };
+		BC38FBEB2A1C9814005F172B /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEA2A1C9814005F172B /* BundleHelper.swift */; };
 		BC38FBF02A1C9CBD005F172B /* TextInputWithSuffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */; };
 		BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */; };
 		BC38FBF82A1CB7F7005F172B /* ReplyAnswerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FBF72A1CB7F7005F172B /* ReplyAnswerInput.swift */; };
@@ -94,15 +93,20 @@
 		BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FC002A1DD530005F172B /* MMSEService.swift */; };
 		BC38FC032A1E0EF6005F172B /* ShowTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38FC022A1E0EF6005F172B /* ShowTextView.swift */; };
 		BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */; };
-		BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */; };
-		BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */; };
+		BC3CA1AD29BF704A00C8AE3D /* DementiaAricleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AC29BF704A00C8AE3D /* DementiaAricleCard.swift */; };
+		BC3CA1AF29BF7DB900C8AE3D /* DementiaArticelDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CA1AE29BF7DB900C8AE3D /* DementiaArticelDetailModal.swift */; };
 		BC3DDF6929FB9BC400452A2B /* SignupValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */; };
 		BC3DDF6B29FB9BD200452A2B /* SignupRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */; };
-		BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C529C0886D0094333B /* InformationCardList.swift */; };
+		BC4317C629C0886D0094333B /* DementiaAricleCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C529C0886D0094333B /* DementiaAricleCardList.swift */; };
 		BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317C829C094530094333B /* AlzheimerInformationType.swift */; };
 		BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4317CB29C095020094333B /* AlzheimerInformation.swift */; };
 		BC4607A52A1E1E3F00015447 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4607A42A1E1E3F00015447 /* String.swift */; };
 		BC4607A72A1E4C7700015447 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4607A62A1E4C7700015447 /* LocationHelper.swift */; };
+		BC482D2E2A25DBD10091787D /* MMSEAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC482D2D2A25DBD10091787D /* MMSEAPI.swift */; };
+		BC482D302A25DE8F0091787D /* MMSESaveRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC482D2F2A25DE8F0091787D /* MMSESaveRequestModel.swift */; };
+		BC482D322A25E7360091787D /* MMSEResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC482D312A25E7360091787D /* MMSEResultView.swift */; };
+		BC482D342A25F4960091787D /* MMSEResultStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC482D332A25F4960091787D /* MMSEResultStack.swift */; };
+		BC482D362A2604600091787D /* MMSEResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC482D352A2604600091787D /* MMSEResultType.swift */; };
 		BC49094429EA69AC00EDDD0D /* AtchIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */; };
 		BC49094B29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */; };
 		BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC88B57229D5F47C003CA752 /* Combine.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -113,10 +117,10 @@
 		BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82DB2A0E0949002EB661 /* SettingView.swift */; };
 		BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */; };
 		BC5E243E2A19F0D7005278D5 /* WatchActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */; };
-		BC69482B2A20700D006DED29 /* MMSEViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482A2A20700D006DED29 /* MMSEViewType.swift */; };
+		BC69482B2A20700D006DED29 /* MMSEQuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482A2A20700D006DED29 /* MMSEQuestionType.swift */; };
 		BC69482E2A207030006DED29 /* MMSEQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */; };
 		BC6948312A20AC65006DED29 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BC6948302A20AC65006DED29 /* Factory */; };
-		BC6948332A20AC70006DED29 /* Container+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6948322A20AC70006DED29 /* Container+Extension.swift */; };
+		BC6948332A20AC70006DED29 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6948322A20AC70006DED29 /* DIContainer.swift */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
@@ -144,6 +148,7 @@
 		BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */; };
 		BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551529B9957900FAA6E3 /* Colors.swift */; };
 		BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551729B9959100FAA6E3 /* Fonts.swift */; };
+		BC98E65D2A2792EC00CA43D2 /* View+InjectIII.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98E65C2A2792EC00CA43D2 /* View+InjectIII.swift */; };
 		BC9D00BF2A07880F00E2C6CE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D00BE2A07880F00E2C6CE /* AccountAPI.swift */; };
 		BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9D00C12A07893700E2C6CE /* LoginAPIMock.swift */; };
 		BCA1486029D5F149001F390D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1485F29D5F149001F390D /* LoginViewModel.swift */; };
@@ -152,6 +157,8 @@
 		BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BCB9C6922A0A3CDB00273F33 /* Lottie */; };
 		BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C6942A0A3D2F00273F33 /* LottieView.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
+		BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */; };
+		BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */; };
 		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
 		BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */; };
 		BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD897272A0A45A6006EC401 /* dots-loading.json */; };
@@ -170,6 +177,15 @@
 		BCE398C62A1EE8DD007E4242 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */; };
 		BCE398C82A1F4565007E4242 /* LifePatternResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */; };
 		BCE398CA2A1F47D8007E4242 /* LifePatternError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C92A1F47D8007E4242 /* LifePatternError.swift */; };
+		BCE743822A2828AF0073914B /* MMSEServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743812A2828AF0073914B /* MMSEServiceTests.swift */; };
+		BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743832A28632A0073914B /* LastDateResponseModel.swift */; };
+		BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743862A289AD60073914B /* LifePatternAPIMock.swift */; };
+		BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743892A28AA9A0073914B /* DateHelperTests.swift */; };
+		BCE743932A28BA910073914B /* DementiaArticelsMeta.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */; };
+		BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */; };
+		BCE743982A28BC120073914B /* DementiaArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743972A28BC120073914B /* DementiaArticleService.swift */; };
+		BCE7439B2A28BFB30073914B /* DementiaArticleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */; };
+		BCE7439E2A28C2680073914B /* DementiaArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */; };
 		BCE7CED529F983B1003C3A6C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED429F983B1003C3A6C /* ValidationService.swift */; };
 		BCE7CED729F9928C003C3A6C /* ValidationErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */; };
 		BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */; };
@@ -214,9 +230,8 @@
 		041E7F622A03A9B10059B816 /* TestSelfTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelfTestViewModel.swift; sourceTree = "<group>"; };
 		04285B962A1B626700E7EF42 /* ReadMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMeView.swift; sourceTree = "<group>"; };
 		042F6A8F29D1AAF700093B64 /* DiagnosisViewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewStack.swift; sourceTree = "<group>"; };
-		04457F842A249265007DDA30 /* MMSEInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEInfoService.swift; sourceTree = "<group>"; };
 		04457F862A2492F8007DDA30 /* MMSEInfoGetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEInfoGetModel.swift; sourceTree = "<group>"; };
-		04457F882A249A8C007DDA30 /* MMSEInfoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEInfoError.swift; sourceTree = "<group>"; };
+		04457F882A249A8C007DDA30 /* MMSEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEError.swift; sourceTree = "<group>"; };
 		044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResultList.swift; sourceTree = "<group>"; };
 		0455D41529F58E5A00A8A747 /* HKActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityService.swift; sourceTree = "<group>"; };
 		0455D41729F61A1100A8A747 /* AtchI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtchI.entitlements; sourceTree = "<group>"; };
@@ -289,7 +304,7 @@
 		BC305CB329FF8402001388EA /* HKAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKAuthorizationHelper.swift; sourceTree = "<group>"; };
 		BC38FBE62A1C82A9005F172B /* MMSEViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEViewModel.swift; sourceTree = "<group>"; };
 		BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MMSEQuestions.plist; sourceTree = "<group>"; };
-		BC38FBEA2A1C9814005F172B /* BundelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundelHelper.swift; sourceTree = "<group>"; };
+		BC38FBEA2A1C9814005F172B /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 		BC38FBEF2A1C9CBD005F172B /* TextInputWithSuffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputWithSuffix.swift; sourceTree = "<group>"; };
 		BC38FBF42A1CA50C005F172B /* NavigationBarWithBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithBackButton.swift; sourceTree = "<group>"; };
 		BC38FBF72A1CB7F7005F172B /* ReplyAnswerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyAnswerInput.swift; sourceTree = "<group>"; };
@@ -298,15 +313,20 @@
 		BC38FC002A1DD530005F172B /* MMSEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEService.swift; sourceTree = "<group>"; };
 		BC38FC022A1E0EF6005F172B /* ShowTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTextView.swift; sourceTree = "<group>"; };
 		BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
-		BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailModal.swift; sourceTree = "<group>"; };
+		BC3CA1AC29BF704A00C8AE3D /* DementiaAricleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaAricleCard.swift; sourceTree = "<group>"; };
+		BC3CA1AE29BF7DB900C8AE3D /* DementiaArticelDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticelDetailModal.swift; sourceTree = "<group>"; };
 		BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModel.swift; sourceTree = "<group>"; };
 		BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModel.swift; sourceTree = "<group>"; };
-		BC4317C529C0886D0094333B /* InformationCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardList.swift; sourceTree = "<group>"; };
+		BC4317C529C0886D0094333B /* DementiaAricleCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaAricleCardList.swift; sourceTree = "<group>"; };
 		BC4317C829C094530094333B /* AlzheimerInformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformationType.swift; sourceTree = "<group>"; };
 		BC4317CB29C095020094333B /* AlzheimerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzheimerInformation.swift; sourceTree = "<group>"; };
 		BC4607A42A1E1E3F00015447 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BC4607A62A1E4C7700015447 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		BC482D2D2A25DBD10091787D /* MMSEAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEAPI.swift; sourceTree = "<group>"; };
+		BC482D2F2A25DE8F0091787D /* MMSESaveRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSESaveRequestModel.swift; sourceTree = "<group>"; };
+		BC482D312A25E7360091787D /* MMSEResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEResultView.swift; sourceTree = "<group>"; };
+		BC482D332A25F4960091787D /* MMSEResultStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEResultStack.swift; sourceTree = "<group>"; };
+		BC482D352A2604600091787D /* MMSEResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEResultType.swift; sourceTree = "<group>"; };
 		BC49094129EA69AB00EDDD0D /* AtchIViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchIViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC49094329EA69AC00EDDD0D /* AtchIViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIViewModelTests.swift; sourceTree = "<group>"; };
 		BC49094A29EA69CF00EDDD0D /* SignupValidationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelTests.swift; sourceTree = "<group>"; };
@@ -319,9 +339,9 @@
 		BC5A82DB2A0E0949002EB661 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BC5E243D2A19F0D7005278D5 /* WatchActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActivityView.swift; sourceTree = "<group>"; };
-		BC69482A2A20700D006DED29 /* MMSEViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEViewType.swift; sourceTree = "<group>"; };
+		BC69482A2A20700D006DED29 /* MMSEQuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionType.swift; sourceTree = "<group>"; };
 		BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionModel.swift; sourceTree = "<group>"; };
-		BC6948322A20AC70006DED29 /* Container+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Extension.swift"; sourceTree = "<group>"; };
+		BC6948322A20AC70006DED29 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
@@ -351,6 +371,7 @@
 		BC8D550629B9909D00FAA6E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC8D551529B9957900FAA6E3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BC8D551729B9959100FAA6E3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BC98E65C2A2792EC00CA43D2 /* View+InjectIII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+InjectIII.swift"; sourceTree = "<group>"; };
 		BC9C977D29C2262D00DC6FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BC9D00BE2A07880F00E2C6CE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
 		BC9D00C12A07893700E2C6CE /* LoginAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIMock.swift; sourceTree = "<group>"; };
@@ -360,6 +381,8 @@
 		BCB9C68E2A0A20A100273F33 /* HKSleepIntervalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepIntervalModel.swift; sourceTree = "<group>"; };
 		BCB9C6942A0A3D2F00273F33 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
+		BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActivityDescriptionModal.swift; sourceTree = "<group>"; };
+		BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissButton.swift; sourceTree = "<group>"; };
 		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
 		BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BCD897272A0A45A6006EC401 /* dots-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dots-loading.json"; sourceTree = "<group>"; };
@@ -378,6 +401,15 @@
 		BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternResponseModel.swift; sourceTree = "<group>"; };
 		BCE398C92A1F47D8007E4242 /* LifePatternError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternError.swift; sourceTree = "<group>"; };
+		BCE743812A2828AF0073914B /* MMSEServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEServiceTests.swift; sourceTree = "<group>"; };
+		BCE743832A28632A0073914B /* LastDateResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateResponseModel.swift; sourceTree = "<group>"; };
+		BCE743862A289AD60073914B /* LifePatternAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPIMock.swift; sourceTree = "<group>"; };
+		BCE743892A28AA9A0073914B /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
+		BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DementiaArticelsMeta.plist; sourceTree = "<group>"; };
+		BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = WhatIsDementiaArticle.rtf; sourceTree = "<group>"; };
+		BCE743972A28BC120073914B /* DementiaArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleService.swift; sourceTree = "<group>"; };
+		BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleServiceTests.swift; sourceTree = "<group>"; };
+		BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleModel.swift; sourceTree = "<group>"; };
 		BCE7CED429F983B1003C3A6C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		BCE7CED629F9928C003C3A6C /* ValidationErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorMessage.swift; sourceTree = "<group>"; };
 		BCE7CED829F99E42003C3A6C /* ThinLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinLightButton.swift; sourceTree = "<group>"; };
@@ -443,6 +475,9 @@
 		0455D41D29F7796800A8A747 /* AtchIServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				BCE743992A28BF900073914B /* DementiaArticle */,
+				BCE743882A28AA8D0073914B /* Helper */,
+				BCE743802A28289F0073914B /* MMSE */,
 				BC6FB3692A10BDD90009186B /* LifePattern */,
 				BCF6B8BF2A04273800B0FC1D /* Account */,
 				0491BAD429F968A2005C53E5 /* Mock */,
@@ -764,6 +799,7 @@
 				BC38FBF92A1DC3BA005F172B /* ImageAnswerInput.swift */,
 				BC38FBFB2A1DC3D2005F172B /* ArithmeticAnswerInput.swift */,
 				BC38FC022A1E0EF6005F172B /* ShowTextView.swift */,
+				BC482D332A25F4960091787D /* MMSEResultStack.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -771,12 +807,11 @@
 		BC38FBFF2A1DD51E005F172B /* MMSE */ = {
 			isa = PBXGroup;
 			children = (
+				BC482D2C2A25DBBD0091787D /* API */,
+				BCA1EA982A25036400480391 /* Error */,
 				BC69482C2A207023006DED29 /* Model */,
 				BC6948292A206FFB006DED29 /* Enum */,
 				BC38FC002A1DD530005F172B /* MMSEService.swift */,
-				04457F842A249265007DDA30 /* MMSEInfoService.swift */,
-				04457F862A2492F8007DDA30 /* MMSEInfoGetModel.swift */,
-				04457F882A249A8C007DDA30 /* MMSEInfoError.swift */,
 			);
 			path = MMSE;
 			sourceTree = "<group>";
@@ -812,6 +847,14 @@
 				BCF6DA3B29C42D3200E1ACBF /* RoundedCorner.swift */,
 			);
 			path = Structure;
+			sourceTree = "<group>";
+		};
+		BC482D2C2A25DBBD0091787D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BC482D2D2A25DBD10091787D /* MMSEAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		BC49094229EA69AC00EDDD0D /* AtchIViewModelTests */ = {
@@ -877,7 +920,8 @@
 		BC6948292A206FFB006DED29 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				BC69482A2A20700D006DED29 /* MMSEViewType.swift */,
+				BC69482A2A20700D006DED29 /* MMSEQuestionType.swift */,
+				BC482D352A2604600091787D /* MMSEResultType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -885,7 +929,9 @@
 		BC69482C2A207023006DED29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04457F862A2492F8007DDA30 /* MMSEInfoGetModel.swift */,
 				BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */,
+				BC482D2F2A25DE8F0091787D /* MMSESaveRequestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -932,6 +978,7 @@
 		BC78196D29E07867005C4CF5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BCE743962A28BC020073914B /* DementiaArticle */,
 				6F7387B52A19E80400671413 /* Quiz */,
 				BC38FBFF2A1DD51E005F172B /* MMSE */,
 				BCF6B8A32A02788100B0FC1D /* LifePattern */,
@@ -1015,7 +1062,7 @@
 		BC8D54FE29B9909C00FAA6E3 /* AtchI */ = {
 			isa = PBXGroup;
 			children = (
-				BC6948322A20AC70006DED29 /* Container+Extension.swift */,
+				BC6948322A20AC70006DED29 /* DIContainer.swift */,
 				BC2E1F622A138A8900B4E713 /* AppDelegate.swift */,
 				BC8D550329B9909D00FAA6E3 /* Assets.xcassets */,
 				0455D41729F61A1100A8A747 /* AtchI.entitlements */,
@@ -1028,6 +1075,7 @@
 				BC8D550529B9909D00FAA6E3 /* Preview Content */,
 				BC78196D29E07867005C4CF5 /* Service */,
 				BC8D551329B9951400FAA6E3 /* Util */,
+				BCEDF1C12A1B94FE0030CD75 /* Resource */,
 			);
 			path = AtchI;
 			sourceTree = "<group>";
@@ -1043,7 +1091,6 @@
 		BC8D551329B9951400FAA6E3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				BCEDF1C12A1B94FE0030CD75 /* Resource */,
 				04818F722A0B8AF4002B8EB2 /* Error */,
 				BCEDA92629E0355F00F301B1 /* PropertyWrapper */,
 				049ADE9029C6E3B2009B9B62 /* UI */,
@@ -1063,6 +1110,7 @@
 				BC77192C2A0F856E00F692C6 /* Publishers.swift */,
 				BC2E1F662A13CE9000B4E713 /* URL.swift */,
 				BC4607A42A1E1E3F00015447 /* String.swift */,
+				BC98E65C2A2792EC00CA43D2 /* View+InjectIII.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1141,6 +1189,14 @@
 				BC2526EC29D4231B000FCE11 /* LoginView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BCA1EA982A25036400480391 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				04457F882A249A8C007DDA30 /* MMSEError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		BCB9C6962A0A3D3C00273F33 /* Animation */ = {
@@ -1262,7 +1318,8 @@
 				BCDDE0C129BE286C003E364C /* AppTitleBar.swift */,
 				BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */,
 				BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */,
-				BC4317C529C0886D0094333B /* InformationCardList.swift */,
+				BC4317C529C0886D0094333B /* DementiaAricleCardList.swift */,
+				BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1280,10 +1337,68 @@
 			isa = PBXGroup;
 			children = (
 				BCE394B329BEF99600FEE178 /* ShortcutCard.swift */,
-				BC3CA1AC29BF704A00C8AE3D /* InformationCard.swift */,
-				BC3CA1AE29BF7DB900C8AE3D /* InformationDetailModal.swift */,
+				BC3CA1AC29BF704A00C8AE3D /* DementiaAricleCard.swift */,
+				BC3CA1AE29BF7DB900C8AE3D /* DementiaArticelDetailModal.swift */,
+				BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */,
 			);
 			path = Reusable;
+			sourceTree = "<group>";
+		};
+		BCE743802A28289F0073914B /* MMSE */ = {
+			isa = PBXGroup;
+			children = (
+				BCE743812A2828AF0073914B /* MMSEServiceTests.swift */,
+			);
+			path = MMSE;
+			sourceTree = "<group>";
+		};
+		BCE743852A289AB60073914B /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				BCE743862A289AD60073914B /* LifePatternAPIMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		BCE743882A28AA8D0073914B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BCE743892A28AA9A0073914B /* DateHelperTests.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BCE7438B2A28B2D50073914B /* DementiaArticles */ = {
+			isa = PBXGroup;
+			children = (
+				BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */,
+			);
+			path = DementiaArticles;
+			sourceTree = "<group>";
+		};
+		BCE743962A28BC020073914B /* DementiaArticle */ = {
+			isa = PBXGroup;
+			children = (
+				BCE7439C2A28C25C0073914B /* Model */,
+				BCE743972A28BC120073914B /* DementiaArticleService.swift */,
+			);
+			path = DementiaArticle;
+			sourceTree = "<group>";
+		};
+		BCE743992A28BF900073914B /* DementiaArticle */ = {
+			isa = PBXGroup;
+			children = (
+				BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */,
+			);
+			path = DementiaArticle;
+			sourceTree = "<group>";
+		};
+		BCE7439C2A28C25C0073914B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BCEDA92629E0355F00F301B1 /* PropertyWrapper */ = {
@@ -1298,8 +1413,10 @@
 		BCEDF1C12A1B94FE0030CD75 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BCE7438B2A28B2D50073914B /* DementiaArticles */,
 				BCEDF1D52A1BD4560030CD75 /* PrivacyPolicyText.rtf */,
 				BC38FBE82A1C87C5005F172B /* MMSEQuestions.plist */,
+				BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1333,9 +1450,10 @@
 		BCEDF1DA2A1BE6500030CD75 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC38FBF62A1CB7DF005F172B /* Component */,
 				BC38FBEE2A1C9C85005F172B /* Reusable */,
+				BC38FBF62A1CB7DF005F172B /* Component */,
 				BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */,
+				BC482D312A25E7360091787D /* MMSEResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1343,6 +1461,7 @@
 		BCF6B8A32A02788100B0FC1D /* LifePattern */ = {
 			isa = PBXGroup;
 			children = (
+				BCE743852A289AB60073914B /* Mock */,
 				BC7719292A0F824800F692C6 /* API */,
 				BCF6B8A52A027C5D00B0FC1D /* Error */,
 				BCF6B8A42A027C5600B0FC1D /* Model */,
@@ -1356,6 +1475,7 @@
 			children = (
 				BC7719272A0F81A700F692C6 /* LifePatternModel.swift */,
 				BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */,
+				BCE743832A28632A0073914B /* LastDateResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1401,7 +1521,7 @@
 				BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */,
 				BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */,
 				BC2E1F642A139B7600B4E713 /* HapticHelper.swift */,
-				BC38FBEA2A1C9814005F172B /* BundelHelper.swift */,
+				BC38FBEA2A1C9814005F172B /* BundleHelper.swift */,
 				BC4607A62A1E4C7700015447 /* LocationHelper.swift */,
 				BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */,
 			);
@@ -1556,10 +1676,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */,
+				BCE743932A28BA910073914B /* DementiaArticelsMeta.plist in Resources */,
 				BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */,
 				BCEDF1D62A1BD4560030CD75 /* PrivacyPolicyText.rtf in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BC38FBE92A1C87C5005F172B /* MMSEQuestions.plist in Resources */,
+				BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
 			);
@@ -1573,10 +1695,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3A92EF29FF9DC3000B118D /* HKHeartRateServiceTests.swift in Sources */,
+				BCE7439B2A28BFB30073914B /* DementiaArticleServiceTests.swift in Sources */,
 				BCF6B8C12A04275300B0FC1D /* AccountServiceTests.swift in Sources */,
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
 				04A984332A11E21500C584C2 /* MockHKStore.swift in Sources */,
+				BCE743822A2828AF0073914B /* MMSEServiceTests.swift in Sources */,
 				BC5A82D82A0CFB3D002EB661 /* HKSleepServiceTests.swift in Sources */,
 				BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
@@ -1585,6 +1709,7 @@
 				04A984352A11F73500C584C2 /* MockHKData.swift in Sources */,
 				04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */,
 				04A9843B2A129B4C00C584C2 /* HKActivityServiceTests.swift in Sources */,
+				BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1634,10 +1759,13 @@
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				6F7387BF2A19F43300671413 /* QuizService.swift in Sources */,
 				BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */,
+				BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
 				BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */,
 				BC4607A72A1E4C7700015447 /* LocationHelper.swift in Sources */,
+				BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */,
+				BC482D302A25DE8F0091787D /* MMSESaveRequestModel.swift in Sources */,
 				BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BC2E1F6B2A13D2CC00B4E713 /* TabBarType.swift in Sources */,
@@ -1657,10 +1785,11 @@
 				BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */,
 				BC81F36429FD615400E09958 /* SignupReqeustViewModelEvent.swift in Sources */,
 				BC2E1F652A139B7600B4E713 /* HapticHelper.swift in Sources */,
+				BCE743982A28BC120073914B /* DementiaArticleService.swift in Sources */,
 				BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */,
 				BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */,
 				BC38FBFA2A1DC3BA005F172B /* ImageAnswerInput.swift in Sources */,
-				BC4317C629C0886D0094333B /* InformationCardList.swift in Sources */,
+				BC4317C629C0886D0094333B /* DementiaAricleCardList.swift in Sources */,
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				BC2E1F672A13CE9000B4E713 /* URL.swift in Sources */,
 				04457F872A2492F8007DDA30 /* MMSEInfoGetModel.swift in Sources */,
@@ -1668,10 +1797,12 @@
 				BCDACF4029FF930A00EFF2ED /* DiagnosisError.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
 				BCEDF1D42A1BCEE70030CD75 /* PrivacyPolicyView.swift in Sources */,
+				BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */,
 				BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */,
 				BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */,
 				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
+				BC482D322A25E7360091787D /* MMSEResultView.swift in Sources */,
 				BC38FBE72A1C82A9005F172B /* MMSEViewModel.swift in Sources */,
 				6F5C3C052A1F6AF300775D7E /* Quiz.swift in Sources */,
 				BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */,
@@ -1682,6 +1813,8 @@
 				BCEDF1D12A1BCE060030CD75 /* SettingCategoriesView.swift in Sources */,
 				BC5E243E2A19F0D7005278D5 /* WatchActivityView.swift in Sources */,
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
+				BC482D2E2A25DBD10091787D /* MMSEAPI.swift in Sources */,
+				BC98E65D2A2792EC00CA43D2 /* View+InjectIII.swift in Sources */,
 				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
 				BC38FC032A1E0EF6005F172B /* ShowTextView.swift in Sources */,
@@ -1695,7 +1828,6 @@
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */,
 				6F0F94AE29FE4DA400993A52 /* HKHeartRateService.swift in Sources */,
-				04457F892A249A8C007DDA30 /* MMSEInfoError.swift in Sources */,
 				04619F682A291481007B6BFD /* LoadingView.swift in Sources */,
 				BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */,
 				04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */,
@@ -1703,9 +1835,10 @@
 				BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
+				BCE7439E2A28C2680073914B /* DementiaArticleModel.swift in Sources */,
 				BC88B80329EA535000F484AF /* AccountServiceType.swift in Sources */,
 				BCDACF4129FF930A00EFF2ED /* DiagnosisService.swift in Sources */,
-				BC3CA1AD29BF704A00C8AE3D /* InformationCard.swift in Sources */,
+				BC3CA1AD29BF704A00C8AE3D /* DementiaAricleCard.swift in Sources */,
 				BC81F35D29FD538500E09958 /* InfoState.swift in Sources */,
 				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
 				6F06DB6329FD3DCF00770596 /* QuizViewType.swift in Sources */,
@@ -1727,6 +1860,7 @@
 				BC2E1F612A137CE000B4E713 /* PushNotificationHelper.swift in Sources */,
 				BC2E1F632A138A8900B4E713 /* AppDelegate.swift in Sources */,
 				BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */,
+				BC482D342A25F4960091787D /* MMSEResultStack.swift in Sources */,
 				BC3DDF6B29FB9BD200452A2B /* SignupRequestViewModel.swift in Sources */,
 				BCE398CA2A1F47D8007E4242 /* LifePatternError.swift in Sources */,
 				04619F642A28D8F3007B6BFD /* NetworkErrorView.swift in Sources */,
@@ -1735,18 +1869,19 @@
 				BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */,
 				BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
-				BC38FBEB2A1C9814005F172B /* BundelHelper.swift in Sources */,
-				BC3CA1AF29BF7DB900C8AE3D /* InformationDetailModal.swift in Sources */,
-				BC6948332A20AC70006DED29 /* Container+Extension.swift in Sources */,
+				BC38FBEB2A1C9814005F172B /* BundleHelper.swift in Sources */,
+				BC3CA1AF29BF7DB900C8AE3D /* DementiaArticelDetailModal.swift in Sources */,
+				BC6948332A20AC70006DED29 /* DIContainer.swift in Sources */,
+				BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */,
 				BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */,
 				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */,
 				04285B972A1B626700E7EF42 /* ReadMeView.swift in Sources */,
 				BCB9C68F2A0A20A100273F33 /* HKSleepIntervalModel.swift in Sources */,
 				BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */,
 				6F06DB6529FD3DDA00770596 /* nowDayQuiz.swift in Sources */,
-				BC69482B2A20700D006DED29 /* MMSEViewType.swift in Sources */,
+				BC69482B2A20700D006DED29 /* MMSEQuestionType.swift in Sources */,
+				BC482D362A2604600091787D /* MMSEResultType.swift in Sources */,
 				6F06DB6529FD3DDA00770596 /* nowDayQuiz.swift in Sources */,
-				04457F852A249265007DDA30 /* MMSEInfoService.swift in Sources */,
 				049ADEB029C9C2AB009B9B62 /* TestRow.swift in Sources */,
 				BCE398C62A1EE8DD007E4242 /* KeyboardHelper.swift in Sources */,
 				BC81F35629FCC26700E09958 /* TypeState.swift in Sources */,
@@ -2007,9 +2142,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamoujeok.Atchi;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-Xlinker",
+					"-interposable",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheonhamujeok.Atchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_DOCUMENTATION_COMPILER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

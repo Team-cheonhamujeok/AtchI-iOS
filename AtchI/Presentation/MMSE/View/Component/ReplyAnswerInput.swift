@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension MMSEViewType.Reply {
+extension MMSEQuestionType.Reply {
     var suffix: String {
         switch self {
         case .year: return "년"
@@ -31,11 +31,12 @@ extension MMSEViewType.Reply {
 struct ReplyAnswerInput: View {
     
     @Binding var text: String
-    let viewType: MMSEViewType.Reply
+    @Binding var keybaordType: UIKeyboardType
+    let viewType: MMSEQuestionType.Reply
     
     var body: some View {
         TextInputWithSuffix(text: $text,
-                            suffix: viewType.suffix,
-                            keyboardType: viewType.keyboardType)
+                            keyboardType: $keybaordType,
+                            suffix: viewType.suffix)
     }
 }

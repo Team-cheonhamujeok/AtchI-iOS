@@ -12,6 +12,7 @@ import Factory
 
 class HomeViewModel: ObservableObject {
     // MARK: - Dependency
+    @Injected(\.dementiaArticleService) private var dementiaArticleService
     @Injected(\.hkActivityService) private var hkActivityService
     @Injected(\.hkHeartRateService) private var hkHeartRateService
     @Injected(\.hkSleepService) private var hkSleepService
@@ -24,11 +25,13 @@ class HomeViewModel: ObservableObject {
     @Published var stepCount: String = ""
     @Published var heartAverage: String = ""
     @Published var sleepTotal: String = ""
+    @Published var articles: [DementiaArticleModel] = []
     
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
     init() {
+        getDementiaArticles()
         bind()
     }
     
@@ -77,4 +80,10 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
         
     }
+    
+    // MARK: - Semantic function snippets
+    func getDementiaArticles() {
+        self.articles = dementiaArticleService.getDementiaArticles()
+    }
+    
 }

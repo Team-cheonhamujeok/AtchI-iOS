@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
-extension MMSEViewType.Image {
+extension MMSEQuestionType.Image {
     var imageName: String {
         switch self {
         case .clock: return "mmse_clock"
-        case .mirror: return ""
+        case .ball: return "mmse_soccer_ball"
         }
     }
 }
@@ -19,15 +20,17 @@ extension MMSEViewType.Image {
 struct ImageAnswerInput: View {
     
     @Binding var text: String
-    let viewType: MMSEViewType.Image
+    @Binding var keybaordType: UIKeyboardType
+    let viewType: MMSEQuestionType.Image
     
     var body: some View {
         Image(viewType.imageName)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(minWidth: 250, maxWidth: 250)
+            .frame(width: 200, height: 200)
             .padding(.bottom, 30)
-        TextInputWithSuffix(text: $text)
+        TextInputWithSuffix(text: $text,
+                            keyboardType: $keybaordType)
     }
 }
 
@@ -35,7 +38,8 @@ struct ImageAnswerInput_Previews: PreviewProvider {
     @State var text: String
     static var previews: some View {
         ImageAnswerInput(text: .constant(""),
-                         viewType: .clock)
+                         keybaordType: .constant(.numberPad),
+                         viewType: .ball)
     }
 }
 

@@ -74,7 +74,14 @@ struct ContentView: View {
                 }
             }
         }
+        .onInjection {
+            print("reload")
+        }
+        
     }
+#if DEBUG
+    @ObservedObject var iO = injectionObserver
+#endif
 }
 
 struct ContentView_Previews: PreviewProvider {
