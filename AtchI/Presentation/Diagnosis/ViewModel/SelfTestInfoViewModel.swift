@@ -18,6 +18,7 @@ class SelfTestInfoViewModel: ObservableObject {
     
     /// 사용자가 이 때까지 한 자가진단 결과 리스트
     @Published var selfTestResults: [TestRowModel] = []
+    @Published var isCompleted: Bool = false
     
     init(service: DiagnosisServiceType) {
         self.service = service

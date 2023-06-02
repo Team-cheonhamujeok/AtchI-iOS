@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import Network
+
 @main
 struct AtchIApp: App {
     
@@ -14,7 +16,11 @@ struct AtchIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if NetworkMonitor.shared.isConnected {
+                ContentView()
+            } else {
+                NetworkErrorView()
+            }
         }
     }
 }
