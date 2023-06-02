@@ -153,6 +153,7 @@
 		BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BCB9C6922A0A3CDB00273F33 /* Lottie */; };
 		BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C6942A0A3D2F00273F33 /* LottieView.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
+		BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */; };
 		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
 		BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */; };
 		BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD897272A0A45A6006EC401 /* dots-loading.json */; };
@@ -371,6 +372,7 @@
 		BCB9C68E2A0A20A100273F33 /* HKSleepIntervalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepIntervalModel.swift; sourceTree = "<group>"; };
 		BCB9C6942A0A3D2F00273F33 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
+		BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActivityDescriptionModal.swift; sourceTree = "<group>"; };
 		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
 		BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BCD897272A0A45A6006EC401 /* dots-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dots-loading.json"; sourceTree = "<group>"; };
@@ -1296,6 +1298,7 @@
 				BCE394AD29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift */,
 				BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */,
 				BC4317C529C0886D0094333B /* InformationCardList.swift */,
+				BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1733,6 +1736,7 @@
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				6F7387BF2A19F43300671413 /* QuizService.swift in Sources */,
 				BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */,
+				BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
 				BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */,

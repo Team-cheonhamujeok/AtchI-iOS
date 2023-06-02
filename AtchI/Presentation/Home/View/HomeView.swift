@@ -12,8 +12,7 @@ import Factory
 struct HomeView: View {
     
     @StateObject private var viewModel = HomeViewModel()
-    @State var richText: String = ""
-    @State private var rotationAngle: Double = 0.0
+    @State private var richText: String = ""
     
     var body: some View {
         VStack {
@@ -34,31 +33,9 @@ struct HomeView: View {
                         .padding(.vertical, 15)
                     
                     // 애플워치 정보
-                    VStack(alignment: .leading, spacing: 10){
-                        
-                        HStack {
-                            Text("현재 활동 정보")
-                                .font(.titleSmall)
-                            Spacer()
-                            Image(systemName: "arrow.clockwise")
-                                .foregroundColor(.grayDisabled)
-                                .rotationEffect(Angle(degrees: rotationAngle))
-                                .animation(.easeInOut(duration: 1),
-                                           value: rotationAngle)
-                                .onTapGesture {
-                                    viewModel.$onTapRefreshButton.send(())
-                                    withAnimation {
-                                        rotationAngle += 360
-                                    }
-                                }
-                        }
-                        Text("AI 진단에 쓰이고 있는 활동 정보들입니다!")
-                            .font(.bodyMedium)
-                        Spacer(minLength: 10)
-                        WatchActivityView(stepCount: $viewModel.stepCount,
-                                          heartAverage: $viewModel.heartAverage,
-                                          sleepTotal: $viewModel.sleepTotal)
-                    }
+                    WatchActivityView(stepCount: $viewModel.stepCount,
+                                      heartAverage: $viewModel.heartAverage,
+                                      sleepTotal: $viewModel.sleepTotal)
                 }
                 .padding([.leading, .trailing, .bottom], 30)
                 
@@ -86,6 +63,7 @@ struct HomeView: View {
         .onAppear {
             viewModel.$viewOnAppear.send(())
         }
+
     }
 }
 

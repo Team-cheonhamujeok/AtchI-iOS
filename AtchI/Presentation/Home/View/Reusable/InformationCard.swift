@@ -78,5 +78,6 @@ struct InformationCard: View {
                 showingDetail = false
             }
         }
+        .background(Color.mainBackground)
     }
 }
