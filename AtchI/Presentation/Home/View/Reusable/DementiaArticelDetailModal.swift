@@ -20,6 +20,9 @@ import MarkdownUI
 ///    - content: 이미지 본문
 ///
 struct DementiaArticelDetailModal: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
     var title: String
     var content: String
     var pictureName: String
@@ -69,10 +72,15 @@ struct DementiaArticelDetailModal: View {
                         alignment: .leading)
                 .padding(.horizontal, 25)
                 .padding(.vertical, 15)
-                .background(Color.white)
                 
                 // 컨텐츠 위로 밀려고 Spacer
-                Spacer(minLength: 60)
+                Spacer(minLength: 20)
+                
+                ModalDismissButton()
+                    .onTapGesture {
+                        dismiss()
+                    }
+                    .padding(.horizontal, 30)
             }
             .frame(maxWidth: .infinity,
                    maxHeight: .infinity,

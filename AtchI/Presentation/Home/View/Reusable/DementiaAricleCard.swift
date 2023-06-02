@@ -72,12 +72,7 @@ struct DementiaAricleCard: View {
             DementiaArticelDetailModal(
                 title: title,
                 content: content,
-                pictureName: pictureName).presentationDetents([.medium, .large])
-            // dy TODO: Button style custom
-            ModalDismissButton()
-                .onTapGesture {
-                    showingDetail = false
-                }
+                pictureName: pictureName)
         }
         .background(Color.mainBackground)
     }
