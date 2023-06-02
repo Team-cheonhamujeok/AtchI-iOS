@@ -49,7 +49,7 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 20){
                     Text("치매 정보")
                         .font(.titleMedium)
-                    InformationCardList(articles: viewModel.articles)
+                    DementiaAricleCardList(articles: viewModel.articles)
                 }
                 .padding(30)
                 

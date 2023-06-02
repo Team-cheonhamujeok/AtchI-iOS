@@ -33,18 +33,10 @@ struct WatchActivityDescriptionModal: View {
                 .lineSpacing(5)
                 .padding(.bottom, 20)
             
-            VStack(alignment: .center) {
-                Text("닫기")
-                    .font(.titleSmall)
-                    .foregroundColor(.mainPurple)
-            }
-            .frame(maxWidth: .infinity)
-            .frame(height: 65)
-            .background(Color.mainPurpleLight)
-            .cornerRadius(20)
-            .onTapGesture {
-                dismiss()
-            }
+            ModalDismissButton()
+                .onTapGesture {
+                    dismiss()
+                }
             
 
             

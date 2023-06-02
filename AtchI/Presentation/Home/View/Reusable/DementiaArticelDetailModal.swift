@@ -1,5 +1,5 @@
 //
-//  InformationDetailModal.swift
+//  DementiaArticelDetailModal.swift
 //  AtchI
 //
 //  Created by DOYEON LEE on 2023/03/14.
@@ -19,7 +19,7 @@ import MarkdownUI
 ///    - title: 이미지 제목
 ///    - content: 이미지 본문
 ///
-struct InformationDetailModal: View {
+struct DementiaArticelDetailModal: View {
     var title: String
     var content: String
     var pictureName: String
