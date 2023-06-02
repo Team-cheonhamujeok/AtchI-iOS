@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Combine
+
 
 struct TextInputWithSuffix: View {
 
     @Binding var text: String
+    @Binding var keyboardType: UIKeyboardType
     var suffix: String = ""
-    var keyboardType: UIKeyboardType = .default
     
     // private
     @FocusState private var isFocused: Bool
@@ -36,8 +38,7 @@ struct TextInputWithSuffix: View {
                             maxHeight: 65)
                 
                 // Text Field
-                    TextField("",
-                              text: $text)
+                TextField("", text: $text)
                         .font(.titleSmall)
                         .foregroundColor(.mainPurple)
                         .keyboardType(keyboardType)
@@ -47,6 +48,17 @@ struct TextInputWithSuffix: View {
                                minHeight: 65,
                                maxHeight: 65)
                         .focused($isFocused)
+                        // 키패드 변경 로직
+                         .onChange(of: keyboardType) { newKeyboardType in
+                             DispatchQueue.main.async {
+                                 if isFocused {
+                                     isFocused = false
+                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
+                                         isFocused = true
+                                     }
+                                 }
+                             }
+                         }
             }
             .onTapGesture {
                 isFocused = true

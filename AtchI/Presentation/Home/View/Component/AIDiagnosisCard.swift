@@ -10,6 +10,7 @@ import SwiftUI
 struct AIDiagnosisCard: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @State var isMMSEViewPresented = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
@@ -28,19 +29,28 @@ struct AIDiagnosisCard: View {
                 .foregroundColor(.grayTextLight)
           
             Spacer(minLength: 5)
+            VStack(alignment: .center) {
+                Text("MMSE검사로 정확도 높이기")
+                    .font(.bodyMedium)
+                    .foregroundColor(.mainBackground)
+            }
+            .padding(.vertical, 8)
+            .frame(maxWidth: .infinity)
+            .background(Color.mainBlue)
+            .cornerRadius(20)
+            .onTapGesture {
+                isMMSEViewPresented = true
+            }
             
             // MMSE button
-            NavigationLink(destination: MMSEView(viewModel: MMSEViewModel())){
-                VStack(alignment: .center) {
-                    Text("MMSE검사로 정확도 높이기")
-                        .font(.bodyMedium)
-                        .foregroundColor(.mainBackground)
-                }
-                .padding(.vertical, 8)
-                .frame(maxWidth: .infinity)
-                .background(Color.mainBlue)
-                .cornerRadius(20)
+            NavigationLink(destination: MMSEView(viewModel: MMSEViewModel(),
+                                                 isThisViewPresented: $isMMSEViewPresented),
+                           isActive: $isMMSEViewPresented) {
+                EmptyView()
             }
+//            NavigationLink($isMMSEViewPresented){
+//                MMSEView(viewModel: MMSEViewModel())
+//            }
         }
         .padding(25)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

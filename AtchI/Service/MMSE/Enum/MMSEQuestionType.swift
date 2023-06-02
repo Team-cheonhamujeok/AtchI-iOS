@@ -1,5 +1,5 @@
 //
-//  MMSEViewType.swift
+//  MMSEQuestionType.swift
 //  AtchI
 //
 //  Created by DOYEON LEE on 2023/05/26.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MMSEViewType: Equatable {
+enum MMSEQuestionType: Equatable {
     
     case reply(Reply)
     case arithmetic(Arithmetic)
@@ -39,6 +39,6 @@ enum MMSEViewType: Equatable {
     
     enum Image: String, CaseIterable {
         case clock
-        case mirror
+        case ball
     }
 }

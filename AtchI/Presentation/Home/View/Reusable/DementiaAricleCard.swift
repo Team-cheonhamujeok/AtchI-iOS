@@ -17,7 +17,7 @@ import SwiftUI
 ///    - title: 이미지 제목
 ///    - content: 이미지 본문
 ///
-struct InformationCard: View {
+struct DementiaAricleCard: View {
     var pictureName: String
     var title: String
     var content: String
@@ -69,14 +69,11 @@ struct InformationCard: View {
             self.showingDetail = true
         }
         .sheet(isPresented: $showingDetail){
-            InformationDetailModal(
+            DementiaArticelDetailModal(
                 title: title,
                 content: content,
-                pictureName: pictureName).presentationDetents([.medium, .large])
-            // dy TODO: Button style custom
-            Button("닫기") {
-                showingDetail = false
-            }
+                pictureName: pictureName)
         }
+        .background(Color.mainBackground)
     }
 }
