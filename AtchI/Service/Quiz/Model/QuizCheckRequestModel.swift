@@ -10,4 +10,5 @@ import Foundation
 struct QuizCheckRequestModel: Encodable {
     let tqid: Int
     let quizNum: Int
+    let mid: Int
 }

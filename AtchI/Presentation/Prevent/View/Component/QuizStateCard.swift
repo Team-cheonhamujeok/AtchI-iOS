@@ -10,7 +10,9 @@ import SwiftUI
 struct QuizStateCard: View {
     var days = ["월", "화", "수", "목", "금", "토", "일"]
     var preventViewModel: PreventViewModel
-    var quiz: Quiz
+//    var quiz: Quiz
+//    var weekQuiz: [Bool]
+    var weekQuizState: [WeekQuiz]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
@@ -39,38 +41,23 @@ struct QuizStateCard: View {
             // - 오늘보다 미래이면 회색 글씨
             
             HStack {
-                ForEach(days, id: \.self) { item in
+                ForEach(0..<6) { item in
                     ZStack {
-//                        if item == "월" {
-//                        Circle()
-//                            .fill(Color.mainPurple)
-//                            .frame(width: 30, height: 30)
-//                        }
-//                        else if item == "화" {
+//                        if item.quizState! == false {
 //                            Circle()
 //                                .strokeBorder(Color.mainPurple,lineWidth: 1)
 //                                .frame(width: 30, height: 30)
-//                        }
-//                        // Spacer 들어갈때 동그라미 있는 곳 없는 곳 간격이 달라져서 투명 원 하나 넣어둠
-//                        else {
+//                        } else if item.quizState! == true {
 //                            Circle()
-//                                .fill(.clear)
+//                                .fill(Color.mainPurple)
 //                                .frame(width: 30, height: 30)
 //                        }
-                        if quiz.solved == false {
-                            Circle()
-                                .strokeBorder(Color.mainPurple,lineWidth: 1)
-                                .frame(width: 30, height: 30)
-                        } else if quiz.solved == true {
-                            Circle()
-                                .fill(Color.mainPurple)
-                                .frame(width: 30, height: 30)
-                        }
-                        Text(item)
+                        let _ = print("item \(item)")
+                        Text(weekQuizState[item].day!)
                             .font(.bodyMedium)
                         
                     }
-                    if item != days.last { // match everything but the last
+                    if item != 5 { // match everything but the last
                         Spacer()
                         
                     }
