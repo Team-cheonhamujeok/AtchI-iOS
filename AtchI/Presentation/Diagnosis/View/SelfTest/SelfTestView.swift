@@ -25,6 +25,8 @@ struct SelfTestView: View {
     @Binding var path: [DiagnosisViewStack]
     @StateObject var selfTestViewModel: SelfTestViewModel
     
+    let mid = UserDefaults.standard.integer(forKey: "mid")
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("자가진단")
@@ -78,7 +80,7 @@ struct SelfTestView: View {
                         guard let buttonSeletor = buttonSeletor else { return }
                         selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
                         self.buttonSeletor = nil
-                        selfTestViewModel.requestResult(mid: 2)
+                        selfTestViewModel.requestResult(mid: self.mid)
                         path.append(.selfTestResult)
                     } else {
                         guard let buttonSeletor = buttonSeletor else { return }

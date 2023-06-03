@@ -15,6 +15,7 @@ class MMSEInfoViewModel: ObservableObject {
     let service: MMSEService
     var subject = CurrentValueSubject<Bool, Never>(false)
     var disposeBag = Set<AnyCancellable>()
+    let mid = UserDefaults.standard.integer(forKey: "mid")
     
     @Published var testResults: [TestRowModel] = []
     
@@ -40,7 +41,7 @@ class MMSEInfoViewModel: ObservableObject {
     
     private lazy var getData: AnyPublisher<[TestRowModel], Never> = {
         return self.service
-            .reqeustMMSEResults(mid: 1)
+            .reqeustMMSEResults(mid: self.mid)
             .map{ $0.data }
             .decode(type: [MMSEInfoGetModel].self, decoder: JSONDecoder())
             .map{ self.makeUIDatas(datas: $0) }

@@ -15,6 +15,7 @@ class SelfTestInfoViewModel: ObservableObject {
     let service: DiagnosisServiceType
     var subject = CurrentValueSubject<Bool, Never>(false)
     var disposeBag = Set<AnyCancellable>()
+    let mid = UserDefaults.standard.integer(forKey: "mid")
     
     /// 사용자가 이 때까지 한 자가진단 결과 리스트
     @Published var selfTestResults: [TestRowModel] = []
@@ -54,8 +55,7 @@ class SelfTestInfoViewModel: ObservableObject {
     
     /// 서버로부터 Get 하는 함수
     private lazy var getData: AnyPublisher<[TestRowModel], Never> = {
-        // TODO: mid 값 넣기
-        return self.service.getDiagnosisList(mid: 2)
+        return self.service.getDiagnosisList(mid: self.mid)
             .map{ $0.data }
             .decode(type: [DiagnosisGetModel].self, decoder: JSONDecoder())
             .map{ self.makeUIDatas(datas: $0) }
