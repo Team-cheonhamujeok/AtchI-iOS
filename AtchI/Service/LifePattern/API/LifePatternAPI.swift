@@ -57,15 +57,22 @@ extension LifePatternAPI: TargetType {
     
     // MARK: - For test
     var sampleData: Data {
+        var response: String = ""
+        
         switch self {
         case .lastDate(let mid):
-            let response = getLastDateMockResponse(mid: mid)
-            let jsonData = response.data(using: .utf8) ?? Data()
-            return jsonData
+            response = getLastDateMockResponse(mid: mid)
+            break
+        case .sendLifePattern(_):
+            response = getSaveLifePatternResponse(lastDate: "")
+            break
         default:
-            let response: [String: Any] = ["": ""]
-            return try! JSONSerialization.data(withJSONObject: response, options: [])
+            response = ""
+            break
         }
+        
+        let jsonData = response.data(using: .utf8) ?? Data()
+        return jsonData
     }
 }
 

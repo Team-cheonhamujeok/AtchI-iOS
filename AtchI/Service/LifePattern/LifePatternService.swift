@@ -11,7 +11,7 @@ import Foundation
 import Moya
 
 protocol LifePatternServiceType {
-    func requestSaveLifePatterns() -> AnyPublisher<LifePatternResponseModel, LifePatternError>
+    func requestSaveLifePatterns(lastDate: Date?) -> AnyPublisher<SaveLifePatternResponseModel, LifePatternError>
     func requestLastDate(mid: Int) -> AnyPublisher<ResponseModel<LastDateResponseModel>, Error>
 }
 
@@ -35,27 +35,30 @@ class LifePatternService {
     /// 생활패턴 정보를 서버에 저장합니다.
     ///
     /// 내부 로직은 다음과 같습니다.
-    /// 1. 서버에서 마지막 업데이트일 받아옵니다.
+    /// 1. 서버에서 마지막 업데이트일 받아옵니다. (상위에서 호출해서 주입합니다)
     ///     a. 만약 마지막 업데이트일이 없다면 120일 이전 데이터부터 추출합니다.
     ///     b. 만약 마지막 업데이트일이 오늘이라면 에러를 반환합니다.
     /// 2. 마지막 업데이트일과 현재까지의 모든 날짜를 Date()형으로 저장합니다.
     /// 3. 각 날짜에 맞는 HealthKit 데이터를 추출하고 LifePatternModel로 만듭니다.
     /// 4. LifePatternModel들을 배열로 합쳐 서버에 저장합니다.
     ///
+    /// - Parameter lastDate: 마지막 업데이트일을 상위에서 호출해서 주입합니다.
+    ///     이때 응답이 비어있다면 (마지막 업데이트일이 없다면) 그대로 nil을 전달합니다.
     /// - Returns: 요청 성공/실패에 대한 응답을 반환하는 퍼블리셔를 반환합니다.
-    func requestSaveLifePatterns() -> AnyPublisher<LifePatternResponseModel, LifePatternError> {
+    func requestSaveLifePatterns(lastDate: String?) -> AnyPublisher<SaveLifePatternResponseModel, LifePatternError> {
         let mid = UserDefaults.standard.integer(forKey: "mid")
         if mid <= 0 { fatalError("잘못된 접근입니다. 해당 API는 로그인된 상태에서 호출되어야합니다.") }
         
-        return requestLastDate(mid: mid)
-            .tryMap { model -> String? in
-                if let lastDate = model.response.lastDate {
+        return Just(lastDate)
+            .eraseToAnyPublisher()
+            .tryMap { lastDate -> String? in
+                if let lastModifiedDate = lastDate {
                     if self.checkLastDateIsToday(
-                        lastDate: DateHelper.convertStringToDate(string: lastDate)) {
+                        lastDate: DateHelper.convertStringToDate(string: lastModifiedDate)) {
                         throw LifePatternError.saveLifePattern(.lastDateIsToday)
                     }
                 }
-                return model.response.lastDate
+                return lastDate
             }
             .map { lastDate -> Date in
                 return self.getlastDateForCreateLifePattern(lastDate: lastDate)
@@ -74,8 +77,8 @@ class LifePatternService {
             .collect()
             .flatMap { lifePatternModels in
                 self.provider.requestPublisher(.sendLifePattern(lifePatternModels))
-                    .tryMap { response -> LifePatternResponseModel in
-                        return try response.map(LifePatternResponseModel.self)
+                    .tryMap { response -> SaveLifePatternResponseModel in
+                        return try response.map(SaveLifePatternResponseModel.self)
                     }
                     .mapError { error in
                         return LifePatternError.requestFailed(error)
