@@ -9,28 +9,21 @@ import Combine
 import Foundation
 
 import Moya
+import Factory
 
 protocol LifePatternServiceType {
-    func requestSaveLifePatterns(lastDate: Date?) -> AnyPublisher<SaveLifePatternResponseModel, LifePatternError>
-    func requestLastDate(mid: Int) -> AnyPublisher<ResponseModel<LastDateResponseModel>, Error>
+    func requestSaveLifePatterns(lastDate: String?)
+    -> AnyPublisher<SaveLifePatternResponseModel, LifePatternError>
+    func requestLastDate(mid: Int)
+    -> AnyPublisher<ResponseModel<LastDateResponseModel>, LifePatternError>
 }
 
-class LifePatternService {
+class LifePatternService: LifePatternServiceType {
     
-    private var provider: MoyaProvider<LifePatternAPI>
-    private var sleepService: HKSleepServiceProtocol
-    private var activityService: HKActivityServiceProtocol
-    private var heartRateService: HKHeartRateServiceProtocol
-    
-    init(provider: MoyaProvider<LifePatternAPI>,
-         sleepService: HKSleepServiceProtocol,
-         activityService: HKActivityServiceProtocol,
-         heartRateService: HKHeartRateServiceProtocol) {
-        self.provider = provider
-        self.sleepService = sleepService
-        self.activityService = activityService
-        self.heartRateService = heartRateService
-    }
+    @Injected(\.lifePatternAPIProvider) var provider
+    @Injected(\.hkSleepService) var sleepService
+    @Injected(\.hkActivityService) var activityService
+    @Injected(\.hkHeartRateService) var heartRateService
     
     /// 생활패턴 정보를 서버에 저장합니다.
     ///
@@ -76,7 +69,7 @@ class LifePatternService {
             }
             .collect()
             .flatMap { lifePatternModels in
-                self.provider.requestPublisher(.sendLifePattern(lifePatternModels))
+                self.provider.requestPublisher(.saveLifePatterns(lifePatternModels))
                     .tryMap { response -> SaveLifePatternResponseModel in
                         return try response.map(SaveLifePatternResponseModel.self)
                     }

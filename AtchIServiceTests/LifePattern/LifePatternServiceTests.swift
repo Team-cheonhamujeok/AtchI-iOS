@@ -10,18 +10,21 @@ import Combine
 import XCTest
 
 import Moya
+import Factory
 
 final class LifePatternServiceTests: XCTestCase {
     
     var service: LifePatternService!
 
     override func setUpWithError() throws {
-        service = LifePatternService(
-            provider: MoyaProvider<LifePatternAPI>(stubClosure: MoyaProvider.immediatelyStub),
-            sleepService: MKSleepServiceMock(),
-            activityService: HKActivityServiceMock(),
-            heartRateService: HKHeartRateServiceMock())
-            }
+        let _ = Container.shared.lifePatternAPIProvider.register {
+            MoyaProvider<LifePatternAPI>(stubClosure: MoyaProvider.immediatelyStub)
+        }
+        let _ = Container.shared.hkSleepService.register { HKSleepServiceMock() }
+        let _ = Container.shared.hkActivityService.register { HKActivityServiceMock() }
+        let _ = Container.shared.hkHeartRateService.register { HKHeartRateServiceMock() }
+        service = LifePatternService()
+    }
 
     override func tearDownWithError() throws {
         service = nil
@@ -139,7 +142,7 @@ final class LifePatternServiceTests: XCTestCase {
             let expection = XCTestExpectation(description: "measure SaveLifePattern")
             let _ = service.requestSaveLifePatterns(lastDate: nil)
                 .sink(receiveCompletion: { _ in },
-                      receiveValue: {_ in 
+                      receiveValue: {_ in
                     expection.fulfill()
                       })
             wait(for: [expection])

@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum LifePatternAPI{
-    case sendLifePattern(_ lifePatternModel: [LifePatternModel])
+    case saveLifePatterns(_ lifePatternModel: [LifePatternModel])
     case lastDate(_ mid: Int)
 }
 
@@ -25,7 +25,7 @@ extension LifePatternAPI: TargetType {
     
     var path: String {
         switch self {
-        case .sendLifePattern:
+        case .saveLifePatterns:
             return "/lifePattern"
         case .lastDate:
             return "/lifePattern/lastDate"
@@ -34,7 +34,7 @@ extension LifePatternAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .sendLifePattern:
+        case .saveLifePatterns:
             return .post
         case .lastDate:
             return .get
@@ -43,7 +43,7 @@ extension LifePatternAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .sendLifePattern(let model):
+        case .saveLifePatterns(let model):
             return .requestJSONEncodable(model)
         case .lastDate(let mid):
             return .requestParameters(parameters: ["mid" : mid],
@@ -63,7 +63,7 @@ extension LifePatternAPI: TargetType {
         case .lastDate(let mid):
             response = getLastDateMockResponse(mid: mid)
             break
-        case .sendLifePattern(_):
+        case .saveLifePatterns(_):
             response = getSaveLifePatternResponse(lastDate: "")
             break
         default:

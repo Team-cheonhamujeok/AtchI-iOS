@@ -12,6 +12,12 @@ import Moya
 
 extension Container {
 
+    // MARK: - Moya
+    var lifePatternAPIProvider: Factory<MoyaProvider<LifePatternAPI>> {
+        Factory(self) {
+            MoyaProvider<LifePatternAPI>()
+        }
+    }
     
     // MARK: - Servcie
     var mmseService: Factory<MMSEService> {

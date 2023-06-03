@@ -9,14 +9,21 @@ import Foundation
 import UserNotifications
 import UIKit
 import HealthKit
+import Combine
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    
     let store = HKHealthStore()
+    var lifePatternService: LifePatternServiceType? = nil
+    
+    var cancellable = Set<AnyCancellable>()
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         UNUserNotificationCenter.current().delegate = self
         
+        // MARK: Setting Push Notification
         PushNotificationHelper
             .shared
             .pushScheduledNotification(title: "오늘 퀴즈가 남아 있어요! ",
@@ -27,6 +34,25 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             
         NetworkMonitor.shared.startMonitoring()
         
+        // MARK: Setting SaveLifePattern
+        lifePatternService = LifePatternService()
+        let mid = UserDefaults.standard.integer(forKey: "mid")
+        if mid != 0, let service = lifePatternService {
+            service
+                .requestLastDate(mid: mid)
+                .flatMap { responseModel in
+                    return service
+                        .requestSaveLifePatterns(lastDate: responseModel.response.lastDate)
+                }
+                .sink(receiveCompletion: { completion in
+                    print(completion)
+                }, receiveValue: { result in
+                    print("SaveLifePattern Response \(result)")
+                })
+                .store(in: &cancellable)
+        }
+        lifePatternService = nil
+
         return true
     }
 }

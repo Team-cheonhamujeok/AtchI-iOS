@@ -10,7 +10,7 @@
 import XCTest
 import Combine
 
-class MKSleepServiceMock: HKSleepServiceProtocol {
+class HKSleepServiceMock: HKSleepServiceProtocol {
     func getSleepRecord(date: Date, sleepCategory: AtchI.HKSleepCategory.common) -> AnyPublisher<AtchI.HKSleepModel, AtchI.HKError> {
         
         let calendar = Calendar.current
