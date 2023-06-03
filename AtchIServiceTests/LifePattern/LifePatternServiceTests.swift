@@ -11,7 +11,6 @@ import XCTest
 
 import Moya
 
-/// - Warning:  실제 디바이스 정보를 바탕으로 진행하는 테스트셋입니다. 시뮬레이터에서 실행하지마세요.
 final class LifePatternServiceTests: XCTestCase {
     
     var service: LifePatternService!
@@ -36,7 +35,7 @@ final class LifePatternServiceTests: XCTestCase {
         var received: String?
         
         // when
-        let cancellable = service.reuqestLastDate(mid: request)
+        let cancellable = service.requestLastDate(mid: request)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { response in
                 received = response.response.lastDate ?? ""
@@ -52,7 +51,7 @@ final class LifePatternServiceTests: XCTestCase {
         var received: String?
         
         // when
-        let cancellable = service.reuqestLastDate(mid: request)
+        let cancellable = service.requestLastDate(mid: request)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { response in
                 received = response.response.lastDate ?? ""

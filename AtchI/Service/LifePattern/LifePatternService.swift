@@ -10,8 +10,9 @@ import Foundation
 
 import Moya
 
-class LifePatternServiceType {
-    
+protocol LifePatternServiceType {
+    func requestSaveLifePatterns() -> AnyPublisher<LifePatternResponseModel, LifePatternError>
+    func requestLastDate(mid: Int) -> AnyPublisher<ResponseModel<LastDateResponseModel>, Error>
 }
 
 class LifePatternService {
@@ -46,8 +47,17 @@ class LifePatternService {
         if mid <= 0 { fatalError("잘못된 접근입니다. 해당 API는 로그인된 상태에서 호출되어야합니다.") }
         
         return requestLastDate(mid: mid)
-            .map { model -> Date in
-                return self.getlastDateForCreateLifePattern(lastDate: model.response.lastDate)
+            .tryMap { model -> String? in
+                if let lastDate = model.response.lastDate {
+                    if self.checkLastDateIsToday(
+                        lastDate: DateHelper.convertStringToDate(string: lastDate)) {
+                        throw LifePatternError.saveLifePattern(.lastDateIsToday)
+                    }
+                }
+                return model.response.lastDate
+            }
+            .map { lastDate -> Date in
+                return self.getlastDateForCreateLifePattern(lastDate: lastDate)
             }
             .map { lastDate -> [Date] in
                 return self.getDatesForCreateLifePatterns(lastDate: lastDate)
@@ -66,13 +76,13 @@ class LifePatternService {
                     .tryMap { response -> LifePatternResponseModel in
                         return try response.map(LifePatternResponseModel.self)
                     }
-                    .mapError { _ in
-                        return LifePatternError.sendFailed
+                    .mapError { error in
+                        return LifePatternError.requestFailed(error)
                     }
                     .eraseToAnyPublisher()
             }
-            .mapError { _ in
-                LifePatternError.sendFailed
+            .mapError { error in
+                return error as! LifePatternError
             }
             .eraseToAnyPublisher()
         
@@ -82,15 +92,15 @@ class LifePatternService {
     /// mid에 해당하는 유저의 LifePattern 마지막 업데이트 일을 가져옵니다.
     /// - Parameter mid: 로그인된 유저 mid입니다.
     /// - Returns: 마지막 업데이트 날짜를 담은 모델을 반환합니다.
-    func requestLastDate(mid: Int) -> AnyPublisher<ResponseModel<LastDateResponseModel>, Error> {
-        
+    func requestLastDate(mid: Int)
+    -> AnyPublisher<ResponseModel<LastDateResponseModel>, LifePatternError> {
         // 마지막 업데이트일 받아오기
         return provider.requestPublisher(.lastDate(mid))
             .tryMap { response in
                 return try response.map(ResponseModel<LastDateResponseModel>.self)
             }
-            .mapError { _ in
-                return LifePatternError.sendFailed
+            .mapError { error in
+                return LifePatternError.requestFailed(error)
             }
             .eraseToAnyPublisher()
     }
@@ -98,6 +108,11 @@ class LifePatternService {
 
 extension LifePatternService {
     // MARK: - Private functions
+    
+    /// 마지막 업데이트일이 오늘인지 확인합니다.
+    func checkLastDateIsToday(lastDate: Date) -> Bool {
+        return DateHelper.compareDatesByDay(lastDate, Date())
+    }
     
     /// LifePattern을 생성할 범위의 마지막 날짜 (오래전 날짜)를 구합니다.
     ///

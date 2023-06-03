@@ -132,5 +132,17 @@ class DateHelper: DateHelperType {
         
         return calendar.date(byAdding: dateComponents, to: date)!
     }
+    
+    static func compareDatesByDay(_ date1: Date,  _ date2: Date) -> Bool {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date1)
+        let date1WithoutTime = calendar.date(from: components)!
+        
+        let components2 = calendar.dateComponents([.year, .month, .day], from: date2)
+        let date2WithoutTime = calendar.date(from: components2)!
+        
+        return calendar.isDate(date1WithoutTime, inSameDayAs: date2WithoutTime)
+    }
+
 
 }
