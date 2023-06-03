@@ -12,7 +12,7 @@ import Combine
 ///
 /// ## Implement
 /// ``HKSleepService``
-protocol HKSleepServiceType {
+protocol HKSleepServiceProtocol {
     
     /// 진단에 필요한 모든 수면 데이터를 담은 구조체 인스턴스를 반환합니다.
     ///

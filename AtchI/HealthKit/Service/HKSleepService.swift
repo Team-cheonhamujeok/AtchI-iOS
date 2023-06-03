@@ -39,7 +39,7 @@ import Combine
 /// ## SeeAlso
 /// ``HKSleepServiceType``
 ///
-class HKSleepService: HKSleepServiceType{
+class HKSleepService: HKSleepServiceProtocol{
     
     private var provider: HKProvider
     private var dateHelper: DateHelperType

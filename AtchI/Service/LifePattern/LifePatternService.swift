@@ -18,14 +18,14 @@ protocol LifePatternServiceType {
 class LifePatternService {
     
     private var provider: MoyaProvider<LifePatternAPI>
-    private var sleepService: HKSleepServiceType
+    private var sleepService: HKSleepServiceProtocol
     private var activityService: HKActivityServiceProtocol
-    private var heartRateService: HKHeartRateServiceType
+    private var heartRateService: HKHeartRateServiceProtocol
     
     init(provider: MoyaProvider<LifePatternAPI>,
-         sleepService: HKSleepServiceType,
+         sleepService: HKSleepServiceProtocol,
          activityService: HKActivityServiceProtocol,
-         heartRateService: HKHeartRateServiceType) {
+         heartRateService: HKHeartRateServiceProtocol) {
         self.provider = provider
         self.sleepService = sleepService
         self.activityService = activityService
@@ -36,7 +36,8 @@ class LifePatternService {
     ///
     /// 내부 로직은 다음과 같습니다.
     /// 1. 서버에서 마지막 업데이트일 받아옵니다.
-    ///     1-1. 만약 마지막 업데이트일이 없다면 120일 이전 데이터부터 추출합니다.
+    ///     a. 만약 마지막 업데이트일이 없다면 120일 이전 데이터부터 추출합니다.
+    ///     b. 만약 마지막 업데이트일이 오늘이라면 에러를 반환합니다.
     /// 2. 마지막 업데이트일과 현재까지의 모든 날짜를 Date()형으로 저장합니다.
     /// 3. 각 날짜에 맞는 HealthKit 데이터를 추출하고 LifePatternModel로 만듭니다.
     /// 4. LifePatternModel들을 배열로 합쳐 서버에 저장합니다.

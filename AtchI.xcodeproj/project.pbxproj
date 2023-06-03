@@ -126,7 +126,7 @@
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
 		BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */; };
-		BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */; };
+		BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */; };
 		BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719272A0F81A700F692C6 /* LifePatternModel.swift */; };
 		BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */; };
 		BC77192D2A0F856E00F692C6 /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192C2A0F856E00F692C6 /* Publishers.swift */; };
@@ -157,6 +157,7 @@
 		BCB9C68F2A0A20A100273F33 /* HKSleepIntervalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C68E2A0A20A100273F33 /* HKSleepIntervalModel.swift */; };
 		BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BCB9C6922A0A3CDB00273F33 /* Lottie */; };
 		BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C6942A0A3D2F00273F33 /* LottieView.swift */; };
+		BCBB36C62A2B879900BE937D /* HKSleepServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36C52A2B879900BE937D /* HKSleepServiceMock.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
 		BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */; };
 		BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */; };
@@ -199,7 +200,7 @@
 		BCEDF1D92A1BE4420030CD75 /* MMSEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */; };
 		BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */; };
 		BCF6B8AE2A03B38B00B0FC1D /* HKSleepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */; };
-		BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */; };
+		BCF6B8B22A03B79400B0FC1D /* HKSleepServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B12A03B79400B0FC1D /* HKSleepServiceProtocol.swift */; };
 		BCF6B8B52A03BBB600B0FC1D /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */; };
 		BCF6B8B82A03BBD400B0FC1D /* DateHelperType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B72A03BBD400B0FC1D /* DateHelperType.swift */; };
 		BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B92A041FA800B0FC1D /* LoginRequestModel.swift */; };
@@ -350,7 +351,7 @@
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
 		BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustModel.swift; sourceTree = "<group>"; };
-		BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceType.swift; sourceTree = "<group>"; };
+		BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceProtocol.swift; sourceTree = "<group>"; };
 		BC7719272A0F81A700F692C6 /* LifePatternModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternModel.swift; sourceTree = "<group>"; };
 		BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPI.swift; sourceTree = "<group>"; };
 		BC77192C2A0F856E00F692C6 /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
@@ -384,6 +385,7 @@
 		BCA4795629EA846400A15117 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BCB9C68E2A0A20A100273F33 /* HKSleepIntervalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepIntervalModel.swift; sourceTree = "<group>"; };
 		BCB9C6942A0A3D2F00273F33 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		BCBB36C52A2B879900BE937D /* HKSleepServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceMock.swift; sourceTree = "<group>"; };
 		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
 		BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActivityDescriptionModal.swift; sourceTree = "<group>"; };
 		BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissButton.swift; sourceTree = "<group>"; };
@@ -424,7 +426,7 @@
 		BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEView.swift; sourceTree = "<group>"; };
 		BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternService.swift; sourceTree = "<group>"; };
 		BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepModel.swift; sourceTree = "<group>"; };
-		BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceType.swift; sourceTree = "<group>"; };
+		BCF6B8B12A03B79400B0FC1D /* HKSleepServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceProtocol.swift; sourceTree = "<group>"; };
 		BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		BCF6B8B72A03BBD400B0FC1D /* DateHelperType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperType.swift; sourceTree = "<group>"; };
 		BCF6B8B92A041FA800B0FC1D /* LoginRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestModel.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				04A984322A11E21500C584C2 /* MockHKStore.swift */,
 				04A984342A11F73500C584C2 /* MockHKData.swift */,
 				04A984362A11FBFF00C584C2 /* MockHKQuery.swift */,
+				BCBB36C52A2B879900BE937D /* HKSleepServiceMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1514,8 +1517,8 @@
 		BCF6B8AA2A02B87700B0FC1D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */,
-				BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */,
+				BCF6B8B12A03B79400B0FC1D /* HKSleepServiceProtocol.swift */,
+				BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1713,6 +1716,7 @@
 				04A984372A11FBFF00C584C2 /* MockHKQuery.swift in Sources */,
 				BCDACF4429FF933400EFF2ED /* DiagnosisServiceTests.swift in Sources */,
 				04A984352A11F73500C584C2 /* MockHKData.swift in Sources */,
+				BCBB36C62A2B879900BE937D /* HKSleepServiceMock.swift in Sources */,
 				04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */,
 				04A9843B2A129B4C00C584C2 /* HKActivityServiceTests.swift in Sources */,
 				BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */,
@@ -1770,7 +1774,7 @@
 				BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
-				BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */,
+				BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */,
 				BC4607A72A1E4C7700015447 /* LocationHelper.swift in Sources */,
 				BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */,
 				BC482D302A25DE8F0091787D /* MMSESaveRequestModel.swift in Sources */,
@@ -1883,7 +1887,7 @@
 				BC6948332A20AC70006DED29 /* DIContainer.swift in Sources */,
 				BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */,
 				BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */,
-				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */,
+				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceProtocol.swift in Sources */,
 				04285B972A1B626700E7EF42 /* ReadMeView.swift in Sources */,
 				BCB9C68F2A0A20A100273F33 /* HKSleepIntervalModel.swift in Sources */,
 				BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */,

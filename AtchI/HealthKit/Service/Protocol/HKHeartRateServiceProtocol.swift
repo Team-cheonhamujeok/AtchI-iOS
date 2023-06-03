@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import HealthKit
 
-protocol HKHeartRateServiceType {
+protocol HKHeartRateServiceProtocol {
     
     /// 특정 시간 내의 심박동 정보를 가져옵니다.
     ///

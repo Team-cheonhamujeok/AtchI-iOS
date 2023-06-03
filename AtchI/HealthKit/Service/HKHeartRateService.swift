@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import HealthKit
 
-class HKHeartRateService: HKHeartRateServiceType {
+class HKHeartRateService: HKHeartRateServiceProtocol {
     
     
     let healthKitProvider: HKProvider
