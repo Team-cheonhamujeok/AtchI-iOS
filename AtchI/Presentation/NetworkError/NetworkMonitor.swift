@@ -7,18 +7,18 @@
 
 import Foundation
 import Network
+import Combine
 
 /*
     네트워크 연결 참고 레퍼런스
  https://qteveryday.tistory.com/m/314
  */
 
-final class NetworkMonitor {
-    static let shared = NetworkMonitor()
+final class NetworkMonitor: ObservableObject {
     private let queue = DispatchQueue.global()
     private let monitor: NWPathMonitor
     
-    public private(set) var isConnected: Bool = false
+    @Published public private(set) var isConnected: Bool = false
     public private(set) var connectionType: ConnectionType = .unknown
     
     enum ConnectionType {
@@ -28,8 +28,9 @@ final class NetworkMonitor {
         case unknown
     }
     
-    private init() {
+    init() {
         monitor = NWPathMonitor()
+        startMonitoring()
     }
     
     // Network Monitoring 시작
@@ -37,7 +38,10 @@ final class NetworkMonitor {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
 
-            self?.isConnected = path.status == .satisfied
+            DispatchQueue.main.async {
+                self?.isConnected = path.status == .satisfied
+            }
+ 
             self?.getConnectionType(path)
 
             if self?.isConnected == true {

@@ -25,8 +25,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                                        identifier: "QUIZ_YET")
 //        PushNotificationHelper.shared.printPendingNotification()
             
-        NetworkMonitor.shared.startMonitoring()
-        
+       
         return true
     }
 }
