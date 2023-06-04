@@ -1,8 +1,8 @@
 # 💟 AtchI-iOS
 #### 안녕하세요, 치매 예방 및 AI 진단 솔루션 ✨엣치✨입니다
 <img width="1584" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/00281a40-cb69-4ef6-8062-f2f261acc5e2">
-> 엣치는 웨어러블 기기(애플워치)에서 수집한 사용자의 활동 패턴을 AI로 분석해 치매 확률을 계산하고 치매 초기에 병원에 방문할 수 있도록 도와주는 치매 예방 애플리케이션입니다.
 
+> 엣치는 웨어러블 기기(애플워치)에서 수집한 사용자의 활동 패턴을 AI로 분석해 치매 확률을 계산하고 치매 초기에 병원에 방문할 수 있도록 도와주는 치매 예방 애플리케이션입니다.
 
 ## 🏛️ 아키텍처
 ![image](https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/0363fc1a-c9a8-4206-af69-4220edced1f6)
