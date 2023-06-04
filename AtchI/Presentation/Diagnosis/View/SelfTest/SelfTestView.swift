@@ -72,7 +72,7 @@ struct SelfTestView: View {
             DefaultButton(
                 buttonSize: .large,
                 buttonStyle: .filled,
-                buttonColor: buttonSeletor == nil ? .grayDisabled : .mainPurple,
+                buttonColor: buttonSeletor == nil ? .grayDisabled : .accentColor,
                 isIndicate: false)
             {
                 if buttonSeletor != nil {
@@ -131,7 +131,7 @@ struct SelfTestQuestionCardView: View {
                               width: .infinity,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: buttonSeletor == .never ? .mainPurple : .mainPurpleLight,
+                              buttonColor: buttonSeletor == .never ? .accentColor : .mainPurpleLight,
                               isIndicate: false)
                 {
                     if buttonSeletor != .never {
@@ -147,7 +147,7 @@ struct SelfTestQuestionCardView: View {
                               width: .infinity,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: buttonSeletor == .little ? .mainPurple : .mainPurpleLight,
+                              buttonColor: buttonSeletor == .little ? .accentColor : .mainPurpleLight,
                               isIndicate: false)
                 {
                     if buttonSeletor != .little {
@@ -163,7 +163,7 @@ struct SelfTestQuestionCardView: View {
                               width: .infinity,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: buttonSeletor == .many ? .mainPurple : .mainPurpleLight,
+                              buttonColor: buttonSeletor == .many ? .accentColor : .mainPurpleLight,
                               isIndicate: false)
                 {
                     if buttonSeletor != .many {
@@ -179,7 +179,7 @@ struct SelfTestQuestionCardView: View {
                               width: .infinity,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: buttonSeletor == .nothing ? .mainPurple : .mainPurpleLight,
+                              buttonColor: buttonSeletor == .nothing ? .accentColor : .mainPurpleLight,
                               isIndicate: false)
                 {
                     if buttonSeletor != .nothing {

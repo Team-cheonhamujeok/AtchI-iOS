@@ -43,7 +43,7 @@ struct SelfTestInfoView: View {
             
             DefaultButton(buttonSize: .large,
                           buttonStyle: .filled,
-                          buttonColor: .mainPurple,
+                          buttonColor: .accentColor,
                           isIndicate: true)
             {
                 path.append(.selfTestStart)
@@ -72,7 +72,7 @@ struct SelfTestInfoView: View {
                               width: 153,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: .mainPurple,
+                              buttonColor: .accentColor,
                               isIndicate: false)
                 {
                     path.append(.selfTestStart)

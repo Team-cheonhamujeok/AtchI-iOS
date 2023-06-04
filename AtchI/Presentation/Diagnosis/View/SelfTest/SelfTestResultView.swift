@@ -35,7 +35,7 @@ struct SelfTestResultView: View {
             // 확인 버튼
             DefaultButton(buttonSize: .large,
                           buttonStyle: .filled,
-                          buttonColor: .mainPurple,
+                          buttonColor: .accentColor,
                           isIndicate: false)
             {
                 selfTestInfoViewModel.requestData()

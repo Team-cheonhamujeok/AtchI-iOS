@@ -34,7 +34,7 @@ struct MMSEInfoView: View {
                 
                 DefaultButton(buttonSize: .large,
                               buttonStyle: .filled,
-                              buttonColor: .mainPurpleLight,
+                              buttonColor: .accentColor,
                               isIndicate: false)
                 {
                     self.isPresentModal = false
@@ -77,7 +77,7 @@ struct MMSEInfoView: View {
             
             DefaultButton(buttonSize: .large,
                           buttonStyle: .filled,
-                          buttonColor: .mainPurple,
+                          buttonColor: .accentColor,
                           isIndicate: true)
             {
                 // TODO: TEST 뷰로 이동
@@ -109,14 +109,14 @@ struct MMSEInfoView: View {
                               width: 173,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: .mainPurpleLight,
+                              buttonColor: .accentColor,
                               isIndicate: false)
                 {
                     //TODO: 테스트 화면
                     path.append(.selfTestStart)
                 } content: {
                     Text("MMSE 검사 다시하기")
-                        .foregroundColor(.mainPurple)
+                        
                 }
                 .padding(.bottom, 5)
                 
