@@ -37,24 +37,24 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // MARK: Setting SaveLifePattern
 #if targetEnvironment(simulator)
 #else
-//        lifePatternService = LifePatternService()
-//        let mid = UserDefaults.standard.integer(forKey: "mid")
-//        if mid != 0, let service = lifePatternService {
-//            service
-//                .requestLastDate(mid: 6)
-//                .flatMap { responseModel in
-//                    return service
+        lifePatternService = LifePatternService()
+        let mid = UserDefaults.standard.integer(forKey: "mid")
+        if mid != 0, let service = lifePatternService {
+            service
+                .requestLastDate(mid: 6)
+                .flatMap { responseModel in
+                    return service
 //                        .requestSaveLifePatterns(lastDate: nil)
-////                        .requestSaveLifePatterns(lastDate: responseModel.response.lastDate)
-//                }
-//                .sink(receiveCompletion: { completion in
-//                    print(completion)
-//                }, receiveValue: { result in
-//                    print("SaveLifePattern Response \(result)")
-//                })
-//                .store(in: &cancellable)
-//        }
-//        lifePatternService = nil
+                        .requestSaveLifePatterns(lastDate: responseModel.response.lastDate)
+                }
+                .sink(receiveCompletion: { completion in
+                    print(completion)
+                }, receiveValue: { result in
+                    print("SaveLifePattern Response \(result)")
+                })
+                .store(in: &cancellable)
+        }
+        lifePatternService = nil
 #endif
 
         return true
