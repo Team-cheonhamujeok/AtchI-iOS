@@ -16,8 +16,8 @@ enum LifePatternError: Error, Equatable {
 
     /// Life Pattern 저장 요청에 관련된 에러입니다.
     enum SaveLifePatternError: Error, Equatable {
-        // 마지막 업데이트가 오늘입니다.
-        case lastDateIsToday
+        // 최신 정보로 업데이트된 상태입니다.
+        case isLatestUpdate
     }
     
     /// Life Pattern 마지막 업데이트 날짜 요청에 대한 에러입니다.

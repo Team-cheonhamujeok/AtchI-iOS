@@ -28,5 +28,5 @@ struct SaveLifePatternRequestModel: Codable {
     /// 수면 시간 중 평균 심박동
     let sleepHrAverage: Double
     /// 수면 중 심박동 변동-변위 [평균]
-    let sleepRmssd: [Double]
+    let sleepRmssd: Double
 }

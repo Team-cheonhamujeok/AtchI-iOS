@@ -115,10 +115,11 @@ class DateHelper: DateHelperType {
         
         assert(startDate < endDate, "끝 날짜는 시작 날짜보다 나중이어야합니다.")
         
-        var dates: [Date] = []
-        var currentDate = startDate
-
         let calendar = Calendar.current
+        
+        var dates: [Date] = []
+        
+        var currentDate = calendar.startOfDay(for: startDate)
         let endDate = calendar.startOfDay(for: endDate) // 00:00시 가져오기
 
         while currentDate <= endDate {

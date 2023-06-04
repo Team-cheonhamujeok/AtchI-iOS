@@ -48,7 +48,7 @@ class LifePatternService: LifePatternServiceType {
                 if let lastModifiedDate = lastDate {
                     if self.checkLastDateIsToday(
                         lastDate: DateHelper.convertStringToDate(lastModifiedDate)) {
-                        throw LifePatternError.saveLifePattern(.lastDateIsToday)
+                        throw LifePatternError.saveLifePattern(.isLatestUpdate)
                     }
                 }
                 return lastDate
@@ -57,6 +57,7 @@ class LifePatternService: LifePatternServiceType {
                 return self.getlastDateForCreateLifePattern(lastDate: lastDate)
             }
             .map { lastDate -> [Date] in
+                print(self.getDatesForCreateLifePatterns(lastDate: lastDate))
                 return self.getDatesForCreateLifePatterns(lastDate: lastDate)
             }
             .map { dates -> [AnyPublisher<SaveLifePatternRequestModel, Never>] in
@@ -68,14 +69,14 @@ class LifePatternService: LifePatternServiceType {
                 Publishers.MergeMany($0)
             }
             .collect()
-            .print("models")
             .flatMap { lifePatternModels in
-                self.provider.requestPublisher(.saveLifePatterns(lifePatternModels))
+                self.provider
+                    .requestPublisher(.saveLifePatterns(lifePatternModels))
+                    .filterSuccessfulStatusCodes()
                     .tryMap { response -> SaveLifePatternResponseModel in
                         return try response.map(SaveLifePatternResponseModel.self)
                     }
                     .mapError { error in
-                        print(error)
                         return LifePatternError.requestFailed(error)
                     }
                     .eraseToAnyPublisher()
@@ -108,9 +109,10 @@ class LifePatternService: LifePatternServiceType {
 extension LifePatternService {
     // MARK: - Private functions
     
-    /// 마지막 업데이트일이 오늘인지 확인합니다.
+    /// 마지막 업데이트일이 최신인지(어제까지의 데이터 업로드 완료인지) 확인합니다.
     func checkLastDateIsToday(lastDate: Date) -> Bool {
-        return DateHelper.compareDatesByDay(lastDate, Date())
+        print(DateHelper.shared.getYesterdayStartAM(Date()))
+        return DateHelper.compareDatesByDay(lastDate, DateHelper.shared.getYesterdayStartAM(Date()))
     }
     
     /// LifePattern을 생성할 범위의 마지막 날짜 (오래전 날짜)를 구합니다.
@@ -129,9 +131,9 @@ extension LifePatternService {
     /// LifePattern을 생성할 범위에 해당하는 Date 배열을 생성합니다.
     /// - Parameter lastDate: 범위의 마지막 날짜를 받습니다.
     /// - Returns: Date 배열을 반환합니다.
-    /// - Note: 범위의 시작 날짜는 오늘입니다.
+    /// - Note: 범위의 시작 날짜는 어제입니다.
     private func getDatesForCreateLifePatterns(lastDate: Date) -> [Date] {
-        return DateHelper.generateBetweenDates(from: lastDate, to: Date())
+        return DateHelper.generateBetweenDates(from: lastDate, to: DateHelper.shared.getYesterdayStartAM(Date()))
     }
     
     /// HKService조합해서 여러 값을 LifePatternModel로 묶습니다.
@@ -149,14 +151,18 @@ extension LifePatternService {
         
         return Publishers
             .Zip4(stepCountPub, sleepTotalPub, heartAveragePub, heartVariabilityPub)
-            .map {
-                SaveLifePatternRequestModel(
+            .map { values in
+                // rmssd 평균 계산
+                let rmssdAvg = values.3.count != 0
+                ? values.3.reduce(0.0,+)/Double(values.3.count)
+                : -1.0
+                return SaveLifePatternRequestModel(
                     mid: mid,
                     date: DateHelper.convertDateToString(date),
-                    activitySteps: Int($0.0),
-                    sleepDuration: $0.1,
-                    sleepHrAverage: $0.2,
-                    sleepRmssd: $0.3)
+                    activitySteps: Int(values.0),
+                    sleepDuration: values.1,
+                    sleepHrAverage: values.2,
+                    sleepRmssd: rmssdAvg)
             }
             .eraseToAnyPublisher()
     }

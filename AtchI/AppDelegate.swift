@@ -41,10 +41,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let mid = UserDefaults.standard.integer(forKey: "mid")
         if mid != 0, let service = lifePatternService {
             service
-                .requestLastDate(mid: mid)
+                .requestLastDate(mid: 6)
                 .flatMap { responseModel in
                     return service
-                        .requestSaveLifePatterns(lastDate: responseModel.response.lastDate)
+                        .requestSaveLifePatterns(lastDate: nil)
+//                        .requestSaveLifePatterns(lastDate: responseModel.response.lastDate)
                 }
                 .sink(receiveCompletion: { completion in
                     print(completion)

@@ -59,7 +59,7 @@ final class LifePatternServiceTests: XCTestCase {
         } catch { }
     }
     
-    func testSaveLifePatternsLastDayIsToday() {
+    func testSaveLifePatternsIsLatestUpdate() {
         // given
         let formatter = ISO8601DateFormatter()
         let date = formatter.string(from: Date())
@@ -77,7 +77,7 @@ final class LifePatternServiceTests: XCTestCase {
             },receiveValue: { _ in })
         
         // then
-        XCTAssertEqual(LifePatternError.saveLifePattern(.lastDateIsToday),
+        XCTAssertEqual(LifePatternError.saveLifePattern(.isLatestUpdate),
                        received)
     }
     
