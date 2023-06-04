@@ -149,7 +149,7 @@ struct MMSEInfoView: View {
                               width: 99,
                               height: 35,
                               buttonStyle: .unfilled,
-                              buttonColor: .grayDisabled,
+                              buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
                     path.append(.mmseResultList)
