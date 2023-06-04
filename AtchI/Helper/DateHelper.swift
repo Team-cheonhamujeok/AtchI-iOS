@@ -113,7 +113,7 @@ class DateHelper: DateHelperType {
     /// - Warning: endDate는 startDate보다 나중이어야합니다.
     static func generateBetweenDates(from startDate: Date, to endDate: Date) -> [Date] {
         
-        assert(startDate < endDate, "끝 날짜는 시작 날짜보다 나중이어야합니다.")
+        assert(startDate <= endDate, "끝 날짜는 시작 날짜보다 나중이거나 같아야합니다.")
         
         let calendar = Calendar.current
         
