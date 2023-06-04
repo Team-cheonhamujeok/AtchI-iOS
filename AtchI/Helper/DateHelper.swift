@@ -85,11 +85,25 @@ class DateHelper: DateHelperType {
         return dateFormatter.string(from: date)
     }
     
-    // String을 Date형으로 변환합니다.
-    static func convertStringToDate(string: String) -> Date {
-        let dateFormatter = ISO8601DateFormatter()
+    /// String을 Date형으로 변환합니다.
+    /// - Parameter string: "yyyy-MM-dd'T'HH:mm:ss.SSSZ" 형식의 문자열
+    /// - Returns: Date형
+    static func convertStringToDate(_ string: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return dateFormatter.date(from: string)!
     }
+    
+    /// Date형을 문자열로 변환합니다.
+    /// - Parameter string: Date형
+    /// - Returns: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"형식의 문자열
+    static func convertDateToString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let dateString = formatter.string(from: date)
+        return dateString
+    }
+
     
     /// 특정 날짜들의 사이 날짜를 모두 구합니다.
     /// - Parameters:

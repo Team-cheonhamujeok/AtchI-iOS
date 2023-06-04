@@ -35,6 +35,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         NetworkMonitor.shared.startMonitoring()
         
         // MARK: Setting SaveLifePattern
+#if targetEnvironment(simulator)
+#else
         lifePatternService = LifePatternService()
         let mid = UserDefaults.standard.integer(forKey: "mid")
         if mid != 0, let service = lifePatternService {
@@ -52,6 +54,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 .store(in: &cancellable)
         }
         lifePatternService = nil
+#endif
 
         return true
     }

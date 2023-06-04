@@ -5,12 +5,26 @@
 //  Created by DOYEON LEE on 2023/03/12.
 //
 
+import Charts
 import SwiftUI
 
 struct AIDiagnosisCard: View {
     
     @Environment(\.presentationMode) var presentationMode
     @State var isMMSEViewPresented = false
+    
+    struct Posting: Identifiable {
+      let name: String
+      let count: Int
+      
+      var id: String { name }
+    }
+
+    let postings: [Posting] = [
+      .init(name: "Green", count: 250),
+      .init(name: "James", count: 100),
+      .init(name: "Tony", count: 70)
+    ]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
@@ -24,23 +38,38 @@ struct AIDiagnosisCard: View {
                 .font(.bodySmall)
                 .foregroundColor(.mainText)
                 .lineLimit(nil)
+            
+            Chart {
+                  ForEach(postings) { posting in
+                    BarMark(
+                      x: .value("Name", posting.name),
+                      y: .value("Posting", posting.count)
+                    )
+                    .cornerRadius(10)
+                  }
+                }
+            .frame(height: 150)
+            .foregroundColor(Color.mainBlue)
+            .chartYAxis(.hidden)
+//            .chartXAxis(.hidden)
+            
             Text("*AI 진단 정보는 참고용입니다. 정확한 진단은 의사와 상담하세요.")
                 .font(.bodyTiny)
                 .foregroundColor(.grayTextLight)
           
-            Spacer(minLength: 5)
-            VStack(alignment: .center) {
-                Text("MMSE검사로 정확도 높이기")
-                    .font(.bodyMedium)
-                    .foregroundColor(.mainBackground)
-            }
-            .padding(.vertical, 8)
-            .frame(maxWidth: .infinity)
-            .background(Color.mainBlue)
-            .cornerRadius(20)
-            .onTapGesture {
-                isMMSEViewPresented = true
-            }
+//            Spacer(minLength: 5)
+//            VStack(alignment: .center) {
+//                Text("MMSE검사로 정확도 높이기")
+//                    .font(.bodyMedium)
+//                    .foregroundColor(.mainBackground)
+//            }
+//            .padding(.vertical, 8)
+//            .frame(maxWidth: .infinity)
+//            .background(Color.mainBlue)
+//            .cornerRadius(20)
+//            .onTapGesture {
+//                isMMSEViewPresented = true
+//            }
             
             // MMSE button
             NavigationLink(destination: MMSEView(viewModel: MMSEViewModel(),

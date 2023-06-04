@@ -29,21 +29,23 @@ struct HomeView: View {
                         .font(.titleMedium)
                     AIDiagnosisCard()
                     
-                    Divider()
-                        .padding(.vertical, 15)
+//                    Divider()
+//                        .padding(.vertical, 15)
                     
                     // 애플워치 정보
-                    WatchActivityView(stepCount: $viewModel.stepCount,
-                                      heartAverage: $viewModel.heartAverage,
-                                      sleepTotal: $viewModel.sleepTotal)
+//                    WatchActivityView(stepCount: $viewModel.stepCount,
+//                                      heartAverage: $viewModel.heartAverage,
+//                                      sleepTotal: $viewModel.sleepTotal)
+                    RoundedButton(title: "현재 활동정보 확인하기 ⌚️", state: .enabled)
                 }
                 .padding([.leading, .trailing, .bottom], 30)
                 
                 
-                // 중간 보더
-                Rectangle()
-                    .frame(height: 15)
-                    .foregroundColor(.grayBoldLine)
+                
+//                // 중간 보더
+//                Rectangle()
+//                    .frame(height: 15)
+//                    .foregroundColor(.grayBoldLine)
                 
                 // MARK: 치매 정보 섹션
                 VStack(alignment: .leading, spacing: 20){

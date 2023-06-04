@@ -7,17 +7,26 @@
 
 import Foundation
 
+//{
+//    "mid": 1,
+//    "date": "2024-05-24T15:00:00.000+00:00",
+//    "activitySteps" : 80,
+//    "sleepDuration" : 40 ,
+//    "sleepHrAverage" : 80.9,
+//    "sleepRmssd" : 40.8
+//}
+
 struct LifePatternModel: Codable {
     /// 유저 mid
     let mid: Int
     /// 생활 정보 출처 날짜
-    let date: Date
+    let date: String
     /// 하루 걸음 수:
-    let activity_steps: Int
+    let activitySteps: Int
     /// 총 수면 시간
-    let sleep_duration: Int
+    let sleepDuration: Int
     /// 수면 시간 중 평균 심박동
-    let sleep_hr_average: Double
+    let sleepHrAverage: Double
     /// 수면 중 심박동 변동-변위 [평균]
-    let sleep_rmssd: [Double]
+    let sleepRmssd: [Double]
 }

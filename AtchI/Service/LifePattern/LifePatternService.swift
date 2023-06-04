@@ -47,7 +47,7 @@ class LifePatternService: LifePatternServiceType {
             .tryMap { lastDate -> String? in
                 if let lastModifiedDate = lastDate {
                     if self.checkLastDateIsToday(
-                        lastDate: DateHelper.convertStringToDate(string: lastModifiedDate)) {
+                        lastDate: DateHelper.convertStringToDate(lastModifiedDate)) {
                         throw LifePatternError.saveLifePattern(.lastDateIsToday)
                     }
                 }
@@ -68,12 +68,14 @@ class LifePatternService: LifePatternServiceType {
                 Publishers.MergeMany($0)
             }
             .collect()
+            .print("models")
             .flatMap { lifePatternModels in
                 self.provider.requestPublisher(.saveLifePatterns(lifePatternModels))
                     .tryMap { response -> SaveLifePatternResponseModel in
                         return try response.map(SaveLifePatternResponseModel.self)
                     }
                     .mapError { error in
+                        print(error)
                         return LifePatternError.requestFailed(error)
                     }
                     .eraseToAnyPublisher()
@@ -118,7 +120,7 @@ extension LifePatternService {
     /// - Returns: 마지막 날짜를 Date형으로 반환합니다.
     private func getlastDateForCreateLifePattern(lastDate: String?) -> Date {
         if let lastModifiedDate = lastDate {
-            return DateHelper.convertStringToDate(string: lastModifiedDate)
+            return DateHelper.convertStringToDate(lastModifiedDate)
         } else {
             return DateHelper.subtractDays(from: Date(), days: 120)
         }
@@ -150,11 +152,11 @@ extension LifePatternService {
             .map {
                 LifePatternModel(
                     mid: mid,
-                    date: date,
-                    activity_steps: Int($0.0),
-                    sleep_duration: $0.1,
-                    sleep_hr_average: $0.2,
-                    sleep_rmssd: $0.3)
+                    date: DateHelper.convertDateToString(date),
+                    activitySteps: Int($0.0),
+                    sleepDuration: $0.1,
+                    sleepHrAverage: $0.2,
+                    sleepRmssd: $0.3)
             }
             .eraseToAnyPublisher()
     }
