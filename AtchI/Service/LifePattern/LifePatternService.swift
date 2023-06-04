@@ -129,11 +129,13 @@ extension LifePatternService {
     }
     
     /// LifePattern을 생성할 범위에 해당하는 Date 배열을 생성합니다.
-    /// - Parameter lastDate: 범위의 마지막 날짜를 받습니다.
+    /// - Parameter lastDate: 범위의 시작 날짜를 받습니다.
     /// - Returns: Date 배열을 반환합니다.
-    /// - Note: 범위의 시작 날짜는 어제입니다.
+    /// - Note: 시작날짜는 마지막 업데이트일의 다음날이고, 범위의 마지막 날짜는 어제입니다.
     private func getDatesForCreateLifePatterns(lastDate: Date) -> [Date] {
-        return DateHelper.generateBetweenDates(from: lastDate, to: DateHelper.shared.getYesterdayStartAM(Date()))
+        return DateHelper
+            .generateBetweenDates(from: DateHelper.addDays(from: lastDate, days: 1),
+                                  to: DateHelper.shared.getYesterdayStartAM(Date()))
     }
     
     /// HKService조합해서 여러 값을 LifePatternModel로 묶습니다.

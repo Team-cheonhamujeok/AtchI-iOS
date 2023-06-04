@@ -147,6 +147,22 @@ class DateHelper: DateHelperType {
         return calendar.date(byAdding: dateComponents, to: date)!
     }
     
+    /// 기준 날짜에 특정 일 수를 더한 날짜를 반환합니다.
+    /// - Parameters:
+    ///   - date: 기준 날짜입니다.
+    ///   - days: 더할 일 수 입니다.
+    /// - Returns: 날짜형을 반환합니다.
+    static func addDays(from date: Date, days: Int) -> Date {
+        
+        assert(days >= 0, "일 수는 0보다 커야합니다.")
+        
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.day = days
+        
+        return calendar.date(byAdding: dateComponents, to: date)!
+    }
+    
     static func compareDatesByDay(_ date1: Date,  _ date2: Date) -> Bool {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: date1)
