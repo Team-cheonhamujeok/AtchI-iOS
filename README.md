@@ -29,7 +29,7 @@ CombineMoya | 네트워킹
 MarkdownUI | 마크다운 뷰
 Factory | 컨테이너형 DI
 
-## 팀
+## 👥 팀
 <img width="196" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/887d1c39-7ef6-4c2a-9001-bf969dbf4c6e"> | <img width="172" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/dee9970a-a559-41c3-ac03-209fa1d04522"> | <img width="210" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/6d0690d9-cfe5-4400-9da5-1cbc00524d72"> | <img width="171" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/31ed75e2-7a5f-4c91-b389-93b88054651d"> | <img width="211" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/c81670af-8453-45bf-9aa6-6225dba6bdbe">
 ---|---|---|---|---|
 **강민규** | **김가은** | **김민제** | **이도연** | **이봄이**
