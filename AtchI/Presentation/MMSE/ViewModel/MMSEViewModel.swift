@@ -61,7 +61,7 @@ class MMSEViewModel: ObservableObject {
                     // 마지막 인덱스 일 시
                     if self.currentIndex >= self.questions.count - 1 {
                         self.goResultPage()
-                        //                    self.requestSaveMMSE()
+                        self.requestSaveMMSE()
                     } else {
                         self.goNextQuestion()
                         self.updateKeyboardType()
@@ -73,8 +73,11 @@ class MMSEViewModel: ObservableObject {
             .store(in: &cancellables)
         
         $editTextInput
-            .map { text in
-                self.updateButtonState()
+            .removeDuplicates()
+            .combineLatest(self.$currentIndex)
+            .map { values in
+                return self.updateButtonState(values.0.count,
+                                              self.questions[Int(values.1)].questionType)
             }
             .assign(to: \.nextButtonState , on: self)
             .store(in: &cancellables)
@@ -91,7 +94,8 @@ class MMSEViewModel: ObservableObject {
     private func requestSaveMMSE() {
         // 서버에 저장
         self.mmseService.requestSaveMMESE(Array(self.correctAnswers.values))
-        .sink(receiveCompletion: { _ in }, receiveValue: { _ in})
+            .print("mmse save: ")
+        .sink(receiveCompletion: { e in print(e) }, receiveValue: { v in print(v)})
         .store(in: &self.cancellables)
     }
     
@@ -112,13 +116,12 @@ class MMSEViewModel: ObservableObject {
         self.editTextInput = ""
     }
     
-    private func updateButtonState() -> ButtonState {
-        let currentQuestion = self.questions[self.currentIndex]
-        
-        if case .show(_) = currentQuestion.questionType {
+    private func updateButtonState(_ textLength: Int,
+                                   _ currentQuestionType: MMSEQuestionType) -> ButtonState {
+        if case .show(_) = currentQuestionType {
             return .enabled
         } else {
-            return self.editTextInput.count > 0 ? .enabled : .disabled
+            return textLength > 0 ? .enabled : .disabled
         }
     }
     
