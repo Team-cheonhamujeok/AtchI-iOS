@@ -49,10 +49,7 @@ struct ContentView: View {
                         Text("설정")
                     }
                     .tag(TabBarType.setting)
-                TestUIView()
-                    .tabItem {
-                        Text("테스트")
-                    }
+               
             }
             .tabViewStyle(DefaultTabViewStyle())
             .toolbar(.hidden, for: .navigationBar)

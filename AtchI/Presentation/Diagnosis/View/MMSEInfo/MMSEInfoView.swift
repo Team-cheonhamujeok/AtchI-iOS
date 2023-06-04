@@ -34,7 +34,7 @@ struct MMSEInfoView: View {
                 
                 DefaultButton(buttonSize: .large,
                               buttonStyle: .filled,
-                              buttonColor: .accentColor,
+                              buttonColor: .mainPurpleLight,
                               isIndicate: false)
                 {
                     self.isPresentModal = false
@@ -98,9 +98,8 @@ struct MMSEInfoView: View {
                     Text("간단한 MMSE 검사를 해보세요")
                         .font(.titleMedium)
                     Spacer()
-                    Image(systemName: "questionmark.circle")
-                        .foregroundColor(.mainText)
-                        .padding(.trailing, 20)
+                    Image("question_circle")
+                        .foregroundColor(.grayDisabled)
                         .onTapGesture {
                             self.isPresentModal = true
                         }
