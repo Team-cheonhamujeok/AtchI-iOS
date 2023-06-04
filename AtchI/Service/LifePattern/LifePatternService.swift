@@ -59,8 +59,8 @@ class LifePatternService: LifePatternServiceType {
             .map { lastDate -> [Date] in
                 return self.getDatesForCreateLifePatterns(lastDate: lastDate)
             }
-            .map { dates -> [AnyPublisher<LifePatternModel, Never>] in
-                return dates.compactMap { date -> AnyPublisher<LifePatternModel, Never> in
+            .map { dates -> [AnyPublisher<SaveLifePatternRequestModel, Never>] in
+                return dates.compactMap { date -> AnyPublisher<SaveLifePatternRequestModel, Never> in
                     return self.createLifePatternModel(date: date)
                 }
             }
@@ -135,7 +135,7 @@ extension LifePatternService {
     }
     
     /// HKService조합해서 여러 값을 LifePatternModel로 묶습니다.
-    private func createLifePatternModel(date: Date) -> AnyPublisher<LifePatternModel, Never> {
+    private func createLifePatternModel(date: Date) -> AnyPublisher<SaveLifePatternRequestModel, Never> {
         let stepCountPub = activityService.getStepCount(date: date)
             .replaceError(with: -1.0)
         let sleepTotalPub = sleepService.getSleepRecord(date: date, sleepCategory: .total)
@@ -150,7 +150,7 @@ extension LifePatternService {
         return Publishers
             .Zip4(stepCountPub, sleepTotalPub, heartAveragePub, heartVariabilityPub)
             .map {
-                LifePatternModel(
+                SaveLifePatternRequestModel(
                     mid: mid,
                     date: DateHelper.convertDateToString(date),
                     activitySteps: Int($0.0),

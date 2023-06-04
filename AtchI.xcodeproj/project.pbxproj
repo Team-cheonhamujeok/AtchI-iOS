@@ -127,7 +127,7 @@
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
 		BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */; };
 		BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */; };
-		BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719272A0F81A700F692C6 /* LifePatternModel.swift */; };
+		BC7719282A0F81A700F692C6 /* SaveLifePatternRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */; };
 		BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */; };
 		BC77192D2A0F856E00F692C6 /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192C2A0F856E00F692C6 /* Publishers.swift */; };
 		BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78196E29E07884005C4CF5 /* AccountService.swift */; };
@@ -354,7 +354,7 @@
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
 		BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustModel.swift; sourceTree = "<group>"; };
 		BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceProtocol.swift; sourceTree = "<group>"; };
-		BC7719272A0F81A700F692C6 /* LifePatternModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternModel.swift; sourceTree = "<group>"; };
+		BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLifePatternRequestModel.swift; sourceTree = "<group>"; };
 		BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPI.swift; sourceTree = "<group>"; };
 		BC77192C2A0F856E00F692C6 /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		BC78196E29E07884005C4CF5 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
@@ -1488,7 +1488,7 @@
 		BCF6B8A42A027C5600B0FC1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC7719272A0F81A700F692C6 /* LifePatternModel.swift */,
+				BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */,
 				BCE398C72A1F4565007E4242 /* SaveLifePatternResponseModel.swift */,
 				BCE743832A28632A0073914B /* LastDateResponseModel.swift */,
 			);
@@ -1835,7 +1835,7 @@
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
 				BC482D2E2A25DBD10091787D /* MMSEAPI.swift in Sources */,
 				BC98E65D2A2792EC00CA43D2 /* View+InjectIII.swift in Sources */,
-				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
+				BC7719282A0F81A700F692C6 /* SaveLifePatternRequestModel.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
 				BC38FC032A1E0EF6005F172B /* ShowTextView.swift in Sources */,
 				04A5518D2A29240800E5A73B /* ProfileSettingView.swift in Sources */,

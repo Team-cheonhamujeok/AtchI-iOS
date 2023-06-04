@@ -10,8 +10,8 @@ import Foundation
 import Moya
 
 enum LifePatternAPI{
-    case saveLifePatterns(_ lifePatternModel: [LifePatternModel])
-    case lastDate(_ mid: Int)
+    case saveLifePatterns(_ : [SaveLifePatternRequestModel])
+    case lastDate(_ : Int)
 }
 
 extension LifePatternAPI: TargetType {

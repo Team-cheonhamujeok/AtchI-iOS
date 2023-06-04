@@ -16,7 +16,7 @@ import Foundation
 //    "sleepRmssd" : 40.8
 //}
 
-struct LifePatternModel: Codable {
+struct SaveLifePatternRequestModel: Codable {
     /// 유저 mid
     let mid: Int
     /// 생활 정보 출처 날짜
