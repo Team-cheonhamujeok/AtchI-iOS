@@ -12,6 +12,7 @@ import Factory
 struct HomeView: View {
     
     @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var aiViewModel = AIDiagnosisViewModel()
     @State private var richText: String = ""
     
     var body: some View {
@@ -24,10 +25,19 @@ struct HomeView: View {
             ScrollView {
                 // MARK: AI 진단 결과 섹션
                 Spacer(minLength: 15)
+                
                 VStack(alignment: .leading){
                     Text("AI 진단 결과")
                         .font(.titleMedium)
-                    AIDiagnosisCard()
+            
+                    AIDiagnosisCard(viewModel: aiViewModel)
+                    
+                    HStack {
+                        Spacer()
+                        Text("진단에 쓰이는 데이터 보러가기")
+                        Image("arrow-right")
+                    }
+                    .foregroundColor(.grayTextLight)
                     
                     Divider()
                         .padding(.vertical, 15)

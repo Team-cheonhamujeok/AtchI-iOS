@@ -44,6 +44,9 @@
 		04A984352A11F73500C584C2 /* MockHKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A984342A11F73500C584C2 /* MockHKData.swift */; };
 		04A984372A11FBFF00C584C2 /* MockHKQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A984362A11FBFF00C584C2 /* MockHKQuery.swift */; };
 		04A9843B2A129B4C00C584C2 /* HKActivityServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9843A2A129B4C00C584C2 /* HKActivityServiceTests.swift */; };
+		04BB2A4A2A2D123C00E864C6 /* AIResultLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB2A492A2D123C00E864C6 /* AIResultLevel.swift */; };
+		04BB2A4C2A2D18E500E864C6 /* AIDiagnosisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB2A4B2A2D18E500E864C6 /* AIDiagnosisViewModel.swift */; };
+		04BB2A4E2A2D19C000E864C6 /* AIResultChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB2A4D2A2D19C000E864C6 /* AIResultChartView.swift */; };
 		04F0DDE02A24C2CD0061D3C8 /* TestRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0DDDF2A24C2CD0061D3C8 /* TestRowModel.swift */; };
 		6F06DB5F29FD3D7700770596 /* QQQUiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB5E29FD3D7700770596 /* QQQUiz.swift */; };
 		6F06DB6129FD3D8600770596 /* PreventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06DB6029FD3D8600770596 /* PreventViewModel.swift */; };
@@ -266,6 +269,9 @@
 		04A984342A11F73500C584C2 /* MockHKData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHKData.swift; sourceTree = "<group>"; };
 		04A984362A11FBFF00C584C2 /* MockHKQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHKQuery.swift; sourceTree = "<group>"; };
 		04A9843A2A129B4C00C584C2 /* HKActivityServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceTests.swift; sourceTree = "<group>"; };
+		04BB2A492A2D123C00E864C6 /* AIResultLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResultLevel.swift; sourceTree = "<group>"; };
+		04BB2A4B2A2D18E500E864C6 /* AIDiagnosisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDiagnosisViewModel.swift; sourceTree = "<group>"; };
+		04BB2A4D2A2D19C000E864C6 /* AIResultChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResultChartView.swift; sourceTree = "<group>"; };
 		04F0DDDF2A24C2CD0061D3C8 /* TestRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRowModel.swift; sourceTree = "<group>"; };
 		6F06DB5E29FD3D7700770596 /* QQQUiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQQUiz.swift; sourceTree = "<group>"; };
 		6F06DB6029FD3D8600770596 /* PreventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventViewModel.swift; sourceTree = "<group>"; };
@@ -817,6 +823,7 @@
 			isa = PBXGroup;
 			children = (
 				BC3CA1A929BF667800C8AE3D /* HomeViewModel.swift */,
+				04BB2A4B2A2D18E500E864C6 /* AIDiagnosisViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -833,6 +840,7 @@
 				6F06DB6429FD3DDA00770596 /* nowDayQuiz.swift */,
 				045F769B2A0DC2BD00AA3418 /* SelfTestLevel.swift */,
 				BC2E1F6A2A13D2CC00B4E713 /* TabBarType.swift */,
+				04BB2A492A2D123C00E864C6 /* AIResultLevel.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -1317,6 +1325,7 @@
 				BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */,
 				BC4317C529C0886D0094333B /* DementiaAricleCardList.swift */,
 				BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */,
+				04BB2A4D2A2D19C000E864C6 /* AIResultChartView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1791,12 +1800,14 @@
 				BC2E1F672A13CE9000B4E713 /* URL.swift in Sources */,
 				04457F872A2492F8007DDA30 /* MMSEInfoGetModel.swift in Sources */,
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
+				04BB2A4A2A2D123C00E864C6 /* AIResultLevel.swift in Sources */,
 				BCDACF4029FF930A00EFF2ED /* DiagnosisError.swift in Sources */,
 				BC4E1EBD29C2346000915AB6 /* IntroView.swift in Sources */,
 				BCEDF1D42A1BCEE70030CD75 /* PrivacyPolicyView.swift in Sources */,
 				BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */,
 				BCE7CED929F99E42003C3A6C /* ThinLightButton.swift in Sources */,
 				BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */,
+				04BB2A4E2A2D19C000E864C6 /* AIResultChartView.swift in Sources */,
 				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				BC482D322A25E7360091787D /* MMSEResultView.swift in Sources */,
@@ -1829,6 +1840,7 @@
 				BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */,
 				04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
+				04BB2A4C2A2D18E500E864C6 /* AIDiagnosisViewModel.swift in Sources */,
 				BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
 				BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */,
