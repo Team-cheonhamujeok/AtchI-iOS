@@ -37,7 +37,7 @@ class MMSEService {
     }
     
     
-    func requestSaveMMESE(_ correctAnswers: [String]) -> AnyPublisher<Void, MMSEError> {
+    func requestSaveMMESE(_ correctAnswers: [Int]) -> AnyPublisher<Void, MMSEError> {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateString = dateFormatter.string(from: Date())
@@ -139,7 +139,7 @@ class MMSEService {
         }
     }
     
-    func getMMSEResultScores(_ correctAnswers: [MMSEQuestionModel: String]) -> [String: String] {
+    func getMMSEResultScores(_ correctAnswers: [MMSEQuestionModel: Int]) -> [String: String] {
         // 총 질문 개수 카운트
         var totalResultTypeCount: [MMSEResultType: Int] = [:]
         // 정답 수 카운트
@@ -154,7 +154,7 @@ class MMSEService {
         // 정답 수와 질문 개수 카운트
         for (key, value) in correctAnswers {
             totalResultTypeCount[key.questionType.resultType]! += 1
-            if value == "1" {
+            if value == 1 {
                 correctResultCounts[key.questionType.resultType]! += 1
             }
         }

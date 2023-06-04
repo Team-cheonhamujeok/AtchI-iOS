@@ -38,7 +38,7 @@ class MMSEViewModel: ObservableObject {
     var questions: [MMSEQuestionModel] = []
     /// 정답 확인 배열입니다. 맞으면 1 틀리면 2입니다.
     /// - Note: 문항 순서(인덱스)가 Key값입니다.
-    var correctAnswers: [MMSEQuestionModel: String] = [:]
+    var correctAnswers: [MMSEQuestionModel: Int] = [:]
     var resultScores: [String: String] = [:]
     
     // MARK: - Cancellabe
@@ -103,7 +103,7 @@ class MMSEViewModel: ObservableObject {
         self.mmseService
             .checkIsCorrect(questionModel: self.questions[self.currentIndex],
                             userAnswer: self.editTextInput) {
-                self.correctAnswers[self.questions[self.currentIndex]] = $0 ? "1" : "2"
+                self.correctAnswers[self.questions[self.currentIndex]] = $0 ? 1 : 2
                 completion()
             }
     }
