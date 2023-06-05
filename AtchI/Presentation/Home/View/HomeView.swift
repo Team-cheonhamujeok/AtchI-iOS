@@ -12,7 +12,7 @@ import Factory
 struct HomeView: View {
     
     @StateObject private var viewModel = HomeViewModel()
-    @StateObject private var aiViewModel = AIDiagnosisViewModel()
+    @StateObject private var predictVM = PredictionVM()
     @State private var richText: String = ""
     
     var body: some View {
@@ -30,7 +30,12 @@ struct HomeView: View {
                     Text("AI 진단 결과")
                         .font(.titleMedium)
             
-                    AIDiagnosisCard(viewModel: aiViewModel)
+                    AIDiagnosisCard(startDate: $predictVM.startDate,
+                                    endDate: $predictVM.endDate,
+                                    notDementia: $predictVM.notDementia,
+                                    beforeDementia: $predictVM.beforeDementia,
+                                    dementia: $predictVM.dementia,
+                                    resultLevel: $predictVM.resultLevel)
                     
                     HStack {
                         Spacer()
@@ -72,6 +77,7 @@ struct HomeView: View {
         .background(Color.mainBackground)
         .onAppear {
             viewModel.$viewOnAppear.send(())
+            predictVM.$viewOnAppear.send(())
         }
 
     }

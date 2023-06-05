@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct PredictionResponse: Codable {
+    let success: Bool
+    let response: [PredictionModel]
+    let error: String
+}

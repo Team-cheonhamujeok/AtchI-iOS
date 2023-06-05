@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct PredictionModel: Codable {
+    let pid: Int
+    let mid: Int
+    let startDate: String
+    let endDate: String
+    let notDementia: Double
+    let beforeDementia: Double
+    let dementia: Double
+}

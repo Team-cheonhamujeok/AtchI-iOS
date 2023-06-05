@@ -10,8 +10,13 @@ import SwiftUI
 struct AIDiagnosisCard: View {
     
     @Environment(\.presentationMode) var presentationMode
-
-    @StateObject var viewModel: AIDiagnosisViewModel
+    @Binding var startDate: String
+    @Binding var endDate: String
+    @Binding var notDementia: Double
+    @Binding var beforeDementia: Double
+    @Binding var dementia: Double
+    
+    @Binding var resultLevel: AIResultLevel?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
@@ -23,14 +28,14 @@ struct AIDiagnosisCard: View {
                 }
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("\(viewModel.startDate)-\(viewModel.endDate)")
+                    Text("\(startDate)-\(endDate)")
                     Text("데이터 기준")
                 }
                 .font(.bodyTiny)
                 .foregroundColor(.grayTextLight)
             }
             
-            switch viewModel.resultLevel {
+            switch resultLevel {
             case .dementia:
                 Text("현재 치매일 가능성이 높습니다.")
                     .font(.titleSmall)
@@ -49,7 +54,9 @@ struct AIDiagnosisCard: View {
                     .foregroundColor(.mainText)
             }
             
-            AIResultChartView(viewModel: viewModel)
+            AIResultChartView(notDementia: $notDementia,
+                              beforeDementia: $beforeDementia,
+                              dementia: $dementia)
             
             Text("*AI 진단 정보는 참고용입니다. 정확한 진단은 의사와 상담하세요.")
                 .font(.bodyTiny)
@@ -59,12 +66,6 @@ struct AIDiagnosisCard: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .background(Color.mainBlueLight)
         .cornerRadius(20)
-    }
-}
-
-struct AIDiagnosisCard_Previews: PreviewProvider {
-    static var previews: some View {
-        AIDiagnosisCard(viewModel: AIDiagnosisViewModel())
     }
 }
 

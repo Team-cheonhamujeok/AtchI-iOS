@@ -26,6 +26,12 @@ extension Container {
         }
     }
     
+    var predictionService: Factory<PredictionService> {
+        Factory(self) {
+            PredictionService(provider: MoyaProvider<PredictionAPI>())
+        }
+    }
+    
     // MARK: - HKService
     var hkSleepService: Factory<HKSleepServiceType> {
         Factory(self) { HKSleepService(provider: HKProvider(),

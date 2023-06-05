@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum PredictionError: Error {
+    case getFail
+}
