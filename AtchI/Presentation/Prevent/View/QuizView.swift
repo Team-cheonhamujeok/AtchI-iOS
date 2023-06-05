@@ -45,11 +45,8 @@ struct QuizView: View {
                 Spacer()
                 
                 DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
-//                    print("퀴즈풀기 완료")
                     preventViewModel.calQuizCount()
                     preventViewModel.checkQuiz(quizNum: quiz.index!)
-                    
-//                    print(preventViewModel.quizCount)
                     quizPath.append(QuizStack(type: .quizDoneView, data: quiz))
                 }, content: {
                     Text("완료")

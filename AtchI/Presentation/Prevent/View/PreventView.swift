@@ -19,26 +19,19 @@ struct PreventView: View {
                         Text("예방")
                             .font(.titleLarge)
                         Spacer()
-                        
-                        //                    Text("퀴즈를 풀며 뇌를 훈련시켜 보세요!")
-                        //                        .font(.bodyLarge)
-                        //                        .frame(maxWidth: 250, maxHeight: 37)
-                        //                        .background(Color.grayBoldLine)
-                        //                        .cornerRadius(10)
-                        ZStack {
-                            Image("speechBubble")
                             Text("퀴즈를 풀며 뇌를 훈련시켜 보세요!")
                                 .font(.bodyLarge)
-                                .padding(.vertical, 1)
-                            
-                        }
+                                .frame(maxWidth: 250, maxHeight: 37)
+                                .background(Color.grayBoldLine)
+                                .cornerRadius(10)
+                                .padding(.horizontal, 1)
                         
                     }
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
                     
                     // 이번주 퀴즈 현황
                     if preventViewModel.thisWeekQuizState.count >= 7 {
-                        QuizStateCard(preventViewModel: preventViewModel, weekQuizState: preventViewModel.thisWeekQuizState)
+                        QuizStateCard(preventViewModel: preventViewModel, weekQuizState: preventViewModel.thisWeekQuizState, todayInt: preventViewModel.todayInt)
                             .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
                     } else {
                         EmptyView()
@@ -98,10 +91,9 @@ struct PreventView: View {
         }
         .onAppear {
             preventViewModel.requestQuiz() // 오늘의 퀴즈 요청
-//            preventViewModel.CalQuizCount() // 남은 퀴즈 개수 계산
             preventViewModel.getWeekQuiz()
-            print("아니 이번 주 퀴즈 현황 안 불러와짐?? \(preventViewModel.thisWeekQuizState.count)")
         }
+        .padding(.top)
     }
     
 }
