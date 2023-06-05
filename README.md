@@ -27,6 +27,7 @@
 ```
 .
 ├── AtchI
+│   ├── Info.plist
 │   ├── AppDelegate.swift
 │   ├── AtchIApp.swift
 │   ├── Resource
@@ -35,20 +36,18 @@
 │   │   ├── Provider
 │   │   └── Service
 │   ├── Helper
-│   ├── Info.plist
 │   ├── Presentation
-│   │   ├── Feature
+│   │   └── Feature..
 │   │       ├── View
 │   │       └── ViewModel
 │   ├── Service
-│   │   ├── Domain
-│   │   │   ├── Model
-│   │   │   ├── Error
-│   │   │   ├── Mock
-│   │   │   └── API
+│   │   └── Domain..
+│   │       ├── Model
+│   │       ├── Error
+│   │       ├── Mock
+│   │       └── API
 │   └── Util
 │       ├── Constant
-│       ├── Error
 │       ├── Extension
 │       ├── PropertyWrapper
 │       ├── Structure
@@ -66,6 +65,7 @@
 - `Service`: 도메인별로 Model(DTO), Error, Mock, API(MoyaClient)를 포함합니다.
 - `Util`: 앱 전역적을 사용되는 구조체, 열거형, Extension 등을 포함합니다.
 - `Resource`: .plist파일과 .rtf 파일을 포함합니다.
+- `Tests`: 각 타겟 클래스에 대한 Tests파일을 하나씩 생성합니다. Mock은 테스트 타겟 루트 하단 폴더에서 관리합니다.
 
 ## 📘 라이브러리
 라이브러리명 | 용도 | 깃허브
