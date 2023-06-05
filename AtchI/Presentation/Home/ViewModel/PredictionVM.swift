@@ -44,7 +44,7 @@ class PredictionVM: ObservableObject {
             .sink(receiveCompletion: { _ in
             
             }, receiveValue: { predictions in
-                self.results = predictions.sorted { $0.id > $1.id }
+                self.results = predictions.sorted { $0.pid > $1.pid }
             })
             .store(in: &cancellables)
         
