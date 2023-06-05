@@ -44,8 +44,7 @@ struct QuizTemplate: View {
             .foregroundColor(.white)
             .padding(EdgeInsets(top: 13, leading: 20, bottom: 13, trailing: 20))
             .background(quiz.check! ? Capsule().fill(Color.accentColor) : Capsule().fill(Color.accentColor))
-//            .disabled(quiz.check! ? true : false)
-            
+            .disabled(quiz.check! ? true : false)
         
         }
     }

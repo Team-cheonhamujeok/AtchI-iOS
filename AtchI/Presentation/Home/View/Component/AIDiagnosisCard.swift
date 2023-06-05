@@ -17,7 +17,7 @@ struct AIDiagnosisCard: View {
     @Binding var dementia: Double
     
     @Binding var resultLevel: AIResultLevel?
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
             HStack(alignment: .top) {
@@ -52,18 +52,19 @@ struct AIDiagnosisCard: View {
                 Text("치매 진단이 어렵습니다.")
                     .font(.titleSmall)
                     .foregroundColor(.mainText)
-            
-            AIResultChartView(notDementia: $notDementia,
-                              beforeDementia: $beforeDementia,
-                              dementia: $dementia)
-            
-            Text("*AI 진단 정보는 참고용입니다. 정확한 진단은 의사와 상담하세요.")
-                .font(.bodyTiny)
-                .foregroundColor(.grayTextLight)
+            }
+                
+                AIResultChartView(notDementia: $notDementia,
+                                  beforeDementia: $beforeDementia,
+                                  dementia: $dementia)
+                
+                Text("*AI 진단 정보는 참고용입니다. 정확한 진단은 의사와 상담하세요.")
+                    .font(.bodyTiny)
+                    .foregroundColor(.grayTextLight)
+            }
+                .padding(25)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                .background(Color.mainBlueLight)
+                .cornerRadius(20)
         }
-        .padding(25)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-        .background(Color.mainBlueLight)
-        .cornerRadius(20)
     }
-}
