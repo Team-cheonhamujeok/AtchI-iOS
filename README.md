@@ -4,8 +4,11 @@
 > 엣치는 웨어러블 기기(애플워치)에서 수집한 사용자의 활동 패턴을 AI로 분석해 치매 확률을 계산하고 치매 초기에 병원에 방문할 수 있도록 도와주는 치매 예방 애플리케이션입니다.
 <img width="1584" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/00281a40-cb69-4ef6-8062-f2f261acc5e2">
 
+## 🌲 메뉴 트리
+![image](https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/41a38f40-e844-43bf-aef6-4e5c32363fe5)
+
 ## 🏛️ 아키텍처
-![image](https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/0363fc1a-c9a8-4206-af69-4220edced1f6)
+![image](https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/992f3233-036b-4465-9732-e45c78174a94)
 
 ### Main App
 > 사용자와 직접적으로 상호작용하는 앱 타겟입니다.
@@ -19,6 +22,50 @@
 > 헬스킷 관련 로직을 따로 분리했습니다. (추후 패키지화)
 - `Provider`: HKStore와 HKQuery를 이용해 건강 정보를 가져오는 로직을 추상화합니다.
 - `Service`: Provider를 이용해 가져온 건강정보를 가공해 앱 내에서 사용할 수 있는 형태로 반환합니다.
+
+## 📁 폴더링
+```
+.
+├── AtchI
+│   ├── AppDelegate.swift
+│   ├── AtchIApp.swift
+│   ├── Resource
+│   ├── HealthKit
+│   │   ├── Error
+│   │   ├── Provider
+│   │   └── Service
+│   ├── Helper
+│   ├── Info.plist
+│   ├── Presentation
+│   │   ├── Feature
+│   │       ├── View
+│   │       └── ViewModel
+│   ├── Service
+│   │   ├── Domain
+│   │   │   ├── Model
+│   │   │   ├── Error
+│   │   │   ├── Mock
+│   │   │   └── API
+│   └── Util
+│       ├── Constant
+│       ├── Error
+│       ├── Extension
+│       ├── PropertyWrapper
+│       ├── Structure
+│       └── UI
+├── AtchIServiceTests
+│   ├── Target
+│   └── Mock
+├── AtchIViewModelTests
+│   ├── Target
+│   └── Mock
+├── README.md
+└── Secrets.xcconfig
+```
+- `Presentation`: 기능별로 View와 ViewModel을 포함합니다.
+- `Service`: 도메인별로 Model(DTO), Error, Mock, API(MoyaClient)를 포함합니다.
+- `Util`: 앱 전역적을 사용되는 구조체, 열거형, Extension 등을 포함합니다.
+- `Resource`: .plist파일과 .rtf 파일을 포함합니다.
 
 ## 📘 라이브러리
 라이브러리명 | 용도 | 깃허브
