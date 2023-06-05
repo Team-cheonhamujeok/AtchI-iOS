@@ -14,7 +14,7 @@ import Factory
 @MainActor
 class HomeViewModel: ObservableObject {
     
-    @Binding var path: NavigationPath
+    var coordinator: HomeCoordinator
     
     // MARK: - Dependency
     @Injected(\.dementiaArticleService) private var dementiaArticleService
@@ -35,8 +35,8 @@ class HomeViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init(path: Binding<NavigationPath>) {
-        _path = path
+    init(coordinator: HomeCoordinator) {
+        self.coordinator = coordinator
         getDementiaArticles()
         bind()
     }
@@ -86,7 +86,7 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
         
         Task {
-            self.path.append(HomeLink.mmse)
+            self.coordinator.sheet = HomeLink.mmse
         }
         
     }

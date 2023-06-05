@@ -18,8 +18,11 @@ enum HomeLink: LinkProtocol {
 }
 
 class HomeCoordinator: CoordinatorProtocol {
+    
+    typealias LinkType = HomeLink
+    
     @Binding var path: NavigationPath
-    var link: HomeLink?
+    @Published var sheet: HomeLink?
     
     init(path: Binding<NavigationPath>) {
         _path = path
@@ -30,10 +33,14 @@ class HomeCoordinator: CoordinatorProtocol {
 struct HomeBuilder: BuilderProtocol  {
     typealias LinkType = HomeLink
     
-    @Binding var path: NavigationPath
+//    @Binding var path: NavigationPath
+    @ObservedObject var coordinator: HomeCoordinator
     
     var body: some View {
-        HomeView(viewModel: HomeViewModel(path: $path), predictVM: PredictionVM())
+        HomeView(viewModel: HomeViewModel(coordinator: coordinator), predictVM: PredictionVM())
+            .sheet(item: $coordinator.sheet) {_ in
+                EmptyView()
+            }
             .navigationDestination(for: LinkType.self) { link in
                 MMSEBuilder()
             }

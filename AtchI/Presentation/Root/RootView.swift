@@ -26,7 +26,7 @@ struct RootView: View {
         )
 //        NavigationView {
             TabView(selection: $selectedTab) {
-                HomeBuilder(path: $path)
+                HomeBuilder(coordinator: HomeCoordinator(path: $path))
                     .tabItem{
                         Image(systemName: "house")
                         Text("홈")
