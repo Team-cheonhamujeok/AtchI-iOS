@@ -240,7 +240,6 @@
 		04457F882A249A8C007DDA30 /* MMSEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEError.swift; sourceTree = "<group>"; };
 		044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResultList.swift; sourceTree = "<group>"; };
 		0455D41529F58E5A00A8A747 /* HKActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityService.swift; sourceTree = "<group>"; };
-		0455D41729F61A1100A8A747 /* AtchI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtchI.entitlements; sourceTree = "<group>"; };
 		0455D41C29F7796800A8A747 /* AtchIServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchIServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIServiceTests.swift; sourceTree = "<group>"; };
 		0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceTest.swift; sourceTree = "<group>"; };
@@ -1083,7 +1082,6 @@
 				BC6948322A20AC70006DED29 /* DIContainer.swift */,
 				BC2E1F622A138A8900B4E713 /* AppDelegate.swift */,
 				BC8D550329B9909D00FAA6E3 /* Assets.xcassets */,
-				0455D41729F61A1100A8A747 /* AtchI.entitlements */,
 				BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */,
 				BC8D550129B9909C00FAA6E3 /* ContentView.swift */,
 				BC6F0F6229EFAE3A00F3FBD1 /* HealthKit */,

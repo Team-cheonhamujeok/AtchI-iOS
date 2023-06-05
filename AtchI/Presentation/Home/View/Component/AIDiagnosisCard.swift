@@ -43,8 +43,7 @@ struct AIDiagnosisCard: View {
             }
             
             // MMSE button
-            NavigationLink(destination: MMSEView(viewModel: MMSEViewModel(),
-                                                 isThisViewPresented: $isMMSEViewPresented),
+            NavigationLink(destination: MMSEView(isThisViewPresented: $isMMSEViewPresented),
                            isActive: $isMMSEViewPresented) {
                 EmptyView()
             }
