@@ -8,13 +8,8 @@
 import Foundation
 import SwiftUI
 
-enum RootLink: LinkProtocol {
-    
-}
+struct RootBuilder: View  {
 
-struct RootBuilder: BuilderProtocol  {
-    typealias LinkType = RootLink
-    
     @State var path = NavigationPath()
 
     var body: some View {

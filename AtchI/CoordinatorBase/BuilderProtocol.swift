@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 protocol BuilderProtocol: View {
-    associatedtype LinkType: LinkProtocol // 링크 구현 강제하기
-    
-//    var path: NavigationPath { get set }
+    associatedtype CoordinatorType = CoordinatorProtocol
+    var coordinator: CoordinatorType { get set }
 }
+
+

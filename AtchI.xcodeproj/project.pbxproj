@@ -160,7 +160,6 @@
 		BC8D551629B9957900FAA6E3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551529B9957900FAA6E3 /* Colors.swift */; };
 		BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D551729B9959100FAA6E3 /* Fonts.swift */; };
 		BC8FB8872A2E402800280E58 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8FB8862A2E402800280E58 /* RootBuilder.swift */; };
-		BC8FB88A2A2E44B200280E58 /* MMSECoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8FB8892A2E44B200280E58 /* MMSECoordinator.swift */; };
 		BC8FB88D2A2E508A00280E58 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8FB88C2A2E508A00280E58 /* HomeCoordinator.swift */; };
 		BC8FB8902A2E603900280E58 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8FB88F2A2E603900280E58 /* LinkProtocol.swift */; };
 		BC8FB8922A2E663300280E58 /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8FB8912A2E663300280E58 /* BuilderProtocol.swift */; };
@@ -405,7 +404,6 @@
 		BC8D551529B9957900FAA6E3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BC8D551729B9959100FAA6E3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		BC8FB8862A2E402800280E58 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
-		BC8FB8892A2E44B200280E58 /* MMSECoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSECoordinator.swift; sourceTree = "<group>"; };
 		BC8FB88C2A2E508A00280E58 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		BC8FB88F2A2E603900280E58 /* LinkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkProtocol.swift; sourceTree = "<group>"; };
 		BC8FB8912A2E663300280E58 /* BuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
@@ -1247,14 +1245,6 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		BC8FB8882A2E44A700280E58 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				BC8FB8892A2E44B200280E58 /* MMSECoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		BC8FB88B2A2E507500280E58 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1568,7 +1558,6 @@
 		BCEDF1D72A1BE4320030CD75 /* MMSE */ = {
 			isa = PBXGroup;
 			children = (
-				BC8FB8882A2E44A700280E58 /* Coordinator */,
 				BC38FBE52A1C8032005F172B /* ViewModel */,
 				BCEDF1DA2A1BE6500030CD75 /* View */,
 			);
@@ -1985,7 +1974,6 @@
 				BCE7439E2A28C2680073914B /* DementiaArticleModel.swift in Sources */,
 				BC88B80329EA535000F484AF /* AccountServiceType.swift in Sources */,
 				BCDACF4129FF930A00EFF2ED /* DiagnosisService.swift in Sources */,
-				BC8FB88A2A2E44B200280E58 /* MMSECoordinator.swift in Sources */,
 				BC3CA1AD29BF704A00C8AE3D /* DementiaAricleCard.swift in Sources */,
 				BC81F35D29FD538500E09958 /* InfoState.swift in Sources */,
 				BCE394AE29BEF73500FEE178 /* SelfDiagnosisShortcutCard.swift in Sources */,
