@@ -7,10 +7,15 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 import Factory
 
+@MainActor
 class HomeViewModel: ObservableObject {
+    
+    @Binding var path: NavigationPath
+    
     // MARK: - Dependency
     @Injected(\.dementiaArticleService) private var dementiaArticleService
     @Injected(\.hkActivityService) private var hkActivityService
@@ -30,7 +35,8 @@ class HomeViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init() {
+    init(path: Binding<NavigationPath>) {
+        _path = path
         getDementiaArticles()
         bind()
     }
@@ -78,6 +84,10 @@ class HomeViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .assign(to: \.sleepTotal, on: self)
             .store(in: &cancellables)
+        
+        Task {
+            self.path.append(HomeLink.mmse)
+        }
         
     }
     

@@ -16,7 +16,7 @@ struct MMSEView: View {
     @ObservedObject var keyboardHelper = KeyboardHelper()
     
     // 상위뷰에서 현재 뷰를 pop하기 위한 변수입니다.
-    @Binding var isThisViewPresented: Bool
+    @State var isThisViewPresented: Bool = true
     
     var body: some View {
         // 현재 문항이 image 형식이면서 키보드가 올라와있는지 -> 에 따라 문항 섹션 show/hide
@@ -120,8 +120,7 @@ struct MMSEView: View {
 
 struct MMSEView_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEView(viewModel: MMSEViewModel(),
-                 isThisViewPresented: .constant(true))
+        MMSEView()
     }
 }
 

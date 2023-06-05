@@ -9,7 +9,7 @@ import UIKit
 
 import Moya
 
-struct ContentView: View {
+struct RootView: View {
     
     @AppStorage("mid") private var mid = UserDefaults.standard.integer(forKey: "mid")
     
@@ -17,15 +17,16 @@ struct ContentView: View {
     
     @State private var selectedTab: TabBarType = .home
     
+    @Binding var path: NavigationPath
     
     var body: some View {
         let isIntroModalOpen = Binding<Bool>(
             get: { mid == 0 },
             set: { _ in }
         )
-        NavigationView {
+//        NavigationView {
             TabView(selection: $selectedTab) {
-                HomeView()
+                HomeBuilder(path: $path)
                     .tabItem{
                         Image(systemName: "house")
                         Text("홈")
@@ -59,6 +60,8 @@ struct ContentView: View {
                 UITabBar.appearance().barTintColor = UIColor(Color.mainBackground)
                 UITabBar.appearance().backgroundColor = UIColor(Color.mainBackground)
                 UINavigationBar.appearance().backItem?.titleView?.tintColor = .white
+                
+                
             }
             .fullScreenCover(isPresented: isIntroModalOpen) {
                 IntroView()
@@ -70,7 +73,7 @@ struct ContentView: View {
                     }
                 }
             }
-        }
+//        }
         .onInjection {
             print("reload")
         }
@@ -83,13 +86,13 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RootView(path: .constant(NavigationPath()))
     }
 }
 
 // MARK: - Setting tab view style extension
 
-extension ContentView {
+extension RootView {
     // 보더 설정 appearance 세팅
     func setTabBarAppearance() -> UITabBarAppearance {
         let image = UIImage

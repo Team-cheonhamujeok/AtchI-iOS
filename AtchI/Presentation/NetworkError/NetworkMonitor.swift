@@ -18,7 +18,7 @@ final class NetworkMonitor: ObservableObject {
     private let queue = DispatchQueue.global()
     private let monitor: NWPathMonitor
     
-    @Published public private(set) var isConnected: Bool = false
+    @Published public private(set) var isConnected: Bool = true
     public private(set) var connectionType: ConnectionType = .unknown
     
     enum ConnectionType {

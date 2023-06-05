@@ -12,7 +12,7 @@ struct MMSEInfoView: View {
     @Binding var path: [DiagnosisViewStack]
     
     @State var isPresentModal = false
-    @State private var isMMSEViewPresented: Bool = false
+    @State private var isMMSEViewPresented: Bool = true
     
     var body: some View {
         Group {
@@ -23,10 +23,10 @@ struct MMSEInfoView: View {
             }
             
             // Comment(dy): 우선 Link형식으로 해두겠습니다..!
-            NavigationLink(
-                destination: MMSEView(isThisViewPresented:$isMMSEViewPresented)
-                    .toolbar(.hidden, for: .tabBar),
-                isActive: $isMMSEViewPresented) { EmptyView() }
+//            NavigationLink(
+//                destination: MMSEView(isThisViewPresented:$isMMSEViewPresented)
+//                    .toolbar(.hidden, for: .tabBar),
+//                isActive: $isMMSEViewPresented) { EmptyView() }
         }
         .sheet(isPresented: $isPresentModal) {
             VStack(alignment: .leading) {

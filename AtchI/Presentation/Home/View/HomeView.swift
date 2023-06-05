@@ -11,9 +11,8 @@ import Factory
 
 struct HomeView: View {
     
-    @StateObject private var viewModel = HomeViewModel()
-    @StateObject private var predictVM = PredictionVM()
-    @State private var richText: String = ""
+    @StateObject var viewModel: HomeViewModel
+    @StateObject var predictVM: PredictionVM
     
     var body: some View {
         VStack {
@@ -83,8 +82,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(path: .constant(NavigationPath()))
+//    }
+//}
