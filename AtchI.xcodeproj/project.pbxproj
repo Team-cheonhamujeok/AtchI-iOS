@@ -129,12 +129,15 @@
 		BC69482E2A207030006DED29 /* MMSEQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */; };
 		BC6948312A20AC65006DED29 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BC6948302A20AC65006DED29 /* Factory */; };
 		BC6948332A20AC70006DED29 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6948322A20AC70006DED29 /* DIContainer.swift */; };
+		BC69E9152A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BC69E9142A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf */; };
+		BC69E9172A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BC69E9162A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf */; };
+		BC69E9192A2E053D0070303A /* 치매의 증상.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BC69E9182A2E053D0070303A /* 치매의 증상.rtf */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
 		BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */; };
-		BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */; };
-		BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719272A0F81A700F692C6 /* LifePatternModel.swift */; };
+		BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */; };
+		BC7719282A0F81A700F692C6 /* SaveLifePatternRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */; };
 		BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */; };
 		BC77192D2A0F856E00F692C6 /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192C2A0F856E00F692C6 /* Publishers.swift */; };
 		BC78196F29E07884005C4CF5 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78196E29E07884005C4CF5 /* AccountService.swift */; };
@@ -164,6 +167,9 @@
 		BCB9C68F2A0A20A100273F33 /* HKSleepIntervalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C68E2A0A20A100273F33 /* HKSleepIntervalModel.swift */; };
 		BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BCB9C6922A0A3CDB00273F33 /* Lottie */; };
 		BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9C6942A0A3D2F00273F33 /* LottieView.swift */; };
+		BCBB36C62A2B879900BE937D /* HKSleepServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36C52A2B879900BE937D /* HKSleepServiceMock.swift */; };
+		BCBB36C92A2B8B4F00BE937D /* HKActivityServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36C82A2B8B4F00BE937D /* HKActivityServiceMock.swift */; };
+		BCBB36CB2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
 		BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */; };
 		BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */; };
@@ -184,14 +190,15 @@
 		BCE394B129BEF90400FEE178 /* QuizShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */; };
 		BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE394B329BEF99600FEE178 /* ShortcutCard.swift */; };
 		BCE398C62A1EE8DD007E4242 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */; };
-		BCE398C82A1F4565007E4242 /* LifePatternResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */; };
+		BCE398C82A1F4565007E4242 /* SaveLifePatternResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C72A1F4565007E4242 /* SaveLifePatternResponseModel.swift */; };
 		BCE398CA2A1F47D8007E4242 /* LifePatternError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE398C92A1F47D8007E4242 /* LifePatternError.swift */; };
+		BCE544F02A2C87E100D54F53 /* MMSESaveResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE544EF2A2C87E100D54F53 /* MMSESaveResponseModel.swift */; };
 		BCE743822A2828AF0073914B /* MMSEServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743812A2828AF0073914B /* MMSEServiceTests.swift */; };
 		BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743832A28632A0073914B /* LastDateResponseModel.swift */; };
 		BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743862A289AD60073914B /* LifePatternAPIMock.swift */; };
 		BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743892A28AA9A0073914B /* DateHelperTests.swift */; };
 		BCE743932A28BA910073914B /* DementiaArticelsMeta.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */; };
-		BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */; };
+		BCE743952A28BAF50073914B /* 치매란 무엇인가요?.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCE743942A28BAF50073914B /* 치매란 무엇인가요?.rtf */; };
 		BCE743982A28BC120073914B /* DementiaArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743972A28BC120073914B /* DementiaArticleService.swift */; };
 		BCE7439B2A28BFB30073914B /* DementiaArticleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */; };
 		BCE7439E2A28C2680073914B /* DementiaArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */; };
@@ -206,7 +213,7 @@
 		BCEDF1D92A1BE4420030CD75 /* MMSEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */; };
 		BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */; };
 		BCF6B8AE2A03B38B00B0FC1D /* HKSleepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */; };
-		BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */; };
+		BCF6B8B22A03B79400B0FC1D /* HKSleepServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B12A03B79400B0FC1D /* HKSleepServiceProtocol.swift */; };
 		BCF6B8B52A03BBB600B0FC1D /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */; };
 		BCF6B8B82A03BBD400B0FC1D /* DateHelperType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B72A03BBD400B0FC1D /* DateHelperType.swift */; };
 		BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF6B8B92A041FA800B0FC1D /* LoginRequestModel.swift */; };
@@ -243,7 +250,6 @@
 		04457F882A249A8C007DDA30 /* MMSEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEError.swift; sourceTree = "<group>"; };
 		044A7EA129D6F25E00FDC221 /* SelfTestResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTestResultList.swift; sourceTree = "<group>"; };
 		0455D41529F58E5A00A8A747 /* HKActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityService.swift; sourceTree = "<group>"; };
-		0455D41729F61A1100A8A747 /* AtchI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtchI.entitlements; sourceTree = "<group>"; };
 		0455D41C29F7796800A8A747 /* AtchIServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtchIServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0455D41E29F7796800A8A747 /* AtchIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtchIServiceTests.swift; sourceTree = "<group>"; };
 		0455D42829F77DCE00A8A747 /* HKActivityServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceTest.swift; sourceTree = "<group>"; };
@@ -360,12 +366,15 @@
 		BC69482A2A20700D006DED29 /* MMSEQuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionType.swift; sourceTree = "<group>"; };
 		BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionModel.swift; sourceTree = "<group>"; };
 		BC6948322A20AC70006DED29 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		BC69E9142A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "이해를 돕는 치매 유형 안내.rtf"; sourceTree = "<group>"; };
+		BC69E9162A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "치매 치료 종류 알아보기.rtf"; sourceTree = "<group>"; };
+		BC69E9182A2E053D0070303A /* 치매의 증상.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "치매의 증상.rtf"; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
 		BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustModel.swift; sourceTree = "<group>"; };
-		BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceType.swift; sourceTree = "<group>"; };
-		BC7719272A0F81A700F692C6 /* LifePatternModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternModel.swift; sourceTree = "<group>"; };
+		BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceProtocol.swift; sourceTree = "<group>"; };
+		BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLifePatternRequestModel.swift; sourceTree = "<group>"; };
 		BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPI.swift; sourceTree = "<group>"; };
 		BC77192C2A0F856E00F692C6 /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		BC78196E29E07884005C4CF5 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
@@ -398,6 +407,9 @@
 		BCA4795629EA846400A15117 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BCB9C68E2A0A20A100273F33 /* HKSleepIntervalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepIntervalModel.swift; sourceTree = "<group>"; };
 		BCB9C6942A0A3D2F00273F33 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		BCBB36C52A2B879900BE937D /* HKSleepServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceMock.swift; sourceTree = "<group>"; };
+		BCBB36C82A2B8B4F00BE937D /* HKActivityServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceMock.swift; sourceTree = "<group>"; };
+		BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceMock.swift; sourceTree = "<group>"; };
 		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
 		BCCCAF722A29938000B9176E /* WatchActivityDescriptionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActivityDescriptionModal.swift; sourceTree = "<group>"; };
 		BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissButton.swift; sourceTree = "<group>"; };
@@ -417,14 +429,15 @@
 		BCE394B029BEF90400FEE178 /* QuizShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizShortcutCard.swift; sourceTree = "<group>"; };
 		BCE394B329BEF99600FEE178 /* ShortcutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutCard.swift; sourceTree = "<group>"; };
 		BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
-		BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternResponseModel.swift; sourceTree = "<group>"; };
+		BCE398C72A1F4565007E4242 /* SaveLifePatternResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLifePatternResponseModel.swift; sourceTree = "<group>"; };
 		BCE398C92A1F47D8007E4242 /* LifePatternError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternError.swift; sourceTree = "<group>"; };
+		BCE544EF2A2C87E100D54F53 /* MMSESaveResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSESaveResponseModel.swift; sourceTree = "<group>"; };
 		BCE743812A2828AF0073914B /* MMSEServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEServiceTests.swift; sourceTree = "<group>"; };
 		BCE743832A28632A0073914B /* LastDateResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDateResponseModel.swift; sourceTree = "<group>"; };
 		BCE743862A289AD60073914B /* LifePatternAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPIMock.swift; sourceTree = "<group>"; };
 		BCE743892A28AA9A0073914B /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DementiaArticelsMeta.plist; sourceTree = "<group>"; };
-		BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = WhatIsDementiaArticle.rtf; sourceTree = "<group>"; };
+		BCE743942A28BAF50073914B /* 치매란 무엇인가요?.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "치매란 무엇인가요?.rtf"; sourceTree = "<group>"; };
 		BCE743972A28BC120073914B /* DementiaArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleService.swift; sourceTree = "<group>"; };
 		BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleServiceTests.swift; sourceTree = "<group>"; };
 		BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleModel.swift; sourceTree = "<group>"; };
@@ -438,7 +451,7 @@
 		BCEDF1D82A1BE4420030CD75 /* MMSEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEView.swift; sourceTree = "<group>"; };
 		BCF6B8A72A027CFC00B0FC1D /* LifePatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternService.swift; sourceTree = "<group>"; };
 		BCF6B8AD2A03B38B00B0FC1D /* HKSleepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepModel.swift; sourceTree = "<group>"; };
-		BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceType.swift; sourceTree = "<group>"; };
+		BCF6B8B12A03B79400B0FC1D /* HKSleepServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceProtocol.swift; sourceTree = "<group>"; };
 		BCF6B8B42A03BBB600B0FC1D /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		BCF6B8B72A03BBD400B0FC1D /* DateHelperType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperType.swift; sourceTree = "<group>"; };
 		BCF6B8B92A041FA800B0FC1D /* LoginRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestModel.swift; sourceTree = "<group>"; };
@@ -557,6 +570,9 @@
 				04A984322A11E21500C584C2 /* MockHKStore.swift */,
 				04A984342A11F73500C584C2 /* MockHKData.swift */,
 				04A984362A11FBFF00C584C2 /* MockHKQuery.swift */,
+				BCBB36C52A2B879900BE937D /* HKSleepServiceMock.swift */,
+				BCBB36C82A2B8B4F00BE937D /* HKActivityServiceMock.swift */,
+				BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -989,6 +1005,7 @@
 				04457F862A2492F8007DDA30 /* MMSEInfoGetModel.swift */,
 				BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */,
 				BC482D2F2A25DE8F0091787D /* MMSESaveRequestModel.swift */,
+				BCE544EF2A2C87E100D54F53 /* MMSESaveResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1123,7 +1140,6 @@
 				BC6948322A20AC70006DED29 /* DIContainer.swift */,
 				BC2E1F622A138A8900B4E713 /* AppDelegate.swift */,
 				BC8D550329B9909D00FAA6E3 /* Assets.xcassets */,
-				0455D41729F61A1100A8A747 /* AtchI.entitlements */,
 				BC8D54FF29B9909C00FAA6E3 /* AtchIApp.swift */,
 				BC8D550129B9909C00FAA6E3 /* ContentView.swift */,
 				BC6F0F6229EFAE3A00F3FBD1 /* HealthKit */,
@@ -1430,7 +1446,10 @@
 		BCE7438B2A28B2D50073914B /* DementiaArticles */ = {
 			isa = PBXGroup;
 			children = (
-				BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */,
+				BCE743942A28BAF50073914B /* 치매란 무엇인가요?.rtf */,
+				BC69E9142A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf */,
+				BC69E9162A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf */,
+				BC69E9182A2E053D0070303A /* 치매의 증상.rtf */,
 			);
 			path = DementiaArticles;
 			sourceTree = "<group>";
@@ -1532,8 +1551,8 @@
 		BCF6B8A42A027C5600B0FC1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC7719272A0F81A700F692C6 /* LifePatternModel.swift */,
-				BCE398C72A1F4565007E4242 /* LifePatternResponseModel.swift */,
+				BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */,
+				BCE398C72A1F4565007E4242 /* SaveLifePatternResponseModel.swift */,
 				BCE743832A28632A0073914B /* LastDateResponseModel.swift */,
 			);
 			path = Model;
@@ -1567,8 +1586,8 @@
 		BCF6B8AA2A02B87700B0FC1D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				BCF6B8B12A03B79400B0FC1D /* HKSleepServiceType.swift */,
-				BC7719232A0F804000F692C6 /* HKHeartRateServiceType.swift */,
+				BCF6B8B12A03B79400B0FC1D /* HKSleepServiceProtocol.swift */,
+				BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1734,13 +1753,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC69E9172A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf in Resources */,
 				BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */,
+				BC69E9152A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf in Resources */,
 				BCE743932A28BA910073914B /* DementiaArticelsMeta.plist in Resources */,
 				BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */,
+				BC69E9192A2E053D0070303A /* 치매의 증상.rtf in Resources */,
 				BCEDF1D62A1BD4560030CD75 /* PrivacyPolicyText.rtf in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BC38FBE92A1C87C5005F172B /* MMSEQuestions.plist in Resources */,
-				BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */,
+				BCE743952A28BAF50073914B /* 치매란 무엇인가요?.rtf in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
 			);
@@ -1759,13 +1781,16 @@
 				0455D41F29F7796800A8A747 /* AtchIServiceTests.swift in Sources */,
 				0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */,
 				04A984332A11E21500C584C2 /* MockHKStore.swift in Sources */,
+				BCBB36CB2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift in Sources */,
 				BCE743822A2828AF0073914B /* MMSEServiceTests.swift in Sources */,
 				BC5A82D82A0CFB3D002EB661 /* HKSleepServiceTests.swift in Sources */,
 				BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */,
 				0455D42929F77DCE00A8A747 /* HKActivityServiceTest.swift in Sources */,
 				04A984372A11FBFF00C584C2 /* MockHKQuery.swift in Sources */,
+				BCBB36C92A2B8B4F00BE937D /* HKActivityServiceMock.swift in Sources */,
 				BCDACF4429FF933400EFF2ED /* DiagnosisServiceTests.swift in Sources */,
 				04A984352A11F73500C584C2 /* MockHKData.swift in Sources */,
+				BCBB36C62A2B879900BE937D /* HKSleepServiceMock.swift in Sources */,
 				04A8575D2A016BF600576D61 /* DiagnosisTestData.swift in Sources */,
 				04A9843B2A129B4C00C584C2 /* HKActivityServiceTests.swift in Sources */,
 				BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */,
@@ -1805,6 +1830,7 @@
 				BCF6B8BC2A04225A00B0FC1D /* LoginResponseModel.swift in Sources */,
 				BC3CA1AA29BF667800C8AE3D /* HomeViewModel.swift in Sources */,
 				6F16514D29D1345A00CC228F /* BoldDivider.swift in Sources */,
+				BCE544F02A2C87E100D54F53 /* MMSESaveResponseModel.swift in Sources */,
 				6F7A1FBC2A2901B0002C16AC /* WeekQuiz.swift in Sources */,
 				BCF6B8B52A03BBB600B0FC1D /* DateHelper.swift in Sources */,
 				BCA1486029D5F149001F390D /* LoginViewModel.swift in Sources */,
@@ -1823,7 +1849,7 @@
 				BCCCAF732A29938000B9176E /* WatchActivityDescriptionModal.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
-				BC7719242A0F804000F692C6 /* HKHeartRateServiceType.swift in Sources */,
+				BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */,
 				BC4607A72A1E4C7700015447 /* LocationHelper.swift in Sources */,
 				BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */,
 				BC482D302A25DE8F0091787D /* MMSESaveRequestModel.swift in Sources */,
@@ -1880,7 +1906,7 @@
 				BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */,
 				BC482D2E2A25DBD10091787D /* MMSEAPI.swift in Sources */,
 				BC98E65D2A2792EC00CA43D2 /* View+InjectIII.swift in Sources */,
-				BC7719282A0F81A700F692C6 /* LifePatternModel.swift in Sources */,
+				BC7719282A0F81A700F692C6 /* SaveLifePatternRequestModel.swift in Sources */,
 				BC81F36129FD613300E09958 /* SignupValidationViewModelEvent.swift in Sources */,
 				BC38FC032A1E0EF6005F172B /* ShowTextView.swift in Sources */,
 				04A5518D2A29240800E5A73B /* ProfileSettingView.swift in Sources */,
@@ -1942,7 +1968,7 @@
 				BC6948332A20AC70006DED29 /* DIContainer.swift in Sources */,
 				BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */,
 				BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */,
-				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceType.swift in Sources */,
+				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceProtocol.swift in Sources */,
 				04285B972A1B626700E7EF42 /* ReadMeView.swift in Sources */,
 				BCB9C68F2A0A20A100273F33 /* HKSleepIntervalModel.swift in Sources */,
 				BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */,
@@ -1963,7 +1989,7 @@
 				BCDACF4229FF930A00EFF2ED /* DiagnosisModel.swift in Sources */,
 				04619F662A28DB00007B6BFD /* NetworkMonitor.swift in Sources */,
 				BCDACF4229FF930A00EFF2ED /* DiagnosisModel.swift in Sources */,
-				BCE398C82A1F4565007E4242 /* LifePatternResponseModel.swift in Sources */,
+				BCE398C82A1F4565007E4242 /* SaveLifePatternResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2195,7 +2221,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = 8B3LP78353;
+				DEVELOPMENT_TEAM = N8MX74Y447;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -2239,7 +2265,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = 8B3LP78353;
+				DEVELOPMENT_TEAM = N8MX74Y447;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;

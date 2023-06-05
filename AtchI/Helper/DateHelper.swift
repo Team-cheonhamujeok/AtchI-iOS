@@ -96,11 +96,24 @@ class DateHelper: DateHelperType {
     }
     
     /// String을 Date형으로 변환합니다.
-    static func convertStringToDate(string: String) -> Date {
+    /// - Parameter string: "yyyy-MM-dd'T'HH:mm:ss.SSSZ" 형식의 문자열
+    /// - Returns: Date형
+    static func convertStringToDate(_ string: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return dateFormatter.date(from: string)!
     }
+    
+    /// Date형을 문자열로 변환합니다.
+    /// - Parameter string: Date형
+    /// - Returns: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"형식의 문자열
+    static func convertDateToString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let dateString = formatter.string(from: date)
+        return dateString
+    }
+
     
     /// 특정 날짜들의 사이 날짜를 모두 구합니다.
     /// - Parameters:
@@ -110,12 +123,13 @@ class DateHelper: DateHelperType {
     /// - Warning: endDate는 startDate보다 나중이어야합니다.
     static func generateBetweenDates(from startDate: Date, to endDate: Date) -> [Date] {
         
-        assert(startDate < endDate, "끝 날짜는 시작 날짜보다 나중이어야합니다.")
+        assert(startDate <= endDate, "끝 날짜는 시작 날짜보다 나중이거나 같아야합니다.")
+        
+        let calendar = Calendar.current
         
         var dates: [Date] = []
-        var currentDate = startDate
-
-        let calendar = Calendar.current
+        
+        var currentDate = calendar.startOfDay(for: startDate)
         let endDate = calendar.startOfDay(for: endDate) // 00:00시 가져오기
 
         while currentDate <= endDate {
@@ -142,5 +156,33 @@ class DateHelper: DateHelperType {
         
         return calendar.date(byAdding: dateComponents, to: date)!
     }
+    
+    /// 기준 날짜에 특정 일 수를 더한 날짜를 반환합니다.
+    /// - Parameters:
+    ///   - date: 기준 날짜입니다.
+    ///   - days: 더할 일 수 입니다.
+    /// - Returns: 날짜형을 반환합니다.
+    static func addDays(from date: Date, days: Int) -> Date {
+        
+        assert(days >= 0, "일 수는 0보다 커야합니다.")
+        
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.day = days
+        
+        return calendar.date(byAdding: dateComponents, to: date)!
+    }
+    
+    static func compareDatesByDay(_ date1: Date,  _ date2: Date) -> Bool {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date1)
+        let date1WithoutTime = calendar.date(from: components)!
+        
+        let components2 = calendar.dateComponents([.year, .month, .day], from: date2)
+        let date2WithoutTime = calendar.date(from: components2)!
+        
+        return calendar.isDate(date1WithoutTime, inSameDayAs: date2WithoutTime)
+    }
+
 
 }

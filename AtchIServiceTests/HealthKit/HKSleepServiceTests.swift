@@ -10,6 +10,8 @@ import XCTest
 import Combine
 import HealthKit
 
+#if targetEnvironment(simulator)
+#else
 final class HKSleepServiceTests: XCTestCase {
     
     var service: HKSleepService!
@@ -46,3 +48,4 @@ final class HKSleepServiceTests: XCTestCase {
     }
 
 }
+#endif

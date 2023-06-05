@@ -83,7 +83,9 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - Semantic function snippets
     func getDementiaArticles() {
-        self.articles = dementiaArticleService.getDementiaArticles()
+        self.articles = dementiaArticleService
+            .getDementiaArticles()
+            .shuffled()
     }
     
 }

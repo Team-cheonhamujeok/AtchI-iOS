@@ -6,9 +6,33 @@
 		<key>title</key>
 		<string>치매란 무엇인가요?</string>
 		<key>imageName</key>
-		<string>ArticlePicture1</string>
+		<string>dementia_article_picture_4</string>
 		<key>richTextfileName</key>
-		<string>WhatIsDementiaArticle</string>
+		<string>치매란 무엇인가요?</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>이해를 돕는 치매 유형 안내</string>
+		<key>imageName</key>
+		<string>dementia_article_picture_5</string>
+		<key>richTextfileName</key>
+		<string>이해를 돕는 치매 유형 안내</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>치매 치료 종류 알아보기</string>
+		<key>imageName</key>
+		<string>dementia_article_picture_3</string>
+		<key>richTextfileName</key>
+		<string>치매 치료 종류 알아보기</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>자꾸 깜빡깜빡해요: 치매의 증상</string>
+		<key>imageName</key>
+		<string>dementia_article_picture_6</string>
+		<key>richTextfileName</key>
+		<string>치매의 증상</string>
 	</dict>
 </array>
 </plist>

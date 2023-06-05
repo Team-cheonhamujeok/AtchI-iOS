@@ -37,10 +37,8 @@ class MMSEService {
     }
     
     
-    func requestSaveMMESE(_ correctAnswers: [String]) -> AnyPublisher<Void, MMSEError> {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let dateString = dateFormatter.string(from: Date())
+    func requestSaveMMESE(_ correctAnswers: [Int]) -> AnyPublisher<MMSESaveResponseModel, MMSEError> {
+        let dateString = DateHelper.convertDateToString(Date())
         
         let mid = UserDefaults.standard.integer(forKey: "mid")
         if mid <= 0 { fatalError("잘못된 접근입니다. 해당 API는 로그인된 상태에서 호출되어야합니다.") }
@@ -49,8 +47,12 @@ class MMSEService {
             .requestPublisher(.saveMMES(model: MMSESaveRequestModel(mid: mid,
                                                                     questions: correctAnswers,
                                                                     date: dateString)))
-            .tryMap{ _ in }
-            .mapError { _ in return MMSEError.saveFailed }
+            .tryMap{ response in
+                return try response.map(MMSESaveResponseModel.self)
+            }
+            .mapError { error in
+                return MMSEError.saveFailed(error)
+            }
             .eraseToAnyPublisher()
     }
     
@@ -82,7 +84,6 @@ class MMSEService {
                 // 나라명 일치하는지 확인
                 locationHelper
                     .getLocationName(locationType: .country) { country in
-                        print("나라명 \(country)")
                         if let country = country {
                             completion(country == userAnswer)
                         }
@@ -93,7 +94,6 @@ class MMSEService {
                 // 시/도 + 동/읍/면 중에 일치하는 문자열이 있는지 확인
                 locationHelper
                     .getLocationName(locationType: .address) { address in
-                        print("address \(address)")
                         if let address = address {
                             let addressCandidates = address.components(separatedBy: " ")
                             completion(addressCandidates.contains(userAnswer))
@@ -139,7 +139,7 @@ class MMSEService {
         }
     }
     
-    func getMMSEResultScores(_ correctAnswers: [MMSEQuestionModel: String]) -> [String: String] {
+    func getMMSEResultScores(_ correctAnswers: [MMSEQuestionModel: Int]) -> [String: String] {
         // 총 질문 개수 카운트
         var totalResultTypeCount: [MMSEResultType: Int] = [:]
         // 정답 수 카운트
@@ -154,7 +154,7 @@ class MMSEService {
         // 정답 수와 질문 개수 카운트
         for (key, value) in correctAnswers {
             totalResultTypeCount[key.questionType.resultType]! += 1
-            if value == "1" {
+            if value == 1 {
                 correctResultCounts[key.questionType.resultType]! += 1
             }
         }

@@ -12,12 +12,12 @@ import Combine
 class HealthKitViewModelTemp {
     
     // TODO: 프로토콜 만들어서 IoC하기
-    let sleepService: HKSleepServiceType
+    let sleepService: HKSleepServiceProtocol
     let activityService: HKActivityService
     let heartRateService: HKHeartRateService
     
     
-    init(sleepService: HKSleepServiceType,
+    init(sleepService: HKSleepServiceProtocol,
          activityService: HKActivityService,
          heartRateService: HKHeartRateService) {
         self.sleepService = sleepService

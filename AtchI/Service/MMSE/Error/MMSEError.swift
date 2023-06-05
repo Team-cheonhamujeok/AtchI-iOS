@@ -9,5 +9,5 @@ import Foundation
 
 enum MMSEError: Error {
     case getFail
-    case saveFailed
+    case saveFailed(_ : Error)
 }

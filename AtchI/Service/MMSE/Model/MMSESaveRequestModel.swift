@@ -9,6 +9,6 @@ import Foundation
 
 struct MMSESaveRequestModel: Codable{
     let mid: Int
-    let questions: [String]
+    let questions: [Int]
     let date: String
 }

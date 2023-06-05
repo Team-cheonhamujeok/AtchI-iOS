@@ -9,23 +9,58 @@ import Foundation
 import UserNotifications
 import UIKit
 import HealthKit
+import Combine
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    
     let store = HKHealthStore()
+    var lifePatternService: LifePatternServiceType? = nil
+    
+    var cancellable = Set<AnyCancellable>()
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         UNUserNotificationCenter.current().delegate = self
         
+        // MARK: Setting Push Notification
         PushNotificationHelper
             .shared
-            .pushScheduledNotification(title: "오늘 퀴즈가 남아 있어요! ",
-                                       body: "지금 바로 풀어보세요",
+            .pushScheduledNotification(title: "오늘의 퀴즈를 풀어보세요",
+                                       body: "뇌훈련을 위한 퀴즈가 준비되어 있어요!",
                                        hour: 12,
-                                       identifier: "QUIZ_YET")
-//        PushNotificationHelper.shared.printPendingNotification()
-            
-       
+                                       identifier: "QUIZ_YET_DAY")
+        
+        PushNotificationHelper
+            .shared
+            .pushScheduledNotification(title: "오늘 퀴즈 다 푸셨나요?",
+                                       body: "아직 퀴즈를 풀지 않았다면 지금 바로 풀어보세요!",
+                                       hour: 19,
+                                       identifier: "QUIZ_YET_NIGHT")
+
+        // MARK: Setting SaveLifePattern
+#if targetEnvironment(simulator)
+#else
+        lifePatternService = LifePatternService()
+        let mid = UserDefaults.standard.integer(forKey: "mid")
+        if mid != 0, let service = lifePatternService {
+            service
+                .requestLastDate(mid: 6)
+                .flatMap { responseModel in
+                    return service
+//                        .requestSaveLifePatterns(lastDate: nil)
+                        .requestSaveLifePatterns(lastDate: responseModel.response.lastDate)
+                }
+                .sink(receiveCompletion: { completion in
+                    print(completion)
+                }, receiveValue: { result in
+                    print("SaveLifePattern Response \(result)")
+                })
+                .store(in: &cancellable)
+        }
+        lifePatternService = nil
+#endif
+
         return true
     }
 }

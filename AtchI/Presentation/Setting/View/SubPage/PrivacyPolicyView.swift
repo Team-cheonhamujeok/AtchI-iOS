@@ -16,9 +16,12 @@ struct PrivacyPolicyView: View {
         ScrollView {
             VStack {
                 Markdown(policyText)
+                    .markdownTheme(.docC)
                     .foregroundColor(.mainText)
+                    .background(Color.mainBackground)
             }
-            .padding(30)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 15)
         }
         .onAppear {
             guard let rtfPath = Bundle.main.url(forResource: "PrivacyPolicyText", withExtension: "rtf"),
@@ -31,6 +34,7 @@ struct PrivacyPolicyView: View {
             
             self.policyText = rtfText.string
         }
+        .background(Color.mainBackground)
     }
 }
 

@@ -52,7 +52,6 @@ struct AIDiagnosisCard: View {
                 Text("치매 진단이 어렵습니다.")
                     .font(.titleSmall)
                     .foregroundColor(.mainText)
-            }
             
             AIResultChartView(notDementia: $notDementia,
                               beforeDementia: $beforeDementia,
@@ -68,4 +67,3 @@ struct AIDiagnosisCard: View {
         .cornerRadius(20)
     }
 }
-

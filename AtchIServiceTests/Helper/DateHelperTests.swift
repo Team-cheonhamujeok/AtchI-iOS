@@ -29,7 +29,7 @@ final class DateHelperTests: XCTestCase {
         let expected = dateFormatter.date(from: dateString)
         
         // when
-        let convertedDate = DateHelper.convertStringToDate(string: dateString)
+        let convertedDate = DateHelper.convertStringToDate(dateString)
         
         // then
         XCTAssertEqual(expected, convertedDate)

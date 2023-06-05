@@ -11,7 +11,7 @@ struct MMSEView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel: MMSEViewModel
+    @ObservedObject var viewModel: MMSEViewModel = MMSEViewModel()
     
     @ObservedObject var keyboardHelper = KeyboardHelper()
     

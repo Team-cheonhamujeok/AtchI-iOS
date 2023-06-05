@@ -12,6 +12,12 @@ import Moya
 
 extension Container {
 
+    // MARK: - Moya
+    var lifePatternAPIProvider: Factory<MoyaProvider<LifePatternAPI>> {
+        Factory(self) {
+            MoyaProvider<LifePatternAPI>()
+        }
+    }
     
     // MARK: - Servcie
     var mmseService: Factory<MMSEService> {
@@ -33,7 +39,7 @@ extension Container {
     }
     
     // MARK: - HKService
-    var hkSleepService: Factory<HKSleepServiceType> {
+    var hkSleepService: Factory<HKSleepServiceProtocol> {
         Factory(self) { HKSleepService(provider: HKProvider(),
                                        dateHelper: DateHelper())
         }
@@ -44,7 +50,7 @@ extension Container {
         }
     }
     
-    var hkHeartRateService: Factory<HKHeartRateServiceType> {
+    var hkHeartRateService: Factory<HKHeartRateServiceProtocol> {
         Factory(self) { HKHeartRateService(healthKitProvider: HKProvider(),
                                            dateHelper: DateHelper())
         }

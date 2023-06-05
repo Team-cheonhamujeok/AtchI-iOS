@@ -10,33 +10,105 @@ import Combine
 import XCTest
 
 import Moya
+import Factory
 
-/// - Warning:  실제 디바이스 정보를 바탕으로 진행하는 테스트셋입니다. 시뮬레이터에서 실행하지마세요.
 final class LifePatternServiceTests: XCTestCase {
     
     var service: LifePatternService!
 
     override func setUpWithError() throws {
-        service = LifePatternService(
-            provider: MoyaProvider<LifePatternAPI>(stubClosure: MoyaProvider.immediatelyStub),
-            sleepService: HKSleepService(provider: HKProvider(),
-                                         dateHelper: DateHelper()),
-            activityService: HKActivityService(healthkitProvicer: HKProvider()),
-            heartRateService: HKHeartRateService(healthKitProvider: HKProvider(),
-                                                 dateHelper: DateHelper()))
+        let _ = Container.shared.lifePatternAPIProvider.register {
+            MoyaProvider<LifePatternAPI>(stubClosure: MoyaProvider.immediatelyStub)
+        }
+        let _ = Container.shared.hkSleepService.register { HKSleepServiceMock() }
+        let _ = Container.shared.hkActivityService.register { HKActivityServiceMock() }
+        let _ = Container.shared.hkHeartRateService.register { HKHeartRateServiceMock() }
+        service = LifePatternService()
     }
 
     override func tearDownWithError() throws {
         service = nil
     }
     
+    func testSaveLifePatternsSuccess() {
+        // given
+        let today = Date()
+        let calendar = Calendar.current
+        let todayStart = calendar.startOfDay(for: today)
+        let threeDaysAgo = calendar.date(byAdding: .day, value: -3, to: todayStart)! // 마지막 수정일 3일전으로 설정
+        let formatter = ISO8601DateFormatter()
+        let threeDaysAgoDate = formatter.string(from: threeDaysAgo)
+        let lastDate: String? = threeDaysAgoDate
+        
+        var received: SaveLifePatternResponseModel?
+        
+        // when
+        let _ = service.requestSaveLifePatterns(lastDate: lastDate)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: {
+                      received = $0
+                  })
+        
+        // then
+        let expectedResponse = LifePatternAPIMock.SaveLifePatternMock.lastDateIsToday.response
+        let jsonData = expectedResponse.data(using: .utf8) ?? Data()
+        let decoder = JSONDecoder()
+        do {
+            let expected = try decoder.decode(SaveLifePatternResponseModel.self, from: jsonData)
+            XCTAssertEqual(expected, received)
+        } catch { }
+    }
+    
+    func testSaveLifePatternsIsLatestUpdate() {
+        // given
+        let formatter = ISO8601DateFormatter()
+        let date = formatter.string(from: Date())
+        let lastDate: String? = date
+        var received: LifePatternError?
+        
+        // when
+        let _ = service.requestSaveLifePatterns(lastDate: lastDate)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished: break
+                case .failure(let error):
+                    received = error
+                }
+            },receiveValue: { _ in })
+        
+        // then
+        XCTAssertEqual(LifePatternError.saveLifePattern(.isLatestUpdate),
+                       received)
+    }
+    
+    func testSaveLifePatternsDoesNotExistLastDate() {
+        // given
+        var received: SaveLifePatternResponseModel?
+        
+        // when
+        let _ = service.requestSaveLifePatterns(lastDate: nil)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: {
+                      received = $0
+                  })
+        
+        // then
+        let expectedResponse = LifePatternAPIMock.SaveLifePatternMock.lastDateIsToday.response
+        let jsonData = expectedResponse.data(using: .utf8) ?? Data()
+        let decoder = JSONDecoder()
+        do {
+            let expected = try decoder.decode(SaveLifePatternResponseModel.self, from: jsonData)
+            XCTAssertEqual(expected, received)
+        } catch { }
+    }
+    
     func testLastDateExistsResponse() {
         // given
-        let request = LifePatternAPIMock.lastDate(.exists).request
+        let request = LifePatternAPIMock.LastDateMock.exists.request
         var received: String?
         
         // when
-        let cancellable = service.reuqestLastDate(mid: request)
+        let cancellable = service.requestLastDate(mid: request)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { response in
                 received = response.response.lastDate ?? ""
@@ -48,11 +120,11 @@ final class LifePatternServiceTests: XCTestCase {
     
     func testLastDateDoesNotExistResponse() {
         // given
-        let request = LifePatternAPIMock.lastDate(.doesNotExist).request
+        let request = LifePatternAPIMock.LastDateMock.doesNotExist.request
         var received: String?
         
         // when
-        let cancellable = service.reuqestLastDate(mid: request)
+        let cancellable = service.requestLastDate(mid: request)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { response in
                 received = response.response.lastDate ?? ""
@@ -62,26 +134,20 @@ final class LifePatternServiceTests: XCTestCase {
         XCTAssertEqual("", received)
     }
 
-    /// 실제 값 테스트입니다. 시뮬레이터에서 실행하지 마세요.
-    func testCreateLifePatternModel() throws {
-//        let today = Date()
-//        let calendar = Calendar.current
-//        let beforeDay = calendar.date(byAdding: .day, value: -2, to: today)!
-//        print("beforeDay \(beforeDay)")
-//
-//        let expectation = XCTestExpectation(description: "Life Pattern Test")
-//        let cancellable = service.createLifePatternModel(date: beforeDay)
-//            .print()
-//            .sink(receiveCompletion: { _ in},
-//                  receiveValue: { _ in expectation.fulfill()})
-//        wait(for: [expectation], timeout: 10.0)
-    }
-
+    #if targetEnvironment(simulator)
+    #else
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            let expection = XCTestExpectation(description: "measure SaveLifePattern")
+            let _ = service.requestSaveLifePatterns(lastDate: nil)
+                .sink(receiveCompletion: { _ in },
+                      receiveValue: {_ in
+                    expection.fulfill()
+                      })
+            wait(for: [expection])
         }
     }
+    #endif
 
 }
