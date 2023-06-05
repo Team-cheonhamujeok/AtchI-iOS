@@ -14,11 +14,12 @@ import Combine
  https://qteveryday.tistory.com/m/314
  */
 
+@MainActor
 final class NetworkMonitor: ObservableObject {
     private let queue = DispatchQueue.global()
     private let monitor: NWPathMonitor
     
-    @Published public private(set) var isConnected: Bool = false
+    @Published public private(set) var isConnected: Bool = true
     public private(set) var connectionType: ConnectionType = .unknown
     
     enum ConnectionType {
@@ -38,10 +39,10 @@ final class NetworkMonitor: ObservableObject {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
 
-            DispatchQueue.main.async {
+            Task {
                 self?.isConnected = path.status == .satisfied
             }
- 
+            
             self?.getConnectionType(path)
 
             if self?.isConnected == true {
