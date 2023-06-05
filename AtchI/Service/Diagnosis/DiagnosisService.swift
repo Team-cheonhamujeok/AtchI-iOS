@@ -25,7 +25,11 @@ enum DiagnosisAPI {
 // MARK: - Moya TargetType 채택한 Enum
 extension DiagnosisAPI: TargetType {
     var baseURL: URL {
-        URL(string: "http://203.255.3.48:1224")!
+        if let url = URL(string: Bundle.main.infoDictionary?["BACKEND_ENDPOINT"] as! String){
+            return url
+        } else {
+            fatalError("The BACKEND_ENDPOINT environment variable was not found.")
+        }
     }
     
     var path: String {

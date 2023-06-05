@@ -42,6 +42,7 @@ struct DiagnosisView: View {
                     
                     Spacer()
                 }
+                .padding(.bottom, 40)
             }
             .navigationDestination(for: DiagnosisViewStack.self) { child in
                 switch child {
@@ -65,7 +66,8 @@ struct DiagnosisView: View {
                     Text("잘못된 접근")
                 }
             }
-            .scrollDisabled(true)
+            .padding(.top, 1)
+        
         }
         .onAppear {
             //MARK: 서버 데이터 들고오기

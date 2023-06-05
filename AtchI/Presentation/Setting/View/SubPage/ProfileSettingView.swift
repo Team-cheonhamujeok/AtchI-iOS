@@ -13,8 +13,6 @@ struct ProfileSettingView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 40) {
-            Text("개인정보 설정")
-                .font(.titleLarge)
             
             VStack (spacing: 30){
                 FixValueField(title: "이름",
@@ -35,7 +33,7 @@ struct ProfileSettingView: View {
                               width: .infinity,
                               height: 40,
                               buttonStyle: .filled,
-                              buttonColor:  .mainPurple,
+                              buttonColor:  .accentColor,
                               isIndicate: false)
                 {
                     
@@ -47,7 +45,7 @@ struct ProfileSettingView: View {
                               width: .infinity,
                               height: 40,
                               buttonStyle: .filled,
-                              buttonColor: .mainPurple,
+                              buttonColor: .accentColor,
                               isIndicate: false)
                 {
                     
@@ -56,6 +54,8 @@ struct ProfileSettingView: View {
                 }
             }
         }
+        .navigationTitle("개인정보")
+        .navigationBarTitleDisplayMode(.inline)
         .padding(30)
         .background(Color.mainBackground)
         

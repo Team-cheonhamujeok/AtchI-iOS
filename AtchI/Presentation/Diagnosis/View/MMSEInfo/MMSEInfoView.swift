@@ -77,7 +77,7 @@ struct MMSEInfoView: View {
             
             DefaultButton(buttonSize: .large,
                           buttonStyle: .filled,
-                          buttonColor: .mainPurple,
+                          buttonColor: .accentColor,
                           isIndicate: true)
             {
                 // TODO: TEST 뷰로 이동
@@ -98,9 +98,8 @@ struct MMSEInfoView: View {
                     Text("간단한 MMSE 검사를 해보세요")
                         .font(.titleMedium)
                     Spacer()
-                    Image(systemName: "questionmark.circle")
-                        .foregroundColor(.mainText)
-                        .padding(.trailing, 20)
+                    Image("question_circle")
+                        .foregroundColor(.grayDisabled)
                         .onTapGesture {
                             self.isPresentModal = true
                         }
@@ -109,14 +108,14 @@ struct MMSEInfoView: View {
                               width: 173,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: .mainPurpleLight,
+                              buttonColor: .accentColor,
                               isIndicate: false)
                 {
                     //TODO: 테스트 화면
                     path.append(.selfTestStart)
                 } content: {
                     Text("MMSE 검사 다시하기")
-                        .foregroundColor(.mainPurple)
+                        
                 }
                 .padding(.bottom, 5)
                 
@@ -149,7 +148,7 @@ struct MMSEInfoView: View {
                               width: 99,
                               height: 35,
                               buttonStyle: .unfilled,
-                              buttonColor: .grayDisabled,
+                              buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
                     path.append(.mmseResultList)
