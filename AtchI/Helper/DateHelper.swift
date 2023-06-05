@@ -38,7 +38,7 @@ class DateHelper: DateHelperType {
         return yesterdaySixPM
     }
     
-    // 어제 시작 시각 (00:00) 구하기
+    /// 어제 시작 시각 (00:00) 구하기
     func getYesterdayStartAM(_ date: Date) -> Date {
         let calendar = Calendar.current
         
@@ -53,7 +53,7 @@ class DateHelper: DateHelperType {
         return yesterdayStartAM
     }
     
-    // 어제 끝 시각 (23:59) 구하기
+    /// 어제 끝 시각 (23:59) 구하기
     func getYesterdayEndPM(_ date: Date) -> Date {
         let calendar = Calendar.current
         
@@ -67,7 +67,7 @@ class DateHelper: DateHelperType {
         return yesterdayEndPM
     }
     
-    // 현재 시간 계산
+    /// 현재 시간 계산
     static func currentTime() -> String {
         let now = Date() //"Mar 21, 2018 at 1:37 PM"
         let dateFormatter = DateFormatter()
@@ -75,13 +75,23 @@ class DateHelper: DateHelperType {
         return dateFormatter.string(from: now)
     }
     
-    // 날짜  "yy년MM월dd일" 형식으로 변환
+    /// 날짜  "yy년MM월dd일" 형식으로 변환
     static func convertFormat(string: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         guard let date = dateFormatter.date(from: string) else { return "Date is Nil" }
         
         dateFormatter.dateFormat = "yy년MM월dd일"
+        return dateFormatter.string(from: date)
+    }
+    
+    /// 날짜  "yy.MM.dd" 형식으로 변환
+    static func convertFormat2(string: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        guard let date = dateFormatter.date(from: string) else { return "Date is Nil" }
+        
+        dateFormatter.dateFormat = "yy.MM.dd"
         return dateFormatter.string(from: date)
     }
     

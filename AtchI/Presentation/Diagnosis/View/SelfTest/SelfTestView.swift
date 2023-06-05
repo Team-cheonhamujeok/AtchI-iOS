@@ -25,6 +25,8 @@ struct SelfTestView: View {
     @Binding var path: [DiagnosisViewStack]
     @StateObject var selfTestViewModel: SelfTestViewModel
     
+    let mid = UserDefaults.standard.integer(forKey: "mid")
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("자가진단")
@@ -70,7 +72,7 @@ struct SelfTestView: View {
             DefaultButton(
                 buttonSize: .large,
                 buttonStyle: .filled,
-                buttonColor: buttonSeletor == nil ? .grayDisabled : .mainPurple,
+                buttonColor: buttonSeletor == nil ? .grayDisabled : .accentColor,
                 isIndicate: false)
             {
                 if buttonSeletor != nil {
@@ -78,7 +80,7 @@ struct SelfTestView: View {
                         guard let buttonSeletor = buttonSeletor else { return }
                         selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
                         self.buttonSeletor = nil
-                        selfTestViewModel.requestResult(mid: 2)
+                        selfTestViewModel.requestResult(mid: self.mid)
                         path.append(.selfTestResult)
                     } else {
                         guard let buttonSeletor = buttonSeletor else { return }
@@ -129,7 +131,7 @@ struct SelfTestQuestionCardView: View {
                               width: .infinity,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: buttonSeletor == .never ? .mainPurple : .mainPurpleLight,
+                              buttonColor: buttonSeletor == .never ? .accentColor : .mainPurpleLight,
                               isIndicate: false)
                 {
                     if buttonSeletor != .never {
@@ -145,7 +147,7 @@ struct SelfTestQuestionCardView: View {
                               width: .infinity,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: buttonSeletor == .little ? .mainPurple : .mainPurpleLight,
+                              buttonColor: buttonSeletor == .little ? .accentColor : .mainPurpleLight,
                               isIndicate: false)
                 {
                     if buttonSeletor != .little {
@@ -161,7 +163,7 @@ struct SelfTestQuestionCardView: View {
                               width: .infinity,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: buttonSeletor == .many ? .mainPurple : .mainPurpleLight,
+                              buttonColor: buttonSeletor == .many ? .accentColor : .mainPurpleLight,
                               isIndicate: false)
                 {
                     if buttonSeletor != .many {
@@ -177,7 +179,7 @@ struct SelfTestQuestionCardView: View {
                               width: .infinity,
                               height: 35,
                               buttonStyle: .filled,
-                              buttonColor: buttonSeletor == .nothing ? .mainPurple : .mainPurpleLight,
+                              buttonColor: buttonSeletor == .nothing ? .accentColor : .mainPurpleLight,
                               isIndicate: false)
                 {
                     if buttonSeletor != .nothing {

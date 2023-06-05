@@ -21,7 +21,7 @@ enum SettingCategory: CaseIterable {
     @ViewBuilder
     func getView() -> some View {
         switch self {
-        case .privacy: EmptyView()
+        case .privacy: ProfileSettingView()
         case .privacyPolicy: PrivacyPolicyView()
         }
     }

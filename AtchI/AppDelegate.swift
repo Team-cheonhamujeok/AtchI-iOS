@@ -37,9 +37,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                                        body: "아직 퀴즈를 풀지 않았다면 지금 바로 풀어보세요!",
                                        hour: 19,
                                        identifier: "QUIZ_YET_NIGHT")
-            
-        NetworkMonitor.shared.startMonitoring()
-        
+
         // MARK: Setting SaveLifePattern
 #if targetEnvironment(simulator)
 #else

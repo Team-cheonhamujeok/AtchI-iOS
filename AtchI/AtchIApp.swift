@@ -13,10 +13,11 @@ import Network
 struct AtchIApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @StateObject var networkMonitor = NetworkMonitor()
+ 
     var body: some Scene {
         WindowGroup {
-            if NetworkMonitor.shared.isConnected {
+            if networkMonitor.isConnected {
                 ContentView()
             } else {
                 NetworkErrorView()

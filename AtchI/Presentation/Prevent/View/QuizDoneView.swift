@@ -33,7 +33,6 @@ struct QuizDoneView: View {
                 }
                 Text("이제 오늘 퀴즈는 " + String(3 - preventViewModel.quizCount) + "개가 남았어요 :)")
                     .font(.bodyMedium)
-//                let _ = print(3 - preventViewModel.quizCount)
             }
             .foregroundColor(.white)
             VStack {
@@ -44,6 +43,7 @@ struct QuizDoneView: View {
                     print("퀴즈풀기 완료")
                     quizStack = []
                     preventViewModel.requestQuiz()
+                    preventViewModel.getWeekQuiz()
                 }, content: {
                     Text("확인")
                         .foregroundColor(.mainPurple)
