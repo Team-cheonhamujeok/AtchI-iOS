@@ -10,9 +10,8 @@ import SwiftUI
 struct QuizStateCard: View {
     var days = ["월", "화", "수", "목", "금", "토", "일"]
     var preventViewModel: PreventViewModel
-//    var quiz: Quiz
-//    var weekQuiz: [Bool]
     var weekQuizState: [WeekQuiz]
+    var todayInt: Int
     
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
@@ -41,23 +40,52 @@ struct QuizStateCard: View {
             // - 오늘보다 미래이면 회색 글씨
             
             HStack {
-                ForEach(0..<6) { item in
+                ForEach(0..<7) { item in
                     ZStack {
-//                        if item.quizState! == false {
-//                            Circle()
-//                                .strokeBorder(Color.mainPurple,lineWidth: 1)
-//                                .frame(width: 30, height: 30)
-//                        } else if item.quizState! == true {
-//                            Circle()
-//                                .fill(Color.mainPurple)
-//                                .frame(width: 30, height: 30)
-//                        }
-                        let _ = print("item \(item)")
-                        Text(weekQuizState[item].day!)
-                            .font(.bodyMedium)
+                        if item < todayInt {
+//                            let _ = print("오늘은 \(todayInt) 요일!")
+                            if weekQuizState[item].quizState! == false {
+                                Circle()
+                                    .fill(Color.clear)
+                                    .frame(width: 30, height: 30)
+                                Text(weekQuizState[item].day!)
+                                    .font(.bodyMedium)
+                                    .foregroundColor(Color.grayDisabled)
+                            } else if weekQuizState[item].quizState! == true {
+                                Circle()
+                                    .fill(Color.accentColor)
+                                    .frame(width: 30, height: 30)
+                                Text(weekQuizState[item].day!)
+                                    .font(.bodyMedium)
+                                    .foregroundColor(Color.white)
+                            }
+                        } else if item > todayInt {
+                            Circle()
+                                .fill(Color.clear)
+                                .frame(width: 30, height: 30)
+                            Text(weekQuizState[item].day!)
+                                .font(.bodyMedium)
+                                .foregroundColor(Color.grayDisabled)
+                        } else if item == todayInt {
+                            if weekQuizState[item].quizState! == false {
+                                Circle()
+                                    .strokeBorder(Color.accentColor,lineWidth: 1)
+                                    .frame(width: 30, height: 30)
+                                Text(weekQuizState[item].day!)
+                                    .font(.bodyMedium)
+//                                    .foregroundColor(Color.grayDisabled)
+                            } else {
+                                Circle()
+                                    .fill(Color.mainPurple)
+                                    .frame(width: 30, height: 30)
+                                Text(weekQuizState[item].day!)
+                                    .font(.bodyMedium)
+                                    .foregroundColor(Color.mainBackground)
+                            }
+                        }
                         
                     }
-                    if item != 5 { // match everything but the last
+                    if item != 6 { // match everything but the last
                         Spacer()
                         
                     }

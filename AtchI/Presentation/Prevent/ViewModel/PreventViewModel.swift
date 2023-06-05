@@ -21,12 +21,11 @@ class PreventViewModel: ObservableObject {
     @Published var checkQuizErrorMessage: String = ""
     @Published var getWeekQuizErrorMessage: String = ""
     @Published var todayQuiz = [Quiz]()
-//    @Published var thisWeekQuiz = [String: Bool]()
     @Published var thisWeekQuizState = [WeekQuiz]()
+    @Published var todayInt: Int = -1
     
     func calQuizCount() {
         quizCount = 0
-//        print("오늘의 퀴즈 불러와졌나? \(todayQuiz.count) ")
         if todayQuiz.count >= 3 {
             for i in 0...todayQuiz.count-1 {
                 if todayQuiz[i].check == true {
@@ -34,8 +33,23 @@ class PreventViewModel: ObservableObject {
                 }
             }
         }
-        
-        print("현재 완료된 퀴즈 개수 : \(quizCount)")
+    }
+    
+    // 오늘 요일을 숫자로 구해오기
+    private func getNowDay() -> Int {
+        let nowDate = Date()
+        let dateFormatter = DateFormatter() // Date 포맷 객체 선언
+        dateFormatter.locale = Locale(identifier: "ko") // 한국 지정
+        dateFormatter.dateFormat = "e" // Date 포맷 타입 지정
+        let dayString = dateFormatter.string(from: nowDate) // 포맷된 형식 문자열로 반환
+        let dayInt = Int(dayString)
+        var todayInt: Int
+        if dayInt! == 1 {
+            todayInt = 6
+        } else {
+            todayInt = dayInt! - 2
+        }
+        return todayInt
     }
     
     private var cancellables = Set<AnyCancellable>()
@@ -87,13 +101,6 @@ class PreventViewModel: ObservableObject {
             }
         }, receiveValue: { response in
             self.thisWeekQuizState.removeAll()
-//            self.thisWeekQuiz["월"] = response.mon
-//            self.thisWeekQuiz["화"] = response.tue
-//            self.thisWeekQuiz["수"] = response.wed
-//            self.thisWeekQuiz["목"] = response.thu
-//            self.thisWeekQuiz["금"] = response.fri
-//            self.thisWeekQuiz["토"] = response.sat
-//            self.thisWeekQuiz["일"] = response.sun
             self.thisWeekQuizState.append(WeekQuiz(day: "월", quizState: response.mon))
             self.thisWeekQuizState.append(WeekQuiz(day: "화", quizState: response.tue))
             self.thisWeekQuizState.append(WeekQuiz(day: "수", quizState: response.wed))
@@ -101,6 +108,7 @@ class PreventViewModel: ObservableObject {
             self.thisWeekQuizState.append(WeekQuiz(day: "금", quizState: response.fri))
             self.thisWeekQuizState.append(WeekQuiz(day: "토", quizState: response.sat))
             self.thisWeekQuizState.append(WeekQuiz(day: "일", quizState: response.sun))
+            self.todayInt = self.getNowDay()
         }).store(in: &cancellables)
         
     }
