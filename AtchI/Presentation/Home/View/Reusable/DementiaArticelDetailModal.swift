@@ -37,15 +37,17 @@ struct DementiaArticelDetailModal: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: .infinity)
                 }.frame(maxWidth: .infinity,
-                        maxHeight: 200,
+                        maxHeight: 300,
                         alignment: .leading)
+                .clipped()
                 .background(Color.white)
                 
                 // title
-                Spacer(minLength: 60)
+                Spacer(minLength: 20)
                 VStack(alignment: .leading, spacing: 10){
                     Text(title)
                         .font(.titleMedium)
+                        .foregroundColor(.mainPurple)
                     Markdown(content)
                         .markdownTextStyle(\.code) {
                             FontFamilyVariant(.monospaced)
@@ -56,7 +58,6 @@ struct DementiaArticelDetailModal: View {
                             configuration.label
                                 .padding()
                                 .markdownTextStyle {
-                                    FontCapsVariant(.lowercaseSmallCaps)
                                     FontWeight(.regular)
                                     BackgroundColor(nil)
                                 }
@@ -87,5 +88,11 @@ struct DementiaArticelDetailModal: View {
                    alignment: .leading)
             
         }
+    }
+}
+
+struct DementiaArticelDetailModal_Previews: PreviewProvider {
+    static var previews: some View {
+        DementiaArticelDetailModal(title: "제목", content: "컨텐츠", pictureName: "dementia_article_picture_2")
     }
 }

@@ -122,6 +122,9 @@
 		BC69482E2A207030006DED29 /* MMSEQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */; };
 		BC6948312A20AC65006DED29 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BC6948302A20AC65006DED29 /* Factory */; };
 		BC6948332A20AC70006DED29 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6948322A20AC70006DED29 /* DIContainer.swift */; };
+		BC69E9152A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BC69E9142A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf */; };
+		BC69E9172A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BC69E9162A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf */; };
+		BC69E9192A2E053D0070303A /* 치매의 증상.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BC69E9182A2E053D0070303A /* 치매의 증상.rtf */; };
 		BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */; };
 		BC6F0F6A29EFAE3A00F3FBD1 /* HKSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */; };
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
@@ -188,7 +191,7 @@
 		BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743862A289AD60073914B /* LifePatternAPIMock.swift */; };
 		BCE7438A2A28AA9A0073914B /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743892A28AA9A0073914B /* DateHelperTests.swift */; };
 		BCE743932A28BA910073914B /* DementiaArticelsMeta.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */; };
-		BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */; };
+		BCE743952A28BAF50073914B /* 치매란 무엇인가요?.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BCE743942A28BAF50073914B /* 치매란 무엇인가요?.rtf */; };
 		BCE743982A28BC120073914B /* DementiaArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE743972A28BC120073914B /* DementiaArticleService.swift */; };
 		BCE7439B2A28BFB30073914B /* DementiaArticleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */; };
 		BCE7439E2A28C2680073914B /* DementiaArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */; };
@@ -349,6 +352,9 @@
 		BC69482A2A20700D006DED29 /* MMSEQuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionType.swift; sourceTree = "<group>"; };
 		BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionModel.swift; sourceTree = "<group>"; };
 		BC6948322A20AC70006DED29 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		BC69E9142A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "이해를 돕는 치매 유형 안내.rtf"; sourceTree = "<group>"; };
+		BC69E9162A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "치매 치료 종류 알아보기.rtf"; sourceTree = "<group>"; };
+		BC69E9182A2E053D0070303A /* 치매의 증상.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "치매의 증상.rtf"; sourceTree = "<group>"; };
 		BC6F0F6329EFAE3A00F3FBD1 /* HKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProvider.swift; sourceTree = "<group>"; };
 		BC6F0F6629EFAE3A00F3FBD1 /* HKSleepService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKSleepService.swift; sourceTree = "<group>"; };
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
@@ -417,7 +423,7 @@
 		BCE743862A289AD60073914B /* LifePatternAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPIMock.swift; sourceTree = "<group>"; };
 		BCE743892A28AA9A0073914B /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		BCE743922A28BA910073914B /* DementiaArticelsMeta.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DementiaArticelsMeta.plist; sourceTree = "<group>"; };
-		BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = WhatIsDementiaArticle.rtf; sourceTree = "<group>"; };
+		BCE743942A28BAF50073914B /* 치매란 무엇인가요?.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "치매란 무엇인가요?.rtf"; sourceTree = "<group>"; };
 		BCE743972A28BC120073914B /* DementiaArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleService.swift; sourceTree = "<group>"; };
 		BCE7439A2A28BFB30073914B /* DementiaArticleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleServiceTests.swift; sourceTree = "<group>"; };
 		BCE7439D2A28C2680073914B /* DementiaArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DementiaArticleModel.swift; sourceTree = "<group>"; };
@@ -1387,7 +1393,10 @@
 		BCE7438B2A28B2D50073914B /* DementiaArticles */ = {
 			isa = PBXGroup;
 			children = (
-				BCE743942A28BAF50073914B /* WhatIsDementiaArticle.rtf */,
+				BCE743942A28BAF50073914B /* 치매란 무엇인가요?.rtf */,
+				BC69E9142A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf */,
+				BC69E9162A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf */,
+				BC69E9182A2E053D0070303A /* 치매의 증상.rtf */,
 			);
 			path = DementiaArticles;
 			sourceTree = "<group>";
@@ -1691,13 +1700,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC69E9172A2DF7FA0070303A /* 치매 치료 종류 알아보기.rtf in Resources */,
 				BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */,
+				BC69E9152A2DF68D0070303A /* 이해를 돕는 치매 유형 안내.rtf in Resources */,
 				BCE743932A28BA910073914B /* DementiaArticelsMeta.plist in Resources */,
 				BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */,
+				BC69E9192A2E053D0070303A /* 치매의 증상.rtf in Resources */,
 				BCEDF1D62A1BD4560030CD75 /* PrivacyPolicyText.rtf in Resources */,
 				BC8D550729B9909D00FAA6E3 /* Preview Assets.xcassets in Resources */,
 				BC38FBE92A1C87C5005F172B /* MMSEQuestions.plist in Resources */,
-				BCE743952A28BAF50073914B /* WhatIsDementiaArticle.rtf in Resources */,
+				BCE743952A28BAF50073914B /* 치매란 무엇인가요?.rtf in Resources */,
 				BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */,
 				BC8D550429B9909D00FAA6E3 /* Assets.xcassets in Resources */,
 			);
