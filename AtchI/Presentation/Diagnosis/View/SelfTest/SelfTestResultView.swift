@@ -9,9 +9,9 @@ import SwiftUI
 import Moya
 
 struct SelfTestResultView: View {
-    @Binding var path: [DiagnosisViewStack]
+    
     @StateObject var selfTestViewModel: SelfTestViewModel
-    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
+//    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     var body: some View {
         VStack {
@@ -38,9 +38,10 @@ struct SelfTestResultView: View {
                           buttonColor: .accentColor,
                           isIndicate: false)
             {
-                selfTestInfoViewModel.requestData()
+//                selfTestInfoViewModel.requestData()
                 selfTestViewModel.resetAnswers()
-                path = []
+                let stackCount = selfTestViewModel.coordinator.path.count
+                selfTestViewModel.coordinator.path.removeLast(stackCount)
             } content: {
                 Text("확인")
             }

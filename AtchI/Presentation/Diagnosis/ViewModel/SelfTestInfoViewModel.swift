@@ -16,13 +16,17 @@ class SelfTestInfoViewModel: ObservableObject {
     var subject = CurrentValueSubject<Bool, Never>(false)
     var disposeBag = Set<AnyCancellable>()
     let mid = UserDefaults.standard.integer(forKey: "mid")
+    var coordinator: DiagnosisCoordinator
     
     /// 사용자가 이 때까지 한 자가진단 결과 리스트
     @Published var selfTestResults: [TestRowModel] = []
     @Published var isCompleted: Bool = false
     
-    init(service: DiagnosisServiceType) {
+    
+    init(service: DiagnosisServiceType,
+         coordinator: DiagnosisCoordinator) {
         self.service = service
+        self.coordinator = coordinator
         bind()
     }
     
@@ -80,5 +84,21 @@ class SelfTestInfoViewModel: ObservableObject {
         }
 
         return response
+    }
+}
+
+extension SelfTestInfoViewModel: Hashable {
+    static func == (
+        lhs: SelfTestInfoViewModel,
+        rhs: SelfTestInfoViewModel
+    ) -> Bool {
+        return lhs.id == rhs.id ? true : false
+    }
+    
+    func hash(into hasher: inout Hasher) {
+    }
+    
+    var id: String {
+        String(describing: self)
     }
 }

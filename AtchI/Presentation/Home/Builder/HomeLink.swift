@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 import StackCoordinator
-import Moya
 
 enum HomeLink: LinkProtocol {
     

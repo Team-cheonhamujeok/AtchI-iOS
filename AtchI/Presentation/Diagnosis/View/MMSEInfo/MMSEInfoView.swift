@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MMSEInfoView: View {
     @StateObject var viewModel: MMSEInfoViewModel
-    @Binding var path: [DiagnosisViewStack]
     
     @State var isPresentModal = false
     @State private var isMMSEViewPresented: Bool = true
@@ -160,7 +159,8 @@ struct MMSEInfoView: View {
                               buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
-                    path.append(.mmseResultList)
+                    // FIXME: path
+//                    path.append(.mmseResultList)
                 } content: {
                     Text("전체보기")
                 }

@@ -25,18 +25,22 @@ struct ContentView: View {
             set: { _ in }
         )
         TabView(selection: $selectedTab) {
-            HomeBuilder(coordinator: HomeCoordinator(path: $path))
-                .tabItem{
-                    Image(systemName: "house")
-                    Text("홈")
-                }
-                .tag(TabBarType.home)
-            DiagnosisView()
-                .tabItem{
-                    Image(systemName: "stethoscope")
-                    Text("진단")
-                }
-                .tag(TabBarType.diagnosis)
+            HomeBuilder(
+                coordinator: HomeCoordinator(path: $path)
+            )
+            .tabItem{
+                Image(systemName: "house")
+                Text("홈")
+            }
+            .tag(TabBarType.home)
+            DiagnosisBuilder(
+                coordinator: DiagnosisCoordinator(path: $path)
+            )
+            .tabItem{
+                Image(systemName: "stethoscope")
+                Text("진단")
+            }
+            .tag(TabBarType.diagnosis)
             PreventView(preventViewModel: PreventViewModel(quizService: QuizService(provider: MoyaProvider<QuizAPI>())))
                 .tabItem{
                     Image(systemName: "brain.head.profile")
