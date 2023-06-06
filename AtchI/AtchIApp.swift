@@ -8,6 +8,7 @@
 import SwiftUI
 
 import Network
+import StackCoordinator
 
 @main
 struct AtchIApp: App {
@@ -18,7 +19,9 @@ struct AtchIApp: App {
     var body: some Scene {
         WindowGroup {
             if networkMonitor.isConnected {
-                ContentView()
+                RootBuilder { path in
+                    ContentView(path: path)
+                }
             } else {
                 NetworkErrorView()
             }

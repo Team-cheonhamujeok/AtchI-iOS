@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+import StackCoordinator
+
 struct MMSEInfoView: View {
+    
     @StateObject var viewModel: MMSEInfoViewModel
-    @Binding var path: [DiagnosisViewStack]
+    var coordinator: BaseCoordinator<DiagnosisLink>
     
     @State var isPresentModal = false
-    @State private var isMMSEViewPresented: Bool = false
     
     var body: some View {
         Group {
@@ -21,12 +23,6 @@ struct MMSEInfoView: View {
             } else {
                 haveTestView
             }
-            
-            // Comment(dy): 우선 Link형식으로 해두겠습니다..!
-            NavigationLink(
-                destination: MMSEView(isThisViewPresented:$isMMSEViewPresented)
-                    .toolbar(.hidden, for: .tabBar),
-                isActive: $isMMSEViewPresented) { EmptyView() }
         }
         .sheet(isPresented: $isPresentModal) {
             VStack(alignment: .leading) {
@@ -87,9 +83,11 @@ struct MMSEInfoView: View {
                           buttonColor: .accentColor,
                           isIndicate: true)
             {
-                // TODO: TEST 뷰로 이동
-                isMMSEViewPresented = true
-//                path.append(.selfTestStart)
+                coordinator.path.append(
+                    DiagnosisLink.mmse(
+                        BaseCoordinator(path: coordinator.$path)
+                    )
+                )
             } content: {
                 Text("MMSE 검사하기")
             }
@@ -119,9 +117,11 @@ struct MMSEInfoView: View {
                               buttonColor: .accentColor,
                               isIndicate: false)
                 {
-                    //TODO: 테스트 화면
-                    isMMSEViewPresented = true
-//                    path.append(.selfTestStart)
+                    coordinator.path.append(
+                        DiagnosisLink.mmse(
+                            BaseCoordinator(path: coordinator.$path)
+                        )
+                    )
                 } content: {
                     Text("MMSE 검사 다시하기")
                         
@@ -160,7 +160,8 @@ struct MMSEInfoView: View {
                               buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
-                    path.append(.mmseResultList)
+                    // FIXME: path
+//                    path.append(.mmseResultList)
                 } content: {
                     Text("전체보기")
                 }

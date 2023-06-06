@@ -8,10 +8,13 @@
 import SwiftUI
 import Moya
 
+import StackCoordinator
+
 struct SelfTestInfoView: View {
     @StateObject var viewModel: SelfTestInfoViewModel
+    var selfTestViewModel: SelfTestViewModel
     
-    @Binding var path: [DiagnosisViewStack]
+    var coordinator: BaseCoordinator<DiagnosisLink>
     
     //MARK: - Body
     
@@ -46,7 +49,9 @@ struct SelfTestInfoView: View {
                           buttonColor: .accentColor,
                           isIndicate: true)
             {
-                path.append(.selfTestStart)
+                coordinator.path.append(
+                    DiagnosisLink.selfTestStart(selfTestViewModel)
+                )
             } content: {
                 Text("자가진단 시작하기")
             }
@@ -75,7 +80,9 @@ struct SelfTestInfoView: View {
                               buttonColor: .accentColor,
                               isIndicate: false)
                 {
-                    path.append(.selfTestStart)
+                   coordinator.path.append(
+                    DiagnosisLink.selfTestStart(selfTestViewModel)
+                   )
                 } content: {
                     Text("자가진단 다시하기")
                 }
@@ -113,7 +120,8 @@ struct SelfTestInfoView: View {
                               buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
-                    path.append(.selfTestResultList)
+                    // FIXME: path
+//                    path.append(.selfTestResultList)
                 } content: {
                     Text("전체보기")
                 }
@@ -126,6 +134,10 @@ struct SelfTestInfoView: View {
 
 struct DiagnosisViewm_Previews: PreviewProvider {
     static var previews: some View {
-        DiagnosisView()
+        DiagnosisView(
+            coordinator: BaseCoordinator<DiagnosisLink>(
+                path: .constant(NavigationPath())
+            )
+        )
     }
 }

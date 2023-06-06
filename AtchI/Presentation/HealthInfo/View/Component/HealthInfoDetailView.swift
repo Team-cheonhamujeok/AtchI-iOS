@@ -1,5 +1,5 @@
 //
-//  WatchActivityView.swift
+//  HealthInfoDetailView.swift
 //  AtchI
 //
 //  Created by DOYEON LEE on 2023/05/21.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct WatchActivityView: View {
+struct HealthInfoDetailView: View {
     
     @Binding var stepCount: String
     @Binding var heartAverage: String
@@ -87,6 +87,6 @@ struct WatchActivityView: View {
 
 struct WatchActivityView_Previews: PreviewProvider {
     static var previews: some View {
-        WatchActivityView(stepCount: .constant(""), heartAverage: .constant(""), sleepTotal: .constant(""))
+        HealthInfoDetailView(stepCount: .constant(""), heartAverage: .constant(""), sleepTotal: .constant(""))
     }
 }

@@ -7,13 +7,12 @@
 
 import SwiftUI
 
+import StackCoordinator
+
 struct MMSEResultView: View {
     
-    @Environment(\.dismiss) var dismiss
-    
-    @Binding var isPreviousViewPresented: Bool
-    
     let resultScores: [String: String]
+    let coordinator: BaseCoordinator<MMSELink>
     
     var body: some View {
         ZStack {
@@ -39,8 +38,6 @@ struct MMSEResultView: View {
                     Spacer(minLength: 5)
                     MMSEResultStack(resultScores: resultScores)
                     Spacer(minLength: 50)
-                    
-                    // 확인 버튼
                 }
                 .padding(30)
                 
@@ -59,9 +56,7 @@ struct MMSEResultView: View {
                 .background(Color.accentColor)
                 .cornerRadius(20)
                 .onTapGesture {
-                    // 모든 뷰 dismiss
-                    isPreviousViewPresented = false
-                    dismiss()
+                    coordinator.path.removeAll()
                 }
             }
             .padding(.horizontal, 30)
@@ -72,6 +67,11 @@ struct MMSEResultView: View {
 
 struct MMSEResultView_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEResultView(isPreviousViewPresented: .constant(true), resultScores: [:])
+        MMSEResultView(
+            resultScores: [:],
+            coordinator: BaseCoordinator(
+                path: .constant(NavigationPath())
+            )
+        )
     }
 }

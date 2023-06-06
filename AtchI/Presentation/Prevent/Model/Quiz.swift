@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Quiz: Decodable {
+struct Quiz: Decodable, Hashable {
     var index: Int?
     var content: String?
     var check: Bool?

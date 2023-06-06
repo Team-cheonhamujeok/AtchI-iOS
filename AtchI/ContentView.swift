@@ -8,6 +8,7 @@ import SwiftUI
 import UIKit
 
 import Moya
+import StackCoordinator
 
 struct ContentView: View {
     
@@ -17,57 +18,62 @@ struct ContentView: View {
     
     @State private var selectedTab: TabBarType = .home
     
+    @Binding var path: NavigationPath
     
     var body: some View {
         let isIntroModalOpen = Binding<Bool>(
             get: { mid == 0 },
             set: { _ in }
         )
-        NavigationView {
-            TabView(selection: $selectedTab) {
-                HomeView()
-                    .tabItem{
-                        Image(systemName: "house")
-                        Text("홈")
-                    }
-                    .tag(TabBarType.home)
-                DiagnosisView()
-                    .tabItem{
-                        Image(systemName: "stethoscope")
-                        Text("진단")
-                    }
-                    .tag(TabBarType.diagnosis)
-                PreventView(preventViewModel: PreventViewModel(quizService: QuizService(provider: MoyaProvider<QuizAPI>())))
-                    .tabItem{
-                        Image(systemName: "brain.head.profile")
-                        Text("예방")
-                    }
-                    .tag(TabBarType.prevent)
-                SettingView()
-                    .tabItem{
-                        Image(systemName: "gear")
-                        Text("설정")
-                    }
-                    .tag(TabBarType.setting)
-               
+        TabView(selection: $selectedTab) {
+            HomeBuilder(
+                coordinator: BaseCoordinator<HomeLink>(path: $path)
+            )
+            .tabItem{
+                Image(systemName: "house")
+                Text("홈")
             }
-            .tabViewStyle(DefaultTabViewStyle())
-            .toolbar(.hidden, for: .navigationBar)
-            .onAppear() {
-                // Setting tabView style
-                UITabBar.appearance().standardAppearance = setTabBarAppearance()
-                UITabBar.appearance().barTintColor = UIColor(Color.mainBackground)
-                UITabBar.appearance().backgroundColor = UIColor(Color.mainBackground)
-                UINavigationBar.appearance().backItem?.titleView?.tintColor = .white
+            .tag(TabBarType.home)
+            DiagnosisBuilder(
+                coordinator: BaseCoordinator<DiagnosisLink>(path: $path)
+            )
+            .tabItem{
+                Image(systemName: "stethoscope")
+                Text("진단")
             }
-            .fullScreenCover(isPresented: isIntroModalOpen) {
-                IntroView()
-            }
-            .onOpenURL { url in // 딥링크로 들어오면 실행
-                if (UserDefaults.standard.integer(forKey: "mid") != 0)  {
-                    if let mappedTab = url.deepLinkHostMapTabBar {
-                        selectedTab = mappedTab
-                    }
+            .tag(TabBarType.diagnosis)
+            PreventView(preventViewModel: PreventViewModel(quizService: QuizService(provider: MoyaProvider<QuizAPI>())))
+                .tabItem{
+                    Image(systemName: "brain.head.profile")
+                    Text("예방")
+                }
+                .tag(TabBarType.prevent)
+            SettingView()
+                .tabItem{
+                    Image(systemName: "gear")
+                    Text("설정")
+                }
+                .tag(TabBarType.setting)
+            
+        }
+        .tabViewStyle(DefaultTabViewStyle())
+        .toolbar(.hidden, for: .navigationBar)
+        .onAppear() {
+            // Setting tabView style
+            UITabBar.appearance().standardAppearance = setTabBarAppearance()
+            UITabBar.appearance().barTintColor = UIColor(Color.mainBackground)
+            UITabBar.appearance().backgroundColor = UIColor(Color.mainBackground)
+            UINavigationBar.appearance().backItem?.titleView?.tintColor = .white
+            
+            
+        }
+        .fullScreenCover(isPresented: isIntroModalOpen) {
+            IntroView()
+        }
+        .onOpenURL { url in // 딥링크로 들어오면 실행
+            if (UserDefaults.standard.integer(forKey: "mid") != 0)  {
+                if let mappedTab = url.deepLinkHostMapTabBar {
+                    selectedTab = mappedTab
                 }
             }
         }
@@ -83,7 +89,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(path: .constant(NavigationPath()))
     }
 }
 

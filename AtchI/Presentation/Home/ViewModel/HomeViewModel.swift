@@ -7,21 +7,30 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 import Factory
+import StackCoordinator
 
+@MainActor
 class HomeViewModel: ObservableObject {
+    
+    
     // MARK: - Dependency
+    
     @Injected(\.dementiaArticleService) private var dementiaArticleService
-    @Injected(\.hkActivityService) private var hkActivityService
-    @Injected(\.hkHeartRateService) private var hkHeartRateService
-    @Injected(\.hkSleepService) private var hkSleepService
+    @Injected(\.quizService) var quizServcie
+    var coordinator: BaseCoordinator<HomeLink>
     
     // MARK: - Input State
+    
     @Subject var viewOnAppear: Void = ()
-    @Subject var onTapRefreshButton: Void = ()
+    @Subject var tapMoveHealthInfoPage: Void = ()
+    @Subject var tapQuizShortcut: Void = ()
+    @Subject var tapSelfDiagnosisShortcut: Void = ()
     
     // MARK: - Output State
+    
     @Published var stepCount: String = ""
     @Published var heartAverage: String = ""
     @Published var sleepTotal: String = ""
@@ -30,62 +39,75 @@ class HomeViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init() {
+    
+    init(coordinator: BaseCoordinator<HomeLink>) {
+        self.coordinator = coordinator
         getDementiaArticles()
         bind()
     }
     
     // MARK: - Prviate
+    
     private func bind() {
-        /// onAppear or RefreshButtonTap trigger
-        let refreshWatchDataTrigger = $viewOnAppear
-            .merge(with: $onTapRefreshButton)
-            .share()
-            .eraseToAnyPublisher()
         
-        refreshWatchDataTrigger
-            .flatMap {
-                self.hkActivityService
-                    .getStepCount(date: Date())
-                    .replaceError(with: 0)
-                    .map { "\(Int($0))걸음" }
+        $tapMoveHealthInfoPage
+            .sink {
+                self.coordinator.path.append(HomeLink.healthInfo)
             }
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.stepCount, on: self)
             .store(in: &cancellables)
         
-        refreshWatchDataTrigger
+        $tapQuizShortcut
             .flatMap {
-                self.hkHeartRateService
-                    .getHeartRateAveragePerMin(startDate: DateHelper.shared.getYesterdayStartAM(Date()),
-                                           endDate: DateHelper.shared.getYesterdayEndPM(Date()))
-                .replaceError(with: [0])
-                .map { $0.reduce(0.0,+) / Double($0.count) }
-                .map { "\(Int($0))BPM" }
+                return self.getUnsolvedQuiz()
             }
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.heartAverage, on: self)
+            .sink { quiz in
+                if let quiz = quiz {
+                    self.coordinator.path.append(
+                        HomeLink.quiz(
+                            quiz,
+                            BaseCoordinator<QuizLink>(
+                                path: self.coordinator.$path
+                            )
+                        )
+                    )
+                } else {
+                    AlertHelper
+                        .showAlert(title: "퀴즈 모두 완료",
+                                   message: "오늘 퀴즈를 모두 푸셨습니다 🥳")
+                }
+            }
             .store(in: &cancellables)
         
-        refreshWatchDataTrigger
-            .flatMap {
-                self.hkSleepService
-                    .getSleepRecord(date: Date(),
-                                    sleepCategory: .total)
-                    .replaceError(with: 0)
-                    .map { "\(Int($0 / 60))시간 \($0 % 60)분" }
-            }
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.sleepTotal, on: self)
-            .store(in: &cancellables)
         
     }
     
     // MARK: - Semantic function snippets
-    func getDementiaArticles() {
+    
+    private func getDementiaArticles() {
         self.articles = dementiaArticleService
             .getDementiaArticles()
             .shuffled()
+    }
+    
+    //.. 🙄
+    /// 아직 풀지 않은 퀴즈를 조회합니다.
+    /// - Returns: 조회 결과를 Quiz 구조체 형식으로 반환합니다. 만약, 퀴즈를 다 풀었다면 nil을 반환합니다.
+    private func getUnsolvedQuiz() -> AnyPublisher<Quiz?, Never> {
+        let mid = UserDefaults.standard.integer(forKey: "mid")
+        
+        return quizServcie
+            .getQuiz(mid: mid)
+            .map { quiz in
+                if !quiz.quiz1Check {
+                    return Quiz(index: 1, content: quiz.quiz1, check: quiz.quiz1Check, solved: quiz.solve)
+                } else if !quiz.quiz2Check {
+                    return Quiz(index: 2, content: quiz.quiz1, check: quiz.quiz1Check, solved: quiz.solve)
+                } else if !quiz.quiz3Check {
+                    return Quiz(index: 3, content: quiz.quiz1, check: quiz.quiz1Check, solved: quiz.solve)
+                } else { return nil }
+            }
+            .replaceError(with: nil)
+            .eraseToAnyPublisher()
     }
     
 }

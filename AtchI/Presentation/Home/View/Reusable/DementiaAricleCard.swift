@@ -58,22 +58,23 @@ struct DementiaAricleCard: View {
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
                alignment: .leading)
+        // action - show modal
+        .onTapGesture {
+            print("tabtab")
+            self.showingDetail = true
+        }
         .background(Color.mainPurpleLight)
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .strokeBorder(Color.grayBoldLine, lineWidth: 1.5)
         )
-        // action - show modal
-        .onTapGesture {
-            self.showingDetail = true
-        }
+        .background(Color.mainBackground)
         .sheet(isPresented: $showingDetail){
             DementiaArticelDetailModal(
                 title: title,
                 content: content,
                 pictureName: pictureName)
         }
-        .background(Color.mainBackground)
     }
 }

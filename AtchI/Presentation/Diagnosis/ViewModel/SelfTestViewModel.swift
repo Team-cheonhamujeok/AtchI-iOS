@@ -8,10 +8,12 @@
 import SwiftUI
 
 import Combine
+import StackCoordinator
 
 class SelfTestViewModel: ObservableObject {
     
     let service: DiagnosisServiceType
+    var coordinator: BaseCoordinator<DiagnosisLink>
     var disposeBag = Set<AnyCancellable>()
     
     @Published var answers: [TestAnswer] = []       // 사용자의 자가진단 답변 리스트
@@ -26,8 +28,10 @@ class SelfTestViewModel: ObservableObject {
     
     // MARK: - init
     
-    init(service: DiagnosisServiceType) {
+    init(service: DiagnosisServiceType,
+         coordinator: BaseCoordinator<DiagnosisLink>) {
         self.service = service
+        self.coordinator = coordinator
         bind()
     }
     
@@ -177,5 +181,18 @@ class SelfTestViewModel: ObservableObject {
                 print("post Response", response)
             })
             .store(in: &disposeBag)
+    }
+}
+
+extension SelfTestViewModel: Hashable {
+    static func == (lhs: SelfTestViewModel, rhs: SelfTestViewModel) -> Bool {
+        return lhs.id == rhs.id ? true : false
+    }
+    
+    func hash(into hasher: inout Hasher) {
+    }
+    
+    var id: String {
+        String(describing: self)
     }
 }

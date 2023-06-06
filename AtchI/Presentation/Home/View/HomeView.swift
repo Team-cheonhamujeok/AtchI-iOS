@@ -11,9 +11,8 @@ import Factory
 
 struct HomeView: View {
     
-    @StateObject private var viewModel = HomeViewModel()
-    @StateObject private var predictVM = PredictionVM()
-    @State private var richText: String = ""
+    @StateObject var viewModel: HomeViewModel
+    @StateObject var predictVM: PredictionVM
     
     var body: some View {
         VStack {
@@ -43,22 +42,20 @@ struct HomeView: View {
                         Image("arrow-right")
                     }
                     .foregroundColor(.grayTextLight)
-                    
-                    Divider()
-                        .padding(.vertical, 15)
-                    
-                    // 애플워치 정보
-                    WatchActivityView(stepCount: $viewModel.stepCount,
-                                      heartAverage: $viewModel.heartAverage,
-                                      sleepTotal: $viewModel.sleepTotal)
+                    .onTapGesture {
+                        viewModel.$tapMoveHealthInfoPage.send()
+                    }
                 }
                 .padding([.leading, .trailing, .bottom], 30)
                 
+                VStack(alignment: .leading, spacing: 20){
+                    Text("바로가기")
+                        .font(.titleMedium)
+                    ShortcutCards(tapQuizShorcut: viewModel.$tapQuizShortcut,
+                                  tapSelfDiagnosisShorcut: viewModel.$tapSelfDiagnosisShortcut)
+                }
+                .padding(.horizontal, 30)
                 
-                // 중간 보더
-                Rectangle()
-                    .frame(height: 15)
-                    .foregroundColor(.grayBoldLine)
                 
                 // MARK: 치매 정보 섹션
                 VStack(alignment: .leading, spacing: 20){
@@ -83,8 +80,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(path: .constant(NavigationPath()))
+//    }
+//}

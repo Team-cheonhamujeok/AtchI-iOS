@@ -10,9 +10,9 @@ import SwiftUI
 import Moya
 
 struct SelfTestStartView: View {
-    @Binding var path: [DiagnosisViewStack]
     
-    @StateObject var selfTestViewModel: SelfTestViewModel
+    
+    @ObservedObject var viewModel: SelfTestViewModel
     
     var body: some View {
         VStack {
@@ -38,8 +38,10 @@ struct SelfTestStartView: View {
                           buttonColor: .accentColor,
                           isIndicate: false)
             {
-                selfTestViewModel.resetAnswers()
-                path.append(.selfTest)
+//                selfTestViewModel.resetAnswers()
+                viewModel.coordinator.path.append(
+                    DiagnosisLink.selfTest(viewModel)
+                )
             } content: {
                 Text("다음으로")
             }
