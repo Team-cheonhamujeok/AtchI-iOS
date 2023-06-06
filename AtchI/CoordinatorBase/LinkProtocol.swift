@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
-protocol LinkProtocol: Hashable, Identifiable { }
+protocol LinkProtocol: Hashable, Identifiable {
+    func matchView() -> any View
+}
 
 extension LinkProtocol {
     var id: String {

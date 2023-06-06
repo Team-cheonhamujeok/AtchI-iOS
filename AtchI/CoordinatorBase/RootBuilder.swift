@@ -8,14 +8,15 @@
 import Foundation
 import SwiftUI
 
-struct RootBuilder: View  {
+struct RootBuilder<Content: View>: View  {
 
     @State var path = NavigationPath()
+    var content: (Binding<NavigationPath>) -> Content
 
     var body: some View {
         NavigationStack(path: $path) {
             ZStack {
-                RootView(path: $path)
+                content($path)
             }
         }
     }

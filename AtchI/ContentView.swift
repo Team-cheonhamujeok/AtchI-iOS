@@ -9,7 +9,7 @@ import UIKit
 
 import Moya
 
-struct RootView: View {
+struct ContentView: View {
     
     @AppStorage("mid") private var mid = UserDefaults.standard.integer(forKey: "mid")
     
@@ -86,13 +86,13 @@ struct RootView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(path: .constant(NavigationPath()))
+        ContentView(path: .constant(NavigationPath()))
     }
 }
 
 // MARK: - Setting tab view style extension
 
-extension RootView {
+extension ContentView {
     // 보더 설정 appearance 세팅
     func setTabBarAppearance() -> UITabBarAppearance {
         let image = UIImage

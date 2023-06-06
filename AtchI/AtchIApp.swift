@@ -18,7 +18,9 @@ struct AtchIApp: App {
     var body: some Scene {
         WindowGroup {
             if networkMonitor.isConnected {
-                RootBuilder()
+                RootBuilder { path in
+                    ContentView(path: path)
+                }
             } else {
                 NetworkErrorView()
             }

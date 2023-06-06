@@ -27,19 +27,15 @@ class HomeCoordinator: CoordinatorProtocol {
     }
 }
 
-
-struct HomeBuilder: BuilderProtocol  {
+struct HomeBuilder: BuilderProtocol {
     
-//    @Binding var path: NavigationPath
-    @ObservedObject var coordinator: HomeCoordinator
+    var coordinator: HomeCoordinator
     
     var body: some View {
-        HomeView(viewModel: HomeViewModel(coordinator: coordinator), predictVM: PredictionVM())
-            .sheet(item: $coordinator.sheet) {_ in
-                EmptyView()
-            }
-            .navigationDestination(for: HomeCoordinator.LinkType.self) { link in
-                MMSEView()
-            }
+        ChildBuilder(coordinator: coordinator)
+        {
+            HomeView(viewModel: HomeViewModel(coordinator: coordinator),
+                     predictVM: PredictionVM())
+        }
     }
 }
