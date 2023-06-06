@@ -15,13 +15,13 @@ enum HomeLink: LinkProtocol {
     
     case mmse
     case healthInfo
-    case quiz
+    case quiz(_ : Quiz)
     
     func matchView() -> any View {
         switch self {
         case .mmse : return MMSEView()
         case .healthInfo: return HealthInfoView()
-        case .quiz: return QuizView(quiz: Quiz(index: 1, content: "안녕", check: false, solved: false))
+        case .quiz(let quiz): return QuizView(quiz: quiz)
         }
     }
 }

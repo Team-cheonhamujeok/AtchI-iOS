@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Factory
 
 struct QuizDoneView: View {
+    
+    @Injected(\.preventViewModel) var viewModel
+    
     var quizOrder: Int
-    var preventViewModel: PreventViewModel
-    @Binding var quizStack: [QuizStack]
     
     var body: some View {
         ZStack{
@@ -31,7 +33,7 @@ struct QuizDoneView: View {
                 default:
                     Text("퀴즈 없음")
                 }
-                Text("이제 오늘 퀴즈는 " + String(3 - preventViewModel.quizCount) + "개가 남았어요 :)")
+                Text("이제 오늘 퀴즈는 " + String(3 - viewModel.quizCount) + "개가 남았어요 :)")
                     .font(.bodyMedium)
             }
             .foregroundColor(.white)
@@ -40,10 +42,8 @@ struct QuizDoneView: View {
                 Spacer()
 
                 DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
-                    print("퀴즈풀기 완료")
-                    quizStack = []
-                    preventViewModel.requestQuiz()
-                    preventViewModel.getWeekQuiz()
+                    viewModel.requestQuiz()
+                    viewModel.getWeekQuiz()
                 }, content: {
                     Text("확인")
                         .foregroundColor(.mainPurple)

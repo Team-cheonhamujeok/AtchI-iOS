@@ -28,6 +28,12 @@ extension Container {
     }
     
     // MARK: - Servcie
+    var quizService: Factory<QuizServiceType> {
+        Factory(self) {
+            QuizService(provider: MoyaProvider<QuizAPI>())
+        }
+    }
+    
     var mmseService: Factory<MMSEService> {
         Factory(self) {
             MMSEService(provider: MoyaProvider<MMSEAPI>())

@@ -59,7 +59,7 @@ class PreventViewModel: ObservableObject {
     }
     
     func requestQuiz() {
-        self.quizService!.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).print().sink(receiveCompletion: { completion in
+        self.quizService!.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
             case .failure(let error):
@@ -80,7 +80,7 @@ class PreventViewModel: ObservableObject {
         let tqId = UserDefaults.standard.integer(forKey: "tqid")
         let mID = UserDefaults.standard.integer(forKey: "mid")
 //        print("tqid \(tqId), mid \(mID)")
-        self.quizService!.checkQuiz(quizCheckModel: QuizCheckRequestModel(tqid:tqId, quizNum: quizNum, mid: mID)).print().sink(receiveCompletion: { completion in
+        self.quizService!.checkQuiz(quizCheckModel: QuizCheckRequestModel(tqid:tqId, quizNum: quizNum, mid: mID)).sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
             case .failure(let error):
@@ -93,7 +93,7 @@ class PreventViewModel: ObservableObject {
     
     func getWeekQuiz() {
         let mID = UserDefaults.standard.integer(forKey: "mid")
-        self.quizService!.getWeekQuiz(mid: mID).print().sink(receiveCompletion: { completion in
+        self.quizService!.getWeekQuiz(mid: mID).sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
             case .failure(let error):
