@@ -24,7 +24,9 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - Input State
     @Subject var viewOnAppear: Void = ()
-    @Subject var onTapRefreshButton: Void = ()
+    @Subject var tapMoveHealthInfoPage: Void = ()
+    @Subject var tapQuizShortcut: Void = ()
+    @Subject var tapSelfDiagnosisShortcut: Void = ()
     
     // MARK: - Output State
     @Published var stepCount: String = ""
@@ -45,9 +47,23 @@ class HomeViewModel: ObservableObject {
     private func bind() {
         /// onAppear or RefreshButtonTap trigger
         let refreshWatchDataTrigger = $viewOnAppear
-            .merge(with: $onTapRefreshButton)
+            .merge(with: $tapMoveHealthInfoPage)
             .share()
             .eraseToAnyPublisher()
+        
+        $tapMoveHealthInfoPage
+            .sink {
+                self.coordinator.path.append(HomeLink.healthInfo)
+            }
+            .store(in: &cancellables)
+        
+        $tapQuizShortcut
+            .print()
+            .sink {
+                self.coordinator.path.append(HomeLink.quiz)
+            }
+            .store(in: &cancellables)
+        
         
         refreshWatchDataTrigger
             .flatMap {
@@ -84,10 +100,6 @@ class HomeViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .assign(to: \.sleepTotal, on: self)
             .store(in: &cancellables)
-        
-        Task {
-            self.coordinator.sheet = HomeLink.mmse
-        }
         
     }
     

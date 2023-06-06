@@ -42,16 +42,15 @@ struct HomeView: View {
                         Image("arrow-right")
                     }
                     .foregroundColor(.grayTextLight)
-                    
-                    Divider()
-                        .padding(.vertical, 15)
-                    
-                    // 애플워치 정보
-                    WatchActivityView(stepCount: $viewModel.stepCount,
-                                      heartAverage: $viewModel.heartAverage,
-                                      sleepTotal: $viewModel.sleepTotal)
+                    .onTapGesture {
+                        viewModel.$tapMoveHealthInfoPage.send()
+                    }
                 }
                 .padding([.leading, .trailing, .bottom], 30)
+                
+                
+                ShortcutCards(tapQuizShorcut: viewModel.$tapQuizShortcut,
+                              tapSelfDiagnosisShorcut: viewModel.$tapSelfDiagnosisShortcut)
                 
                 
                 // 중간 보더
