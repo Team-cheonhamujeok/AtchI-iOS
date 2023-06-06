@@ -63,27 +63,6 @@ struct DiagnosisView: View {
             }
             .padding(.bottom, 40)
         }
-        //        .navigationDestination(for: DiagnosisViewStack.self) { child in
-        //            switch child {
-        //            case .selfTest:
-        //                SelfTestView(selfTestViewModel: selfTestViewModel)
-        //            case .selfTestStart:
-        //                SelfTestStartView(path: $path,
-        //                                  selfTestViewModel: selfTestViewModel)
-        //            case .selfTestResult:
-        //                SelfTestResultView(path: $path,
-        //                                   selfTestViewModel: selfTestViewModel,
-        //                                   selfTestInfoViewModel: selfTestInfoViewModel)
-        //            case .selfTestResultList:
-        //                SelfTestResultList(path: $path,
-        //                                   selfTestInfoViewModel: selfTestInfoViewModel)
-        //            case .mmseResultList:
-        //                MMSEResultList(path: $path,
-        //                               mmseInfoViewModel: mmseInfoViewModel)
-        //            default:
-        //                Text("잘못된 접근")
-        //            }
-        //        }
         .padding(.top, 1)
         
         .onAppear {
