@@ -48,15 +48,14 @@ struct HomeView: View {
                 }
                 .padding([.leading, .trailing, .bottom], 30)
                 
+                VStack(alignment: .leading, spacing: 20){
+                    Text("바로가기")
+                        .font(.titleMedium)
+                    ShortcutCards(tapQuizShorcut: viewModel.$tapQuizShortcut,
+                                  tapSelfDiagnosisShorcut: viewModel.$tapSelfDiagnosisShortcut)
+                }
+                .padding(.horizontal, 30)
                 
-                ShortcutCards(tapQuizShorcut: viewModel.$tapQuizShortcut,
-                              tapSelfDiagnosisShorcut: viewModel.$tapSelfDiagnosisShortcut)
-                
-                
-                // 중간 보더
-                Rectangle()
-                    .frame(height: 15)
-                    .foregroundColor(.grayBoldLine)
                 
                 // MARK: 치매 정보 섹션
                 VStack(alignment: .leading, spacing: 20){
