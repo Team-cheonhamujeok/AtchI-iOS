@@ -81,7 +81,7 @@ Factory | 컨테이너형 DI | https://github.com/hmlongco/Factory
 :---:|:---:|:---:|:---:|:---:|
 <img width="196" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/887d1c39-7ef6-4c2a-9001-bf969dbf4c6e"> | <img width="172" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/dee9970a-a559-41c3-ac03-209fa1d04522"> | <img width="210" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/6d0690d9-cfe5-4400-9da5-1cbc00524d72"> | <img width="171" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/31ed75e2-7a5f-4c91-b389-93b88054651d"> | <img width="211" alt="image" src="https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/c81670af-8453-45bf-9aa6-6225dba6bdbe">
 iOS | BACKEND | AI | iOS | iOS
-[@KoreaMango](https://github.com/devxsby) | [@13wjdgk](https://github.com/13wjdgk) | [@minjjait](https://github.com/minjjait) | [@leedoyeon849](https://github.com/leedoyeon849) | [@spring](https://github.com/leeyi1203) |
+[@KoreaMango](https://github.com/devxsby) | [@13wjdgk](https://github.com/13wjdgk) | [@minjjait](https://github.com/minjjait) | [@dodo849](https://github.com/dodo849) | [@spring](https://github.com/leeyi1203) |
 
 ---
 ##### 🔗 BackEnd Repository: https://github.com/Team-cheonhamujeok/AtchI_Backend
