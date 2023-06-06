@@ -21,7 +21,7 @@ enum HomeLink: LinkProtocol {
 //        case .mmse : return MMSEView(, viewModel: <#MMSEViewModel#>)
         case .healthInfo:
             return HealthInfoView()
-        case .quiz(let quiz, let coordinator):
+        case let .quiz(quiz, coordinator):
             return QuizBuilder(
                 quiz: quiz,
                 coordinator: coordinator
