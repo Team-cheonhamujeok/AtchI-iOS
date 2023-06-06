@@ -16,7 +16,7 @@ struct DiagnosisView: View {
     let selfTestInfoViewModel: SelfTestInfoViewModel
     let mmseInfoViewModel = MMSEInfoViewModel(service: MMSEService(provider: MoyaProvider<MMSEAPI>()))
     
-//    @State private var path: [DiagnosisViewStack] = []
+    //    @State private var path: [DiagnosisViewStack] = []
     var coordinator: BaseCoordinator<DiagnosisLink>
     
     init(coordinator: BaseCoordinator<DiagnosisLink>) {
@@ -54,33 +54,36 @@ struct DiagnosisView: View {
                     .foregroundColor(.grayBoldLine)
                     .padding(.bottom, 10)
                 
-                MMSEInfoView(viewModel: mmseInfoViewModel)
+                MMSEInfoView(
+                    viewModel: mmseInfoViewModel,
+                    coordinator: coordinator
+                )
                 
                 Spacer()
             }
             .padding(.bottom, 40)
         }
-//        .navigationDestination(for: DiagnosisViewStack.self) { child in
-//            switch child {
-//            case .selfTest:
-//                SelfTestView(selfTestViewModel: selfTestViewModel)
-//            case .selfTestStart:
-//                SelfTestStartView(path: $path,
-//                                  selfTestViewModel: selfTestViewModel)
-//            case .selfTestResult:
-//                SelfTestResultView(path: $path,
-//                                   selfTestViewModel: selfTestViewModel,
-//                                   selfTestInfoViewModel: selfTestInfoViewModel)
-//            case .selfTestResultList:
-//                SelfTestResultList(path: $path,
-//                                   selfTestInfoViewModel: selfTestInfoViewModel)
-//            case .mmseResultList:
-//                MMSEResultList(path: $path,
-//                               mmseInfoViewModel: mmseInfoViewModel)
-//            default:
-//                Text("잘못된 접근")
-//            }
-//        }
+        //        .navigationDestination(for: DiagnosisViewStack.self) { child in
+        //            switch child {
+        //            case .selfTest:
+        //                SelfTestView(selfTestViewModel: selfTestViewModel)
+        //            case .selfTestStart:
+        //                SelfTestStartView(path: $path,
+        //                                  selfTestViewModel: selfTestViewModel)
+        //            case .selfTestResult:
+        //                SelfTestResultView(path: $path,
+        //                                   selfTestViewModel: selfTestViewModel,
+        //                                   selfTestInfoViewModel: selfTestInfoViewModel)
+        //            case .selfTestResultList:
+        //                SelfTestResultList(path: $path,
+        //                                   selfTestInfoViewModel: selfTestInfoViewModel)
+        //            case .mmseResultList:
+        //                MMSEResultList(path: $path,
+        //                               mmseInfoViewModel: mmseInfoViewModel)
+        //            default:
+        //                Text("잘못된 접근")
+        //            }
+        //        }
         .padding(.top, 1)
         
         .onAppear {

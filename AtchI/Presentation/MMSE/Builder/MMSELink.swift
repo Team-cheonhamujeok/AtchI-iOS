@@ -13,12 +13,14 @@ import Moya
 
 enum MMSELink: LinkProtocol {
     
-    case result(_ score: [String: String])
+    case result(_ score: [String: String],
+                _ coordinator: BaseCoordinator<MMSELink>)
     
     func matchView() -> any View {
         switch self {
-        case .result(let score):
-            return MMSEResultView(resultScores: score)
+        case .result(let score, let coordinator):
+            return MMSEResultView(resultScores: score,
+                                  coordinator: coordinator)
         }
     }
 }

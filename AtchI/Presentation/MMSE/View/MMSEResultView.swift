@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+import StackCoordinator
+
 struct MMSEResultView: View {
     
     let resultScores: [String: String]
+    let coordinator: BaseCoordinator<MMSELink>
     
     var body: some View {
         ZStack {
@@ -35,8 +38,6 @@ struct MMSEResultView: View {
                     Spacer(minLength: 5)
                     MMSEResultStack(resultScores: resultScores)
                     Spacer(minLength: 50)
-                    
-                    // 확인 버튼
                 }
                 .padding(30)
                 
@@ -54,6 +55,9 @@ struct MMSEResultView: View {
                 .frame(maxWidth: .infinity, maxHeight: 65)
                 .background(Color.accentColor)
                 .cornerRadius(20)
+                .onTapGesture {
+                    coordinator.path.removeAll()
+                }
             }
             .padding(.horizontal, 30)
         }
@@ -63,6 +67,11 @@ struct MMSEResultView: View {
 
 struct MMSEResultView_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEResultView(resultScores: [:])
+        MMSEResultView(
+            resultScores: [:],
+            coordinator: BaseCoordinator(
+                path: .constant(NavigationPath())
+            )
+        )
     }
 }

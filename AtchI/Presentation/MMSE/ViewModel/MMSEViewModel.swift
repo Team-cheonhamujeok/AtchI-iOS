@@ -91,14 +91,21 @@ class MMSEViewModel: ObservableObject {
         let resultScores = self.mmseService
             .getMMSEResultScores(self.correctAnswers)
         // 계산 완료 후 Result 화면으로
-        self.coordinator.path.append(MMSELink.result(resultScores))
+        self.coordinator.path.append(
+            MMSELink.result(
+                resultScores,
+                coordinator
+            )
+        )
     }
     
     private func requestSaveMMSE() {
         // 서버에 저장
         self.mmseService.requestSaveMMESE(Array(self.correctAnswers.values))
-            .print("mmse save: ")
-        .sink(receiveCompletion: { e in print(e) }, receiveValue: { v in print(v)})
+        .sink(
+            receiveCompletion: { _ in },
+            receiveValue: { _ in }
+        )
         .store(in: &self.cancellables)
     }
     
@@ -108,9 +115,13 @@ class MMSEViewModel: ObservableObject {
     
     private func checkAnswerAndUpdateResults(completion: @escaping () -> Void) {
         self.mmseService
-            .checkIsCorrect(questionModel: self.questions[self.currentIndex],
-                            userAnswer: self.editTextInput) {
-                self.correctAnswers[self.questions[self.currentIndex]] = $0 ? 1 : 2
+            .checkIsCorrect(
+                questionModel: self.questions[self.currentIndex],
+                userAnswer: self.editTextInput
+            ) {
+                self.correctAnswers[self.questions[self.currentIndex]] = $0
+                ? 1
+                : 2
                 completion()
             }
     }
