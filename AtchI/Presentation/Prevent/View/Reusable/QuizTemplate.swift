@@ -9,9 +9,6 @@ import SwiftUI
 
 struct QuizTemplate: View {
     var quiz: Quiz
-//    @State var tag:Int? = nil
-    @Binding var viewStack: [QuizStack]
-    var preventViewModel: PreventViewModel
     
     var body: some View {
         HStack {
@@ -37,8 +34,8 @@ struct QuizTemplate: View {
             }
             Spacer()
             
-            Text("도전하기").onTapGesture {
-                viewStack.append(QuizStack(type: .quizView, data: quiz))
+            Text("도전하기")
+                .onTapGesture {
             }
             .font(.bodySmall)
             .foregroundColor(.white)

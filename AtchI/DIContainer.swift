@@ -11,6 +11,14 @@ import Factory
 import Moya
 
 extension Container {
+    
+    // MARK: - ViewModel {
+    var preventViewModel: Factory<PreventViewModel> {
+        Factory(self) {
+            PreventViewModel(quizService: QuizService(provider: MoyaProvider<QuizAPI>()))
+        }
+        .singleton
+    }
 
     // MARK: - Moya
     var lifePatternAPIProvider: Factory<MoyaProvider<LifePatternAPI>> {

@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+import Factory
+
 struct QuizView: View {
-    var quiz: Quiz
-    var preventViewModel: PreventViewModel
-    @Binding var quizPath: [QuizStack]
+    @Injected(\.preventViewModel) var viewModel // 싱글턴
     
+    var quiz: Quiz
     
     var body: some View {
         ZStack{
@@ -44,11 +45,15 @@ struct QuizView: View {
                 
                 Spacer()
                 
-                DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
-                    preventViewModel.calQuizCount()
-                    preventViewModel.checkQuiz(quizNum: quiz.index!)
-                    quizPath.append(QuizStack(type: .quizDoneView, data: quiz))
-                }, content: {
+                DefaultButton(buttonSize: .large,
+                              buttonStyle: .filled,
+                              buttonColor: .white,
+                              isIndicate: false,
+                              action: {
+                    viewModel.calQuizCount()
+                    viewModel.checkQuiz(quizNum: quiz.index!)
+                },
+                              content: {
                     Text("완료")
                         .foregroundColor(.mainPurple)
                 })

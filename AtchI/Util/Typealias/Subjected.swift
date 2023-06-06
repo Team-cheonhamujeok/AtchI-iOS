@@ -7,11 +7,5 @@
 
 import Foundation
 import Combine
-import SwiftUI
 
-//@propertyWrapper
-//struct Subjected<Value> {
-//}
-
-
-
+typealias Subjected<T> = PassthroughSubject<T, Never>
