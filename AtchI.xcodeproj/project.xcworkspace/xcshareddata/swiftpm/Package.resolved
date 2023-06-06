@@ -55,6 +55,15 @@
       }
     },
     {
+      "identity" : "stackcoordinator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dodo849/StackCoordinator.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b143edb887143197dd5c3b8a56d1887e1785ccc3"
+      }
+    },
+    {
       "identity" : "swift-markdown-ui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/gonzalezreal/swift-markdown-ui.git",

@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+import StackCoordinator
+
 enum HomeLink: LinkProtocol {
     
     case mmse
