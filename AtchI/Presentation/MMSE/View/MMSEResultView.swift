@@ -9,10 +9,6 @@ import SwiftUI
 
 struct MMSEResultView: View {
     
-    @Environment(\.dismiss) var dismiss
-    
-    @Binding var isPreviousViewPresented: Bool
-    
     let resultScores: [String: String]
     
     var body: some View {
@@ -58,11 +54,6 @@ struct MMSEResultView: View {
                 .frame(maxWidth: .infinity, maxHeight: 65)
                 .background(Color.accentColor)
                 .cornerRadius(20)
-                .onTapGesture {
-                    // 모든 뷰 dismiss
-                    isPreviousViewPresented = false
-                    dismiss()
-                }
             }
             .padding(.horizontal, 30)
         }
@@ -72,6 +63,6 @@ struct MMSEResultView: View {
 
 struct MMSEResultView_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEResultView(isPreviousViewPresented: .constant(true), resultScores: [:])
+        MMSEResultView(resultScores: [:])
     }
 }

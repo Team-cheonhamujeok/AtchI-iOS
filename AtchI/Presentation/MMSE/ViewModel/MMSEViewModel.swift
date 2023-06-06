@@ -10,12 +10,14 @@ import Combine
 import UIKit
 
 import Factory
+import StackCoordinator
 
 class MMSEViewModel: ObservableObject {
     
     // MARK: - Dependency
     @Injected(\.mmseService) var mmseService
     private var locationHelper = LocationHelper()
+    var coordinator: BaseCoordinator<MMSELink>
     
     // MARK: - Input State
     /// Next button 클릭 이벤트입니다.
@@ -39,13 +41,13 @@ class MMSEViewModel: ObservableObject {
     /// 정답 확인 배열입니다. 맞으면 1 틀리면 2입니다.
     /// - Note: 문항 순서(인덱스)가 Key값입니다.
     var correctAnswers: [MMSEQuestionModel: Int] = [:]
-    var resultScores: [String: String] = [:]
     
     // MARK: - Cancellabe
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init() {
+    init(coordinator: BaseCoordinator<MMSELink>) {
+        self.coordinator = coordinator
         locationHelper.requestAuthorization()
         self.questions = mmseService.getMMSEQuestions()
         bind()
@@ -86,9 +88,10 @@ class MMSEViewModel: ObservableObject {
     // MARK: - Sub Functions
     private func goResultPage() {
         // 결과 계산
-        self.resultScores = self.mmseService.getMMSEResultScores(self.correctAnswers)
+        let resultScores = self.mmseService
+            .getMMSEResultScores(self.correctAnswers)
         // 계산 완료 후 Result 화면으로
-        self.isResultPage = true
+        self.coordinator.path.append(MMSELink.result(resultScores))
     }
     
     private func requestSaveMMSE() {

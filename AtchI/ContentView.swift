@@ -8,6 +8,7 @@ import SwiftUI
 import UIKit
 
 import Moya
+import StackCoordinator
 
 struct ContentView: View {
     
@@ -26,7 +27,7 @@ struct ContentView: View {
         )
         TabView(selection: $selectedTab) {
             HomeBuilder(
-                coordinator: HomeCoordinator(path: $path)
+                coordinator: BaseCoordinator<HomeLink>(path: $path)
             )
             .tabItem{
                 Image(systemName: "house")
@@ -34,7 +35,7 @@ struct ContentView: View {
             }
             .tag(TabBarType.home)
             DiagnosisBuilder(
-                coordinator: DiagnosisCoordinator(path: $path)
+                coordinator: BaseCoordinator<DiagnosisLink>(path: $path)
             )
             .tabItem{
                 Image(systemName: "stethoscope")

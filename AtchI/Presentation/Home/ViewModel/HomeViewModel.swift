@@ -10,16 +10,17 @@ import Foundation
 import SwiftUI
 
 import Factory
+import StackCoordinator
 
 @MainActor
 class HomeViewModel: ObservableObject {
     
-    var coordinator: HomeCoordinator
     
     // MARK: - Dependency
     
     @Injected(\.dementiaArticleService) private var dementiaArticleService
     @Injected(\.quizService) var quizServcie
+    var coordinator: BaseCoordinator<HomeLink>
     
     // MARK: - Input State
     
@@ -39,7 +40,7 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - Constructor
     
-    init(coordinator: HomeCoordinator) {
+    init(coordinator: BaseCoordinator<HomeLink>) {
         self.coordinator = coordinator
         getDementiaArticles()
         bind()

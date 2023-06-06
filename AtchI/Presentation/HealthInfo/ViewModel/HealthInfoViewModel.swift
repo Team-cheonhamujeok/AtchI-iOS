@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 
 import Factory
+import StackCoordinator
 
 @MainActor
 class HealthInfoViewModel: ObservableObject {
     
-    var coordinator: HomeCoordinator
+    var coordinator: BaseCoordinator<HomeLink>
     
     // MARK: - Dependency
     @Injected(\.hkActivityService) private var hkActivityService
@@ -35,7 +36,7 @@ class HealthInfoViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init(coordinator: HomeCoordinator) {
+    init(coordinator: BaseCoordinator<HomeLink>) {
         self.coordinator = coordinator
         bind()
     }

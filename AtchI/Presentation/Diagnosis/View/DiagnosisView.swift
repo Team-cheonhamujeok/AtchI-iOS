@@ -8,6 +8,7 @@
 import SwiftUI
 
 import Moya
+import StackCoordinator
 
 struct DiagnosisView: View {
     
@@ -16,9 +17,9 @@ struct DiagnosisView: View {
     let mmseInfoViewModel = MMSEInfoViewModel(service: MMSEService(provider: MoyaProvider<MMSEAPI>()))
     
 //    @State private var path: [DiagnosisViewStack] = []
-    var coordinator: DiagnosisCoordinator
+    var coordinator: BaseCoordinator<DiagnosisLink>
     
-    init(coordinator: DiagnosisCoordinator) {
+    init(coordinator: BaseCoordinator<DiagnosisLink>) {
         self.coordinator = coordinator
         self.selfTestViewModel = SelfTestViewModel(
             service: DiagnosisService(
@@ -94,7 +95,7 @@ struct DiagnosisView: View {
 struct DiagnosisView_Previews: PreviewProvider {
     static var previews: some View {
         DiagnosisView(
-            coordinator: DiagnosisCoordinator(
+            coordinator: BaseCoordinator<DiagnosisLink>(
                 path: .constant(NavigationPath())
             )
         )

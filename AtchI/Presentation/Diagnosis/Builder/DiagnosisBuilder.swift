@@ -10,14 +10,12 @@ import SwiftUI
 
 import StackCoordinator
 
-
 struct DiagnosisBuilder: BuilderProtocol {
     
-    var coordinator: DiagnosisCoordinator
+    var coordinator: BaseCoordinator<DiagnosisLink>
     
     var body: some View {
-        ChildBuilder(coordinator: coordinator)
-        {
+        BaseBuilder(coordinator: coordinator) {
             DiagnosisView(coordinator: coordinator)
         }
     }

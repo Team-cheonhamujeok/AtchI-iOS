@@ -8,11 +8,13 @@
 import SwiftUI
 import Moya
 
+import StackCoordinator
+
 struct SelfTestInfoView: View {
     @StateObject var viewModel: SelfTestInfoViewModel
     var selfTestViewModel: SelfTestViewModel
     
-    var coordinator: DiagnosisCoordinator
+    var coordinator: BaseCoordinator<DiagnosisLink>
     
     //MARK: - Body
     
@@ -133,7 +135,7 @@ struct SelfTestInfoView: View {
 struct DiagnosisViewm_Previews: PreviewProvider {
     static var previews: some View {
         DiagnosisView(
-            coordinator: DiagnosisCoordinator(
+            coordinator: BaseCoordinator<DiagnosisLink>(
                 path: .constant(NavigationPath())
             )
         )

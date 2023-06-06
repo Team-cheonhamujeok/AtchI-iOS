@@ -11,12 +11,9 @@ struct MMSEView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @ObservedObject var viewModel: MMSEViewModel = MMSEViewModel()
+    @ObservedObject var viewModel: MMSEViewModel
     
     @ObservedObject var keyboardHelper = KeyboardHelper()
-    
-    // 상위뷰에서 현재 뷰를 pop하기 위한 변수입니다.
-    @State var isThisViewPresented: Bool = true
     
     var body: some View {
         // 현재 문항이 image 형식이면서 키보드가 올라와있는지 -> 에 따라 문항 섹션 show/hide
@@ -91,14 +88,6 @@ struct MMSEView: View {
                               state: viewModel.nextButtonState)
                 .padding(30)
             }
-            
-            // 결과 페이지 링크
-            NavigationLink(
-                destination: MMSEResultView(isPreviousViewPresented: $isThisViewPresented,
-                                            resultScores: viewModel.resultScores),
-                isActive: $viewModel.isResultPage,
-                label: { EmptyView() }
-            )
         }
         .navigationBarBackButtonHidden()
         .toolbar{
@@ -118,9 +107,17 @@ struct MMSEView: View {
     }
 }
 
+import StackCoordinator
+
 struct MMSEView_Previews: PreviewProvider {
     static var previews: some View {
-        MMSEView()
+        MMSEView(
+            viewModel: MMSEViewModel(
+                coordinator: BaseCoordinator<MMSELink>(
+                    path: .constant(NavigationPath())
+                )
+            )
+        )
     }
 }
 

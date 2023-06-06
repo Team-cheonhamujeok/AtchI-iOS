@@ -137,15 +137,15 @@
 		BC6FB36B2A10BDE80009186B /* LifePatternServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */; };
 		BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */; };
 		BC7650B12A2F40B3005F306E /* HealthInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650B02A2F40B3005F306E /* HealthInfoView.swift */; };
-		BC7650B42A2F413C005F306E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650B32A2F413C005F306E /* HomeCoordinator.swift */; };
 		BC7650B62A2F4153005F306E /* HomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650B52A2F4153005F306E /* HomeLink.swift */; };
 		BC7650BB2A2F613E005F306E /* Subjected.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650BA2A2F613E005F306E /* Subjected.swift */; };
 		BC7650BF2A2F8200005F306E /* HealthInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650BE2A2F8200005F306E /* HealthInfoViewModel.swift */; };
-		BC7650C82A2F85E0005F306E /* StackCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = BC7650C72A2F85E0005F306E /* StackCoordinator */; };
 		BC7650CA2A2F8A29005F306E /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650C92A2F8A29005F306E /* AlertHelper.swift */; };
 		BC7650CD2A2F9158005F306E /* DiagnosisBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650CC2A2F9158005F306E /* DiagnosisBuilder.swift */; };
-		BC7650CF2A2F9175005F306E /* DiagnosisCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650CE2A2F9175005F306E /* DiagnosisCoordinator.swift */; };
 		BC7650D12A2F9186005F306E /* DiagnosisLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650D02A2F9186005F306E /* DiagnosisLink.swift */; };
+		BC7650D42A2FA138005F306E /* MMSEBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650D32A2FA138005F306E /* MMSEBuilder.swift */; };
+		BC7650D82A2FA154005F306E /* MMSELink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650D72A2FA154005F306E /* MMSELink.swift */; };
+		BC7650DE2A2FA77D005F306E /* StackCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = BC7650DD2A2FA77D005F306E /* StackCoordinator */; };
 		BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */; };
 		BC7719282A0F81A700F692C6 /* SaveLifePatternRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */; };
 		BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */; };
@@ -384,14 +384,14 @@
 		BC6FB36A2A10BDE80009186B /* LifePatternServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternServiceTests.swift; sourceTree = "<group>"; };
 		BC70470E29E7E91C00FA265A /* SignupReqeustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReqeustModel.swift; sourceTree = "<group>"; };
 		BC7650B02A2F40B3005F306E /* HealthInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoView.swift; sourceTree = "<group>"; };
-		BC7650B32A2F413C005F306E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		BC7650B52A2F4153005F306E /* HomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLink.swift; sourceTree = "<group>"; };
 		BC7650BA2A2F613E005F306E /* Subjected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subjected.swift; sourceTree = "<group>"; };
 		BC7650BE2A2F8200005F306E /* HealthInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoViewModel.swift; sourceTree = "<group>"; };
 		BC7650C92A2F8A29005F306E /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		BC7650CC2A2F9158005F306E /* DiagnosisBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisBuilder.swift; sourceTree = "<group>"; };
-		BC7650CE2A2F9175005F306E /* DiagnosisCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisCoordinator.swift; sourceTree = "<group>"; };
 		BC7650D02A2F9186005F306E /* DiagnosisLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisLink.swift; sourceTree = "<group>"; };
+		BC7650D32A2FA138005F306E /* MMSEBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEBuilder.swift; sourceTree = "<group>"; };
+		BC7650D72A2FA154005F306E /* MMSELink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSELink.swift; sourceTree = "<group>"; };
 		BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceProtocol.swift; sourceTree = "<group>"; };
 		BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLifePatternRequestModel.swift; sourceTree = "<group>"; };
 		BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPI.swift; sourceTree = "<group>"; };
@@ -503,7 +503,7 @@
 			files = (
 				BCB9C6932A0A3CDB00273F33 /* Lottie in Frameworks */,
 				BC37AA5129E080760047D273 /* CombineMoya in Frameworks */,
-				BC7650C82A2F85E0005F306E /* StackCoordinator in Frameworks */,
+				BC7650DE2A2FA77D005F306E /* StackCoordinator in Frameworks */,
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
 				BC6948312A20AC65006DED29 /* Factory in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
@@ -1116,8 +1116,16 @@
 			isa = PBXGroup;
 			children = (
 				BC7650CC2A2F9158005F306E /* DiagnosisBuilder.swift */,
-				BC7650CE2A2F9175005F306E /* DiagnosisCoordinator.swift */,
 				BC7650D02A2F9186005F306E /* DiagnosisLink.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		BC7650D22A2FA11E005F306E /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				BC7650D32A2FA138005F306E /* MMSEBuilder.swift */,
+				BC7650D72A2FA154005F306E /* MMSELink.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -1314,7 +1322,6 @@
 			isa = PBXGroup;
 			children = (
 				BC8FB88C2A2E508A00280E58 /* HomeBuilder.swift */,
-				BC7650B32A2F413C005F306E /* HomeCoordinator.swift */,
 				BC7650B52A2F4153005F306E /* HomeLink.swift */,
 			);
 			path = Builder;
@@ -1619,6 +1626,7 @@
 		BCEDF1D72A1BE4320030CD75 /* MMSE */ = {
 			isa = PBXGroup;
 			children = (
+				BC7650D22A2FA11E005F306E /* Builder */,
 				BC38FBE52A1C8032005F172B /* ViewModel */,
 				BCEDF1DA2A1BE6500030CD75 /* View */,
 			);
@@ -1781,7 +1789,7 @@
 				BCB9C6922A0A3CDB00273F33 /* Lottie */,
 				BCEDF1CD2A1BC9B30030CD75 /* MarkdownUI */,
 				BC6948302A20AC65006DED29 /* Factory */,
-				BC7650C72A2F85E0005F306E /* StackCoordinator */,
+				BC7650DD2A2FA77D005F306E /* StackCoordinator */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -1824,7 +1832,7 @@
 				BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				BCEDF1CC2A1BC9B30030CD75 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 				BC69482F2A20AC65006DED29 /* XCRemoteSwiftPackageReference "Factory" */,
-				BC7650C62A2F85E0005F306E /* XCRemoteSwiftPackageReference "StackCoordinator" */,
+				BC7650DC2A2FA77C005F306E /* XCRemoteSwiftPackageReference "StackCoordinator" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -1967,7 +1975,6 @@
 				BC6F0F6829EFAE3A00F3FBD1 /* HKProvider.swift in Sources */,
 				047505B52A1E6D2600E7A13E /* MMSEInfoView.swift in Sources */,
 				047505BD2A1F6C5700E7A13E /* MMSEInfoViewModel.swift in Sources */,
-				BC7650B42A2F413C005F306E /* HomeCoordinator.swift in Sources */,
 				BCB9C6952A0A3D2F00273F33 /* LottieView.swift in Sources */,
 				BC8FB88D2A2E508A00280E58 /* HomeBuilder.swift in Sources */,
 				04BB2A512A2D208800E864C6 /* PredictionService.swift in Sources */,
@@ -1990,6 +1997,7 @@
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
 				BC2E1F672A13CE9000B4E713 /* URL.swift in Sources */,
 				04457F872A2492F8007DDA30 /* MMSEInfoGetModel.swift in Sources */,
+				BC7650D42A2FA138005F306E /* MMSEBuilder.swift in Sources */,
 				6F16515529D134DD00CC228F /* QuizView.swift in Sources */,
 				BC7650CD2A2F9158005F306E /* DiagnosisBuilder.swift in Sources */,
 				04BB2A4A2A2D123C00E864C6 /* AIResultLevel.swift in Sources */,
@@ -2029,7 +2037,6 @@
 				049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */,
 				045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */,
 				6F0F94AE29FE4DA400993A52 /* HKHeartRateService.swift in Sources */,
-				BC7650CF2A2F9175005F306E /* DiagnosisCoordinator.swift in Sources */,
 				04619F682A291481007B6BFD /* LoadingView.swift in Sources */,
 				BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */,
 				04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */,
@@ -2049,6 +2056,7 @@
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
+				BC7650D82A2FA154005F306E /* MMSELink.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
 				BC7650B62A2F4153005F306E /* HomeLink.swift in Sources */,
 				BC7650D12A2F9186005F306E /* DiagnosisLink.swift in Sources */,
@@ -2464,7 +2472,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		BC7650C62A2F85E0005F306E /* XCRemoteSwiftPackageReference "StackCoordinator" */ = {
+		BC7650DC2A2FA77C005F306E /* XCRemoteSwiftPackageReference "StackCoordinator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/leedoyeon849/StackCoordinator.git";
 			requirement = {
@@ -2506,9 +2514,9 @@
 			package = BC69482F2A20AC65006DED29 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
 		};
-		BC7650C72A2F85E0005F306E /* StackCoordinator */ = {
+		BC7650DD2A2FA77D005F306E /* StackCoordinator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BC7650C62A2F85E0005F306E /* XCRemoteSwiftPackageReference "StackCoordinator" */;
+			package = BC7650DC2A2FA77C005F306E /* XCRemoteSwiftPackageReference "StackCoordinator" */;
 			productName = StackCoordinator;
 		};
 		BCB9C6922A0A3CDB00273F33 /* Lottie */ = {

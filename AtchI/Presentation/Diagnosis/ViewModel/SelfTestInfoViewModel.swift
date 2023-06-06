@@ -6,9 +6,10 @@
 //
 
 import Foundation
-
 import Combine
+
 import Moya
+import StackCoordinator
 
 class SelfTestInfoViewModel: ObservableObject {
     
@@ -16,7 +17,7 @@ class SelfTestInfoViewModel: ObservableObject {
     var subject = CurrentValueSubject<Bool, Never>(false)
     var disposeBag = Set<AnyCancellable>()
     let mid = UserDefaults.standard.integer(forKey: "mid")
-    var coordinator: DiagnosisCoordinator
+    var coordinator: BaseCoordinator<DiagnosisLink>
     
     /// 사용자가 이 때까지 한 자가진단 결과 리스트
     @Published var selfTestResults: [TestRowModel] = []
@@ -24,7 +25,7 @@ class SelfTestInfoViewModel: ObservableObject {
     
     
     init(service: DiagnosisServiceType,
-         coordinator: DiagnosisCoordinator) {
+         coordinator: BaseCoordinator<DiagnosisLink>) {
         self.service = service
         self.coordinator = coordinator
         bind()
