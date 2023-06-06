@@ -8,6 +8,7 @@
 import SwiftUI
 
 import Network
+import StackCoordinator
 
 @main
 struct AtchIApp: App {
