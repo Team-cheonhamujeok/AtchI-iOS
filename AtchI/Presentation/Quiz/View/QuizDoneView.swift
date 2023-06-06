@@ -8,11 +8,15 @@
 import SwiftUI
 import Factory
 
+import StackCoordinator
+
 struct QuizDoneView: View {
     
-    @Injected(\.preventViewModel) var viewModel
     
     var quizOrder: Int
+    var solvedQuizCount: Int
+    
+    var coordinator: BaseCoordinator<QuizLink>
     
     var body: some View {
         ZStack{
@@ -33,7 +37,7 @@ struct QuizDoneView: View {
                 default:
                     Text("퀴즈 없음")
                 }
-                Text("이제 오늘 퀴즈는 " + String(3 - viewModel.quizCount) + "개가 남았어요 :)")
+                Text("이제 오늘 퀴즈는 " + String(3 - solvedQuizCount) + "개가 남았어요 :)")
                     .font(.bodyMedium)
             }
             .foregroundColor(.white)
@@ -42,8 +46,9 @@ struct QuizDoneView: View {
                 Spacer()
 
                 DefaultButton(buttonSize: .large, buttonStyle: .filled, buttonColor: .white, isIndicate: false, action: {
-                    viewModel.requestQuiz()
-                    viewModel.getWeekQuiz()
+//                    viewModel.requestQuiz()
+//                    viewModel.getWeekQuiz()
+                    coordinator.path.removeAll()
                 }, content: {
                     Text("확인")
                         .foregroundColor(.mainPurple)

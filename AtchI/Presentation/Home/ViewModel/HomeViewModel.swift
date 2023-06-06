@@ -62,7 +62,14 @@ class HomeViewModel: ObservableObject {
             }
             .sink { quiz in
                 if let quiz = quiz {
-                    self.coordinator.path.append(HomeLink.quiz(quiz))
+                    self.coordinator.path.append(
+                        HomeLink.quiz(
+                            quiz,
+                            BaseCoordinator<QuizLink>(
+                                path: self.coordinator.$path
+                            )
+                        )
+                    )
                 } else {
                     AlertHelper
                         .showAlert(title: "퀴즈 모두 완료",

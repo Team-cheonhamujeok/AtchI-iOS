@@ -8,11 +8,13 @@
 import SwiftUI
 
 import Factory
+import StackCoordinator
 
 struct QuizView: View {
     @Injected(\.preventViewModel) var viewModel // 싱글턴
     
     var quiz: Quiz
+    var coordinator: BaseCoordinator<QuizLink>
     
     var body: some View {
         ZStack{
@@ -52,6 +54,13 @@ struct QuizView: View {
                               action: {
                     viewModel.calQuizCount()
                     viewModel.checkQuiz(quizNum: quiz.index!)
+                    coordinator.path.append(
+                        QuizLink.done(
+                            order: quiz.index!,
+                            solvedQuizCount: viewModel.quizCount,
+                            coordinator: coordinator
+                        )
+                    )
                 },
                               content: {
                     Text("완료")

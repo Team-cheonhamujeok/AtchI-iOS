@@ -14,7 +14,6 @@ struct HomeView: View {
     @StateObject var viewModel: HomeViewModel
     @StateObject var predictVM: PredictionVM
     
-    
     var body: some View {
         VStack {
             // MARK: 로고 + 앱이름

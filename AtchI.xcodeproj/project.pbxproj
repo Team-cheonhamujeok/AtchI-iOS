@@ -146,6 +146,8 @@
 		BC7650D42A2FA138005F306E /* MMSEBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650D32A2FA138005F306E /* MMSEBuilder.swift */; };
 		BC7650D82A2FA154005F306E /* MMSELink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650D72A2FA154005F306E /* MMSELink.swift */; };
 		BC7650DE2A2FA77D005F306E /* StackCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = BC7650DD2A2FA77D005F306E /* StackCoordinator */; };
+		BC7650E22A2FB7C8005F306E /* QuizBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650E12A2FB7C8005F306E /* QuizBuilder.swift */; };
+		BC7650E42A2FB7D1005F306E /* QuizLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7650E32A2FB7D1005F306E /* QuizLink.swift */; };
 		BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */; };
 		BC7719282A0F81A700F692C6 /* SaveLifePatternRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */; };
 		BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */; };
@@ -392,6 +394,8 @@
 		BC7650D02A2F9186005F306E /* DiagnosisLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisLink.swift; sourceTree = "<group>"; };
 		BC7650D32A2FA138005F306E /* MMSEBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEBuilder.swift; sourceTree = "<group>"; };
 		BC7650D72A2FA154005F306E /* MMSELink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSELink.swift; sourceTree = "<group>"; };
+		BC7650E12A2FB7C8005F306E /* QuizBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBuilder.swift; sourceTree = "<group>"; };
+		BC7650E32A2FB7D1005F306E /* QuizLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLink.swift; sourceTree = "<group>"; };
 		BC7719232A0F804000F692C6 /* HKHeartRateServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceProtocol.swift; sourceTree = "<group>"; };
 		BC7719272A0F81A700F692C6 /* SaveLifePatternRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLifePatternRequestModel.swift; sourceTree = "<group>"; };
 		BC77192A2A0F828200F692C6 /* LifePatternAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifePatternAPI.swift; sourceTree = "<group>"; };
@@ -1098,8 +1102,8 @@
 		BC7650BC2A2F7EE4005F306E /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				6F16515429D134DD00CC228F /* QuizView.swift */,
-				6F16515629D134FD00CC228F /* QuizDoneView.swift */,
+				BC7650E02A2FB7B7005F306E /* View */,
+				BC7650DF2A2FB7AA005F306E /* Builder */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -1128,6 +1132,24 @@
 				BC7650D72A2FA154005F306E /* MMSELink.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		BC7650DF2A2FB7AA005F306E /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				BC7650E12A2FB7C8005F306E /* QuizBuilder.swift */,
+				BC7650E32A2FB7D1005F306E /* QuizLink.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		BC7650E02A2FB7B7005F306E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F16515429D134DD00CC228F /* QuizView.swift */,
+				6F16515629D134FD00CC228F /* QuizDoneView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BC7719292A0F824800F692C6 /* API */ = {
@@ -2080,6 +2102,7 @@
 				049ADEAE29C9BE56009B9B62 /* SelfTestResult.swift in Sources */,
 				04BB2A5A2A2D23AC00E864C6 /* PredictionModel.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
+				BC7650E42A2FB7D1005F306E /* QuizLink.swift in Sources */,
 				BCF6B8A82A027CFC00B0FC1D /* LifePatternService.swift in Sources */,
 				BCA1486229D5F1BD001F390D /* SignupViewModel.swift in Sources */,
 				BCF6DA3C29C42D3200E1ACBF /* RoundedCorner.swift in Sources */,
@@ -2089,6 +2112,7 @@
 				BCE743872A289AD60073914B /* LifePatternAPIMock.swift in Sources */,
 				BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */,
 				BCF6B8B22A03B79400B0FC1D /* HKSleepServiceProtocol.swift in Sources */,
+				BC7650E22A2FB7C8005F306E /* QuizBuilder.swift in Sources */,
 				04285B972A1B626700E7EF42 /* ReadMeView.swift in Sources */,
 				BCB9C68F2A0A20A100273F33 /* HKSleepIntervalModel.swift in Sources */,
 				BCF6B8BA2A041FA800B0FC1D /* LoginRequestModel.swift in Sources */,

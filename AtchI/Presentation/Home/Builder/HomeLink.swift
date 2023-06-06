@@ -14,13 +14,18 @@ enum HomeLink: LinkProtocol {
     
 //    case mmse
     case healthInfo
-    case quiz(_ : Quiz)
+    case quiz(_ : Quiz, _ : BaseCoordinator<QuizLink>)
     
     func matchView() -> any View {
         switch self {
 //        case .mmse : return MMSEView(, viewModel: <#MMSEViewModel#>)
-        case .healthInfo: return HealthInfoView()
-        case .quiz(let quiz): return QuizView(quiz: quiz)
+        case .healthInfo:
+            return HealthInfoView()
+        case .quiz(let quiz, let coordinator):
+            return QuizBuilder(
+                quiz: quiz,
+                coordinator: coordinator
+            )
         }
     }
 }
