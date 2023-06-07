@@ -75,10 +75,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        // 퀴즈 안풀었을 시 퀴즈 탭으로 이동하게 딥링크 연결
-        if response.notification.request.content.categoryIdentifier ==
-            "GROUP_QUIZ_YET" {
-            // TODO: quiz 개수 판단하는 로직 추가해야함
+        // FIXME: (작동안함) 퀴즈 탭으로 이동하게 딥링크 연결
+        if ["GROUP_QUIZ_YET_NIGHT", "GROUP_QUIZ_YET_NIGHT" ].contains(response.notification.request.content.categoryIdentifier) {
             let settingURL = URL(string: "atchi://prevent/")!
             if UIApplication.shared.canOpenURL(settingURL) {
                 UIApplication.shared.open(settingURL)
