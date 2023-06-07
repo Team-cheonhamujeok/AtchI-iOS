@@ -125,6 +125,7 @@
 		BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A82DB2A0E0949002EB661 /* SettingView.swift */; };
 		BC5A82DF2A0E47DB002EB661 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */; };
 		BC5E243E2A19F0D7005278D5 /* HealthInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E243D2A19F0D7005278D5 /* HealthInfoDetailView.swift */; };
+		BC62A7D82A30B9330092C731 /* ArrowBackIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC62A7D72A30B9330092C731 /* ArrowBackIcon.swift */; };
 		BC69482B2A20700D006DED29 /* MMSEQuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482A2A20700D006DED29 /* MMSEQuestionType.swift */; };
 		BC69482E2A207030006DED29 /* MMSEQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */; };
 		BC6948312A20AC65006DED29 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BC6948302A20AC65006DED29 /* Factory */; };
@@ -184,7 +185,7 @@
 		BCBB36C92A2B8B4F00BE937D /* HKActivityServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36C82A2B8B4F00BE937D /* HKActivityServiceMock.swift */; };
 		BCBB36CB2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */; };
 		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
-		BCCCAF732A29938000B9176E /* HealthInfoDescriptionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* HealthInfoDescriptionModal.swift */; };
+		BCCCAF732A29938000B9176E /* HealthInfoDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* HealthInfoDescriptionView.swift */; };
 		BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */; };
 		BCCCAF762A29A44800B9176E /* MMSEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F882A249A8C007DDA30 /* MMSEError.swift */; };
 		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
@@ -375,6 +376,7 @@
 		BC5A82DB2A0E0949002EB661 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BC5A82DE2A0E47DB002EB661 /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BC5E243D2A19F0D7005278D5 /* HealthInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoDetailView.swift; sourceTree = "<group>"; };
+		BC62A7D72A30B9330092C731 /* ArrowBackIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBackIcon.swift; sourceTree = "<group>"; };
 		BC69482A2A20700D006DED29 /* MMSEQuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionType.swift; sourceTree = "<group>"; };
 		BC69482D2A207030006DED29 /* MMSEQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEQuestionModel.swift; sourceTree = "<group>"; };
 		BC6948322A20AC70006DED29 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
@@ -435,7 +437,7 @@
 		BCBB36C82A2B8B4F00BE937D /* HKActivityServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceMock.swift; sourceTree = "<group>"; };
 		BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceMock.swift; sourceTree = "<group>"; };
 		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
-		BCCCAF722A29938000B9176E /* HealthInfoDescriptionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoDescriptionModal.swift; sourceTree = "<group>"; };
+		BCCCAF722A29938000B9176E /* HealthInfoDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoDescriptionView.swift; sourceTree = "<group>"; };
 		BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissButton.swift; sourceTree = "<group>"; };
 		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
 		BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 		049ADE9029C6E3B2009B9B62 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BC62A7D62A30B9280092C731 /* SVG */,
 				BCD5EBB62A0AC61300F1E0F1 /* Launch */,
 				BCB9C6962A0A3D3C00273F33 /* Animation */,
 				049ADE9129C6E3BF009B9B62 /* Button */,
@@ -1013,6 +1016,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BC62A7D62A30B9280092C731 /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				BC62A7D72A30B9330092C731 /* ArrowBackIcon.swift */,
+			);
+			path = SVG;
+			sourceTree = "<group>";
+		};
 		BC6948292A206FFB006DED29 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -1086,7 +1097,7 @@
 			isa = PBXGroup;
 			children = (
 				BC5E243D2A19F0D7005278D5 /* HealthInfoDetailView.swift */,
-				BCCCAF722A29938000B9176E /* HealthInfoDescriptionModal.swift */,
+				BCCCAF722A29938000B9176E /* HealthInfoDescriptionView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1958,6 +1969,7 @@
 				BC8D550229B9909C00FAA6E3 /* ContentView.swift in Sources */,
 				049ADEC129CD5BDF009B9B62 /* TestQuestion.swift in Sources */,
 				049ADEBD29CC4C7C009B9B62 /* SelfTestStartView.swift in Sources */,
+				BC62A7D82A30B9330092C731 /* ArrowBackIcon.swift in Sources */,
 				049ADEBB29CC4A92009B9B62 /* SelfTestView.swift in Sources */,
 				04BB2A5C2A2D241900E864C6 /* PredictionResponse.swift in Sources */,
 				BCF6B8BC2A04225A00B0FC1D /* LoginResponseModel.swift in Sources */,
@@ -1981,7 +1993,7 @@
 				04A8F74B29D022B50082DC29 /* TestAnswer.swift in Sources */,
 				6F7387BF2A19F43300671413 /* QuizService.swift in Sources */,
 				BC38FBF52A1CA50C005F172B /* NavigationBarWithBackButton.swift in Sources */,
-				BCCCAF732A29938000B9176E /* HealthInfoDescriptionModal.swift in Sources */,
+				BCCCAF732A29938000B9176E /* HealthInfoDescriptionView.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
 				BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */,
