@@ -70,6 +70,7 @@ struct DementiaAricleCard: View {
                 .strokeBorder(Color.grayBoldLine, lineWidth: 1.5)
         )
         .background(Color.mainBackground)
+        .contentShape(Rectangle())
         .sheet(isPresented: $showingDetail){
             DementiaArticelDetailModal(
                 title: title,

@@ -23,6 +23,7 @@ struct DementiaAricleCardList: View {
                         title: $0.title,
                         content: $0.content ?? "오류가 발생했습니다 😓"
                     )
+                    
                 }
             }
         }
