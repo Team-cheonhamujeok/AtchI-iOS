@@ -9,6 +9,7 @@ import Foundation
 
 import Combine
 import Moya
+import StackCoordinator
 
 class MMSEInfoViewModel: ObservableObject {
     
@@ -16,12 +17,13 @@ class MMSEInfoViewModel: ObservableObject {
     var subject = CurrentValueSubject<Bool, Never>(false)
     var disposeBag = Set<AnyCancellable>()
     let mid = UserDefaults.standard.integer(forKey: "mid")
+    var coordinator: BaseCoordinator<DiagnosisLink>
     
     @Published var testResults: [TestRowModel] = []
     
-    init(service: MMSEService) {
+    init(service: MMSEService, coordinator: BaseCoordinator<DiagnosisLink>) {
         self.service = service
-        
+        self.coordinator = coordinator
         bind()
     }
     

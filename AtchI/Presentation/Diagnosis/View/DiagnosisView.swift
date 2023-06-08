@@ -12,9 +12,9 @@ import StackCoordinator
 
 struct DiagnosisView: View {
     
-    let selfTestViewModel: SelfTestViewModel
-    let selfTestInfoViewModel: SelfTestInfoViewModel
-    let mmseInfoViewModel = MMSEInfoViewModel(service: MMSEService(provider: MoyaProvider<MMSEAPI>()))
+    var selfTestViewModel: SelfTestViewModel
+    var selfTestInfoViewModel: SelfTestInfoViewModel
+    let mmseInfoViewModel: MMSEInfoViewModel
     
     //    @State private var path: [DiagnosisViewStack] = []
     var coordinator: BaseCoordinator<DiagnosisLink>
@@ -31,6 +31,11 @@ struct DiagnosisView: View {
                 provider: MoyaProvider<DiagnosisAPI>()
             ),
             coordinator: coordinator)
+        self.mmseInfoViewModel = MMSEInfoViewModel(
+            service: MMSEService(
+                provider: MoyaProvider<MMSEAPI>()
+            ),
+            coordinator: coordinator)
     }
     
     var body: some View {
@@ -43,8 +48,7 @@ struct DiagnosisView: View {
                     .padding(.horizontal, 30)
                 
                 SelfTestInfoView(
-                    viewModel: selfTestInfoViewModel,
-                    selfTestViewModel: selfTestViewModel,
+                    selfTestViewModel: selfTestViewModel, viewModel: selfTestInfoViewModel,
                     coordinator: coordinator
                 )
                 

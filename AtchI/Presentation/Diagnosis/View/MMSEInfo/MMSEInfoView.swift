@@ -160,8 +160,9 @@ struct MMSEInfoView: View {
                               buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
-                    // FIXME: path
-//                    path.append(.mmseResultList)
+                    viewModel.coordinator.path.append(
+                        DiagnosisLink.mmseInfo(viewModel)
+                    )
                 } content: {
                     Text("전체보기")
                 }

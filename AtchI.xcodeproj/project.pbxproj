@@ -518,6 +518,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042714782A2EE52000EF43F5 /* NetworkMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				04619F652A28DB00007B6BFD /* NetworkMonitor.swift */,
+			);
+			path = NetworkMonitor;
+			sourceTree = "<group>";
+		};
 		04285B952A1B625000E7EF42 /* ReadMe */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,7 +565,6 @@
 			isa = PBXGroup;
 			children = (
 				04619F632A28D8F3007B6BFD /* NetworkErrorView.swift */,
-				04619F652A28DB00007B6BFD /* NetworkMonitor.swift */,
 			);
 			path = NetworkError;
 			sourceTree = "<group>";
@@ -1163,6 +1170,7 @@
 		BC78196D29E07867005C4CF5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				042714782A2EE52000EF43F5 /* NetworkMonitor */,
 				04BB2A4F2A2D207100E864C6 /* Prediction */,
 				BCE743962A28BC020073914B /* DementiaArticle */,
 				6F7387B52A19E80400671413 /* Quiz */,
@@ -2365,7 +2373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;
@@ -2409,7 +2417,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AtchI/Preview Content\"";
-				DEVELOPMENT_TEAM = N8MX74Y447;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AtchI/Info.plist;

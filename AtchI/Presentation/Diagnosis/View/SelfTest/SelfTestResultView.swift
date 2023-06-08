@@ -10,8 +10,8 @@ import Moya
 
 struct SelfTestResultView: View {
     
-    @StateObject var selfTestViewModel: SelfTestViewModel
-//    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
+    @ObservedObject var selfTestViewModel: SelfTestViewModel
+    @ObservedObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     var body: some View {
         VStack {
@@ -38,7 +38,7 @@ struct SelfTestResultView: View {
                           buttonColor: .accentColor,
                           isIndicate: false)
             {
-//                selfTestInfoViewModel.requestData()
+                selfTestInfoViewModel.requestData()
                 selfTestViewModel.resetAnswers()
                 let stackCount = selfTestViewModel.coordinator.path.count
                 selfTestViewModel.coordinator.path.removeLast(stackCount)
