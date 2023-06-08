@@ -43,14 +43,20 @@ import Combine
 ///
 class HKSleepService: HKSleepServiceProtocol{
     
+    private var core: HKSleepCoreProtocol
     private var provider: HKProvider
     private var dateHelper: DateHelperType
     
-    init(provider: HKProvider, dateHelper: DateHelperType) {
+    init(
+        core: HKSleepCoreProtocol,
+        provider: HKProvider,
+        dateHelper: DateHelperType
+    ) {
+        self.core = core
         self.provider = provider
         self.dateHelper = dateHelper
     }
-
+    
     func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.common) -> AnyPublisher<HKSleepModel, HKError> {
         return self.fetchSleepSamples(date: date)
             .tryMap { samples in
@@ -64,7 +70,7 @@ class HKSleepService: HKSleepServiceProtocol{
             }
             .eraseToAnyPublisher()
     }
-
+    
     func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.origin) -> AnyPublisher<Int, HKError> {
         return self.fetchSleepSamples(date: date)
             .tryMap { samples in
@@ -90,7 +96,7 @@ class HKSleepService: HKSleepServiceProtocol{
             }
             .eraseToAnyPublisher()
     }
-
+    
     func getSleepRecord(date: Date, sleepCategory: HKSleepCategory.date) -> AnyPublisher<Date, HKError> {
         return self.fetchSleepSamples(date: date)
             .tryMap { samples in
@@ -107,18 +113,22 @@ class HKSleepService: HKSleepServiceProtocol{
             .eraseToAnyPublisher()
     }
     
-    func getSleepInterval(date: Date) -> AnyPublisher<[HKSleepIntervalModel], HKError> {
+    func getSleepInterval(
+        date: Date
+    ) -> AnyPublisher<[HKSleepIntervalModel], HKError> {
         return self.fetchSleepSamples(date: date)
             .tryMap{ samples in
-                let watchSampels = samples
-                    .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true } // 워치 착용만
-                    .filter { $0.value == 0 } // inbed만
-                if watchSampels.isEmpty {
-                    throw HKError.watchDataNotFound
+                
+                let sleepEntities = samples.map {
+                    HKSleepInputEntity(
+                        startDate: $0.startDate,
+                        endDate: $0.endDate,
+                        sleepType: $0.value,
+                        dateSourceProductType: $0.sourceRevision.productType ?? ""
+                    )
                 }
-                return samples
-                    .map { HKSleepIntervalModel(startDate: $0.startDate,
-                                                endDate: $0.endDate)}
+                
+                return try self.core.getSleepInterval(input: sleepEntities)
             }
             .mapError { error in
                 return error as! HKError
@@ -169,8 +179,8 @@ extension HKSleepService {
     /// - Returns: 총량을 Int형(단위: 분)으로 반환합니다.
     private func calculateSleepTimeQuentity(sleepType: HKCategoryValueSleepAnalysis,
                                             samples: [HKCategorySample]) -> Int {
-        var watchSamples = samples
-                .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true }
+        let watchSamples = samples
+            .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true }
         let calendar = Calendar.current
         let sum = watchSamples.filter{ $0.value == sleepType.rawValue }
             .reduce(into: 0) { (result, sample) in
@@ -189,7 +199,7 @@ extension HKSleepService {
     ///    - samples: 어제 오후 6시~ 오늘 오후 6시 사이의 모든 수면 데이터입니다.
     /// - Returns: 총량을 Int형(단위: 분)으로 반환합니다.
     private func calculateSleepTimeQuentityAll(samples: [HKCategorySample]) -> Int {
-
+        
         let watchSamples = samples
             .filter{ $0.sourceRevision.productType?.contains("Watch") ?? true }
         var claculatedSampels: [HKCategorySample]
@@ -207,9 +217,9 @@ extension HKSleepService {
         let sum = claculatedSampels
             .filter { $0.value == 0 } //inbed만
             .reduce(into: 0) { (result, sample) in
-            let minutes = calendar.dateComponents([.minute], from: sample.startDate, to: sample.endDate).minute ?? 0
-            result += minutes
-        }
+                let minutes = calendar.dateComponents([.minute], from: sample.startDate, to: sample.endDate).minute ?? 0
+                result += minutes
+            }
         return sum
     }
     
@@ -259,9 +269,9 @@ enum HKSleepCategory {
         /// Sleep관련 모든 정보를 의미합니다.
         case all
     }
-
+    
     enum quentity {
-        /// 애플워치 착용 여부에 관계 없는 총 수면 시간입니다. 
+        /// 애플워치 착용 여부에 관계 없는 총 수면 시간입니다.
         case total
     }
     
