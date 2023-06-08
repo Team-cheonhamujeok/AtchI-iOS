@@ -12,13 +12,11 @@ import StackCoordinator
 
 enum HomeLink: LinkProtocol {
     
-//    case mmse
     case healthInfo
     case quiz(_ : Quiz, _ : BaseCoordinator<QuizLink>)
     
     func matchView() -> any View {
         switch self {
-//        case .mmse : return MMSEView(, viewModel: <#MMSEViewModel#>)
         case .healthInfo:
             return HealthInfoView()
         case let .quiz(quiz, coordinator):

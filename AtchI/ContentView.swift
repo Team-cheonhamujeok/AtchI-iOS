@@ -48,7 +48,9 @@ struct ContentView: View {
                     Text("예방")
                 }
                 .tag(TabBarType.prevent)
-            SettingView()
+            SettingBuilder(
+                coordinator: BaseCoordinator<SettingLink>(path: $path)
+            )
                 .tabItem{
                     Image(systemName: "gear")
                     Text("설정")

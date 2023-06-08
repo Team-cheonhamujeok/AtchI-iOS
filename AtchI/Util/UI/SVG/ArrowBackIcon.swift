@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/// - Note: origin size - 18x24
 struct ArrowBackIcon: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()

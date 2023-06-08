@@ -20,7 +20,7 @@ struct HealthInfoView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("최근 수집한 건강 정보")
                         .font(.titleMedium)
-                    Text("AI 진단을 위해 최근(\(viewModel.state.collectionDate)) 수집한 건강 정보 입니다")
+                    Text("AI 진단을 위해 최근(\(viewModel.state.collectionDate)) 수집한 건강 정보입니다")
                         .font(.bodyMedium)
                     
                     Divider()

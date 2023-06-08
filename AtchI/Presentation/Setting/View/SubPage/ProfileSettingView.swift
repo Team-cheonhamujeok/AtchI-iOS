@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfileSettingView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
     @State var name: String = "강민규"
     @State var password: String = "********"
     
@@ -58,8 +61,12 @@ struct ProfileSettingView: View {
         .navigationBarTitleDisplayMode(.inline)
         .padding(30)
         .background(Color.mainBackground)
-        
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainBackground
+        )
     }
+    
 }
 
 struct ProfileSettingView_Previews: PreviewProvider {
