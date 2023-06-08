@@ -11,94 +11,96 @@ import SwiftUI
 import Factory
 import StackCoordinator
 
-@MainActor
 class HealthInfoViewModel: ObservableObject {
     
-    var coordinator: BaseCoordinator<HomeLink>
-    
     // MARK: - Dependency
+    
     @Injected(\.hkActivityService) private var hkActivityService
     @Injected(\.hkHeartRateService) private var hkHeartRateService
     @Injected(\.hkSleepService) private var hkSleepService
     
     // MARK: - Input State
-    @Subject var viewOnAppear: Void = ()
-    @Subject var tapMoveHealthInfoPage: Void = ()
-    @Subject var tapQuizShortcut: Void = ()
-    @Subject var tapSelfDiagnosisShortcut: Void = ()
+    
+    @Published var action = HealthInfoAction()
     
     // MARK: - Output State
-    @Published var stepCount: String = ""
-    @Published var heartAverage: String = ""
-    @Published var sleepTotal: String = ""
-    @Published var articles: [DementiaArticleModel] = []
+    
+    @Published var state = HealthInfoState()
+    
+    // MARK: - Cancellable
     
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init(coordinator: BaseCoordinator<HomeLink>) {
-        self.coordinator = coordinator
+    
+    init() {
         bind()
     }
     
     // MARK: - Prviate
+    
     private func bind() {
-        /// onAppear or RefreshButtonTap trigger
-        let refreshWatchDataTrigger = $viewOnAppear
-            .merge(with: $tapMoveHealthInfoPage)
-            .share()
-            .eraseToAnyPublisher()
         
-        $tapMoveHealthInfoPage
-            .sink {
-                self.coordinator.path.append(HomeLink.healthInfo)
-            }
-            .store(in: &cancellables)
-        
-        $tapQuizShortcut
-            .sink {
-//                self.coordinator.path.append(HomeLink.quiz)
-            }
-            .store(in: &cancellables)
-        
-        
-        refreshWatchDataTrigger
+        action
+            .viewOnAppear
             .flatMap {
                 self.hkActivityService
-                    .getStepCount(date: Date())
+                    .getStepCount(date: self.yesterday)
                     .replaceError(with: 0)
                     .map { "\(Int($0))걸음" }
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: \.stepCount, on: self)
+            .assign(to: \.state.stepCount, on: self)
             .store(in: &cancellables)
         
-        refreshWatchDataTrigger
+        action
+            .viewOnAppear
             .flatMap {
                 self.hkHeartRateService
-                    .getHeartRateAveragePerMin(startDate: DateHelper.shared.getYesterdayStartAM(Date()),
-                                           endDate: DateHelper.shared.getYesterdayEndPM(Date()))
-                .replaceError(with: [0])
-                .map { $0.reduce(0.0,+) / Double($0.count) }
-                .map { "\(Int($0))BPM" }
+                    .getHeartRateAveragePerMin(
+                        startDate:
+                            DateHelper.shared.getYesterdayStartAM(self.yesterday),
+                        endDate:
+                            DateHelper.shared.getYesterdayEndPM(self.yesterday)
+                    )
+                    .replaceError(with: [0])
+                    .map { $0.reduce(0.0,+) / Double($0.count) }
+                    .map { "\(Int($0))BPM" }
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: \.heartAverage, on: self)
+            .assign(to: \.state.heartAverage, on: self)
             .store(in: &cancellables)
         
-        refreshWatchDataTrigger
+        action
+            .viewOnAppear
             .flatMap {
                 self.hkSleepService
-                    .getSleepRecord(date: Date(),
-                                    sleepCategory: .total)
+                    .getSleepRecord(
+                        date: self.yesterday,
+                        sleepCategory: .total
+                    )
                     .replaceError(with: 0)
                     .map { "\(Int($0 / 60))시간 \($0 % 60)분" }
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: \.sleepTotal, on: self)
+            .assign(to: \.state.sleepTotal, on: self)
             .store(in: &cancellables)
         
+        action
+            .viewOnAppear
+            .map {
+                DateHelper
+                    .convertDateToString(
+                        self.yesterday,
+                        format: "M월 d일"
+                    )
+            }
+            .assign(to: \.state.collectionDate, on: self)
+            .store(in: &cancellables)
     }
     
-    
+    var yesterday: Date {
+        DateHelper
+            .subtractDays(from: Date(), days: 1)
+    }
 }

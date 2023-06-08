@@ -105,11 +105,15 @@ class DateHelper: DateHelperType {
     }
     
     /// Date형을 문자열로 변환합니다.
-    /// - Parameter string: Date형
-    /// - Returns: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"형식의 문자열
-    static func convertDateToString(_ date: Date) -> String {
+    /// - Parameter date: 문자열로 변환활 Date형입니다.
+    /// - Parameter format: 변환할 형식입니다. 기본은 "yyyy-MM-dd'T'HH:mm:ss.SSSZ"입니다.
+    /// - Returns: format에 따른 문자열
+    static func convertDateToString(
+        _ date: Date,
+        format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+    -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.dateFormat = format
         let dateString = formatter.string(from: date)
         return dateString
     }

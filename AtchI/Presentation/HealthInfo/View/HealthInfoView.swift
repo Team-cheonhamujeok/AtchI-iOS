@@ -11,6 +11,8 @@ struct HealthInfoView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @ObservedObject var viewModel = HealthInfoViewModel()
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -18,16 +20,16 @@ struct HealthInfoView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("최근 수집한 건강 정보")
                         .font(.titleMedium)
-                    Text("AI 진단을 위해 최근 수집한 건강 정보 입니다.")
+                    Text("AI 진단을 위해 최근(\(viewModel.state.collectionDate)) 수집한 건강 정보 입니다")
                         .font(.bodyMedium)
                     
                     Divider()
                         .padding(.vertical, 10)
                     
                     HealthInfoDetailView(
-                        stepCount: .constant("10"),
-                        heartAverage: .constant("400"),
-                        sleepTotal: .constant("30")
+                        stepCount: $viewModel.state.stepCount,
+                        heartAverage: $viewModel.state.heartAverage,
+                        sleepTotal: $viewModel.state.sleepTotal
                     )
                 }
                 .padding(.horizontal, 30)
@@ -57,6 +59,9 @@ struct HealthInfoView: View {
         )
         .ignoresSafeArea(edges: .vertical)
         .padding(.top, 1)
+        .onAppear {
+            viewModel.action.viewOnAppear.send()
+        }
     }
 }
 
