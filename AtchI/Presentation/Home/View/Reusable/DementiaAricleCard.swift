@@ -60,7 +60,6 @@ struct DementiaAricleCard: View {
                alignment: .leading)
         // action - show modal
         .onTapGesture {
-            print("tabtab")
             self.showingDetail = true
         }
         .background(Color.mainPurpleLight)
