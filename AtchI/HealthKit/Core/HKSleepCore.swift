@@ -50,7 +50,7 @@ protocol HKSleepCoreProtocol {
     ) throws -> [HKSleepIntervalModel]
 }
 
-struct HKSleepCore: HKSleepCoreProtocol {
+class HKSleepCore: HKSleepCoreProtocol {
     
     func calculateSleepTimeQuentity(
         sleepType: HKSleepType,
