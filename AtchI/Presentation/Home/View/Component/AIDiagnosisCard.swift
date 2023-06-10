@@ -24,9 +24,9 @@ struct AIDiagnosisCard: View {
     var body: some View {
         VStack {
             if haveLifePattern == false {
-                noLifePatternView
-            } else if haveMMSE == false {
                 noMMSEView
+            } else if haveMMSE == false {
+                noLifePatternView
             } else {
                 dementiaDiagnosisResultView
             }
@@ -37,21 +37,30 @@ struct AIDiagnosisCard: View {
     /// LifePattern이 없을 때 내보내는 View
     var noLifePatternView: some View {
         VStack(alignment: .leading, spacing: 7) {
-            Text("치매 진단 준비중")
+            Text("치매 진단 준비중 🥲")
                 .font(.titleMedium)
                 .foregroundColor(.mainBlue)
-     
-            Spacer()
             
-            Text("AI진단을 위한 데이터가 부족합니다. 🥲 애플워치를 차고 활동해주세요!")
-                .font(.bodyMedium)
+            Group {
+                Text("AI 진단을 위한")
+                Text("데이터가 부족합니다.")
+            }
+                .font(.bodyLarge)
                 .foregroundColor(.mainText)
             
+            Group {
+                Text("사용자의 데이터를 바탕으로 ")
+                Text("AI가 치매 진단을 해줍니다!")
+                Text("정확한 진단을 위해")
+                Text("애플워치를 차고 활동해주세요!")
+            }
+            .font(.bodyMedium)
+            .foregroundColor(.mainText)
+            
+            Text("")
             Text("*AI 진단은 120일 이상의 데이터가 있어야 이용하실 수 있습니다.")
                 .font(.bodyTiny)
                 .foregroundColor(.grayTextLight)
-            
-            Spacer()
         }
         .padding(25)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
@@ -62,15 +71,25 @@ struct AIDiagnosisCard: View {
     /// mmse 진단 결과가 없을 때 내보내는 View
     var noMMSEView: some View {
         VStack(alignment: .leading, spacing: 7) {
-            Text("치매 진단 준비중")
+            Text("치매 진단 준비중 🥲")
                 .font(.titleMedium)
                 .foregroundColor(.mainBlue)
                 
             Spacer()
             
+            Group {
+                Text("AI 진단을 위한")
+                Text("MMSE 검사가 존재하지 않습니다.")
+            }
+            .font(.bodyLarge)
+            .foregroundColor(.mainText)
+            
             VStack(alignment: .leading, spacing: 5) {
-                Text("MMSE 검사를 해주셔야 진단을")
-                Text("시작할 수 있어요 ☺️")
+                Text("사용자의 MMSE 검사를 바탕으로")
+                Text("AI가 치매 진단을 해줍니다!")
+                Text("정확한 진단을 위해")
+                Text("MMSE 검사를 해주세요!")
+                
             }
             .font(.bodyMedium)
             .foregroundColor(.mainText)
