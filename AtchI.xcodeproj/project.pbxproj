@@ -199,7 +199,6 @@
 		BCBB36C62A2B879900BE937D /* HKSleepServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36C52A2B879900BE937D /* HKSleepServiceMock.swift */; };
 		BCBB36C92A2B8B4F00BE937D /* HKActivityServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36C82A2B8B4F00BE937D /* HKActivityServiceMock.swift */; };
 		BCBB36CB2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */; };
-		BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */; };
 		BCCCAF732A29938000B9176E /* HealthInfoDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* HealthInfoDescriptionView.swift */; };
 		BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */; };
 		BCCCAF762A29A44800B9176E /* MMSEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F882A249A8C007DDA30 /* MMSEError.swift */; };
@@ -466,7 +465,6 @@
 		BCBB36C52A2B879900BE937D /* HKSleepServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepServiceMock.swift; sourceTree = "<group>"; };
 		BCBB36C82A2B8B4F00BE937D /* HKActivityServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityServiceMock.swift; sourceTree = "<group>"; };
 		BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceMock.swift; sourceTree = "<group>"; };
-		BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModelTemp.swift; sourceTree = "<group>"; };
 		BCCCAF722A29938000B9176E /* HealthInfoDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoDescriptionView.swift; sourceTree = "<group>"; };
 		BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissButton.swift; sourceTree = "<group>"; };
 		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
@@ -1162,7 +1160,6 @@
 			children = (
 				BC1DDB3C2A34CDF40011B4BC /* Util */,
 				BC1DDB1D2A3235A90011B4BC /* Core */,
-				BCDACF4729FF942A00EFF2ED /* Deprecated */,
 				BCDACF4829FFA96E00EFF2ED /* Error */,
 				BCDACF3729FF928C00EFF2ED /* Service */,
 				BCDACF3629FF927900EFF2ED /* Provider */,
@@ -1626,14 +1623,6 @@
 				BC81F36F29FD823000E09958 /* SignupRequestViewModelTests.swift */,
 			);
 			path = Signup;
-			sourceTree = "<group>";
-		};
-		BCDACF4729FF942A00EFF2ED /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				BCBFDD7D29F78FBA00A7F20F /* HealthKitViewModelTemp.swift */,
-			);
-			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		BCDACF4829FFA96E00EFF2ED /* Error */ = {
@@ -2146,7 +2135,6 @@
 				BC2E1F652A139B7600B4E713 /* HapticHelper.swift in Sources */,
 				BCE743982A28BC120073914B /* DementiaArticleService.swift in Sources */,
 				BC70470F29E7E91C00FA265A /* SignupReqeustModel.swift in Sources */,
-				BCBFDD7E29F78FBA00A7F20F /* HealthKitViewModelTemp.swift in Sources */,
 				BC38FBFA2A1DC3BA005F172B /* ImageAnswerInput.swift in Sources */,
 				BC4317C629C0886D0094333B /* DementiaAricleCardList.swift in Sources */,
 				BC00906629C2CA5D008D6F0C /* TextInput.swift in Sources */,
