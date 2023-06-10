@@ -34,7 +34,9 @@ struct HomeView: View {
                                     notDementia: $predictVM.notDementia,
                                     beforeDementia: $predictVM.beforeDementia,
                                     dementia: $predictVM.dementia,
-                                    resultLevel: $predictVM.resultLevel)
+                                    resultLevel: $predictVM.resultLevel,
+                                    haveMMSE: $predictVM.haveMMSE,
+                                    haveLifePattern: $predictVM.haveLifePattern)
                     
                     HStack {
                         Spacer()
