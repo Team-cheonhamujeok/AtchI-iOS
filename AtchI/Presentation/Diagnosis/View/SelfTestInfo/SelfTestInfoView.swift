@@ -22,27 +22,41 @@ struct SelfTestInfoView: View {
         if viewModel.selfTestResults.isEmpty {
             noTestView
         } else {
-            noTestView
+            haveTestView
         }
     }
     
     //MARK: - 자가진단을 안했을 때
     
     var noTestView: some View {
-        VStack {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("치매 자가진단 해보세요!")
-                        .font(.titleMedium)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                    
-                    Text("몇가지 질문으로 간단하게 치매 진단을 받아보세요")
-                        .font(.bodySmall)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
+        VStack(alignment: .leading) {
+            Text("치매 자가진단 해보세요!")
+                .font(.titleMedium)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
+            
+            VStack(alignment: .leading) {
+                Text("치매 자가진단 기록이 없습니다 🥲")
+                    .font(.bodyLarge)
+                    .foregroundColor(.mainText)
+                    .padding(.bottom, 2)
+                
+                Group {
+                    Text("몇가지 질문으로 간단하게")
+                    Text("치매 진단을 받아보세요!")
                 }
-                Spacer()
+                .font(.bodyMedium)
+                .foregroundColor(.mainText)
+                .padding(.bottom, 2)
+                
+                Text("*서울대학교병원 치매 노화성인지 감퇴증클리닉(02-2072-2451)에서 개발한 검사입니다.")
+                    .font(.bodyTiny)
+                    .foregroundColor(.grayTextLight)
             }
-            .padding(.horizontal, 30)
+            .padding(25)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            .background(Color.mainPurpleLight)
+            .cornerRadius(20)
+            
             
             DefaultButton(buttonSize: .large,
                           buttonStyle: .filled,
@@ -55,10 +69,9 @@ struct SelfTestInfoView: View {
             } content: {
                 Text("자가진단 시작하기")
             }
-            .padding(25)
-            
-            Spacer()
+            .padding(.vertical, 20)
         }
+        .padding(.horizontal, 25)
     }
     
     //MARK: - 자가진단을 했을 때
