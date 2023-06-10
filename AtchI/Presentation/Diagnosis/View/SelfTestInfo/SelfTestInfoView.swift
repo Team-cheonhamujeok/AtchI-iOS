@@ -22,7 +22,7 @@ struct SelfTestInfoView: View {
         if viewModel.selfTestResults.isEmpty {
             noTestView
         } else {
-            haveTestView
+            noTestView
         }
     }
     
@@ -56,6 +56,8 @@ struct SelfTestInfoView: View {
                 Text("자가진단 시작하기")
             }
             .padding(25)
+            
+            Spacer()
         }
     }
     

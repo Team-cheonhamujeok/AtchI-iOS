@@ -52,7 +52,6 @@ class PredictionVM: ObservableObject {
                 
             } receiveValue: { isHave in
                 self.haveMMSE = isHave
-                print(self.myID)
             }
             .store(in: &cancellables)
         
@@ -61,8 +60,6 @@ class PredictionVM: ObservableObject {
                 
             } receiveValue: { isHave in
                 self.haveLifePattern = isHave
-                print(self.haveMMSE)
-                print(self.haveLifePattern)
             }
             .store(in: &cancellables)
 

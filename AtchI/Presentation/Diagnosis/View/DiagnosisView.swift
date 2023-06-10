@@ -51,7 +51,7 @@ struct DiagnosisView: View {
                     selfTestViewModel: selfTestViewModel, viewModel: selfTestInfoViewModel,
                     coordinator: coordinator
                 )
-                
+                .frame(minHeight: 350)
                 
                 Rectangle()
                     .frame(height: 10)
