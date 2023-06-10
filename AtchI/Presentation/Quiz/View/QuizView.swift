@@ -11,7 +11,8 @@ import Factory
 import StackCoordinator
 
 struct QuizView: View {
-    @Injected(\.preventViewModel) var viewModel // 싱글턴
+    
+    @ObservedObject var viewModel = Container.shared.preventViewModel.resolve()
     
     var quiz: Quiz
     var coordinator: BaseCoordinator<QuizLink>

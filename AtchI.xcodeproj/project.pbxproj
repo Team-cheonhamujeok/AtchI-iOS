@@ -87,6 +87,7 @@
 		BC1DDB2C2A324D4A0011B4BC /* SettingLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DDB2B2A324D4A0011B4BC /* SettingLink.swift */; };
 		BC1DDB2E2A324D570011B4BC /* SettingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DDB2D2A324D570011B4BC /* SettingBuilder.swift */; };
 		BC1DDB302A3250730011B4BC /* ArrowRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DDB2F2A3250730011B4BC /* ArrowRight.swift */; };
+		BC1DDB362A34C62C0011B4BC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DDB352A34C62C0011B4BC /* UIImage+Extension.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
 		BC2E1F612A137CE000B4E713 /* PushNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */; };
@@ -345,6 +346,7 @@
 		BC1DDB2B2A324D4A0011B4BC /* SettingLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLink.swift; sourceTree = "<group>"; };
 		BC1DDB2D2A324D570011B4BC /* SettingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBuilder.swift; sourceTree = "<group>"; };
 		BC1DDB2F2A3250730011B4BC /* ArrowRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowRight.swift; sourceTree = "<group>"; };
+		BC1DDB352A34C62C0011B4BC /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		BC2526EA29D419BA000FCE11 /* SecureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInput.swift; sourceTree = "<group>"; };
 		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationHelper.swift; sourceTree = "<group>"; };
@@ -653,7 +655,6 @@
 			children = (
 				0477F2632A1E015E0081F0C2 /* Component */,
 				047505B32A1E63DD00E7A13E /* MMSEInfo */,
-				049ADEB929CC493A009B9B62 /* SelfTest */,
 				049ADEA529C98349009B9B62 /* SelfTestInfo */,
 				049ADEA229C97003009B9B62 /* DiagnosisView.swift */,
 			);
@@ -663,7 +664,6 @@
 		049ADEA129C95D09009B9B62 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */,
 				04A984302A11CC2500C584C2 /* SelfTestInfoViewModel.swift */,
 				047505BC2A1F6C5700E7A13E /* MMSEInfoViewModel.swift */,
 			);
@@ -687,16 +687,6 @@
 				04F0DDDF2A24C2CD0061D3C8 /* TestRowModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		049ADEB929CC493A009B9B62 /* SelfTest */ = {
-			isa = PBXGroup;
-			children = (
-				049ADEBA29CC4A92009B9B62 /* SelfTestView.swift */,
-				049ADEBC29CC4C7C009B9B62 /* SelfTestStartView.swift */,
-				049ADEBE29CD4183009B9B62 /* SelfTestResultView.swift */,
-			);
-			path = SelfTest;
 			sourceTree = "<group>";
 		};
 		04A857602A02564B00576D61 /* Diagnosis */ = {
@@ -888,6 +878,41 @@
 				BC1DDB2D2A324D570011B4BC /* SettingBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		BC1DDB312A3358ED0011B4BC /* SelfTest */ = {
+			isa = PBXGroup;
+			children = (
+				BC1DDB332A3358F70011B4BC /* Builder */,
+				BC1DDB342A3358FD0011B4BC /* ViewModel */,
+				BC1DDB322A3358F30011B4BC /* View */,
+			);
+			path = SelfTest;
+			sourceTree = "<group>";
+		};
+		BC1DDB322A3358F30011B4BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEBA29CC4A92009B9B62 /* SelfTestView.swift */,
+				049ADEBC29CC4C7C009B9B62 /* SelfTestStartView.swift */,
+				049ADEBE29CD4183009B9B62 /* SelfTestResultView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC1DDB332A3358F70011B4BC /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		BC1DDB342A3358FD0011B4BC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				049ADEC629CFF3B7009B9B62 /* SelfTestViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BC2526E929D418F3000FCE11 /* Recovered References */ = {
@@ -1362,6 +1387,7 @@
 				BC2E1F662A13CE9000B4E713 /* URL.swift */,
 				BC4607A42A1E1E3F00015447 /* String.swift */,
 				BC98E65C2A2792EC00CA43D2 /* View+InjectIII.swift */,
+				BC1DDB352A34C62C0011B4BC /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1369,6 +1395,7 @@
 		BC8D551C29B99A4A00FAA6E3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				BC1DDB312A3358ED0011B4BC /* SelfTest */,
 				BC7650BC2A2F7EE4005F306E /* Quiz */,
 				BC7650AD2A2F4091005F306E /* HealthInfo */,
 				04619F622A28D8DE007B6BFD /* NetworkError */,
@@ -2129,6 +2156,7 @@
 				045F769C2A0DC2BD00AA3418 /* SelfTestLevel.swift in Sources */,
 				6F0F94AE29FE4DA400993A52 /* HKHeartRateService.swift in Sources */,
 				04619F682A291481007B6BFD /* LoadingView.swift in Sources */,
+				BC1DDB362A34C62C0011B4BC /* UIImage+Extension.swift in Sources */,
 				BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */,
 				04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,

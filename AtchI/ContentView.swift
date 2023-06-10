@@ -79,14 +79,11 @@ struct ContentView: View {
                 }
             }
         }
-        .onInjection {
-            print("reload")
+        .onChange(of: colorScheme) { newColorScheme in
+            // 다크/라이트 모드에 따라 탭바 새로 그리기
+            UITabBar.appearance().standardAppearance = setTabBarAppearance()
         }
-        
     }
-#if DEBUG
-    @ObservedObject var iO = injectionObserver
-#endif
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -102,11 +99,13 @@ extension ContentView {
     func setTabBarAppearance() -> UITabBarAppearance {
         let image = UIImage
             .borderImageWithBounds(
-                bounds: CGRect(x: 0,
-                               y: 0,
-                               width: UIScreen.main.scale,
-                               height: 0.5),
-                color: UIColor(Color.grayThinLine),
+                bounds: CGRect(
+                    x: 0,
+                    y: 0,
+                    width: UIScreen.main.scale,
+                    height: 0.5
+                ),
+                color: UIColor(Color.gray),
                 thickness: 0.5)
         
         let appearance = UITabBarAppearance()
@@ -121,26 +120,4 @@ extension ContentView {
 }
 
 
-// TabVeiw 배경 이미지로 보더 설정
-extension UIImage {
-    static func borderImageWithBounds(
-        bounds: CGRect,
-        color: UIColor,
-        thickness: CGFloat)
-    -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0)
-        
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return nil
-        }
-        
-        context.setStrokeColor(color.cgColor)
-        context.setLineWidth(thickness)
-        context.stroke(CGRect(x: 0, y: 0, width: bounds.width, height: thickness))
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return image
-    }
-}
+
