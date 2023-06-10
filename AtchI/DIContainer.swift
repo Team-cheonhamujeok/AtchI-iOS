@@ -67,8 +67,10 @@ extension Container {
     }
     
     var hkHeartRateService: Factory<HKHeartRateServiceProtocol> {
-        Factory(self) { HKHeartRateService(healthKitProvider: HKProvider(),
-                                           dateHelper: DateHelper())
+        Factory(self) { HKHeartRateService(
+            core: HKHeartRateCore(),
+            provider: HKProvider(),
+            dateHelper: DateHelper())
         }
     }
 }
