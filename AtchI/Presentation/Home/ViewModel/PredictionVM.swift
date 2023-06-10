@@ -28,6 +28,7 @@ class PredictionVM: ObservableObject {
     @Published var beforeDementia: Double  = 0.0
     @Published var dementia: Double = 0.0
     
+    @Published var isLoading: Bool = true
     @Published var haveLifePattern: Bool = false
     @Published var haveMMSE: Bool = false
     
@@ -46,6 +47,15 @@ class PredictionVM: ObservableObject {
     
     // MARK: - Private
     private func bind() {
+        
+        $haveLifePattern
+            .combineLatest($haveMMSE) { (first, second) in
+                return !(first && second)
+            }
+            .assign(to: \.isLoading, on: self)
+            .store(in: &cancellables)
+
+        
         
         checkHaveMMSE
             .sink { _ in

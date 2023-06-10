@@ -18,17 +18,26 @@ struct AIDiagnosisCard: View {
     
     @Binding var resultLevel: AIResultLevel?
     
+    @Binding var isLoading: Bool
     @Binding var haveMMSE: Bool
     @Binding var haveLifePattern: Bool
     
     var body: some View {
         VStack {
-            if haveLifePattern == false {
-                noMMSEView
-            } else if haveMMSE == false {
-                noLifePatternView
+            if isLoading {
+                HStack(alignment: .center) {
+                    Spacer()
+                    LoadingView()
+                    Spacer()
+                }
             } else {
-                dementiaDiagnosisResultView
+                if haveLifePattern == false {
+                    noMMSEView
+                } else if haveMMSE == false {
+                    noLifePatternView
+                } else {
+                    dementiaDiagnosisResultView
+                }
             }
         }
         .frame(minHeight: 350)

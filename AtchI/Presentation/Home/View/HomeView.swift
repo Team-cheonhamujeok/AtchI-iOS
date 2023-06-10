@@ -35,6 +35,7 @@ struct HomeView: View {
                                     beforeDementia: $predictVM.beforeDementia,
                                     dementia: $predictVM.dementia,
                                     resultLevel: $predictVM.resultLevel,
+                                    isLoading: $predictVM.isLoading,
                                     haveMMSE: $predictVM.haveMMSE,
                                     haveLifePattern: $predictVM.haveLifePattern)
                     

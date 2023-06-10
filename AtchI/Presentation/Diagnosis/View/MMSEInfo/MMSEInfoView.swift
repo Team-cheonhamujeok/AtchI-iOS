@@ -18,10 +18,18 @@ struct MMSEInfoView: View {
     
     var body: some View {
         Group {
-            if viewModel.testResults.isEmpty {
-                noTestView
+            if viewModel.isLoading || viewModel.isEmpty == nil {
+                HStack {
+                    Spacer()
+                    LoadingView()
+                    Spacer()
+                }
             } else {
-                haveTestView
+                if viewModel.isEmpty! {
+                    noTestView
+                } else {
+                    haveTestView
+                }
             }
         }
         .sheet(isPresented: $isPresentModal) {

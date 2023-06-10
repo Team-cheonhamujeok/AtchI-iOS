@@ -19,10 +19,18 @@ struct SelfTestInfoView: View {
     //MARK: - Body
     
     var body: some View {
-        if viewModel.selfTestResults.isEmpty {
-            noTestView
+        if viewModel.isLoading || viewModel.isEmpty == nil {
+            HStack {
+                Spacer()
+                LoadingView()
+                Spacer()
+            }
         } else {
-            haveTestView
+            if viewModel.isEmpty! {
+                noTestView
+            } else {
+                haveTestView
+            }
         }
     }
     
