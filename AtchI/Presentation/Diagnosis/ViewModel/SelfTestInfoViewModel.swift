@@ -21,8 +21,8 @@ class SelfTestInfoViewModel: ObservableObject {
     
     /// 사용자가 이 때까지 한 자가진단 결과 리스트
     @Published var selfTestResults: [TestRowModel] = []
-    @Published var isCompleted: Bool = false
-    
+    @Published var isLoading: Bool = true
+    @Published var isEmpty: Bool?
     
     init(service: DiagnosisServiceType,
          coordinator: BaseCoordinator<DiagnosisLink>) {
@@ -33,13 +33,31 @@ class SelfTestInfoViewModel: ObservableObject {
     
     private func bind() {
         subject
-            .sink(receiveValue: { isRequest in
-                if isRequest {
-                    self.getData
-                        .assign(to: &self.$selfTestResults)
-                }
+            .sink(receiveCompletion: { _ in
+                
+            }, receiveValue: { _ in
+                self.getData()
+                    .sink { value in
+                        self.selfTestResults = value
+                    }
+                    .store(in: &self.disposeBag)
             })
             .store(in: &disposeBag)
+
+        getData()
+            .sink { _ in
+                
+            } receiveValue: { value in
+                self.isLoading = false
+            }
+            .store(in: &disposeBag)
+        
+        getData()
+            .sink { value in
+                self.isEmpty = value.isEmpty
+            }
+            .store(in: &disposeBag)
+
     }
     
     // MARK: - UI
@@ -59,7 +77,7 @@ class SelfTestInfoViewModel: ObservableObject {
     }
     
     /// 서버로부터 Get 하는 함수
-    private lazy var getData: AnyPublisher<[TestRowModel], Never> = {
+    private func getData() -> AnyPublisher<[TestRowModel], Never> {
         return self.service.getDiagnosisList(mid: self.mid)
             .map{ $0.data }
             .decode(type: [DiagnosisGetModel].self, decoder: JSONDecoder())
@@ -67,7 +85,7 @@ class SelfTestInfoViewModel: ObservableObject {
             .map{$0.sorted { $0.id > $1.id }}
             .replaceError(with: [])
             .eraseToAnyPublisher()
-    }()
+    }
 
     /// UI 전용 데이터로 변환
     func makeUIDatas(datas: [DiagnosisGetModel]) -> [TestRowModel] {

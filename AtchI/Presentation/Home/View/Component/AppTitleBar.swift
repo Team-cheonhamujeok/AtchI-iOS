@@ -31,7 +31,7 @@ struct AppTitleBar: View {
         .frame(maxWidth: .infinity,
                alignment: .leading)
         .sheet(isPresented: $isPresentModal) {
-            ReadMeView(urlToLoad: "https://www.naver.com")
+            ReadMeView(urlToLoad: "https://github.com/Team-cheonhamujeok/AtchI-iOS/blob/main/README.md")
         }
     }
 }

@@ -11,7 +11,7 @@ import Factory
 import StackCoordinator
 
 struct QuizView: View {
-    
+
     @ObservedObject var viewModel = Container.shared.preventViewModel.resolve()
     
     var quiz: Quiz
@@ -19,7 +19,7 @@ struct QuizView: View {
     
     var body: some View {
         ZStack{
-            Color.mainPurple.ignoresSafeArea()
+            Color.accentColor.ignoresSafeArea()
             VStack(alignment: .leading, spacing: 10) {
                 switch (quiz.index!) {
                 case 1:
@@ -53,8 +53,8 @@ struct QuizView: View {
                               buttonColor: .white,
                               isIndicate: false,
                               action: {
-                    viewModel.calQuizCount()
                     viewModel.checkQuiz(quizNum: quiz.index!)
+                    viewModel.requestQuiz()
                     coordinator.path.append(
                         QuizLink.done(
                             order: quiz.index!,
@@ -65,7 +65,7 @@ struct QuizView: View {
                 },
                               content: {
                     Text("완료")
-                        .foregroundColor(.mainPurple)
+                        .foregroundColor(.accentColor)
                 })
                 .padding(.horizontal, 30)
             }

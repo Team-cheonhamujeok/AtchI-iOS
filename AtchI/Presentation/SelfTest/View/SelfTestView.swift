@@ -22,7 +22,8 @@ import Moya
 struct SelfTestView: View {
     
     @State var buttonSeletor: TestAnswer?
-    @StateObject var selfTestViewModel: SelfTestViewModel
+    @ObservedObject var selfTestViewModel: SelfTestViewModel
+    @ObservedObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     let mid = UserDefaults.standard.integer(forKey: "mid")
     
@@ -81,7 +82,7 @@ struct SelfTestView: View {
                         self.buttonSeletor = nil
                         selfTestViewModel.requestResult(mid: self.mid)
                         selfTestViewModel.coordinator.path.append(
-                            DiagnosisLink.selfTestResult(selfTestViewModel)
+                            DiagnosisLink.selfTestResult(selfTestViewModel, selfTestInfoViewModel)
                         )
                     } else {
                         guard let buttonSeletor = buttonSeletor else { return }

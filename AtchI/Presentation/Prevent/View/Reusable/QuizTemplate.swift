@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+import StackCoordinator
+
 struct QuizTemplate: View {
     var quiz: Quiz
+    var coordinator: BaseCoordinator<PreventLink>
     
     var body: some View {
         HStack {
@@ -36,6 +39,7 @@ struct QuizTemplate: View {
             
             Text("도전하기")
                 .onTapGesture {
+                    self.coordinator.path.append(PreventLink.quiz(quiz: quiz, coordinate: coordinator))
             }
             .font(.bodySmall)
             .foregroundColor(.white)

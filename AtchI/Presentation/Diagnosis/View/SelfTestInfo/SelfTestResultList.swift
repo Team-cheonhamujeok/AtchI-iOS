@@ -10,8 +10,7 @@ import Moya
 
 struct SelfTestResultList: View {
     
-    @Binding var path: [DiagnosisViewStack]
-    @StateObject var selfTestInfoViewModel: SelfTestInfoViewModel
+    @ObservedObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     var body: some View {
         ScrollView {

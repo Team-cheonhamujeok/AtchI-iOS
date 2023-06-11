@@ -12,9 +12,11 @@ import Factory
 
 /// - Note: ViewModel 분리가 타당한가?
 class PredictionVM: ObservableObject {
-    
+
     // MARK: - Dependency
     @Injected(\.predictionService) private var predictionService
+    @Injected(\.lifePatternService) private var lifePatternService
+    @Injected(\.mmseService) private var mmseService
     
     // MARK: - Input State
     @Subject var viewOnAppear: Void = ()
@@ -26,9 +28,15 @@ class PredictionVM: ObservableObject {
     @Published var beforeDementia: Double  = 0.0
     @Published var dementia: Double = 0.0
     
+    @Published var isLoading: Bool = true
+    @Published var haveLifePattern: Bool = false
+    @Published var haveMMSE: Bool = false
+    
     @Published private var results: [PredictionModel] = []
     
     @Published var resultLevel: AIResultLevel?
+    
+    var myID: Int = UserDefaults.standard.integer(forKey: "mid")
     
     var cancellables = Set<AnyCancellable>()
     
@@ -40,7 +48,33 @@ class PredictionVM: ObservableObject {
     // MARK: - Private
     private func bind() {
         
-        getAIResult()
+        $haveLifePattern
+            .combineLatest($haveMMSE) { (first, second) in
+                return !(first && second)
+            }
+            .assign(to: \.isLoading, on: self)
+            .store(in: &cancellables)
+
+        
+        
+        checkHaveMMSE
+            .sink { _ in
+                
+            } receiveValue: { isHave in
+                self.haveMMSE = isHave
+            }
+            .store(in: &cancellables)
+        
+        checkHaveLifePattern
+            .sink { _ in
+                
+            } receiveValue: { isHave in
+                self.haveLifePattern = isHave
+            }
+            .store(in: &cancellables)
+
+        
+        getAIResult(mid: myID)
             .sink(receiveCompletion: { _ in
             
             }, receiveValue: { predictions in
@@ -103,9 +137,9 @@ class PredictionVM: ObservableObject {
             .store(in: &cancellables)
     }
     
-    private func getAIResult() -> AnyPublisher<[PredictionModel], PredictionError> {
+    private func getAIResult(mid: Int) -> AnyPublisher<[PredictionModel], PredictionError> {
         return predictionService
-                    .reqeustPredictions(mid: 1)
+                    .reqeustPredictions(mid: mid)
                     .map { result in
                         if result.success {
                             return result.response
@@ -116,4 +150,22 @@ class PredictionVM: ObservableObject {
                     }
                     .eraseToAnyPublisher()
     }
+    
+    private lazy var checkHaveMMSE: AnyPublisher<Bool, Never> = {
+        return self.mmseService
+            .reqeustMMSEResults(mid: self.myID)
+            .map{ $0.data }
+            .decode(type: [MMSEInfoGetModel].self, decoder: JSONDecoder())
+            .map{ !$0.isEmpty }
+            .replaceError(with: false)
+            .eraseToAnyPublisher()
+    }()
+    
+    private lazy var checkHaveLifePattern: AnyPublisher<Bool, Never> = {
+        return self.lifePatternService
+            .requestLastDate(mid: self.myID)
+            .map{ !($0.response.mid == nil)}
+            .replaceError(with: false)
+            .eraseToAnyPublisher()
+    }()
 }

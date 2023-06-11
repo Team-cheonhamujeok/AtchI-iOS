@@ -52,6 +52,12 @@ extension Container {
         }
     }
     
+    var lifePatternService: Factory<LifePatternServiceType> {
+        Factory(self) {
+            LifePatternService()
+        }
+    }
+    
     // MARK: - HKService
     var hkSleepService: Factory<HKSleepServiceProtocol> {
         Factory(self) { HKSleepService(

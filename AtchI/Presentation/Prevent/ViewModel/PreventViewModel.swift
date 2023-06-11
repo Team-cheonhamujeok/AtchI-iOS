@@ -11,6 +11,7 @@ import Combine
 class PreventViewModel: ObservableObject {
     
     @Published var quizCount: Int = 0
+    @Published var countDay: Int = 0
     
     let quizService: QuizServiceType?
     
@@ -30,6 +31,17 @@ class PreventViewModel: ObservableObject {
             for i in 0...todayQuiz.count-1 {
                 if todayQuiz[i].check == true {
                     quizCount += 1
+                }
+            }
+        }
+    }
+    
+    func countQuizSolveDay() {
+        countDay = 0
+        if thisWeekQuizState.count >= 7 {
+            for i in 0...thisWeekQuizState.count-1 {
+                if thisWeekQuizState[i].quizState == true {
+                    countDay += 1
                 }
             }
         }
@@ -59,7 +71,7 @@ class PreventViewModel: ObservableObject {
     }
     
     func requestQuiz() {
-        self.quizService!.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).sink(receiveCompletion: { completion in
+        self.quizService!.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).print().sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
             case .failure(let error):
@@ -73,13 +85,13 @@ class PreventViewModel: ObservableObject {
             self.todayQuiz.append(Quiz(index: 3, content: response.quiz3, check: response.quiz3Check, solved: response.solve))
             UserDefaults.standard.set(response.tqid, forKey: "tqid")
             self.calQuizCount()
+            print("퀴즈 완료 눌렀을때 카운트 되는지 \(self.quizCount)")
         }).store(in: &cancellables)
     }
     
     func checkQuiz(quizNum: Int) {
         let tqId = UserDefaults.standard.integer(forKey: "tqid")
         let mID = UserDefaults.standard.integer(forKey: "mid")
-//        print("tqid \(tqId), mid \(mID)")
         self.quizService!.checkQuiz(quizCheckModel: QuizCheckRequestModel(tqid:tqId, quizNum: quizNum, mid: mID)).sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
@@ -87,7 +99,9 @@ class PreventViewModel: ObservableObject {
                 self.checkQuizErrorMessage = error.localizedDescription
             }
         }, receiveValue: { reponse in
-            print(reponse.message)
+//            print(reponse.message)
+//            self.calQuizCount()
+            
         }).store(in: &cancellables)
     }
     
@@ -109,6 +123,7 @@ class PreventViewModel: ObservableObject {
             self.thisWeekQuizState.append(WeekQuiz(day: "토", quizState: response.sat))
             self.thisWeekQuizState.append(WeekQuiz(day: "일", quizState: response.sun))
             self.todayInt = self.getNowDay()
+            self.countQuizSolveDay()
         }).store(in: &cancellables)
         
     }
