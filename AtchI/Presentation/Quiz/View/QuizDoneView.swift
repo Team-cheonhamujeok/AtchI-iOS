@@ -20,7 +20,7 @@ struct QuizDoneView: View {
     
     var body: some View {
         ZStack{
-            Color.mainPurple.ignoresSafeArea()
+            Color.accentColor.ignoresSafeArea()
             VStack(spacing: 15) {
                 Text("🎉")
                     .font(.titleLarge)
@@ -51,7 +51,7 @@ struct QuizDoneView: View {
                     coordinator.path.removeAll()
                 }, content: {
                     Text("확인")
-                        .foregroundColor(.mainPurple)
+                        .foregroundColor(.accentColor)
                 })
                 .padding(.horizontal, 30)
             }

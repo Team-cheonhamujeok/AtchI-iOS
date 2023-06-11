@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import Factory
+
+import StackCoordinator
 
 struct PreventView: View {
-    @StateObject var preventViewModel: PreventViewModel
+    @ObservedObject var preventViewModel = Container.shared.preventViewModel.resolve()
+    
+    var coordinator: BaseCoordinator<PreventLink>
     
     var body: some View {
         VStack {
@@ -32,6 +37,7 @@ struct PreventView: View {
                     QuizStateCard(preventViewModel: preventViewModel, weekQuizState: preventViewModel.thisWeekQuizState, todayInt: preventViewModel.todayInt)
                         .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
                 } else {
+                    let _ = print(preventViewModel.thisWeekQuizState.count)
                     EmptyView()
                 }
                 // 굵은 구분선
@@ -60,11 +66,11 @@ struct PreventView: View {
                 
                 if preventViewModel.todayQuiz.count >= 3 {
                     VStack {
-                        QuizTemplate(quiz: preventViewModel.todayQuiz[0])
+                        QuizTemplate(quiz: preventViewModel.todayQuiz[0], coordinator: coordinator)
                             .padding(.bottom, 20)
-                        QuizTemplate(quiz: preventViewModel.todayQuiz[1])
+                        QuizTemplate(quiz: preventViewModel.todayQuiz[1], coordinator: coordinator)
                             .padding(.bottom, 20)
-                        QuizTemplate(quiz: preventViewModel.todayQuiz[2])
+                        QuizTemplate(quiz: preventViewModel.todayQuiz[2], coordinator: coordinator)
                             .padding(.bottom, 20)
                     }
                     .padding(.horizontal, 30)
