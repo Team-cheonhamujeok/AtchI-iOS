@@ -17,23 +17,11 @@ struct QuizStateCard: View {
         VStack(alignment: .leading, spacing: 7) {
             Text("이번주 퀴즈 현황")
                 .font(.titleMedium)
-            Text("매일매일 퀴즈를 풀어주셨군요 :)")
+            Text("\(preventViewModel.countDay)일치 퀴즈 풀기 완료 🙂")
                 .font(.bodySmall)
                 .foregroundColor(.mainText)
                 .padding(.bottom, 10)
-//            HStack(spacing: 20) {
-//                ZStack {
-//                    Circle()
-//                        .fill(Color.mainPurple)
-//                        .frame(width: 30, height: 30)
-//                    Text("월")
-//                        .font(.bodyMedium)
-//                        .foregroundColor(.white)
-//                }
-//
-//            }
             
-            // 동그라미 겹쳐지는 로직 짜야함..
             // - 풀었고 오늘보다 과거이면 full circle
             // - 안 풀었고 오늘보다 과거이면 회색 글씨
             // - 오늘인데 풀었으면 full circle, 안 풀었으면 border circle
@@ -43,7 +31,6 @@ struct QuizStateCard: View {
                 ForEach(0..<7) { item in
                     ZStack {
                         if item < todayInt {
-//                            let _ = print("오늘은 \(todayInt) 요일!")
                             if weekQuizState[item].quizState! == false {
                                 Circle()
                                     .fill(Color.clear)
@@ -73,14 +60,13 @@ struct QuizStateCard: View {
                                     .frame(width: 30, height: 30)
                                 Text(weekQuizState[item].day!)
                                     .font(.bodyMedium)
-//                                    .foregroundColor(Color.grayDisabled)
                             } else {
                                 Circle()
-                                    .fill(Color.mainPurple)
+                                    .fill(Color.accentColor)
                                     .frame(width: 30, height: 30)
                                 Text(weekQuizState[item].day!)
                                     .font(.bodyMedium)
-                                    .foregroundColor(Color.mainBackground)
+                                    .foregroundColor(Color.white)
                             }
                         }
                         
