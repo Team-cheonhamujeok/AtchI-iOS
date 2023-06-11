@@ -12,7 +12,6 @@ import SwiftUI
 /// 사진과 타이틀, 본문 미리보기를 가진 카드를 여러장 리스트로 출력합니다.
 struct DementiaAricleCardList: View {
     
-    // dy TODO: 이거 allCases할 수 없나?
     let articles: [DementiaArticleModel]
     
     var body: some View {
@@ -24,6 +23,7 @@ struct DementiaAricleCardList: View {
                         title: $0.title,
                         content: $0.content ?? "오류가 발생했습니다 😓"
                     )
+                    
                 }
             }
         }

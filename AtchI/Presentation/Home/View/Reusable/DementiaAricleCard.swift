@@ -60,7 +60,6 @@ struct DementiaAricleCard: View {
                alignment: .leading)
         // action - show modal
         .onTapGesture {
-            print("tabtab")
             self.showingDetail = true
         }
         .background(Color.mainPurpleLight)
@@ -70,6 +69,7 @@ struct DementiaAricleCard: View {
                 .strokeBorder(Color.grayBoldLine, lineWidth: 1.5)
         )
         .background(Color.mainBackground)
+        .contentShape(Rectangle())
         .sheet(isPresented: $showingDetail){
             DementiaArticelDetailModal(
                 title: title,

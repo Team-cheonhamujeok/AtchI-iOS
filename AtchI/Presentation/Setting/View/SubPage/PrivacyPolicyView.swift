@@ -10,6 +10,8 @@ import MarkdownUI
 
 struct PrivacyPolicyView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var policyText: String = ""
     
     var body: some View {
@@ -35,6 +37,10 @@ struct PrivacyPolicyView: View {
             self.policyText = rtfText.string
         }
         .background(Color.mainBackground)
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainBackground
+        )
     }
 }
 

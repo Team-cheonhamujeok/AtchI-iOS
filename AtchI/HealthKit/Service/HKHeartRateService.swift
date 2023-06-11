@@ -11,87 +11,58 @@ import HealthKit
 
 class HKHeartRateService: HKHeartRateServiceProtocol {
     
+    var core: HKHeartRateCoreProtocol
     
-    let healthKitProvider: HKProvider
+    let provider: HKProvider
     let heartRateQuantity = HKUnit(from: "count/min")
     let dateHelper: DateHelperType
     
-    init(healthKitProvider: HKProvider, dateHelper: DateHelperType) {
-        self.healthKitProvider = healthKitProvider
+    init(
+        core: HKHeartRateCoreProtocol,
+        provider: HKProvider,
+        dateHelper: DateHelperType
+    ) {
+        self.core = core
+        self.provider = provider
         self.dateHelper = dateHelper
     }
     
     func getHeartRateAveragePerMin(startDate: Date,
                       endDate: Date)
     -> AnyPublisher<[Double], HKError> {
-        return self.fetchHeartRate(startDate: startDate, endDate: endDate)
+        return self
+            .fetchHeartRate(
+                startDate: startDate,
+                endDate: endDate)
             .map { samples in
-                self.getHeartRateBPM(samples: samples)
+                self.core.getHeartRateBPM(
+                    samples: samples.map { $0.maapedHeartRateEntity }
+                )
             }
             .eraseToAnyPublisher()
     }
     
-    // 특정 시간의 심박수 fetch
-    private func fetchHeartRate(startDate: Date,
-                                endDate: Date)
-    -> Future<[HKQuantitySample], HKError> {
+    func getHeartRateVariability(date: Date) -> Future<[Double], HKError> {
         return Future { promise in
-            let predicate = HKQuery.predicateForSamples(withStart: startDate,
-                                                        end: endDate,
-                                                        options: .strictEndDate)
-            
-            self.healthKitProvider.getQuantityTypeSamples(identifier: .heartRate,
-                                                          predicate: predicate) { samples, error in
-                if let error = error {
-                    promise(.failure(error))
-                }
-                promise(.success(samples))
-            }
-        }
-    }
-    
-    // 분당 중복되는 심박수 처리
-    private func getHeartRateBPM(samples: [HKQuantitySample]) -> [Double] {
-        let quantitySamples = samples.compactMap { $0 as? HKQuantitySample }
-//                print("첫번째 값 : \(quantitySamples[0].quantity.doubleValue(for: heartRateQuantity))")
-//                print("마지막 값 : \(quantitySamples.count-1)번째임 \(quantitySamples[quantitySamples.count-1].quantity.doubleValue(for: heartRateQuantity))")
-        var totalArray: [Double] = []
-        var minuteArray: [Double] = []
-        
-        for idx in 0..<quantitySamples.count {
-            let dateComponent = Calendar.current.dateComponents([.hour, .minute], from: quantitySamples[idx].startDate)
-            let heartRate = round(quantitySamples[idx].quantity.doubleValue(for: self.heartRateQuantity))
-            
-            for hour in 0...23 {
-                if idx == 0 {
-                    minuteArray.append(heartRate)
-                } else {
-                    let beforeDatecomponent = Calendar.current.dateComponents([.hour, .minute], from: quantitySamples[idx-1].startDate)
-                    if dateComponent.hour == hour {
-                        if beforeDatecomponent.minute == dateComponent.minute {
-                            minuteArray.append(heartRate)
-                        } else if dateComponent.minute != beforeDatecomponent.minute {
-                            if minuteArray.isEmpty != true {
-                                let minuteAver = Double(minuteArray.reduce(0,+))/Double(minuteArray.count)
-                                totalArray.append(minuteAver)
-                                minuteArray.removeAll()
-                            }
-                            minuteArray.append(heartRate)
-//                                    print("시간 배열 \(hourArray)")
-                            if idx == quantitySamples.count-1 && minuteArray.isEmpty != true {
-                                let minuteAver = Double(minuteArray.reduce(0,+))/Double(minuteArray.count)
-                                totalArray.append(minuteAver)
-                                minuteArray.removeAll()
-                            }
+            let startDate = self.dateHelper.getYesterdayStartAM(date)
+            let endDate = self.dateHelper.getYesterdayEndPM(date)
+            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
+
+            self.provider
+                .getQuantityTypeSamples(
+                    identifier: .heartRateVariabilitySDNN,
+                    predicate: predicate,
+                    completion: { variabilityMS, error in
+                let variabilitys = variabilityMS
+                        .compactMap {
+                            $0.quantity.doubleValue(
+                                for: HKUnit.secondUnit(with: .milli)
+                            )
                         }
-                    } else {
-                        continue
-                    }
-                }
-            }
-            
+                promise(Result.success(variabilitys))
+            })
+
         }
-        return totalArray
     }
     
 
@@ -109,26 +80,7 @@ class HKHeartRateService: HKHeartRateServiceProtocol {
         }
     }
      */
-    
-    func getHeartRateVariability(date: Date) -> Future<[Double], HKError> {
-        return Future { promise in
-            let startDate = self.dateHelper.getYesterdayStartAM(date)
-            let endDate = self.dateHelper.getYesterdayEndPM(date)
-            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
 
-            self.healthKitProvider
-                .getQuantityTypeSamples(identifier: .heartRateVariabilitySDNN,
-                                        predicate: predicate,
-                                        completion: { variabilityMS, error in
-                let variabilitys = variabilityMS
-                        .compactMap {
-                            $0.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-                        }
-                promise(Result.success(variabilitys))
-            })
-
-        }
-    }
     /*
 
     func getRestingHeartRate() -> Future<[HKQuantitySample], Error> {
@@ -144,4 +96,26 @@ class HKHeartRateService: HKHeartRateServiceProtocol {
         }
     }
     */
+}
+
+extension HKHeartRateService {
+    
+    // 특정 시간의 심박수 fetch
+    private func fetchHeartRate(startDate: Date,
+                                endDate: Date)
+    -> Future<[HKQuantitySample], HKError> {
+        return Future { promise in
+            let predicate = HKQuery.predicateForSamples(withStart: startDate,
+                                                        end: endDate,
+                                                        options: .strictEndDate)
+            
+            self.provider.getQuantityTypeSamples(identifier: .heartRate,
+                                                          predicate: predicate) { samples, error in
+                if let error = error {
+                    promise(.failure(error))
+                }
+                promise(.success(samples))
+            }
+        }
+    }
 }

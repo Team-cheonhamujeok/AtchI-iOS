@@ -19,7 +19,7 @@ extension Container {
         }
         .singleton
     }
-
+    
     // MARK: - Moya
     var lifePatternAPIProvider: Factory<MoyaProvider<LifePatternAPI>> {
         Factory(self) {
@@ -60,8 +60,10 @@ extension Container {
     
     // MARK: - HKService
     var hkSleepService: Factory<HKSleepServiceProtocol> {
-        Factory(self) { HKSleepService(provider: HKProvider(),
-                                       dateHelper: DateHelper())
+        Factory(self) { HKSleepService(
+            core: HKSleepCore(),
+            provider: HKProvider(),
+            dateHelper: DateHelper())
         }
     }
     
@@ -71,8 +73,10 @@ extension Container {
     }
     
     var hkHeartRateService: Factory<HKHeartRateServiceProtocol> {
-        Factory(self) { HKHeartRateService(healthKitProvider: HKProvider(),
-                                           dateHelper: DateHelper())
+        Factory(self) { HKHeartRateService(
+            core: HKHeartRateCore(),
+            provider: HKProvider(),
+            dateHelper: DateHelper())
         }
     }
 }

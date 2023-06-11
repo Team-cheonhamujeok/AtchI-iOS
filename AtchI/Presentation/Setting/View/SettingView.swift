@@ -7,14 +7,19 @@
 
 import SwiftUI
 
+import StackCoordinator
+
 /// 임시로 만든 설정뷰입니다.
 struct SettingView: View {
+    
+    var coordinator: BaseCoordinator<SettingLink>
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Text("설정")
                 .font(.titleLarge)
             
-            SettingCategoriesView()
+            SettingListView(coordinator: coordinator)
             
             Spacer()
             Text("로그아웃하기")
@@ -32,6 +37,10 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        SettingView(
+            coordinator: BaseCoordinator<SettingLink>(
+                path: .constant(NavigationPath())
+            )
+        )
     }
 }

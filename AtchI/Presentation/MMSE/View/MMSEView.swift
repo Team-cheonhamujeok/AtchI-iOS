@@ -90,16 +90,10 @@ struct MMSEView: View {
             }
         }
         .navigationBarBackButtonHidden()
-        .toolbar{
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack{
-                    Image("arrow_back").foregroundColor(.white)
-                    Text("이전으로").foregroundColor(.white)
-                }.onTapGesture {
-                    dismiss()
-                }
-            }
-        }
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainPurple
+        )
         .contentShape(Rectangle())
         .onTapGesture {
             hideKeyboard()

@@ -16,4 +16,31 @@ extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
+    
+    func setCustomNavigationBar(
+        dismiss: DismissAction,
+        backgroundColor: Color
+    ) -> some View {
+        return self
+            .navigationBarBackButtonHidden(true)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading) {
+                    HStack(spacing: 3){
+                        Group {
+                            ArrowBackIcon()
+                                .frame(width: 18, height: 24)
+                            Text("이전으로")
+                        }
+                        .foregroundColor(
+                            backgroundColor == .mainPurple
+                            ? .white
+                            : .mainPurple
+                        )
+                        
+                    }.onTapGesture {
+                        dismiss()
+                    }
+                }
+            }
+    }
 }

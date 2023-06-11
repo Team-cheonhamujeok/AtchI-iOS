@@ -18,19 +18,6 @@ struct HealthInfoDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Text("현재 활동 정보")
-                    .font(.titleSmall)
-                Spacer()
-                Image("question_circle")
-                    .foregroundColor(.grayDisabled)
-                    .onTapGesture {
-                        isWatchActiityModalOpen = true
-                    }
-            }
-            Text("AI 진단에 쓰이고 있는 활동 정보들입니다!")
-                .font(.bodyMedium)
-            Spacer(minLength: 5)
             
             VStack(spacing: 15) {
                 HStack {
@@ -76,10 +63,6 @@ struct HealthInfoDetailView: View {
                     }
                 }
             }
-        }
-        .sheet(isPresented: $isWatchActiityModalOpen) {
-            WatchActivityDescriptionModal()
-                .presentationDetents([.height(440)])
         }
     }
 }
