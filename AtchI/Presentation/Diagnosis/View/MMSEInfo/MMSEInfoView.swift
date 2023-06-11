@@ -18,10 +18,18 @@ struct MMSEInfoView: View {
     
     var body: some View {
         Group {
-            if viewModel.testResults.isEmpty {
-                noTestView
+            if viewModel.isLoading || viewModel.isEmpty == nil {
+                HStack {
+                    Spacer()
+                    LoadingView()
+                    Spacer()
+                }
             } else {
-                haveTestView
+                if viewModel.isEmpty! {
+                    noTestView
+                } else {
+                    haveTestView
+                }
             }
         }
         .sheet(isPresented: $isPresentModal) {
@@ -160,8 +168,9 @@ struct MMSEInfoView: View {
                               buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
-                    // FIXME: path
-//                    path.append(.mmseResultList)
+                    viewModel.coordinator.path.append(
+                        DiagnosisLink.mmseInfo(viewModel)
+                    )
                 } content: {
                     Text("전체보기")
                 }

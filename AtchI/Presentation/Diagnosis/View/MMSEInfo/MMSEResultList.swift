@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct MMSEResultList: View {
-    
-    @Binding var path: [DiagnosisViewStack]
-    @StateObject var mmseInfoViewModel: MMSEInfoViewModel
+
+    @ObservedObject var mmseInfoViewModel: MMSEInfoViewModel
     
     var body: some View {
         ScrollView {
