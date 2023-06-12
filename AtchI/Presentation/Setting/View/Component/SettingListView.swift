@@ -39,7 +39,6 @@ struct SettingListView: View {
         }
         .scrollDisabled(true)
         .listStyle(.plain)
-        .background(Color.mainBackground)
         .frame(maxWidth: .infinity)
     }
 }

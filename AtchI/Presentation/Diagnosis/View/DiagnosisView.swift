@@ -54,9 +54,9 @@ struct DiagnosisView: View {
                 .frame(minHeight: 350)
                 
                 Rectangle()
-                    .frame(height: 10)
+                    .frame(height: 12)
                     .foregroundColor(.grayBoldLine)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 30)
                 
                 MMSEInfoView(
                     viewModel: mmseInfoViewModel,
@@ -75,6 +75,7 @@ struct DiagnosisView: View {
             selfTestInfoViewModel.requestData()
             mmseInfoViewModel.requestData()
         }
+        .background(Color.mainBackground)
     }
 }
 

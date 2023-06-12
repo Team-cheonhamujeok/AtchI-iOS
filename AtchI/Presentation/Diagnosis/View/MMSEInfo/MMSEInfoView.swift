@@ -146,17 +146,23 @@ struct MMSEInfoView: View {
                     if firstID == value.id {
                         TestRow(result: value, isFirst: true)
                             .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
                     }
                     else {
                         TestRow(result: value, isFirst: false)
                             .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
+
                     }
                 }
             }
-            .scrollDisabled(true)
-            .frame(height: 150)
             .listStyle(.plain)
+            .scrollDisabled(true)
+            
+            .background(Color.mainBackground)
+            .frame(height: 150)
             .padding(.horizontal, 10)
+            
             
             // 3️⃣ 전체보기 버튼
             HStack{
@@ -178,5 +184,6 @@ struct MMSEInfoView: View {
             }
             .padding(.bottom, 10)
         }
+        .background(Color.mainBackground)
     }
 }

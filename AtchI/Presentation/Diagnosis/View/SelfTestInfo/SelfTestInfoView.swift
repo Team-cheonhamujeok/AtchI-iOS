@@ -121,10 +121,12 @@ struct SelfTestInfoView: View {
                     if firstID == value.id {
                         TestRow(result: value, isFirst: true)
                             .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
                     }
                     else {
                         TestRow(result: value, isFirst: false)
                             .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
                     }
                 }
             }
@@ -132,6 +134,7 @@ struct SelfTestInfoView: View {
             .frame(height: 150)
             .listStyle(.plain)
             .padding(.horizontal, 10)
+            .background(Color.mainBackground)
             
             // 3️⃣ 전체보기 버튼
             HStack{
@@ -150,10 +153,12 @@ struct SelfTestInfoView: View {
                 } content: {
                     Text("전체보기")
                 }
+                
                 Spacer()
             }
             .padding(.bottom, 10)
         }
+        .background(Color.mainBackground)
     }
 }
 

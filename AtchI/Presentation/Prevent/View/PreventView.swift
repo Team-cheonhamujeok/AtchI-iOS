@@ -85,6 +85,7 @@ struct PreventView: View {
             preventViewModel.getWeekQuiz()
         }
         .padding(.top)
+        .background(Color.mainBackground)
     }
     
 }

@@ -70,6 +70,7 @@ struct QuizView: View {
                 .padding(.horizontal, 30)
             }
         }
+        .background(Color.mainBackground)
         
         
     }

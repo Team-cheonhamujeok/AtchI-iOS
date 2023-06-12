@@ -12,7 +12,7 @@ struct BoldDivider: View {
     var body: some View {
         Rectangle()
             .fill(Color.grayBoldLine)
-            .frame(height: 15)
+            .frame(height: 12)
             .edgesIgnoringSafeArea(.horizontal)
     }
 }

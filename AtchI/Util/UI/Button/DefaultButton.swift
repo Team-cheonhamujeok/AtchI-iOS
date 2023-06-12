@@ -50,7 +50,7 @@ struct DefaultButton<Content>: View where Content: View {
                 RoundedRectangle(
                     cornerRadius:
                         buttonSize == ControlSize.large ? 16 : 100)
-                .stroke(buttonColor, lineWidth: 2)
+                .stroke(buttonColor, lineWidth: 1)
             }
         }
     }

@@ -37,7 +37,8 @@ extension View {
                             : .mainPurple
                         )
                         
-                    }.onTapGesture {
+                    }
+                    .onTapGesture {
                         dismiss()
                     }
                 }
