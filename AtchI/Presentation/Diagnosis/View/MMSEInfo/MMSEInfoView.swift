@@ -93,7 +93,7 @@ struct MMSEInfoView: View {
             {
                 coordinator.path.append(
                     DiagnosisLink.mmse(
-                        BaseCoordinator(path: coordinator.$path)
+                        BaseCoordinator()
                     )
                 )
             } content: {
@@ -127,7 +127,7 @@ struct MMSEInfoView: View {
                 {
                     coordinator.path.append(
                         DiagnosisLink.mmse(
-                            BaseCoordinator(path: coordinator.$path)
+                            BaseCoordinator()
                         )
                     )
                 } content: {

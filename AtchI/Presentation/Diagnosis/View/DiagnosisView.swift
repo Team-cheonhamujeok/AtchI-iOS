@@ -21,11 +21,7 @@ struct DiagnosisView: View {
     
     init(coordinator: BaseCoordinator<DiagnosisLink>) {
         self.coordinator = coordinator
-        self.selfTestViewModel = SelfTestViewModel(
-            service: DiagnosisService(
-                provider: MoyaProvider<DiagnosisAPI>()
-            ),
-            coordinator: coordinator)
+        self.selfTestViewModel = SelfTestViewModel(coordinator: BaseCoordinator<SelfTestLink>()) // FIXME: 임시
         self.selfTestInfoViewModel = SelfTestInfoViewModel(
             service: DiagnosisService(
                 provider: MoyaProvider<DiagnosisAPI>()
@@ -81,10 +77,6 @@ struct DiagnosisView: View {
 
 struct DiagnosisView_Previews: PreviewProvider {
     static var previews: some View {
-        DiagnosisView(
-            coordinator: BaseCoordinator<DiagnosisLink>(
-                path: .constant(NavigationPath())
-            )
-        )
+        DiagnosisView(coordinator: BaseCoordinator<DiagnosisLink>())
     }
 }

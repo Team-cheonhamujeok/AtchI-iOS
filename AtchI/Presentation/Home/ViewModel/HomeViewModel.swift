@@ -19,7 +19,7 @@ class HomeViewModel: ObservableObject {
     // MARK: - Dependency
     
     @Injected(\.dementiaArticleService) private var dementiaArticleService
-    @Injected(\.quizService) var quizServcie
+    @Injected(\.quizService) private var quizServcie
     var coordinator: BaseCoordinator<HomeLink>
     
     // MARK: - Input State
@@ -52,7 +52,9 @@ class HomeViewModel: ObservableObject {
         
         $tapMoveHealthInfoPage
             .sink {
-                self.coordinator.path.append(HomeLink.healthInfo)
+                self.coordinator.path.append(
+                    HomeLink.healthInfo
+                )
             }
             .store(in: &cancellables)
         
@@ -65,9 +67,7 @@ class HomeViewModel: ObservableObject {
                     self.coordinator.path.append(
                         HomeLink.quiz(
                             quiz,
-                            BaseCoordinator<QuizLink>(
-                                path: self.coordinator.$path
-                            )
+                            BaseCoordinator<QuizLink>()
                         )
                     )
                 } else {
@@ -75,6 +75,16 @@ class HomeViewModel: ObservableObject {
                         .showAlert(title: "퀴즈 모두 완료",
                                    message: "오늘 퀴즈를 모두 푸셨습니다 🥳")
                 }
+            }
+            .store(in: &cancellables)
+        
+        $tapSelfDiagnosisShortcut
+            .sink {
+                self.coordinator.path.append(
+                    HomeLink.selfTest(
+                        BaseCoordinator<SelfTestLink>()
+                    )
+                )
             }
             .store(in: &cancellables)
         

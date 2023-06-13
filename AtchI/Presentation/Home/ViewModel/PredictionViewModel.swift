@@ -1,5 +1,5 @@
 //
-//  PredictionVM.swift
+//  PredictionViewModel.swift
 //  AtchI
 //
 //  Created by 강민규 on 2023/06/05.
@@ -11,7 +11,7 @@ import Combine
 import Factory
 
 /// - Note: ViewModel 분리가 타당한가?
-class PredictionVM: ObservableObject {
+class PredictionViewModel: ObservableObject {
 
     // MARK: - Dependency
     @Injected(\.predictionService) private var predictionService

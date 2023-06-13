@@ -14,6 +14,7 @@ enum HomeLink: LinkProtocol {
     
     case healthInfo
     case quiz(_ : Quiz, _ : BaseCoordinator<QuizLink>)
+    case selfTest(_ : BaseCoordinator<SelfTestLink>)
     
     func matchView() -> any View {
         switch self {
@@ -22,6 +23,10 @@ enum HomeLink: LinkProtocol {
         case let .quiz(quiz, coordinator):
             return QuizBuilder(
                 quiz: quiz,
+                coordinator: coordinator
+            )
+        case let .selfTest(coordinator):
+            return SelfTestBuilder(
                 coordinator: coordinator
             )
         }

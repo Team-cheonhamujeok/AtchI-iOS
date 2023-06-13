@@ -12,7 +12,7 @@ import StackCoordinator
 
 struct DiagnosisBuilder: BuilderProtocol {
     
-    var coordinator: BaseCoordinator<DiagnosisLink>
+    var coordinator = BaseCoordinator<DiagnosisLink>()
     
     var body: some View {
         BaseBuilder(coordinator: coordinator) {

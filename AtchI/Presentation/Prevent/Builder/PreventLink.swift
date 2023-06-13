@@ -21,7 +21,7 @@ enum PreventLink: LinkProtocol {
         switch self {
         case .quiz(let quiz, let coordinate):
             return QuizBuilder(
-                quiz: quiz, coordinator: BaseCoordinator(path: coordinate.$path)
+                quiz: quiz
             )
         }
     }

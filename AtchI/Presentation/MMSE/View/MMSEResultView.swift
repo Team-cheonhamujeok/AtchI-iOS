@@ -69,9 +69,7 @@ struct MMSEResultView_Previews: PreviewProvider {
     static var previews: some View {
         MMSEResultView(
             resultScores: [:],
-            coordinator: BaseCoordinator(
-                path: .constant(NavigationPath())
-            )
+            coordinator: BaseCoordinator()
         )
     }
 }

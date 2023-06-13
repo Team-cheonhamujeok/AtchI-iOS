@@ -13,12 +13,12 @@ import StackCoordinator
 
 struct HomeBuilder: BuilderProtocol {
     
-    var coordinator: BaseCoordinator<HomeLink>
+    var coordinator = BaseCoordinator<HomeLink>()
     
     var body: some View {
         BaseBuilder(coordinator: coordinator) {
             HomeView(viewModel: HomeViewModel(coordinator: coordinator),
-                     predictVM: PredictionVM())
+                     predictVM: PredictionViewModel())
         }
     }
 }

@@ -12,7 +12,7 @@ import Factory
 struct HomeView: View {
     
     @StateObject var viewModel: HomeViewModel
-    @StateObject var predictVM: PredictionVM
+    @StateObject var predictVM: PredictionViewModel
     
     var body: some View {
         VStack {
@@ -54,8 +54,8 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 20){
                     Text("바로가기")
                         .font(.titleMedium)
-                    ShortcutCards(tapQuizShorcut: viewModel.$tapQuizShortcut,
-                                  tapSelfDiagnosisShorcut: viewModel.$tapSelfDiagnosisShortcut)
+                    ShortcutCards(tapQuizShorcut: viewModel.tapQuizShortcut,
+                                  tapSelfDiagnosisShorcut: viewModel.tapSelfDiagnosisShortcut)
                 }
                 .padding(.horizontal, 30)
                 

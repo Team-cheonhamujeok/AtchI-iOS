@@ -25,14 +25,16 @@ enum DiagnosisLink: LinkProtocol {
         switch self {
         case .selfTestStart(let viewModel, let infoVM):
             return SelfTestStartView(
-                viewModel: viewModel, selfTestInfo: infoVM
+                viewModel: viewModel
             )
         case .selfTest(let viewModel, let infoVM):
             return SelfTestView(
-                selfTestViewModel: viewModel, selfTestInfoViewModel: infoVM
+                selfTestViewModel: viewModel
             )
         case .selfTestResult(let viewModel, let infoVM):
-            return SelfTestResultView(selfTestViewModel: viewModel, selfTestInfoViewModel: infoVM)
+            return SelfTestResultView(
+                selfTestViewModel: viewModel
+            )
         case .selfTestResultList(let viewModel):
             return SelfTestResultList(selfTestInfoViewModel: viewModel)
         case .mmseInfo(let viewModel):

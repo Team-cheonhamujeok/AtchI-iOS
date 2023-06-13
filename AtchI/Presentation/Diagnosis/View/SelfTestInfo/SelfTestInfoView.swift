@@ -165,9 +165,7 @@ struct SelfTestInfoView: View {
 struct DiagnosisViewm_Previews: PreviewProvider {
     static var previews: some View {
         DiagnosisView(
-            coordinator: BaseCoordinator<DiagnosisLink>(
-                path: .constant(NavigationPath())
-            )
+            coordinator: BaseCoordinator<DiagnosisLink>()
         )
     }
 }

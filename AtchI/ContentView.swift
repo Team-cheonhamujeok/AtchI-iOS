@@ -26,30 +26,28 @@ struct ContentView: View {
             set: { _ in }
         )
         TabView(selection: $selectedTab) {
-            HomeBuilder(
-                coordinator: BaseCoordinator<HomeLink>(path: $path)
-            )
+            HomeBuilder()
             .tabItem{
                 Image(systemName: "house")
                 Text("홈")
             }
             .tag(TabBarType.home)
             DiagnosisBuilder(
-                coordinator: BaseCoordinator<DiagnosisLink>(path: $path)
+                coordinator: BaseCoordinator<DiagnosisLink>()
             )
             .tabItem{
                 Image(systemName: "stethoscope")
                 Text("진단")
             }
             .tag(TabBarType.diagnosis)
-            PreventBuilder(coordinator: BaseCoordinator<PreventLink>(path: $path))
+            PreventBuilder(coordinator: BaseCoordinator<PreventLink>())
                 .tabItem{
                     Image(systemName: "brain.head.profile")
                     Text("예방")
                 }
                 .tag(TabBarType.prevent)
             SettingBuilder(
-                coordinator: BaseCoordinator<SettingLink>(path: $path)
+                coordinator: BaseCoordinator<SettingLink>()
             )
             .tabItem{
                 Image(systemName: "gear")
@@ -60,6 +58,7 @@ struct ContentView: View {
         }
         .tabViewStyle(DefaultTabViewStyle())
         .toolbar(.hidden, for: .navigationBar)
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear() {
             // Setting tabView style
             UITabBar.appearance().standardAppearance = setTabBarAppearance()
