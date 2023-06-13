@@ -54,7 +54,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 .sink(receiveCompletion: { completion in
                     print(completion)
                 }, receiveValue: { result in
-                    print("SaveLifePattern Response \(result)")
+
                 })
                 .store(in: &cancellable)
         }
