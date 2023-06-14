@@ -23,6 +23,4 @@ struct SelfTestBuilder: BuilderProtocol {
             )
         }
     }
-    
-    
 }

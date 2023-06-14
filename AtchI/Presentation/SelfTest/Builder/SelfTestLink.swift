@@ -19,7 +19,8 @@ enum SelfTestLink: LinkProtocol {
         switch self {
         case .test(let viewModel):
             return SelfTestView(
-                selfTestViewModel: viewModel)
+                selfTestViewModel: viewModel
+            )
         case .result(let viewModel):
             return SelfTestResultView(
                 selfTestViewModel: viewModel

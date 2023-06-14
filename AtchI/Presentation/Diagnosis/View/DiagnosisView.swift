@@ -16,7 +16,6 @@ struct DiagnosisView: View {
     var selfTestInfoViewModel: SelfTestInfoViewModel
     let mmseInfoViewModel: MMSEInfoViewModel
     
-    //    @State private var path: [DiagnosisViewStack] = []
     var coordinator: BaseCoordinator<DiagnosisLink>
     
     init(coordinator: BaseCoordinator<DiagnosisLink>) {

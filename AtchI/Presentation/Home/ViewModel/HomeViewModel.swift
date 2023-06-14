@@ -65,10 +65,7 @@ class HomeViewModel: ObservableObject {
             .sink { quiz in
                 if let quiz = quiz {
                     self.coordinator.path.append(
-                        HomeLink.quiz(
-                            quiz,
-                            BaseCoordinator<QuizLink>()
-                        )
+                        HomeLink.quiz(quiz)
                     )
                 } else {
                     AlertHelper
@@ -79,11 +76,10 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
         
         $tapSelfDiagnosisShortcut
+            .print("button tap")
             .sink {
                 self.coordinator.path.append(
-                    HomeLink.selfTest(
-                        BaseCoordinator<SelfTestLink>()
-                    )
+                    HomeLink.selfTest
                 )
             }
             .store(in: &cancellables)
