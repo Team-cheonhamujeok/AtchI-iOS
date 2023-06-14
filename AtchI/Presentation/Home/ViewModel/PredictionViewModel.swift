@@ -42,7 +42,7 @@ class PredictionViewModel: ObservableObject {
     
     // MARK: - Constructor
     init() {
-        bind()
+//        bind()
     }
     
     // MARK: - Private

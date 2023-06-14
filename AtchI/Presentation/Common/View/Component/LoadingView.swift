@@ -10,28 +10,36 @@ import SwiftUI
 struct LoadingView: View {
     // 0...1 = 0%...100%
     @State var progress: Double = 0
+    @State var angle: Double = 0
     
     var body: some View {
         VStack {
             ZStack {
                 Circle()
                     .stroke(
-                        Color.mainPurpleLight.opacity(0.5),
-                        lineWidth: 10
+                        Color.grayThinLine.opacity(0.5),
+                        lineWidth: 5
                     )
                     .frame(width: 50,height: 50)
                 Circle()
-                    .trim(from: 0, to: progress)
+                    .trim(
+                        from: 0,
+                        to: 0.2
+                    )
                     .stroke(
                         Color.grayDisabled,
                         style: StrokeStyle(
-                            lineWidth: 10,
+                            lineWidth: 5,
                             lineCap: .round
                         )
                     )
                     .frame(width: 50,height: 50)
-                    .rotationEffect(.degrees(-90))
-                    .animation(.easeOut(duration: 1), value: progress)
+                    .rotationEffect(.degrees(angle))
+                    .animation(
+                        .easeOut(duration: 1.5)
+                        .repeatForever(autoreverses: false),
+                        value: angle
+                    )
                 
             }
         }
@@ -39,7 +47,18 @@ struct LoadingView: View {
         .onAppear {
             DispatchQueue.global().asyncAfter(deadline: .now(), execute: {
                 progress = progress + 1
+                angle += 360
             })
+        }
+    }
+    
+    var animationFromPosition: Double {
+        if progress < 0.2 {
+            return progress-1
+        } else if progress < 0.8 {
+            return progress-0.2
+        } else {
+            return progress
         }
     }
 }
