@@ -11,7 +11,7 @@ import Moya
 import StackCoordinator
 
 struct SelfTestInfoView: View {
-    @ObservedObject var selfTestViewModel: SelfTestViewModel
+    
     @ObservedObject var viewModel: SelfTestInfoViewModel
     
     var coordinator: BaseCoordinator<DiagnosisLink>
@@ -72,7 +72,7 @@ struct SelfTestInfoView: View {
                           isIndicate: true)
             {
                 coordinator.path.append(
-                    DiagnosisLink.selfTestStart(selfTestViewModel, viewModel)
+                    DiagnosisLink.selfTest
                 )
             } content: {
                 Text("자가진단 시작하기")
@@ -104,7 +104,7 @@ struct SelfTestInfoView: View {
                               isIndicate: false)
                 {
                    coordinator.path.append(
-                    DiagnosisLink.selfTestStart(selfTestViewModel, viewModel)
+                    DiagnosisLink.selfTest
                    )
                 } content: {
                     Text("자가진단 다시하기")
@@ -146,9 +146,8 @@ struct SelfTestInfoView: View {
                               buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
-                    // FIXME: path
                     viewModel.coordinator.path.append(
-                        DiagnosisLink.selfTestResultList(viewModel)
+                        DiagnosisLink.selfTestInfo(viewModel)
                     )
                 } content: {
                     Text("전체보기")

@@ -38,7 +38,6 @@ struct SelfTestResultView: View {
                           buttonColor: .accentColor,
                           isIndicate: false)
             {
-//                selfTestInfoViewModel.requestData() // FIXME: 의존성 삭제하고싶음
                 selfTestViewModel.resetAnswers()
                 let stackCount = selfTestViewModel.coordinator.path.count
                 selfTestViewModel.coordinator.path.removeLast(stackCount)

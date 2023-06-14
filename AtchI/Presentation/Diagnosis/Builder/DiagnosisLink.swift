@@ -13,29 +13,17 @@ import Moya
 
 enum DiagnosisLink: LinkProtocol {
     
-    case selfTestStart(_: SelfTestViewModel, _: SelfTestInfoViewModel)
-    case selfTest(_: SelfTestViewModel, _: SelfTestInfoViewModel)
-    case selfTestResult(_: SelfTestViewModel, _: SelfTestInfoViewModel)
-    case selfTestResultList(_: SelfTestInfoViewModel)
+    case selfTest
+    case selfTestInfo(_: SelfTestInfoViewModel)
     case mmseInfo(_: MMSEInfoViewModel)
     case mmse(_: BaseCoordinator<MMSELink>)
     
     
     func matchView() -> any View {
         switch self {
-        case .selfTestStart(let viewModel, let infoVM):
-            return SelfTestStartView(
-                viewModel: viewModel
-            )
-        case .selfTest(let viewModel, let infoVM):
-            return SelfTestView(
-                selfTestViewModel: viewModel
-            )
-        case .selfTestResult(let viewModel, let infoVM):
-            return SelfTestResultView(
-                selfTestViewModel: viewModel
-            )
-        case .selfTestResultList(let viewModel):
+        case .selfTest:
+            return SelfTestBuilder()
+        case .selfTestInfo(let viewModel):
             return SelfTestResultList(selfTestInfoViewModel: viewModel)
         case .mmseInfo(let viewModel):
             return MMSEResultList(mmseInfoViewModel: viewModel)
@@ -57,16 +45,3 @@ extension DiagnosisLink: Equatable, Hashable {
         String(describing: self)
     }
 }
-
-//extension MMSECoordinator: Hashable {
-//    static func == (lhs: any CoordinatorProtocol, rhs: any CoordinatorProtocol) -> Bool {
-//        return lhs.id == rhs.id ? true : false
-//    }
-//
-//    func hash(into hasher: inout Hasher) {
-//    }
-//
-//    var id: String {
-//        String(describing: self)
-//    }
-//}

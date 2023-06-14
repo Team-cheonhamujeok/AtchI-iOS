@@ -12,7 +12,6 @@ import Moya
 struct SelfTestStartView: View {
     
     @ObservedObject var viewModel: SelfTestViewModel
-//    @ObservedObject var selfTestInfo: SelfTestInfoViewModel // FIXME: 지워도 되나?
     
     var body: some View {
         VStack {
@@ -38,7 +37,6 @@ struct SelfTestStartView: View {
                           buttonColor: .accentColor,
                           isIndicate: false)
             {
-//                viewModel.resetAnswers() // FIXME: 지워도 될지 테스트 중
                 viewModel.goTestPage()
             } content: {
                 Text("다음으로")
