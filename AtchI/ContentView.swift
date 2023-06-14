@@ -12,7 +12,7 @@ import StackCoordinator
 
 struct ContentView: View {
     
-    @AppStorage("mid") private var mid = UserDefaults.standard.integer(forKey: "mid")
+    @AppStorage("mid") private var mid: Int = 0
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -65,8 +65,6 @@ struct ContentView: View {
             UITabBar.appearance().barTintColor = UIColor(Color.mainBackground)
             UITabBar.appearance().backgroundColor = UIColor(Color.mainBackground)
             UINavigationBar.appearance().backItem?.titleView?.tintColor = .white
-            
-            
         }
         .fullScreenCover(isPresented: isIntroModalOpen) {
             IntroView()
@@ -77,10 +75,6 @@ struct ContentView: View {
                     selectedTab = mappedTab
                 }
             }
-        }
-        .onChange(of: colorScheme) { newColorScheme in
-            // 다크/라이트 모드에 따라 탭바 새로 그리기
-            UITabBar.appearance().standardAppearance = setTabBarAppearance()
         }
     }
 }

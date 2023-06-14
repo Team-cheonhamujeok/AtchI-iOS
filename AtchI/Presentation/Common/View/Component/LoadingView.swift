@@ -23,7 +23,7 @@ struct LoadingView: View {
                 Circle()
                     .trim(from: 0, to: progress)
                     .stroke(
-                        Color.mainPurple,
+                        Color.grayDisabled,
                         style: StrokeStyle(
                             lineWidth: 10,
                             lineCap: .round

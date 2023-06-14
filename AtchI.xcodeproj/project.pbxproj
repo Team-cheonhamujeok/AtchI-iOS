@@ -99,6 +99,7 @@
 		BC1DDB462A34D6980011B4BC /* HKQuentitySample+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DDB452A34D6980011B4BC /* HKQuentitySample+Extension.swift */; };
 		BC2526EB29D419BA000FCE11 /* SecureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EA29D419BA000FCE11 /* SecureInput.swift */; };
 		BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2526EC29D4231B000FCE11 /* LoginView.swift */; };
+		BC2B6AB22A39F5F500336B16 /* LogoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B6AB12A39F5F500336B16 /* LogoutHelper.swift */; };
 		BC2E1F612A137CE000B4E713 /* PushNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */; };
 		BC2E1F632A138A8900B4E713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F622A138A8900B4E713 /* AppDelegate.swift */; };
 		BC2E1F652A139B7600B4E713 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2E1F642A139B7600B4E713 /* HapticHelper.swift */; };
@@ -369,6 +370,7 @@
 		BC1DDB452A34D6980011B4BC /* HKQuentitySample+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKQuentitySample+Extension.swift"; sourceTree = "<group>"; };
 		BC2526EA29D419BA000FCE11 /* SecureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInput.swift; sourceTree = "<group>"; };
 		BC2526EC29D4231B000FCE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BC2B6AB12A39F5F500336B16 /* LogoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutHelper.swift; sourceTree = "<group>"; };
 		BC2E1F602A137CE000B4E713 /* PushNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationHelper.swift; sourceTree = "<group>"; };
 		BC2E1F622A138A8900B4E713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC2E1F642A139B7600B4E713 /* HapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticHelper.swift; sourceTree = "<group>"; };
@@ -1881,6 +1883,7 @@
 				BC38FBEA2A1C9814005F172B /* BundleHelper.swift */,
 				BC4607A62A1E4C7700015447 /* LocationHelper.swift */,
 				BCE398C52A1EE8DD007E4242 /* KeyboardHelper.swift */,
+				BC2B6AB12A39F5F500336B16 /* LogoutHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -2185,6 +2188,7 @@
 				BC9D00C42A078D2A00E2C6CE /* LoginAPIMock.swift in Sources */,
 				04BB2A4E2A2D19C000E864C6 /* AIResultChartView.swift in Sources */,
 				BC81F36829FD6CDF00E09958 /* ValidationServcieType.swift in Sources */,
+				BC2B6AB22A39F5F500336B16 /* LogoutHelper.swift in Sources */,
 				BCDDE0C229BE286C003E364C /* AppTitleBar.swift in Sources */,
 				BC482D322A25E7360091787D /* MMSEResultView.swift in Sources */,
 				BC1DDB2C2A324D4A0011B4BC /* SettingLink.swift in Sources */,
