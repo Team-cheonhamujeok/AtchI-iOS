@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MMSEResultList: View {
+    
+    @Environment(\.dismiss) var dismiss
 
     @ObservedObject var mmseInfoViewModel: MMSEInfoViewModel
     
@@ -39,5 +41,6 @@ struct MMSEResultList: View {
         .padding(.horizontal, 30)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.mainBackground)
+        .setCustomNavigationBar(dismiss: dismiss, backgroundColor: .mainBackground)
     }
 }

@@ -70,7 +70,7 @@ class PreventViewModel: ObservableObject {
         self.quizService = quizService
     }
     
-    func requestQuiz() {
+    func requestQuiz(completion: @escaping () -> Void ) {
         self.quizService!.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).print().sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
@@ -85,11 +85,11 @@ class PreventViewModel: ObservableObject {
             self.todayQuiz.append(Quiz(index: 3, content: response.quiz3, check: response.quiz3Check, solved: response.solve))
             UserDefaults.standard.set(response.tqid, forKey: "tqid")
             self.calQuizCount()
-            print("퀴즈 완료 눌렀을때 카운트 되는지 \(self.quizCount)")
+            completion()
         }).store(in: &cancellables)
     }
     
-    func checkQuiz(quizNum: Int) {
+    func checkQuiz(quizNum: Int, completion: @escaping () -> Void) {
         let tqId = UserDefaults.standard.integer(forKey: "tqid")
         let mID = UserDefaults.standard.integer(forKey: "mid")
         self.quizService!.checkQuiz(quizCheckModel: QuizCheckRequestModel(tqid:tqId, quizNum: quizNum, mid: mID)).sink(receiveCompletion: { completion in
@@ -99,9 +99,8 @@ class PreventViewModel: ObservableObject {
                 self.checkQuizErrorMessage = error.localizedDescription
             }
         }, receiveValue: { reponse in
-//            print(reponse.message)
-//            self.calQuizCount()
-            
+            self.calQuizCount()
+            completion()
         }).store(in: &cancellables)
     }
     

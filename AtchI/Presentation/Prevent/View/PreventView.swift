@@ -82,7 +82,7 @@ struct PreventView: View {
             }
         }
         .onAppear {
-            preventViewModel.requestQuiz() // 오늘의 퀴즈 요청
+            preventViewModel.requestQuiz() {} // 오늘의 퀴즈 요청
             preventViewModel.getWeekQuiz()
         }
         .padding(.top)

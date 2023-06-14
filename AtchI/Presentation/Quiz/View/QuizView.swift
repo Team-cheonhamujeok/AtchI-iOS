@@ -55,15 +55,17 @@ struct QuizView: View {
                               buttonColor: .white,
                               isIndicate: false,
                               action: {
-                    viewModel.checkQuiz(quizNum: quiz.index!)
-                    viewModel.requestQuiz()
-                    coordinator.path.append(
-                        QuizLink.done(
-                            order: quiz.index!,
-                            solvedQuizCount: viewModel.quizCount,
-                            coordinator: coordinator
-                        )
-                    )
+                    viewModel.checkQuiz(quizNum: quiz.index!) {
+                        viewModel.requestQuiz() {
+                            coordinator.path.append(
+                                QuizLink.done(
+                                    order: quiz.index!,
+                                    solvedQuizCount: viewModel.quizCount,
+                                    coordinator: coordinator
+                                )
+                            )
+                        }
+                    }
                 },
                               content: {
                     Text("완료")
