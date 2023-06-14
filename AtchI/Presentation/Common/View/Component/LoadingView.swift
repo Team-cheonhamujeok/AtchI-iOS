@@ -36,7 +36,7 @@ struct LoadingView: View {
                     .frame(width: 50,height: 50)
                     .rotationEffect(.degrees(angle))
                     .animation(
-                        .easeOut(duration: 1.5)
+                        .linear(duration: 1.5)
                         .repeatForever(autoreverses: false),
                         value: angle
                     )
