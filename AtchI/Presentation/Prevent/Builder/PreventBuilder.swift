@@ -12,7 +12,7 @@ import StackCoordinator
 
 struct PreventBuilder: BuilderProtocol {
     
-    var coordinator: BaseCoordinator<PreventLink>
+    var coordinator = BaseCoordinator<PreventLink>()
     
     var body: some View {
         BaseBuilder(coordinator: coordinator) {

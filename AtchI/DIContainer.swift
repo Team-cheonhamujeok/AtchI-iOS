@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 import Factory
 import Moya
@@ -55,6 +56,14 @@ extension Container {
     var lifePatternService: Factory<LifePatternServiceType> {
         Factory(self) {
             LifePatternService()
+        }
+    }
+    
+    var diagnosisService: Factory<DiagnosisServiceType> {
+        Factory(self) {
+            DiagnosisService(
+                provider: MoyaProvider<DiagnosisAPI>()
+            )
         }
     }
     

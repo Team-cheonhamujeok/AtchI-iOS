@@ -57,6 +57,7 @@ struct QuizDoneView: View {
             }
             
         }
+        .setCustomNavigationBarHidden(true)
         
     }
 }

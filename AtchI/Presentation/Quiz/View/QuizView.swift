@@ -11,6 +11,8 @@ import Factory
 import StackCoordinator
 
 struct QuizView: View {
+    
+    @Environment(\.dismiss) var dismiss
 
     @ObservedObject var viewModel = Container.shared.preventViewModel.resolve()
     
@@ -72,8 +74,11 @@ struct QuizView: View {
                 .padding(.horizontal, 30)
             }
         }
-        
-        
+        .background(Color.mainBackground)
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .accentColor
+        )
     }
 }
 

@@ -107,9 +107,7 @@ struct MMSEView_Previews: PreviewProvider {
     static var previews: some View {
         MMSEView(
             viewModel: MMSEViewModel(
-                coordinator: BaseCoordinator<MMSELink>(
-                    path: .constant(NavigationPath())
-                )
+                coordinator: BaseCoordinator<MMSELink>()
             )
         )
     }

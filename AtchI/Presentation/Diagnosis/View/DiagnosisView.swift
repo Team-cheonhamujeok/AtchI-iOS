@@ -12,20 +12,13 @@ import StackCoordinator
 
 struct DiagnosisView: View {
     
-    var selfTestViewModel: SelfTestViewModel
     var selfTestInfoViewModel: SelfTestInfoViewModel
     let mmseInfoViewModel: MMSEInfoViewModel
     
-    //    @State private var path: [DiagnosisViewStack] = []
     var coordinator: BaseCoordinator<DiagnosisLink>
     
     init(coordinator: BaseCoordinator<DiagnosisLink>) {
         self.coordinator = coordinator
-        self.selfTestViewModel = SelfTestViewModel(
-            service: DiagnosisService(
-                provider: MoyaProvider<DiagnosisAPI>()
-            ),
-            coordinator: coordinator)
         self.selfTestInfoViewModel = SelfTestInfoViewModel(
             service: DiagnosisService(
                 provider: MoyaProvider<DiagnosisAPI>()
@@ -48,15 +41,15 @@ struct DiagnosisView: View {
                     .padding(.horizontal, 30)
                 
                 SelfTestInfoView(
-                    selfTestViewModel: selfTestViewModel, viewModel: selfTestInfoViewModel,
+                    viewModel: selfTestInfoViewModel,
                     coordinator: coordinator
                 )
-                .frame(minHeight: 350)
+//                .frame(minHeight: 350)
                 
                 Rectangle()
-                    .frame(height: 10)
+                    .frame(height: 12)
                     .foregroundColor(.grayBoldLine)
-                    .padding(.bottom, 10)
+                    .padding(.vertical, 30)
                 
                 MMSEInfoView(
                     viewModel: mmseInfoViewModel,
@@ -70,20 +63,17 @@ struct DiagnosisView: View {
         .padding(.top, 1)
         
         .onAppear {
-            print("DiagnosisView onAppear")
             //MARK: 서버 데이터 들고오기
             selfTestInfoViewModel.requestData()
             mmseInfoViewModel.requestData()
         }
+        .background(Color.mainBackground)
+        .animation(.easeIn, value: selfTestInfoViewModel.isLoading)
     }
 }
 
 struct DiagnosisView_Previews: PreviewProvider {
     static var previews: some View {
-        DiagnosisView(
-            coordinator: BaseCoordinator<DiagnosisLink>(
-                path: .constant(NavigationPath())
-            )
-        )
+        DiagnosisView(coordinator: BaseCoordinator<DiagnosisLink>())
     }
 }

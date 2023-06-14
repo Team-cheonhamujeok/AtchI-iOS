@@ -11,7 +11,7 @@ import Moya
 struct SelfTestResultView: View {
     
     @ObservedObject var selfTestViewModel: SelfTestViewModel
-    @ObservedObject var selfTestInfoViewModel: SelfTestInfoViewModel
+//    @ObservedObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     var body: some View {
         VStack {
@@ -38,7 +38,6 @@ struct SelfTestResultView: View {
                           buttonColor: .accentColor,
                           isIndicate: false)
             {
-                selfTestInfoViewModel.requestData()
                 selfTestViewModel.resetAnswers()
                 let stackCount = selfTestViewModel.coordinator.path.count
                 selfTestViewModel.coordinator.path.removeLast(stackCount)
@@ -47,6 +46,8 @@ struct SelfTestResultView: View {
             }
         }
         .padding(.all, 30)
+        .setCustomNavigationBarHidden(true)
+        .background(Color.mainBackground)
     }
 }
 

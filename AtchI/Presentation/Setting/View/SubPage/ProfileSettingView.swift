@@ -18,6 +18,7 @@ struct ProfileSettingView: View {
         VStack(alignment: .leading, spacing: 40) {
             
             VStack (spacing: 30){
+                
                 FixValueField(title: "이름",
                               content: name,
                               action: {
@@ -32,28 +33,33 @@ struct ProfileSettingView: View {
                 
                 Spacer()
                 
-                DefaultButton(buttonSize: .small,
-                              width: .infinity,
-                              height: 40,
-                              buttonStyle: .filled,
-                              buttonColor:  .accentColor,
-                              isIndicate: false)
-                {
+                VStack(spacing: 15) {
                     
-                } content: {
-                    Text("로그아웃")
-                }
-                
-                DefaultButton(buttonSize: .small,
-                              width: .infinity,
-                              height: 40,
-                              buttonStyle: .filled,
-                              buttonColor: .accentColor,
-                              isIndicate: false)
-                {
+                    DefaultButton(buttonSize: .small,
+                                  width: .infinity,
+                                  height: 40,
+                                  buttonStyle: .filled,
+                                  tintColor: .mainPurple,
+                                  buttonColor:  .mainPurpleLight,
+                                  isIndicate: false)
+                    {
+                        
+                    } content: {
+                        Text("로그아웃")
+                    }
                     
-                } content: {
-                    Text("회원탈퇴")
+                    DefaultButton(buttonSize: .small,
+                                  width: .infinity,
+                                  height: 40,
+                                  buttonStyle: .filled,
+                                  tintColor: .grayTextLight,
+                                  buttonColor: .grayBoldLine,
+                                  isIndicate: false)
+                    {
+                        
+                    } content: {
+                        Text("회원탈퇴")
+                    }
                 }
             }
         }
@@ -98,7 +104,7 @@ struct FixValueField: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .strokeBorder(
-                                Color.accentColor
+                                Color.mainPurpleLight
                                 ,
                                 lineWidth: 2)
                             .background(Color.mainBackground)

@@ -13,7 +13,7 @@ import StackCoordinator
 struct QuizBuilder: BuilderProtocol {
     
     var quiz: Quiz
-    var coordinator: BaseCoordinator<QuizLink>
+    var coordinator = BaseCoordinator<QuizLink>()
     
     var body: some View {
         BaseBuilder(coordinator: coordinator) {

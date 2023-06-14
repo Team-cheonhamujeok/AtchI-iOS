@@ -12,7 +12,7 @@ import Factory
 struct HomeView: View {
     
     @StateObject var viewModel: HomeViewModel
-    @StateObject var predictVM: PredictionVM
+    @StateObject var predictVM: PredictionViewModel
     
     var body: some View {
         VStack {
@@ -29,15 +29,17 @@ struct HomeView: View {
                     Text("AI 진단 결과")
                         .font(.titleMedium)
             
-                    AIDiagnosisCard(startDate: $predictVM.startDate,
-                                    endDate: $predictVM.endDate,
-                                    notDementia: $predictVM.notDementia,
-                                    beforeDementia: $predictVM.beforeDementia,
-                                    dementia: $predictVM.dementia,
-                                    resultLevel: $predictVM.resultLevel,
-                                    isLoading: $predictVM.isLoading,
-                                    haveMMSE: $predictVM.haveMMSE,
-                                    haveLifePattern: $predictVM.haveLifePattern)
+                    AIDiagnosisCard(
+                        startDate: $predictVM.startDate,
+                        endDate: $predictVM.endDate,
+                        notDementia: $predictVM.notDementia,
+                        beforeDementia: $predictVM.beforeDementia,
+                        dementia: $predictVM.dementia,
+                        resultLevel: $predictVM.resultLevel,
+                        isLoading: $predictVM.isLoading,
+                        haveMMSE: $predictVM.haveMMSE,
+                        haveLifePattern: $predictVM.haveLifePattern
+                    )
                     
                     HStack {
                         Spacer()
@@ -54,8 +56,10 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 20){
                     Text("바로가기")
                         .font(.titleMedium)
-                    ShortcutCards(tapQuizShorcut: viewModel.$tapQuizShortcut,
-                                  tapSelfDiagnosisShorcut: viewModel.$tapSelfDiagnosisShortcut)
+                    ShortcutCards(
+                        tapQuizShorcut: viewModel.$tapQuizShortcut,
+                        tapSelfDiagnosisShorcut: viewModel.$tapSelfDiagnosisShortcut
+                    )
                 }
                 .padding(.horizontal, 30)
                 
@@ -64,7 +68,9 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 20){
                     Text("치매 정보")
                         .font(.titleMedium)
-                    DementiaAricleCardList(articles: viewModel.articles)
+                    DementiaAricleCardList(
+                        articles: viewModel.articles
+                    )
                 }
                 .padding(30)
                 

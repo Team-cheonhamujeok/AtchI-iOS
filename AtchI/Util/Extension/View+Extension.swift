@@ -37,10 +37,18 @@ extension View {
                             : .mainPurple
                         )
                         
-                    }.onTapGesture {
+                    }
+                    .onTapGesture {
                         dismiss()
                     }
                 }
             }
+    }
+    
+    func setCustomNavigationBarHidden(
+        _ hidden: Bool
+    ) -> some View {
+        return self
+            .navigationBarBackButtonHidden(hidden)
     }
 }

@@ -19,14 +19,16 @@ struct ShortcutCards: View {
         HStack(spacing: 20) {
             ShortcutCard(
                 title: "퀴즈 풀기",
-                content: "뇌훈련을 통해\n치매 예방하기")
+                content: "뇌훈련을 통해\n치매 예방하기"
+            )
             .onTapGesture {
                 tapQuizShorcut.send(())
             }
             
             ShortcutCard(
                 title: "자가진단",
-                content: "혹시 치매일까\n의심된다면")
+                content: "혹시 치매일까\n의심된다면"
+            )
             .onTapGesture {
                 tapSelfDiagnosisShorcut.send(())
             }

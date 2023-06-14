@@ -57,10 +57,10 @@
     {
       "identity" : "stackcoordinator",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/leedoyeon849/StackCoordinator.git",
+      "location" : "https://github.com/dodo849/StackCoordinator.git",
       "state" : {
         "branch" : "main",
-        "revision" : "72f32c8549097eca94e5cf5b229ef764a68806a3"
+        "revision" : "702e2cca0e827cf927eb19894045485962d0472d"
       }
     },
     {

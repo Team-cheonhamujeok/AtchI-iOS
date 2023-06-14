@@ -61,7 +61,7 @@ struct MMSEResultView: View {
             }
             .padding(.horizontal, 30)
         }
-        .toolbar(.hidden, for: .navigationBar)
+        .setCustomNavigationBarHidden(true)
     }
 }
 
@@ -69,9 +69,7 @@ struct MMSEResultView_Previews: PreviewProvider {
     static var previews: some View {
         MMSEResultView(
             resultScores: [:],
-            coordinator: BaseCoordinator(
-                path: .constant(NavigationPath())
-            )
+            coordinator: BaseCoordinator()
         )
     }
 }

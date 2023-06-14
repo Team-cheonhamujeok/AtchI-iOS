@@ -21,9 +21,10 @@ import Moya
 
 struct SelfTestView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var buttonSeletor: TestAnswer?
     @ObservedObject var selfTestViewModel: SelfTestViewModel
-    @ObservedObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     let mid = UserDefaults.standard.integer(forKey: "mid")
     
@@ -81,9 +82,7 @@ struct SelfTestView: View {
                         selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
                         self.buttonSeletor = nil
                         selfTestViewModel.requestResult(mid: self.mid)
-                        selfTestViewModel.coordinator.path.append(
-                            DiagnosisLink.selfTestResult(selfTestViewModel, selfTestInfoViewModel)
-                        )
+                        selfTestViewModel.goResultPage()
                     } else {
                         guard let buttonSeletor = buttonSeletor else { return }
                         selfTestViewModel.appendAnswer(testAnswer: buttonSeletor)
@@ -104,6 +103,11 @@ struct SelfTestView: View {
             .padding(.horizontal, 30)
             .padding(.bottom, 30)
         }
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainBackground
+        )
+        .background(Color.mainBackground)
     }
 }
 

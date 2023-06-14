@@ -12,7 +12,7 @@ import StackCoordinator
 
 struct ContentView: View {
     
-    @AppStorage("mid") private var mid = UserDefaults.standard.integer(forKey: "mid")
+    @AppStorage("mid") private var mid: Int = 0
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -26,30 +26,28 @@ struct ContentView: View {
             set: { _ in }
         )
         TabView(selection: $selectedTab) {
-            HomeBuilder(
-                coordinator: BaseCoordinator<HomeLink>(path: $path)
-            )
+            HomeBuilder()
             .tabItem{
                 Image(systemName: "house")
                 Text("홈")
             }
             .tag(TabBarType.home)
             DiagnosisBuilder(
-                coordinator: BaseCoordinator<DiagnosisLink>(path: $path)
+                coordinator: BaseCoordinator<DiagnosisLink>()
             )
             .tabItem{
                 Image(systemName: "stethoscope")
                 Text("진단")
             }
             .tag(TabBarType.diagnosis)
-            PreventBuilder(coordinator: BaseCoordinator<PreventLink>(path: $path))
+            PreventBuilder(coordinator: BaseCoordinator<PreventLink>())
                 .tabItem{
                     Image(systemName: "brain.head.profile")
                     Text("예방")
                 }
                 .tag(TabBarType.prevent)
             SettingBuilder(
-                coordinator: BaseCoordinator<SettingLink>(path: $path)
+                coordinator: BaseCoordinator<SettingLink>()
             )
             .tabItem{
                 Image(systemName: "gear")
@@ -60,14 +58,13 @@ struct ContentView: View {
         }
         .tabViewStyle(DefaultTabViewStyle())
         .toolbar(.hidden, for: .navigationBar)
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear() {
             // Setting tabView style
             UITabBar.appearance().standardAppearance = setTabBarAppearance()
             UITabBar.appearance().barTintColor = UIColor(Color.mainBackground)
             UITabBar.appearance().backgroundColor = UIColor(Color.mainBackground)
             UINavigationBar.appearance().backItem?.titleView?.tintColor = .white
-            
-            
         }
         .fullScreenCover(isPresented: isIntroModalOpen) {
             IntroView()
@@ -78,10 +75,6 @@ struct ContentView: View {
                     selectedTab = mappedTab
                 }
             }
-        }
-        .onChange(of: colorScheme) { newColorScheme in
-            // 다크/라이트 모드에 따라 탭바 새로 그리기
-            UITabBar.appearance().standardAppearance = setTabBarAppearance()
         }
     }
 }

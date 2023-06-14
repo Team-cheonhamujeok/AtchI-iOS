@@ -23,10 +23,11 @@ struct PreventView: View {
                         .font(.titleLarge)
                     Spacer()
                     Text("퀴즈를 풀며 뇌를 훈련시켜 보세요!")
-                        .font(.bodyLarge)
+                        .font(.bodySmall)
+                        .foregroundColor(.grayTextLight)
                         .frame(maxWidth: 250, maxHeight: 37)
                         .background(Color.grayBoldLine)
-                        .cornerRadius(10)
+                        .cornerRadius(20)
                         .padding(.horizontal, 1)
                     
                 }
@@ -85,6 +86,7 @@ struct PreventView: View {
             preventViewModel.getWeekQuiz()
         }
         .padding(.top)
+        .background(Color.mainBackground)
     }
     
 }

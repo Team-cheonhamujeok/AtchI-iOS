@@ -11,7 +11,7 @@ import Moya
 import StackCoordinator
 
 struct SelfTestInfoView: View {
-    @ObservedObject var selfTestViewModel: SelfTestViewModel
+    
     @ObservedObject var viewModel: SelfTestInfoViewModel
     
     var coordinator: BaseCoordinator<DiagnosisLink>
@@ -72,7 +72,7 @@ struct SelfTestInfoView: View {
                           isIndicate: true)
             {
                 coordinator.path.append(
-                    DiagnosisLink.selfTestStart(selfTestViewModel, viewModel)
+                    DiagnosisLink.selfTest
                 )
             } content: {
                 Text("자가진단 시작하기")
@@ -104,7 +104,7 @@ struct SelfTestInfoView: View {
                               isIndicate: false)
                 {
                    coordinator.path.append(
-                    DiagnosisLink.selfTestStart(selfTestViewModel, viewModel)
+                    DiagnosisLink.selfTest
                    )
                 } content: {
                     Text("자가진단 다시하기")
@@ -121,10 +121,12 @@ struct SelfTestInfoView: View {
                     if firstID == value.id {
                         TestRow(result: value, isFirst: true)
                             .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
                     }
                     else {
                         TestRow(result: value, isFirst: false)
                             .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
                     }
                 }
             }
@@ -132,6 +134,7 @@ struct SelfTestInfoView: View {
             .frame(height: 150)
             .listStyle(.plain)
             .padding(.horizontal, 10)
+            .background(Color.mainBackground)
             
             // 3️⃣ 전체보기 버튼
             HStack{
@@ -143,26 +146,24 @@ struct SelfTestInfoView: View {
                               buttonColor: .grayTextLight,
                               isIndicate: false)
                 {
-                    // FIXME: path
                     viewModel.coordinator.path.append(
-                        DiagnosisLink.selfTestResultList(viewModel)
+                        DiagnosisLink.selfTestInfo(viewModel)
                     )
                 } content: {
                     Text("전체보기")
                 }
+                
                 Spacer()
             }
-            .padding(.bottom, 10)
         }
+        .background(Color.mainBackground)
     }
 }
 
 struct DiagnosisViewm_Previews: PreviewProvider {
     static var previews: some View {
         DiagnosisView(
-            coordinator: BaseCoordinator<DiagnosisLink>(
-                path: .constant(NavigationPath())
-            )
+            coordinator: BaseCoordinator<DiagnosisLink>()
         )
     }
 }

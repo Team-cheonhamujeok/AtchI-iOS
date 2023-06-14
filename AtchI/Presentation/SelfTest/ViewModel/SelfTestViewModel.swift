@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
-
 import Combine
+
+import Factory
 import StackCoordinator
 
 class SelfTestViewModel: ObservableObject {
     
-    let service: DiagnosisServiceType
-    var coordinator: BaseCoordinator<DiagnosisLink>
+    @Injected(\.diagnosisService) private var service: DiagnosisServiceType
+    
+    var coordinator: BaseCoordinator<SelfTestLink>
     var disposeBag = Set<AnyCancellable>()
     
     @Published var answers: [TestAnswer] = []       // 사용자의 자가진단 답변 리스트
@@ -28,9 +30,7 @@ class SelfTestViewModel: ObservableObject {
     
     // MARK: - init
     
-    init(service: DiagnosisServiceType,
-         coordinator: BaseCoordinator<DiagnosisLink>) {
-        self.service = service
+    init(coordinator: BaseCoordinator<SelfTestLink>) {
         self.coordinator = coordinator
         bind()
     }
@@ -181,6 +181,18 @@ class SelfTestViewModel: ObservableObject {
                 print("post Response", response)
             })
             .store(in: &disposeBag)
+    }
+    
+    func goTestPage() {
+        coordinator.path.append(
+            SelfTestLink.test(self)
+        )
+    }
+    
+    func goResultPage() {
+        coordinator.path.append(
+            SelfTestLink.result(self)
+        )
     }
 }
 

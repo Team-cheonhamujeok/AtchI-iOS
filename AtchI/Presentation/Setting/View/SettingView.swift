@@ -38,9 +38,7 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         SettingView(
-            coordinator: BaseCoordinator<SettingLink>(
-                path: .constant(NavigationPath())
-            )
+            coordinator: BaseCoordinator()
         )
     }
 }

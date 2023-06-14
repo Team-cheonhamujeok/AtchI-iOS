@@ -40,6 +40,7 @@ struct MMSEResultList: View {
         }
         .padding(.horizontal, 30)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.mainBackground)
         .setCustomNavigationBar(dismiss: dismiss, backgroundColor: .mainBackground)
     }
 }

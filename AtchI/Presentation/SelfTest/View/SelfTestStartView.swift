@@ -11,8 +11,9 @@ import Moya
 
 struct SelfTestStartView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @ObservedObject var viewModel: SelfTestViewModel
-    @ObservedObject var selfTestInfo: SelfTestInfoViewModel
     
     var body: some View {
         VStack {
@@ -38,17 +39,18 @@ struct SelfTestStartView: View {
                           buttonColor: .accentColor,
                           isIndicate: false)
             {
-                viewModel.resetAnswers()
-                viewModel.coordinator.path.append(
-                    DiagnosisLink.selfTest(viewModel, selfTestInfo)
-                )
+                viewModel.goTestPage()
             } content: {
                 Text("다음으로")
             }
             
         }
         .padding(.all, 30)
-        .toolbar(.hidden, for: .tabBar)
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainBackground
+        )
+        .background(Color.mainBackground)
     }
 }
 

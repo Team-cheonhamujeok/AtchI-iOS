@@ -39,6 +39,7 @@ struct SelfTestResultList: View {
         }
         .padding(.horizontal, 30)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.mainBackground)
     }
 }
 
