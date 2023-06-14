@@ -46,6 +46,8 @@ struct SelfTestResultView: View {
             }
         }
         .padding(.all, 30)
+        .setCustomNavigationBarHidden(true)
+        .background(Color.mainBackground)
     }
 }
 

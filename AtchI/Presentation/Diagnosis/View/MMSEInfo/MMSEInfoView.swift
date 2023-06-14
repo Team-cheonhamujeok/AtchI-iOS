@@ -118,12 +118,15 @@ struct MMSEInfoView: View {
                             self.isPresentModal = true
                         }
                 }
-                DefaultButton(buttonSize: .small,
-                              width: 173,
-                              height: 35,
-                              buttonStyle: .filled,
-                              buttonColor: .accentColor,
-                              isIndicate: false)
+                DefaultButton(
+                    buttonSize: .small,
+                    width: 173,
+                    height: 35,
+                    buttonStyle: .filled,
+                    tintColor: .mainPurple,
+                    buttonColor: .mainPurpleLight,
+                    isIndicate: false
+                )
                 {
                     coordinator.path.append(
                         DiagnosisLink.mmse(
@@ -158,7 +161,6 @@ struct MMSEInfoView: View {
             }
             .listStyle(.plain)
             .scrollDisabled(true)
-            
             .background(Color.mainBackground)
             .frame(height: 150)
             .padding(.horizontal, 10)

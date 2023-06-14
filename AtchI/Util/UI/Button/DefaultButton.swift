@@ -14,10 +14,10 @@ struct DefaultButton<Content>: View where Content: View {
     var width: CGFloat?
     var height: CGFloat?
     let buttonStyle: ButtonStyle
+    var tintColor: Color = .white
     let buttonColor: Color
     let isIndicate: Bool
-//    @Subject? var subject: Void
-    var subject: PassthroughSubject<Void, Never>? = nil
+    var subject: Subjected<Void>? = nil
     
     
     let action: () -> Void
@@ -28,16 +28,16 @@ struct DefaultButton<Content>: View where Content: View {
         
         // 버튼 Style에 따른 분기
         switch buttonStyle {
-        // 채워진 버튼
+            // 채워진 버튼
         case .filled:
             Button(action: {
                 action()
                 subject?.send() }) {
-                makeLabel()
-            }
-            .background(buttonColor)
-            .tint(.white)
-            .cornerRadius(20)
+                    makeLabel()
+                }
+                .background(buttonColor)
+                .tint(tintColor)
+                .cornerRadius(20)
             
             // 비어있는 버튼
         case .unfilled:
@@ -49,7 +49,8 @@ struct DefaultButton<Content>: View where Content: View {
             .overlay {
                 RoundedRectangle(
                     cornerRadius:
-                        buttonSize == ControlSize.large ? 16 : 100)
+                        buttonSize == ControlSize.large ? 16 : 100
+                )
                 .stroke(buttonColor, lineWidth: 1)
             }
         }
@@ -85,7 +86,7 @@ struct DefaultButton<Content>: View where Content: View {
             // 그 외는 작은 버튼으로 취급
         default:
             content
-                .padding(.all, 5)
+                .padding(.all, 10)
                 .font(.bodySmall)
                 .frame(
                     maxWidth: width,

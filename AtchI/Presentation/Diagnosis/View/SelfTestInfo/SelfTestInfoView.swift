@@ -155,7 +155,6 @@ struct SelfTestInfoView: View {
                 
                 Spacer()
             }
-            .padding(.bottom, 10)
         }
         .background(Color.mainBackground)
     }

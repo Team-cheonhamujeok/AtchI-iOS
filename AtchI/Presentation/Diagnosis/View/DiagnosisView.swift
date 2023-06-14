@@ -44,12 +44,12 @@ struct DiagnosisView: View {
                     viewModel: selfTestInfoViewModel,
                     coordinator: coordinator
                 )
-                .frame(minHeight: 350)
+//                .frame(minHeight: 350)
                 
                 Rectangle()
                     .frame(height: 12)
                     .foregroundColor(.grayBoldLine)
-                    .padding(.bottom, 30)
+                    .padding(.vertical, 30)
                 
                 MMSEInfoView(
                     viewModel: mmseInfoViewModel,
@@ -68,6 +68,7 @@ struct DiagnosisView: View {
             mmseInfoViewModel.requestData()
         }
         .background(Color.mainBackground)
+        .animation(.easeIn, value: selfTestInfoViewModel.isLoading)
     }
 }
 

@@ -21,9 +21,10 @@ import Moya
 
 struct SelfTestView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var buttonSeletor: TestAnswer?
     @ObservedObject var selfTestViewModel: SelfTestViewModel
-//    @ObservedObject var selfTestInfoViewModel: SelfTestInfoViewModel
     
     let mid = UserDefaults.standard.integer(forKey: "mid")
     
@@ -102,6 +103,11 @@ struct SelfTestView: View {
             .padding(.horizontal, 30)
             .padding(.bottom, 30)
         }
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainBackground
+        )
+        .background(Color.mainBackground)
     }
 }
 

@@ -11,6 +11,8 @@ import Moya
 
 struct SelfTestStartView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @ObservedObject var viewModel: SelfTestViewModel
     
     var body: some View {
@@ -44,7 +46,11 @@ struct SelfTestStartView: View {
             
         }
         .padding(.all, 30)
-        .toolbar(.hidden, for: .tabBar)
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainBackground
+        )
+        .background(Color.mainBackground)
     }
 }
 

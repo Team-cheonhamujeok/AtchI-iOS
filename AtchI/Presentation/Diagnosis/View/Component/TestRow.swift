@@ -13,10 +13,10 @@ struct TestRow: View {
     
     var body: some View {
         HStack {
-            Circle()
-                .frame(width: 5)
+//            Text("1")
+//                .frame(width: 10)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     if isFirst {
                         Text("최근")

@@ -44,4 +44,11 @@ extension View {
                 }
             }
     }
+    
+    func setCustomNavigationBarHidden(
+        _ hidden: Bool
+    ) -> some View {
+        return self
+            .navigationBarBackButtonHidden(hidden)
+    }
 }

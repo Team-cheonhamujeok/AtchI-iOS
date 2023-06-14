@@ -79,3 +79,10 @@ struct TextInput: View {
         }
     }
 }
+
+extension TextInput {
+    mutating func disabled(_ disabled: Bool) -> Self {
+        self.disabled = true
+        return self
+    }
+}

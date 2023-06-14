@@ -81,7 +81,7 @@ class DateHelper: DateHelperType {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         guard let date = dateFormatter.date(from: string) else { return "Date is Nil" }
         
-        dateFormatter.dateFormat = "yy년MM월dd일"
+        dateFormatter.dateFormat = "yy년 MM월 dd일"
         return dateFormatter.string(from: date)
     }
     
