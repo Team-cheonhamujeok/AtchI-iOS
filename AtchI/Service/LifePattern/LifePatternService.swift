@@ -57,7 +57,6 @@ class LifePatternService: LifePatternServiceType {
                 return self.getlastDateForCreateLifePattern(lastDate: lastDate)
             }
             .map { lastDate -> [Date] in
-                print(self.getDatesForCreateLifePatterns(lastDate: lastDate))
                 return self.getDatesForCreateLifePatterns(lastDate: lastDate)
             }
             .map { dates -> [AnyPublisher<SaveLifePatternRequestModel, Never>] in

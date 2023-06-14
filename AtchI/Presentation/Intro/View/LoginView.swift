@@ -10,6 +10,8 @@ import Moya
 
 struct LoginView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @ObservedObject var viewModel: LoginViewModel
     
     init() {
@@ -22,6 +24,7 @@ struct LoginView: View {
             // Page title
             Text("로그인")
                 .font(.titleLarge)
+                .padding(.top, 10)
             
             // Input list
             TextInput(title: "이메일",
@@ -49,6 +52,9 @@ struct LoginView: View {
         }.alert(isPresented: $viewModel.showAlert) {
             Alert(title: Text("로그인 실패"), message: Text(viewModel.loginErrorMessage), dismissButton: .default(Text("확인")))
         }
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainBackground)
     }
     
     

@@ -62,6 +62,7 @@ struct HealthInfoView: View {
         .onAppear {
             viewModel.action.viewOnAppear.send()
         }
+        .background(Color.mainBackground)
     }
 }
 

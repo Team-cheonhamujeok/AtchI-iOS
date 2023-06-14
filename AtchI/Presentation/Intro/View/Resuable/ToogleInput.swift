@@ -43,6 +43,7 @@ struct ToogleInput: View {
                         Color.accentColor,
                         lineWidth: 2)
             )
+            .padding(.bottom, 15)
         }
     }
 }
