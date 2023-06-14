@@ -32,7 +32,7 @@ extension View {
                             Text("이전으로")
                         }
                         .foregroundColor(
-                            backgroundColor == .mainPurple
+                            backgroundColor == .accentColor
                             ? .white
                             : .mainPurple
                         )

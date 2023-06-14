@@ -92,7 +92,7 @@ struct MMSEView: View {
         .navigationBarBackButtonHidden()
         .setCustomNavigationBar(
             dismiss: dismiss,
-            backgroundColor: .mainPurple
+            backgroundColor: .accentColor
         )
         .contentShape(Rectangle())
         .onTapGesture {
