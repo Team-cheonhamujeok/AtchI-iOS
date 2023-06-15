@@ -31,7 +31,7 @@ struct AppTitleBar: View {
         .frame(maxWidth: .infinity,
                alignment: .leading)
         .sheet(isPresented: $isPresentModal) {
-            ReadMeView(urlToLoad: "https://github.com/Team-cheonhamujeok/AtchI-iOS/blob/main/README.md")
+            ReadMeView(urlToLoad: "https://jewel-afternoon-b07.notion.site/AtchI-532340fcc4d849f3bd3fae02684a138c?pvs=4")
         }
     }
 }
