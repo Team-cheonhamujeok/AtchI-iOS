@@ -70,10 +70,10 @@ struct SecureInput: View {
             Text(errorMessage)
                 .foregroundColor(.red)
                 .font(.bodySmall)
-//                .frame(minHeight: 20)
                 .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
                 .animation(.easeInOut(duration: 0.1),
                            value: errorMessage)
+                .frame(height: 10)
         }
     }
     

@@ -36,7 +36,7 @@ class HKHeartRateService: HKHeartRateServiceProtocol {
                 endDate: endDate)
             .map { samples in
                 self.core.getHeartRateBPM(
-                    samples: samples.map { $0.maapedHeartRateEntity }
+                    samples: samples.map { $0.asHeartRateEntity }
                 )
             }
             .eraseToAnyPublisher()

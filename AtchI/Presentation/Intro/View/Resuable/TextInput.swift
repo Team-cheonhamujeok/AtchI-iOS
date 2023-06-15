@@ -75,7 +75,7 @@ struct TextInput: View {
                 .opacity(!errorMessage.isEmpty ? 1.0 : 0.0)
                 .animation(.easeInOut(duration: 0.1),
                            value: isFocused)
-                .frame(height: !errorMessage.isEmpty ? nil : 0)
+                .frame(height: 10)
         }
     }
 }

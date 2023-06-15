@@ -11,6 +11,8 @@ import Moya
 
 struct SignupView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @ObservedObject var validationViewModel: SignupValidationViewModel
     @ObservedObject var requestViewModel: SignupRequestViewModel
 
@@ -39,6 +41,7 @@ struct SignupView: View {
                     // MARK: Page Title
                     Text("회원가입")
                         .font(.titleLarge)
+                        .padding(.top, 10)
                     
                     // MARK: Input List
 //                    Spacer(minLength: )
@@ -111,6 +114,10 @@ struct SignupView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .setCustomNavigationBar(
+            dismiss: dismiss,
+            backgroundColor: .mainBackground
+        )
     }
     
     

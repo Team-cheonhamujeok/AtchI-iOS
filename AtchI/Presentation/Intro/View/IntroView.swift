@@ -101,6 +101,7 @@ struct IntroView: View {
                     SignupView()
                 }
             }
+            .background(Color.mainBackground)
         }
     }
 }
