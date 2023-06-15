@@ -9,7 +9,7 @@ import Foundation
 import HealthKit
 
 extension HKCategoryValueSleepAnalysis {
-    var mappedSleepType: HKSleepType {
+    var asSleepType: HKSleepType {
         switch self {
         case .inBed: return .inbed
         case .awake: return .wake
@@ -20,7 +20,7 @@ extension HKCategoryValueSleepAnalysis {
         }
     }
     
-    static func mapSleepTypeValue(_ value: Int) -> HKSleepType {
+    static func asSleepTypeValue(_ value: Int) -> HKSleepType {
         switch value {
         case HKCategoryValueSleepAnalysis.inBed.rawValue:
             return .inbed

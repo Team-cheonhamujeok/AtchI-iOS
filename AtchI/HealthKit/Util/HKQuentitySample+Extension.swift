@@ -9,7 +9,7 @@ import Foundation
 import HealthKit
 
 extension HKQuantitySample {
-    var maapedHeartRateEntity: HKHeartRateEntity {
+    var asHeartRateEntity: HKHeartRateEntity {
         HKHeartRateEntity(
             startDate: self.startDate,
             endDate: self.endDate,
@@ -19,3 +19,4 @@ extension HKQuantitySample {
         )
     }
 }
+

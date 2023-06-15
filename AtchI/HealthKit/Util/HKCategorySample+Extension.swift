@@ -9,7 +9,7 @@ import Foundation
 import HealthKit
 
 extension HKCategorySample {
-    var mappedProductType: HKProductType {
+    var asProductType: HKProductType {
         if ((self
             .sourceRevision
             .productType?
@@ -27,13 +27,13 @@ extension HKCategorySample {
         }
     }
     
-    var mappedSleepEntity: HKSleepEntity {
+    var asSleepEntity: HKSleepEntity {
             return HKSleepEntity(
                 startDate: self.startDate,
                 endDate: self.endDate,
                 sleepType: HKCategoryValueSleepAnalysis
-                    .mapSleepTypeValue(self.value),
-                dateSourceProductType: self.mappedProductType
+                    .asSleepTypeValue(self.value),
+                dateSourceProductType: self.asProductType
             )
     }
 }

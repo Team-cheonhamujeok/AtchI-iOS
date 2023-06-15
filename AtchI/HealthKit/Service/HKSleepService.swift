@@ -75,7 +75,7 @@ class HKSleepService: HKSleepServiceProtocol{
                     .core
                     .calculateSleepTimeQuentity(
                         sleepType: sleepCategory.mappedHKSleepType,
-                        samples: samples.map { $0.mappedSleepEntity }
+                        samples: samples.map { $0.asSleepEntity }
                     ) ?? 0
             }
             .mapError { error in
@@ -93,7 +93,7 @@ class HKSleepService: HKSleepServiceProtocol{
                         .core
                         .calculateSleepTimeQuentity(
                             sleepType: .inbed,
-                            samples: samples.map { $0.mappedSleepEntity }
+                            samples: samples.map { $0.asSleepEntity }
                         ) ?? 0
                 }
             }
@@ -112,13 +112,13 @@ class HKSleepService: HKSleepServiceProtocol{
                     return self
                         .core
                         .calculateSleepStartDate(
-                            samples: samples.map { $0.mappedSleepEntity }
+                            samples: samples.map { $0.asSleepEntity }
                         )
                 case .end:
                     return self
                         .core
                         .calculateSleepEndDate(
-                            samples: samples.map { $0.mappedSleepEntity }
+                            samples: samples.map { $0.asSleepEntity }
                         )
                 }
             }
@@ -136,7 +136,7 @@ class HKSleepService: HKSleepServiceProtocol{
                 
                 let sleepEntities = samples
                     .map { sample in
-                        sample.mappedSleepEntity
+                        sample.asSleepEntity
                     }
                 
                 return try self.core.getSleepInterval(input: sleepEntities)
@@ -184,7 +184,7 @@ extension HKSleepService {
     /// - Returns: 전반적인 수면 정보를 담은 HKSleepModel을 반환합니다.
     private func createSleepModel(samples: [HKCategorySample]) -> HKSleepModel {
         let sleepEntities = samples
-            .map { $0.mappedSleepEntity }
+            .map { $0.asSleepEntity }
         return HKSleepModel(
             inbedQuentity: self.core.calculateSleepTimeQuentity(
                 sleepType: .inbed,
