@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 import StackCoordinator
+import ComposableArchitecture
 
 
 struct HomeBuilder: BuilderProtocol {
@@ -17,8 +18,13 @@ struct HomeBuilder: BuilderProtocol {
     
     var body: some View {
         BaseBuilder(coordinator: coordinator) {
-            HomeView(viewModel: HomeViewModel(coordinator: coordinator),
-                     predictVM: PredictionViewModel())
+            HomeView(
+                store: Store(initialState: HomeReducer.State()) {
+                    HomeReducer()
+                },
+//                HomeViewModel(coordinator: coordinator),
+                predictVM: PredictionViewModel()
+            )
         }
     }
 }

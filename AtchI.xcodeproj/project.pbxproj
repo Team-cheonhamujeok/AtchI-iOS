@@ -206,6 +206,8 @@
 		BCCCAF732A29938000B9176E /* HealthInfoDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF722A29938000B9176E /* HealthInfoDescriptionView.swift */; };
 		BCCCAF752A29A03B00B9176E /* ModalDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */; };
 		BCCCAF762A29A44800B9176E /* MMSEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F882A249A8C007DDA30 /* MMSEError.swift */; };
+		BCCF73BB2A3A0F7A00C97371 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BCCF73BA2A3A0F7A00C97371 /* ComposableArchitecture */; };
+		BCCF73BE2A3A0FB400C97371 /* HomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF73BD2A3A0FB400C97371 /* HomeReducer.swift */; };
 		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
 		BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */; };
 		BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD897272A0A45A6006EC401 /* dots-loading.json */; };
@@ -476,6 +478,7 @@
 		BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHeartRateServiceMock.swift; sourceTree = "<group>"; };
 		BCCCAF722A29938000B9176E /* HealthInfoDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoDescriptionView.swift; sourceTree = "<group>"; };
 		BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissButton.swift; sourceTree = "<group>"; };
+		BCCF73BD2A3A0FB400C97371 /* HomeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReducer.swift; sourceTree = "<group>"; };
 		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
 		BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BCD897272A0A45A6006EC401 /* dots-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dots-loading.json"; sourceTree = "<group>"; };
@@ -551,6 +554,7 @@
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
 				BC6948312A20AC65006DED29 /* Factory in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
+				BCCF73BB2A3A0F7A00C97371 /* ComposableArchitecture in Frameworks */,
 				BCEDF1CE2A1BC9B30030CD75 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1472,6 +1476,7 @@
 		BC8D551E29B99A6D00FAA6E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BCCF73BC2A3A0FA700C97371 /* Reducer */,
 				BC8FB88B2A2E507500280E58 /* Builder */,
 				BC3CA1A829BF664800C8AE3D /* ViewModel */,
 				BC8D552029B99A9100FAA6E3 /* View */,
@@ -1569,6 +1574,14 @@
 				BCD897272A0A45A6006EC401 /* dots-loading.json */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		BCCF73BC2A3A0FA700C97371 /* Reducer */ = {
+			isa = PBXGroup;
+			children = (
+				BCCF73BD2A3A0FB400C97371 /* HomeReducer.swift */,
+			);
+			path = Reducer;
 			sourceTree = "<group>";
 		};
 		BCD5EBB62A0AC61300F1E0F1 /* Launch */ = {
@@ -1960,6 +1973,7 @@
 				BCEDF1CD2A1BC9B30030CD75 /* MarkdownUI */,
 				BC6948302A20AC65006DED29 /* Factory */,
 				BC8C25812A38F20F0003E2CC /* StackCoordinator */,
+				BCCF73BA2A3A0F7A00C97371 /* ComposableArchitecture */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -2003,6 +2017,7 @@
 				BCEDF1CC2A1BC9B30030CD75 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 				BC69482F2A20AC65006DED29 /* XCRemoteSwiftPackageReference "Factory" */,
 				BC8C25802A38F20F0003E2CC /* XCRemoteSwiftPackageReference "StackCoordinator" */,
+				BCCF73B92A3A0F7900C97371 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -2239,6 +2254,7 @@
 				BCEDF1D92A1BE4420030CD75 /* MMSEView.swift in Sources */,
 				BC4317CC29C095020094333B /* AlzheimerInformation.swift in Sources */,
 				BC8D551829B9959100FAA6E3 /* Fonts+Extension.swift in Sources */,
+				BCCF73BE2A3A0FB400C97371 /* HomeReducer.swift in Sources */,
 				BC8D550029B9909C00FAA6E3 /* AtchIApp.swift in Sources */,
 				BC7650D82A2FA154005F306E /* MMSELink.swift in Sources */,
 				BC2526ED29D4231B000FCE11 /* LoginView.swift in Sources */,
@@ -2680,6 +2696,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		BCCF73B92A3A0F7900C97371 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.54.0;
+			};
+		};
 		BCEDF1CC2A1BC9B30030CD75 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui.git";
@@ -2715,6 +2739,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BCB9C6912A0A3CDB00273F33 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		BCCF73BA2A3A0F7A00C97371 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCCF73B92A3A0F7900C97371 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		BCEDF1CD2A1BC9B30030CD75 /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
