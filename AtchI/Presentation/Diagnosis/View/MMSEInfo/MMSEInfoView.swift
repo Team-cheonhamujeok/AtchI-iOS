@@ -101,7 +101,7 @@ struct MMSEInfoView: View {
             }
             
         }
-        .padding(25)
+        .padding(.horizontal, 25)
     }
         
     //MARK: - Test 했을 때
