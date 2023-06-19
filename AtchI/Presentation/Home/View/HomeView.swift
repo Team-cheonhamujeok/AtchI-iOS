@@ -60,10 +60,16 @@ struct HomeView: View {
                     VStack(alignment: .leading, spacing: 20){
                         Text("바로가기")
                             .font(.titleMedium)
-//                        ShortcutCards(
-//                            tapQuizShorcut: viewModel.$tapQuizShortcut,
-//                            tapSelfDiagnosisShorcut: viewModel.$tapSelfDiagnosisShortcut
-//                        )
+                        ShortcutCards(
+                            tapQuizShorcutAction: {
+                                viewStore.send(.tapQuizShortcut)
+                            },
+                            tapSelfDiagnosisShorcutAction: {
+                                viewStore.send(
+                                    .tapSelfDiagnosisShortcut
+                                )
+                            }
+                        )
                     }
                     .padding(.horizontal, 30)
                     

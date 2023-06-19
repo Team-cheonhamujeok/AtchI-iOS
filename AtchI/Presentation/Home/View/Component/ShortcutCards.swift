@@ -12,8 +12,8 @@ import Combine
 
 struct ShortcutCards: View {
     
-    var tapQuizShorcut: Subjected<Void>
-    var tapSelfDiagnosisShorcut: Subjected<Void>
+    var tapQuizShorcutAction: () -> Void
+    var tapSelfDiagnosisShorcutAction: () -> Void
     
     var body: some View {
         HStack(spacing: 20) {
@@ -22,7 +22,7 @@ struct ShortcutCards: View {
                 content: "뇌훈련을 통해\n치매 예방하기"
             )
             .onTapGesture {
-                tapQuizShorcut.send(())
+                tapQuizShorcutAction()
             }
             
             ShortcutCard(
@@ -30,7 +30,7 @@ struct ShortcutCards: View {
                 content: "혹시 치매일까\n의심된다면"
             )
             .onTapGesture {
-                tapSelfDiagnosisShorcut.send(())
+                tapSelfDiagnosisShorcutAction()
             }
         }
     }

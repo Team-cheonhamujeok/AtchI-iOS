@@ -6,49 +6,14 @@
 //
 
 import Foundation
-
-import ComposableArchitecture
 @preconcurrency import SwiftUI
 
-struct DementiaArticleClient {
-  var fetch: () -> [DementiaArticleModel]
-}
-
-extension DementiaArticleClient: DependencyKey {
-    static let liveValue = Self(
-        fetch: {
-          // Articel Meta 정보 가져오기 (파싱)
-          let plist = BundleHelper
-              .shared
-              .parsePlistFile("DementiaArticelsMeta")
-          
-          return plist.enumerated().compactMap { idx, item -> DementiaArticleModel? in
-              guard let title = item["title"],
-                    let imageName = item["imageName"],
-                    let richTextfileName = item["richTextfileName"]
-              else { return nil }
-              
-              let content = BundleHelper
-                  .shared
-                  .parseRichTextFile(richTextfileName)
-              
-              return DementiaArticleModel(title: title,
-                                          imageName: imageName,
-                                          richTextfileName: richTextfileName,
-                                          content: content)
-          }
-      }
-    )
-}
-
-extension DependencyValues {
-  var dementiaArticleClient: DementiaArticleClient {
-    get { self[DementiaArticleClient.self] }
-    set { self[DementiaArticleClient.self] = newValue }
-  }
-}
+import ComposableArchitecture
+import StackCoordinator
 
 struct HomeReducer: ReducerProtocol {
+    
+    var coordinator: BaseCoordinator<HomeLink>
     
     struct State: Equatable {
         var articles: [DementiaArticleModel] = []
@@ -59,27 +24,39 @@ struct HomeReducer: ReducerProtocol {
         case tapMoveHealthInfoPage
         case tapQuizShortcut
         case tapSelfDiagnosisShortcut
-        // inner
-        case setDementiaArticles(_: [DementiaArticleModel])
     }
     
-    @Dependency(\.dementiaArticleClient) var dementiaArticleClient
+    @Dependency(\.homeDementiaArticleClient) var homeDementiaArticleClient
+    @Dependency(\.homeQuizClinet) var homeQuizClient
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
 
         case .viewOnAppear:
-            return .run { send in
-                await send(.setDementiaArticles(dementiaArticleClient.fetch()))
-            }
+            state.articles = homeDementiaArticleClient
+                .getDementiaArticles()
+            return .none
+            
         case .tapMoveHealthInfoPage:
+            coordinator.push(HomeLink.healthInfo)
             return .none
+            
         case .tapQuizShortcut:
-            return .none
+            return .run { send in
+                let quiz = await homeQuizClient.getUnsolvedQuiz()
+                if let quiz = quiz {
+                    coordinator.push(HomeLink.quiz(quiz))
+                } else {
+                    AlertHelper
+                        .showAlert(
+                            title: "퀴즈 모두 완료",
+                            message: "오늘 퀴즈를 모두 푸셨습니다 🥳"
+                        )
+                }
+            }
+            
         case .tapSelfDiagnosisShortcut:
-            return .none
-        case .setDementiaArticles(let articles):
-            state.articles = articles
+            coordinator.push(HomeLink.selfTest)
             return .none
         }
     }

@@ -27,7 +27,6 @@ class QuizService: QuizServiceType {
                 response.map(GetQuizResponseModel.self)
             }
             .mapError { error in
-                print(error)
                 return QuizError.getQuiz(.fetchFailed)
             }
             .eraseToAnyPublisher()

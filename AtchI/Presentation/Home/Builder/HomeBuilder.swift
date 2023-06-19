@@ -20,9 +20,8 @@ struct HomeBuilder: BuilderProtocol {
         BaseBuilder(coordinator: coordinator) {
             HomeView(
                 store: Store(initialState: HomeReducer.State()) {
-                    HomeReducer()
+                    HomeReducer(coordinator: coordinator)
                 },
-//                HomeViewModel(coordinator: coordinator),
                 predictVM: PredictionViewModel()
             )
         }

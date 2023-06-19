@@ -208,6 +208,8 @@
 		BCCCAF762A29A44800B9176E /* MMSEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04457F882A249A8C007DDA30 /* MMSEError.swift */; };
 		BCCF73BB2A3A0F7A00C97371 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BCCF73BA2A3A0F7A00C97371 /* ComposableArchitecture */; };
 		BCCF73BE2A3A0FB400C97371 /* HomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF73BD2A3A0FB400C97371 /* HomeReducer.swift */; };
+		BCCF73C22A3B4E7B00C97371 /* HomeDementiaArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF73C12A3B4E7B00C97371 /* HomeDementiaArticleClient.swift */; };
+		BCCF73C42A3B55AC00C97371 /* HomeQuizClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF73C32A3B55AC00C97371 /* HomeQuizClient.swift */; };
 		BCD5EBB52A0A75F300F1E0F1 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */; };
 		BCD5EBB82A0AC67500F1E0F1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */; };
 		BCD897282A0A45A6006EC401 /* dots-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD897272A0A45A6006EC401 /* dots-loading.json */; };
@@ -479,6 +481,8 @@
 		BCCCAF722A29938000B9176E /* HealthInfoDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoDescriptionView.swift; sourceTree = "<group>"; };
 		BCCCAF742A29A03B00B9176E /* ModalDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissButton.swift; sourceTree = "<group>"; };
 		BCCF73BD2A3A0FB400C97371 /* HomeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReducer.swift; sourceTree = "<group>"; };
+		BCCF73C12A3B4E7B00C97371 /* HomeDementiaArticleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDementiaArticleClient.swift; sourceTree = "<group>"; };
+		BCCF73C32A3B55AC00C97371 /* HomeQuizClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeQuizClient.swift; sourceTree = "<group>"; };
 		BCD5EBB42A0A75F300F1E0F1 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
 		BCD5EBB72A0AC67500F1E0F1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BCD897272A0A45A6006EC401 /* dots-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dots-loading.json"; sourceTree = "<group>"; };
@@ -1579,9 +1583,19 @@
 		BCCF73BC2A3A0FA700C97371 /* Reducer */ = {
 			isa = PBXGroup;
 			children = (
+				BCCF73BF2A3B4E4A00C97371 /* Client */,
 				BCCF73BD2A3A0FB400C97371 /* HomeReducer.swift */,
 			);
 			path = Reducer;
+			sourceTree = "<group>";
+		};
+		BCCF73BF2A3B4E4A00C97371 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				BCCF73C12A3B4E7B00C97371 /* HomeDementiaArticleClient.swift */,
+				BCCF73C32A3B55AC00C97371 /* HomeQuizClient.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 		BCD5EBB62A0AC61300F1E0F1 /* Launch */ = {
@@ -2150,6 +2164,7 @@
 				BCCCAF732A29938000B9176E /* HealthInfoDescriptionView.swift in Sources */,
 				BC5A82DC2A0E0949002EB661 /* SettingView.swift in Sources */,
 				BC81F35B29FD3D3700E09958 /* EmailVerificationState.swift in Sources */,
+				BCCF73C42A3B55AC00C97371 /* HomeQuizClient.swift in Sources */,
 				BC7719242A0F804000F692C6 /* HKHeartRateServiceProtocol.swift in Sources */,
 				BC4607A72A1E4C7700015447 /* LocationHelper.swift in Sources */,
 				BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */,
@@ -2239,6 +2254,7 @@
 				BC38FC012A1DD530005F172B /* MMSEService.swift in Sources */,
 				04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */,
 				BC4317C929C094530094333B /* AlzheimerInformationType.swift in Sources */,
+				BCCF73C22A3B4E7B00C97371 /* HomeDementiaArticleClient.swift in Sources */,
 				04BB2A4C2A2D18E500E864C6 /* PredictionViewModel.swift in Sources */,
 				BCEDA92829E0356D00F301B1 /* Subject.swift in Sources */,
 				BCDDE0BD29BDE613003E364C /* HomeView.swift in Sources */,
