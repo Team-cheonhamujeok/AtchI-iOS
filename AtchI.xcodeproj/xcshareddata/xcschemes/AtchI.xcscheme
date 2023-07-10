@@ -51,6 +51,17 @@
                ReferencedContainer = "container:AtchI.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0451B2782A5C516500A5A207"
+               BuildableName = "TCAAtchITests.xctest"
+               BlueprintName = "TCAAtchITests"
+               ReferencedContainer = "container:AtchI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
