@@ -10,9 +10,7 @@ import SwiftUI
 import StackCoordinator
 
 struct SettingListView: View {
-    
     var coordinator: BaseCoordinator<SettingLink>
-    
     let links = SettingLink.allCases
     
     var body: some View {
@@ -21,9 +19,7 @@ struct SettingListView: View {
                 HStack {
                     Text(link.title)
                         .font(.titleSmall)
-                    
                     Spacer()
-                    
                     ArrowRight()
                         .frame(width: 18*0.7, height: 24*0.7)
                         .foregroundColor(Color.grayDisabled)

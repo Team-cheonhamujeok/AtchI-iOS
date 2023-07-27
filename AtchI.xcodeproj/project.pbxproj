@@ -25,6 +25,8 @@
 		047505C12A1F75CF00E7A13E /* MMSEResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047505C02A1F75CF00E7A13E /* MMSEResultList.swift */; };
 		04818F742A0B8B22002B8EB2 /* DateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04818F732A0B8B22002B8EB2 /* DateError.swift */; };
 		0491BAD629F968C4005C53E5 /* MockHealthKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491BAD529F968C4005C53E5 /* MockHealthKitProvider.swift */; };
+		049AD9D32A728B970001AC6B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 049AD9D22A728B970001AC6B /* ComposableArchitecture */; };
+		049AD9D62A728DA20001AC6B /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AD9D52A728DA20001AC6B /* ProfileSettingViewModel.swift */; };
 		049ADE9429C6E40E009B9B62 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */; };
 		049ADE9929C6E9BC009B9B62 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */; };
 		049ADEA329C97003009B9B62 /* DiagnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049ADEA229C97003009B9B62 /* DiagnosisView.swift */; };
@@ -304,6 +306,7 @@
 		047505C02A1F75CF00E7A13E /* MMSEResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSEResultList.swift; sourceTree = "<group>"; };
 		04818F732A0B8B22002B8EB2 /* DateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateError.swift; sourceTree = "<group>"; };
 		0491BAD529F968C4005C53E5 /* MockHealthKitProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHealthKitProvider.swift; sourceTree = "<group>"; };
+		049AD9D52A728DA20001AC6B /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
 		049ADE9329C6E40E009B9B62 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		049ADE9829C6E9BC009B9B62 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		049ADEA229C97003009B9B62 /* DiagnosisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisView.swift; sourceTree = "<group>"; };
@@ -568,6 +571,7 @@
 				BC4BBFD829D5F4A500E67B8E /* Combine.framework in Frameworks */,
 				BC6948312A20AC65006DED29 /* Factory in Frameworks */,
 				BC37AA5329E080760047D273 /* Moya in Frameworks */,
+				049AD9D32A728B970001AC6B /* ComposableArchitecture in Frameworks */,
 				BCEDF1CE2A1BC9B30030CD75 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,6 +675,14 @@
 				BCBB36CA2A2B8D7B00BE937D /* HKHeartRateServiceMock.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		049AD9D42A728D910001AC6B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				049AD9D52A728DA20001AC6B /* ProfileSettingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		049ADE9029C6E3B2009B9B62 /* UI */ = {
@@ -1164,6 +1176,7 @@
 		BC5A82D92A0E0934002EB661 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				049AD9D42A728D910001AC6B /* ViewModel */,
 				BC1DDB2A2A324D3D0011B4BC /* Builder */,
 				BC5A82DA2A0E093B002EB661 /* View */,
 			);
@@ -2005,6 +2018,7 @@
 				BCEDF1CD2A1BC9B30030CD75 /* MarkdownUI */,
 				BC6948302A20AC65006DED29 /* Factory */,
 				BC8C25812A38F20F0003E2CC /* StackCoordinator */,
+				049AD9D22A728B970001AC6B /* ComposableArchitecture */,
 			);
 			productName = AtchI;
 			productReference = BC8D54FC29B9909C00FAA6E3 /* AtchI.app */;
@@ -2053,6 +2067,7 @@
 				BCEDF1CC2A1BC9B30030CD75 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 				BC69482F2A20AC65006DED29 /* XCRemoteSwiftPackageReference "Factory" */,
 				BC8C25802A38F20F0003E2CC /* XCRemoteSwiftPackageReference "StackCoordinator" */,
+				049AD9D12A728B970001AC6B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = BC8D54FD29B9909C00FAA6E3 /* Products */;
 			projectDirPath = "";
@@ -2256,6 +2271,7 @@
 				BC1DDB2C2A324D4A0011B4BC /* SettingLink.swift in Sources */,
 				BC38FBE72A1C82A9005F172B /* MMSEViewModel.swift in Sources */,
 				6F5C3C052A1F6AF300775D7E /* Quiz.swift in Sources */,
+				049AD9D62A728DA20001AC6B /* ProfileSettingViewModel.swift in Sources */,
 				BC1DDB402A34CE2F0011B4BC /* HKCategorySample+Extension.swift in Sources */,
 				BC77192B2A0F828200F692C6 /* LifePatternAPI.swift in Sources */,
 				BC7650BF2A2F8200005F306E /* HealthInfoViewModel.swift in Sources */,
@@ -2766,6 +2782,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		049AD9D12A728B970001AC6B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.56.0;
+			};
+		};
 		BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -2809,6 +2833,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		049AD9D22A728B970001AC6B /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 049AD9D12A728B970001AC6B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		BC37AA5029E080760047D273 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC37AA4F29E080760047D273 /* XCRemoteSwiftPackageReference "Moya" */;

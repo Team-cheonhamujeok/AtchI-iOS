@@ -17,6 +17,8 @@ extension Color {
     static let mainComplete = Color("mainComplete")
     static let mainText = Color("mainText")
     static let mainBackground = Color("mainBackground")
+    static let mainRed = Color("mainRed")
+    static let mainRedLight = Color("mainRedLight")
     
     static let grayBoldLine = Color("grayBoldLine")
     static let grayThinLine = Color("grayThinLine")
