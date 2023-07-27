@@ -14,13 +14,13 @@ struct ProfileSettingView: View {
     var body: some View {
         VStack (spacing: 30) {
             ProfileCell(title: "이름",
-                        content: $viewModel.name)
+                        content: $viewModel.state.name)
             ProfileCell(title: "생년월일",
-                        content: $viewModel.birthday)
+                        content: $viewModel.state.birthday)
             ProfileCell(title: "성별",
-                        content: $viewModel.gender)
+                        content: $viewModel.state.gender)
             ProfileCell(title: "이메일",
-                        content: $viewModel.email)
+                        content: $viewModel.state.email)
             
             Spacer()
             VStack(spacing: 15) {
@@ -45,6 +45,9 @@ struct ProfileSettingView: View {
                     Text("회원탈퇴")
                 }
             }
+        }
+        .onAppear{
+            viewModel.action.viewOnAppear.send()
         }
         .navigationTitle("개인정보")
         .navigationBarTitleDisplayMode(.inline)
