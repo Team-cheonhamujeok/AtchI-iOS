@@ -67,6 +67,12 @@ extension Container {
         }
     }
     
+    var profileSerivce: Factory<ProfileServiceType> {
+        Factory(self) {
+            ProfileService(provider: MoyaProvider<ProfileAPI>())
+        }
+    }
+    
     // MARK: - HKService
     var hkSleepService: Factory<HKSleepServiceProtocol> {
         Factory(self) { HKSleepService(
