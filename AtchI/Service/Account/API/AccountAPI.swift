@@ -12,6 +12,7 @@ enum AccountAPI{
     case signup(_ signupModel: SignupReqeustModel)
     case login(_ loginModel: LoginRequestModel)
     case emailConfirm(_ email: String)
+    case cancelMembership(_ email: String)
 }
 
 extension AccountAPI: TargetType {
@@ -31,12 +32,15 @@ extension AccountAPI: TargetType {
             return "/login"
         case .emailConfirm:
             return "/mailConfirm"
+        case .cancelMembership:
+            return "/secession"
+            
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .emailConfirm:
+        case .emailConfirm, .cancelMembership:
             return .get
         case .signup, .login:
             return .post
@@ -52,6 +56,8 @@ extension AccountAPI: TargetType {
         case .emailConfirm(let email):
             return .requestParameters(parameters: ["email" : email],
                                       encoding: URLEncoding.queryString)
+        case .cancelMembership(let email):
+            return .requestParameters(parameters: ["email" : email], encoding: URLEncoding.queryString)
         }
     }
     

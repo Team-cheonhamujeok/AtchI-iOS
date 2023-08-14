@@ -31,6 +31,9 @@ enum AccountError: Error {
     case emailVerification(_ :EmailVerificationError)
     /// Account API Login Error
     case login(_ : LoginError)
+    /// Account API Cancel Membership Error
+    case cancelMembership(_ : CancelMembershipError)
+    
     
     var description: String {
         switch self {
@@ -41,6 +44,8 @@ enum AccountError: Error {
         case .emailVerification(let error):
             return error.description
         case .login(let error):
+            return error.description
+        case .cancelMembership(let error):
             return error.description
         }
     }
@@ -87,6 +92,17 @@ extension AccountError {
                 return "존재하지 않는 회원입니다."
             case .loginFailed:
                 return "예상치 못한 원인으로 회원가입에 실패하였습니다."
+            }
+        }
+    }
+    
+    enum CancelMembershipError: Error {
+        case otherError
+        
+        var description: String {
+            switch self {
+            case .otherError:
+                return "알 수 없는 오류가 발생했습니다."
             }
         }
     }

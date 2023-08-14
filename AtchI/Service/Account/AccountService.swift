@@ -11,6 +11,8 @@ import CombineMoya
 import Combine
 
 class AccountService: AccountServiceType {
+    
+    
     internal init(provider: MoyaProvider<AccountAPI>, cancellables: Set<AnyCancellable> = Set<AnyCancellable>()) {
         self.provider = provider
         self.cancellables = cancellables
@@ -86,6 +88,18 @@ class AccountService: AccountServiceType {
             }
             .mapError { error in
                 return error as! AccountError
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestCancelMembership(email: String) -> AnyPublisher<CancelMembershipResponseModel, AccountError> {
+        return provider.requestPublisher(.cancelMembership(email))
+            .tryMap { response -> CancelMembershipResponseModel in
+                return try response.map(CancelMembershipResponseModel.self)
+            }
+            .mapError { error in
+                // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
+                return AccountError.cancelMembership(.otherError)
             }
             .eraseToAnyPublisher()
     }
