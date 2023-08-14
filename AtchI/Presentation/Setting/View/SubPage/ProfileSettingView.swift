@@ -41,7 +41,12 @@ struct ProfileSettingView: View {
                               tintColor: .mainRed,
                               buttonColor: .mainRedLight,
                               isIndicate: false)
-                {} content: {
+                {AlertHelper.showAlert(message: "탈퇴하시겠습니까?", action: UIAlertAction(title: "확인", style: UIAlertAction.Style.destructive){(_) in
+                    // 버튼 클릭시 실행되는 코드
+                    print("탈퇴버튼 누름!!!")
+//                    viewModel.requestCancelMemberShip(viewModel.state.email)
+                    viewModel.requestCancelMemberShip("cancelTest@naver.com")
+                })} content: {
                     Text("회원탈퇴")
                 }
             }

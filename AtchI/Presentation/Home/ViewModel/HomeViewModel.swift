@@ -70,7 +70,7 @@ class HomeViewModel: ObservableObject {
                 } else {
                     AlertHelper
                         .showAlert(title: "퀴즈 모두 완료",
-                                   message: "오늘 퀴즈를 모두 푸셨습니다 🥳")
+                                   message: "오늘 퀴즈를 모두 푸셨습니다 🥳", action: nil)
                 }
             }
             .store(in: &cancellables)

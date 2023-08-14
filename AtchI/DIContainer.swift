@@ -94,6 +94,12 @@ extension Container {
             dateHelper: DateHelper())
         }
     }
+    
+    var accountService: Factory<AccountServiceType> {
+        Factory(self) {
+            AccountService(provider: MoyaProvider<AccountAPI>())
+        }
+    }
 }
 
 

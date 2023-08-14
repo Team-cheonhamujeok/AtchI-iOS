@@ -13,10 +13,15 @@ import Factory
 class ProfileSettingViewModel: ObservableObject {
     
     @Injected(\.profileSerivce) private var service: ProfileServiceType
-
+    @Injected(\.accountService) private var accountService: AccountServiceType
+    
     @Published var action = ProfileAction()
     @Published var state = ProfileState()
-   
+    @Published var cancelMembershipErrorMessage: String = ""
+    
+    /// 서버에서 받은 회원 탈퇴 성공 여부 메세지입니다.
+    private var cancelMembershipResponseMessage: String = ""
+    
     var cancellables = Set<AnyCancellable>()
 
     init() {
@@ -45,7 +50,7 @@ class ProfileSettingViewModel: ObservableObject {
             .store(in: &cancellables)
         
         response
-            .map{$0.gender ? "남" : "ㅇㅕ"}
+            .map{$0.gender ? "남" : "여"}
             .receive(on: DispatchQueue.main)
             .assign(to: \.state.gender, on: self)
             .store(in: &cancellables)
@@ -56,5 +61,21 @@ class ProfileSettingViewModel: ObservableObject {
             .assign(to: \.state.name, on: self)
             .store(in: &cancellables)
         
+    }
+    
+    func requestCancelMemberShip(_ email: String) {
+        print("email 잘 들어왓나 \(email)")
+        self.accountService
+            .requestCancelMembership(email: email).print()
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished: break
+                case .failure(let error):
+                    self.cancelMembershipErrorMessage = error.description
+                }
+            }, receiveValue: { (result: CancelMembershipResponseModel) in
+                self.cancelMembershipResponseMessage = result.message
+            }).store(in: &cancellables)
     }
 }
