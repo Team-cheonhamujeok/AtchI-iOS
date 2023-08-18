@@ -8,9 +8,11 @@
 import Foundation
 import Combine
 
+import Factory
+
 class SignupRequestViewModel: ObservableObject {
     // MARK: - Dependency
-    let accountService: AccountServiceType
+    @Injected(\.accountService) var accountService: AccountServiceType
     var eventToValidationViewModel = PassthroughSubject<SignupRequestViewModelEvent, Never>()
     var eventFromValidationViewModel: PassthroughSubject<SignupValidationViewModelEvent, Never>? = nil
     

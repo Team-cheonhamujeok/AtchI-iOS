@@ -33,30 +33,35 @@ extension Container {
         Factory(self) {
             QuizService(provider: MoyaProvider<QuizAPI>())
         }
+        .singleton
     }
     
     var mmseService: Factory<MMSEService> {
         Factory(self) {
             MMSEService(provider: MoyaProvider<MMSEAPI>())
         }
+        .singleton
     }
     
     var dementiaArticleService: Factory<DementiaArticleService> {
         Factory(self) {
             DementiaArticleService()
         }
+        .singleton
     }
     
     var predictionService: Factory<PredictionService> {
         Factory(self) {
             PredictionService(provider: MoyaProvider<PredictionAPI>())
         }
+        .singleton
     }
     
     var lifePatternService: Factory<LifePatternServiceType> {
         Factory(self) {
             LifePatternService()
         }
+        .singleton
     }
     
     var diagnosisService: Factory<DiagnosisServiceType> {
@@ -65,12 +70,28 @@ extension Container {
                 provider: MoyaProvider<DiagnosisAPI>()
             )
         }
+        .singleton
     }
     
-    var profileSerivce: Factory<ProfileServiceType> {
+    var profileService: Factory<ProfileServiceType> {
         Factory(self) {
             ProfileService(provider: MoyaProvider<ProfileAPI>())
         }
+        .singleton
+    }
+    
+    var accountService: Factory<AccountServiceType> {
+        Factory(self) {
+            AccountService(provider: MoyaProvider<AccountAPI>())
+        }
+        .singleton
+    }
+    
+    var validationService: Factory<ValidationServiceType> {
+        Factory(self) {
+            ValidationService()
+        }
+        .singleton
     }
     
     // MARK: - HKService
@@ -80,11 +101,13 @@ extension Container {
             provider: HKProvider(),
             dateHelper: DateHelper())
         }
+        .singleton
     }
     
     var hkActivityService: Factory<HKActivityServiceProtocol> {
         Factory(self) { HKActivityService(healthkitProvicer: HKProvider())
         }
+        .singleton
     }
     
     var hkHeartRateService: Factory<HKHeartRateServiceProtocol> {
@@ -93,13 +116,9 @@ extension Container {
             provider: HKProvider(),
             dateHelper: DateHelper())
         }
+        .singleton
     }
-    
-    var accountService: Factory<AccountServiceType> {
-        Factory(self) {
-            AccountService(provider: MoyaProvider<AccountAPI>())
-        }
-    }
+
 }
 
 

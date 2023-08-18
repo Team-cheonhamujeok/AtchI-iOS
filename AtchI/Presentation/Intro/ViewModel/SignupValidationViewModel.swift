@@ -8,10 +8,12 @@
 import Foundation
 import Combine
 
+import Factory
+
 class SignupValidationViewModel: ObservableObject {
     
     // MARK: - Dependency
-    let validationServcie: ValidationServiceType
+    @Injected(\.validationService) var validationServcie: ValidationServiceType
     var eventToRequestViewModel = PassthroughSubject<SignupValidationViewModelEvent, Never>()
     var eventFromRequestViewModel: PassthroughSubject<SignupRequestViewModelEvent, Never>? = nil
     

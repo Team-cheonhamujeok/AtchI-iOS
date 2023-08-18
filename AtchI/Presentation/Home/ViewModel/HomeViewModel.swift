@@ -15,9 +15,7 @@ import StackCoordinator
 @MainActor
 class HomeViewModel: ObservableObject {
     
-    
     // MARK: - Dependency
-    
     @Injected(\.dementiaArticleService) private var dementiaArticleService
     @Injected(\.quizService) private var quizServcie
     var coordinator: BaseCoordinator<HomeLink>

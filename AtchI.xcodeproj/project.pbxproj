@@ -91,7 +91,6 @@
 		BC0446BB29FC1A95002109A2 /* SignupRequestViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */; };
 		BC0446BD29FC1AAC002109A2 /* SignupValidationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */; };
 		BC0446BF29FC24AA002109A2 /* EmailVerificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446BE29FC24AA002109A2 /* EmailVerificationResponseModel.swift */; };
-		BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0446C529FC42EE002109A2 /* SignupReducer.swift */; };
 		BC1DDB1F2A3235B40011B4BC /* HKSleepCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DDB1E2A3235B40011B4BC /* HKSleepCore.swift */; };
 		BC1DDB222A3236550011B4BC /* HKSleepEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DDB212A3236550011B4BC /* HKSleepEntity.swift */; };
 		BC1DDB252A3243C30011B4BC /* HealthInfoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DDB242A3243C30011B4BC /* HealthInfoAction.swift */; };
@@ -378,7 +377,6 @@
 		BC0446BA29FC1A95002109A2 /* SignupRequestViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestViewModelType.swift; sourceTree = "<group>"; };
 		BC0446BC29FC1AAC002109A2 /* SignupValidationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationViewModelType.swift; sourceTree = "<group>"; };
 		BC0446BE29FC24AA002109A2 /* EmailVerificationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationResponseModel.swift; sourceTree = "<group>"; };
-		BC0446C529FC42EE002109A2 /* SignupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReducer.swift; sourceTree = "<group>"; };
 		BC1DDB1E2A3235B40011B4BC /* HKSleepCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepCore.swift; sourceTree = "<group>"; };
 		BC1DDB212A3236550011B4BC /* HKSleepEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSleepEntity.swift; sourceTree = "<group>"; };
 		BC1DDB242A3243C30011B4BC /* HealthInfoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoAction.swift; sourceTree = "<group>"; };
@@ -701,7 +699,7 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		049AD9D72A72BD1E0001AC6B /* Setting */ = {
+		049AD9D72A72BD1E0001AC6B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				049AD9DC2A72BE140001AC6B /* Model */,
@@ -709,7 +707,7 @@
 				049AD9DA2A72BE060001AC6B /* API */,
 				049AD9D82A72BD990001AC6B /* ProfileService.swift */,
 			);
-			path = Setting;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		049AD9DA2A72BE060001AC6B /* API */ = {
@@ -1398,7 +1396,7 @@
 		BC78196D29E07867005C4CF5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				049AD9D72A72BD1E0001AC6B /* Setting */,
+				049AD9D72A72BD1E0001AC6B /* Profile */,
 				042714782A2EE52000EF43F5 /* NetworkMonitor */,
 				04BB2A4F2A2D207100E864C6 /* Prediction */,
 				BCE743962A28BC020073914B /* DementiaArticle */,
@@ -1623,7 +1621,6 @@
 				BCA1485F29D5F149001F390D /* LoginViewModel.swift */,
 				BC3DDF6829FB9BC400452A2B /* SignupValidationViewModel.swift */,
 				BC3DDF6A29FB9BD200452A2B /* SignupRequestViewModel.swift */,
-				BC0446C529FC42EE002109A2 /* SignupReducer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2275,7 +2272,6 @@
 				BCE743842A28632A0073914B /* LastDateResponseModel.swift in Sources */,
 				BC8C25742A38E0D60003E2CC /* SelfTestBuilder.swift in Sources */,
 				BC482D302A25DE8F0091787D /* MMSESaveRequestModel.swift in Sources */,
-				BC0446C629FC42EE002109A2 /* SignupReducer.swift in Sources */,
 				BCE394B429BEF99600FEE178 /* ShortcutCard.swift in Sources */,
 				BC7650CA2A2F8A29005F306E /* AlertHelper.swift in Sources */,
 				BC2E1F6B2A13D2CC00B4E713 /* TabBarType.swift in Sources */,

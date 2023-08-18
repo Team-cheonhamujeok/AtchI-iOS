@@ -15,7 +15,7 @@ struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
     
     init() {
-        self.viewModel = LoginViewModel(accountService: AccountService(provider: MoyaProvider<AccountAPI>()), validationService: ValidationService())
+        self.viewModel = LoginViewModel()
     }
     
     var body: some View {

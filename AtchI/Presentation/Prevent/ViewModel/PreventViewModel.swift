@@ -8,12 +8,14 @@
 import Foundation
 import Combine
 
+import Factory
+
 class PreventViewModel: ObservableObject {
     
     @Published var quizCount: Int = 0
     @Published var countDay: Int = 0
     
-    let quizService: QuizServiceType?
+    @Injected(\.quizService) var quizService: QuizServiceType
     
     // MARK: - State
     
@@ -71,7 +73,7 @@ class PreventViewModel: ObservableObject {
     }
     
     func requestQuiz(completion: @escaping () -> Void ) {
-        self.quizService!.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).print().sink(receiveCompletion: { completion in
+        self.quizService.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).print().sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
             case .failure(let error):
@@ -92,7 +94,7 @@ class PreventViewModel: ObservableObject {
     func checkQuiz(quizNum: Int, completion: @escaping () -> Void) {
         let tqId = UserDefaults.standard.integer(forKey: "tqid")
         let mID = UserDefaults.standard.integer(forKey: "mid")
-        self.quizService!.checkQuiz(quizCheckModel: QuizCheckRequestModel(tqid:tqId, quizNum: quizNum, mid: mID)).sink(receiveCompletion: { completion in
+        self.quizService.checkQuiz(quizCheckModel: QuizCheckRequestModel(tqid:tqId, quizNum: quizNum, mid: mID)).sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
             case .failure(let error):
@@ -106,7 +108,7 @@ class PreventViewModel: ObservableObject {
     
     func getWeekQuiz() {
         let mID = UserDefaults.standard.integer(forKey: "mid")
-        self.quizService!.getWeekQuiz(mid: mID).sink(receiveCompletion: { completion in
+        self.quizService.getWeekQuiz(mid: mID).sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
             case .failure(let error):

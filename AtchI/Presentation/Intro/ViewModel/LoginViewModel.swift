@@ -8,13 +8,14 @@
 import Foundation
 import Combine
 
+import Factory
 
 class LoginViewModel: ObservableObject {
     
     // MARK: - Dependency
     
-    let accountService: AccountServiceType
-    let validationService: ValidationServiceType
+    @Injected(\.accountService) var accountService: AccountServiceType
+    @Injected(\.validationService) var validationService: ValidationServiceType
     
     // MARK: - State
     
@@ -34,11 +35,7 @@ class LoginViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
-    init(accountService: AccountServiceType,
-         validationService: ValidationServiceType) {
-        self.accountService = accountService
-        self.validationService = validationService
-        
+    init() {
         bind()
     }
     

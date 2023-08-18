@@ -12,7 +12,7 @@ import Factory
 
 class ProfileSettingViewModel: ObservableObject {
     
-    @Injected(\.profileSerivce) private var service: ProfileServiceType
+    @Injected(\.profileService) private var service: ProfileServiceType
     @Injected(\.accountService) private var accountService: AccountServiceType
     
     @Published var action = ProfileAction()
