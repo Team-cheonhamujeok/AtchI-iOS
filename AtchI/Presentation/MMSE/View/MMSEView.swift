@@ -89,7 +89,6 @@ struct MMSEView: View {
                 .padding(30)
             }
         }
-        .navigationBarBackButtonHidden()
         .setCustomNavigationBar(
             dismiss: dismiss,
             backgroundColor: .accentColor
