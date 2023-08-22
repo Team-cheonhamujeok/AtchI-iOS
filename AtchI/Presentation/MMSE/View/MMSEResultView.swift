@@ -61,7 +61,6 @@ struct MMSEResultView: View {
             }
             .padding(.horizontal, 30)
         }
-        .setCustomNavigationBarHidden(true)
     }
 }
 

@@ -32,9 +32,11 @@ class LoginViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     
     // MARK: - Cancellable Bag
+    
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Constructor
+    
     init() {
         bind()
     }
@@ -73,7 +75,7 @@ class LoginViewModel: ObservableObject {
     }
     
     // MARK: - Request
-    func reqeustLogin() {
+    private func reqeustLogin() {
         self.accountService
             .requestLogin(loginModel: LoginRequestModel(id: self.editEmail,
                                                         pw: self.editPassword))
@@ -87,6 +89,8 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { response in
                 UserDefaults.standard.set(response.mid, forKey: "mid")
+                UserDefaults.standard.set(self.editEmail, forKey: "email")
+                
                 // Login창 내려가자마자 권한요청 뜨는 UX가 별로라 지연 넣음
                 Task.detached {
                     try await Task.sleep(nanoseconds: 1 * 1_000_000_000 / 4)

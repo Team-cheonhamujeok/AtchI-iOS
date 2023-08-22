@@ -73,7 +73,7 @@ class PreventViewModel: ObservableObject {
     }
     
     func requestQuiz(completion: @escaping () -> Void ) {
-        self.quizService.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).print().sink(receiveCompletion: { completion in
+        self.quizService.getQuiz(mid: UserDefaults.standard.integer(forKey: "mid")).sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
             case .failure(let error):

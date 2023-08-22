@@ -24,31 +24,42 @@ struct ProfileSettingView: View {
             
             Spacer()
             VStack(spacing: 15) {
-                DefaultButton(buttonSize: .small,
-                              width: .infinity,
-                              height: 40,
-                              buttonStyle: .filled,
-                              tintColor: .grayTextLight,
-                              buttonColor:  .grayBoldLine,
-                              isIndicate: false)
-                {} content: {
+                DefaultButton(
+                    buttonSize: .small,
+                    width: .infinity,
+                    height: 40,
+                    buttonStyle: .filled,
+                    tintColor: .grayTextLight,
+                    buttonColor:  .grayBoldLine,
+                    isIndicate: false
+                ) {
+                    viewModel.logout()
+                } content: {
                     Text("로그아웃")
                 }
-                DefaultButton(buttonSize: .small,
-                              width: .infinity,
-                              height: 40,
-                              buttonStyle: .filled,
-                              tintColor: .mainRed,
-                              buttonColor: .mainRedLight,
-                              isIndicate: false)
-                {AlertHelper.showAlert(message: "탈퇴하시겠습니까?", action: UIAlertAction(title: "확인", style: UIAlertAction.Style.destructive){(_) in
-                    // 버튼 클릭시 실행되는 코드
-                    print("탈퇴버튼 누름!!!")
-//                    viewModel.requestCancelMemberShip(viewModel.state.email)
-                    viewModel.requestCancelMemberShip("cancelTest@naver.com")
-                })} content: {
-                    Text("회원탈퇴")
-                }
+                DefaultButton(
+                    buttonSize: .small,
+                    width: .infinity,
+                    height: 40,
+                    buttonStyle: .filled,
+                    tintColor: .mainRed,
+                    buttonColor: .mainRedLight,
+                    isIndicate: false
+                )
+                {
+                    AlertHelper.showAlert(
+                        message: "탈퇴하시겠습니까?",
+                        action: UIAlertAction(
+                            title: "확인",
+                            style: UIAlertAction.Style.destructive)
+                        { (_) in
+                            // 버튼 클릭시 실행되는 코드
+                            viewModel.requestCancelMemberShip(viewModel.state.email)
+                            
+                        }
+                    )} content: {
+                        Text("회원탈퇴")
+                    }
             }
         }
         .onAppear{

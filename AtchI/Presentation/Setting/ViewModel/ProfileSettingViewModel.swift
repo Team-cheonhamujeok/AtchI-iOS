@@ -23,19 +23,30 @@ class ProfileSettingViewModel: ObservableObject {
     private var cancelMembershipResponseMessage: String = ""
     
     var cancellables = Set<AnyCancellable>()
-
+    
     init() {
         bind()
     }
     
     //TODO:
     private func bind() {
-        var response = action
-                        .viewOnAppear
-                        .flatMap { _ in
-                            self.service.reqeustProfileResults(email: "")
-                                .replaceError(with: ProfileResponseModel(email: "", birthday: "", gender: false, name: ""))
-                        }
+        
+        
+        let response = action
+            .viewOnAppear
+            .flatMap { _ in
+                self.service.reqeustProfileResults(
+                    email: self.state.email
+                )
+                .replaceError(
+                    with: ProfileResponseModel(
+                        email: "",
+                        birthday: "",
+                        gender: false,
+                        name: ""
+                    )
+                )
+            }
         
         response
             .map{$0.birthday}
@@ -64,7 +75,6 @@ class ProfileSettingViewModel: ObservableObject {
     }
     
     func requestCancelMemberShip(_ email: String) {
-        print("email 잘 들어왓나 \(email)")
         self.accountService
             .requestCancelMembership(email: email).print()
             .sink(receiveCompletion: { [weak self] completion in
@@ -77,5 +87,18 @@ class ProfileSettingViewModel: ObservableObject {
             }, receiveValue: { (result: CancelMembershipResponseModel) in
                 self.cancelMembershipResponseMessage = result.message
             }).store(in: &cancellables)
+    }
+    
+    func logout() {
+        UserDefaults.standard.removeObject(forKey: "mid")
+        UserDefaults.standard.removeObject(forKey: "email")
+    }
+    
+    private func setEmailState() {
+        guard let email = UserDefaults.standard.string(forKey: "email") else {
+            fatalError("User email not found")
+        }
+        
+        self.state.email = email
     }
 }

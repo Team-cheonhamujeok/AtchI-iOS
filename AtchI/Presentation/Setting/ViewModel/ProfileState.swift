@@ -8,8 +8,8 @@
 import Foundation
 
 struct ProfileState {
-     var name: String = "Kang Min Gyu"
-     var birthday: String = "00/01/01"
-     var gender: String = "남"
-     var email: String = "mgo8434@naver.com"
+     var name: String = ""
+     var birthday: String = ""
+     var gender: String = ""
+     var email: String = ""
 }
