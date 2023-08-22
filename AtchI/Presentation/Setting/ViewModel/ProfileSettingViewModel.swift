@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import UIKit
+import SwiftUI
 
 import Factory
 
@@ -25,51 +27,34 @@ class ProfileSettingViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     init() {
+        setEmail()
         bind()
     }
     
-    //TODO:
     private func bind() {
         
-        
-        let response = action
+        action
             .viewOnAppear
             .flatMap { _ in
-                self.service.reqeustProfileResults(
-                    email: self.state.email
-                )
-                .replaceError(
-                    with: ProfileResponseModel(
-                        email: "",
-                        birthday: "",
-                        gender: false,
-                        name: ""
-                    )
-                )
+                self.service.reqeustProfileResults(email: self.state.email)
             }
-        
-        response
-            .map{$0.birthday}
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.state.birthday, on: self)
-            .store(in: &cancellables)
-        
-        response
-            .map{$0.email}
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.state.email, on: self)
-            .store(in: &cancellables)
-        
-        response
-            .map{$0.gender ? "남" : "여"}
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.state.gender, on: self)
-            .store(in: &cancellables)
-        
-        response
-            .map{$0.name}
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.state.name, on: self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure:
+                    AlertHelper.showAlert(
+                        message: "정보를 가져오는데 문제가 발생했습니다. \n잠시 후 다시 시도해주세요",
+                        action: UIAlertAction(
+                            title: "확인",
+                            style: UIAlertAction.Style.destructive
+                        ))
+                default: break
+                }
+            }, receiveValue: {
+                self.state.email = $0.email
+                self.state.birthday = $0.birthday
+                self.state.name = $0.name
+                self.state.gender = $0.gender ? "남" : "여"
+            })
             .store(in: &cancellables)
         
     }
@@ -94,7 +79,7 @@ class ProfileSettingViewModel: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "email")
     }
     
-    private func setEmailState() {
+    private func setEmail() {
         guard let email = UserDefaults.standard.string(forKey: "email") else {
             fatalError("User email not found")
         }
