@@ -54,7 +54,7 @@ struct ProfileSettingView: View {
                             style: UIAlertAction.Style.destructive)
                         { (_) in
                             // 버튼 클릭시 실행되는 코드
-                            viewModel.requestCancelMemberShip(viewModel.state.email)
+                            viewModel.requestCancelMembership(viewModel.state.email)
                             
                         }
                     )} content: {

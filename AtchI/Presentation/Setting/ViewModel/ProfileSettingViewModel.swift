@@ -27,7 +27,7 @@ class ProfileSettingViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     init() {
-        setEmail()
+        getUserEmailAndAssign()
         bind()
     }
     
@@ -41,12 +41,7 @@ class ProfileSettingViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure:
-                    AlertHelper.showAlert(
-                        message: "정보를 가져오는데 문제가 발생했습니다. \n잠시 후 다시 시도해주세요",
-                        action: UIAlertAction(
-                            title: "확인",
-                            style: UIAlertAction.Style.destructive
-                        ))
+                    self.alertGetProfileFailed()
                 default: break
                 }
             }, receiveValue: {
@@ -59,7 +54,7 @@ class ProfileSettingViewModel: ObservableObject {
         
     }
     
-    func requestCancelMemberShip(_ email: String) {
+    func requestCancelMembership(_ email: String) {
         self.accountService
             .requestCancelMembership(email: email).print()
             .sink(receiveCompletion: { [weak self] completion in
@@ -79,11 +74,22 @@ class ProfileSettingViewModel: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "email")
     }
     
-    private func setEmail() {
+    // MARK: - private
+    
+    private func getUserEmailAndAssign() {
         guard let email = UserDefaults.standard.string(forKey: "email") else {
             fatalError("User email not found")
         }
         
         self.state.email = email
+    }
+    
+    private func alertGetProfileFailed() {
+        AlertHelper.showAlert(
+            message: "정보를 가져오는데 문제가 발생했습니다. \n잠시 후 다시 시도해주세요",
+            action: UIAlertAction(
+                title: "확인",
+                style: UIAlertAction.Style.destructive
+            ))
     }
 }
