@@ -13,7 +13,8 @@ import Combine
 class AccountService: AccountServiceType {
     
     
-    internal init(provider: MoyaProvider<AccountAPI>, cancellables: Set<AnyCancellable> = Set<AnyCancellable>()) {
+    init(provider: MoyaProvider<AccountAPI>,
+         cancellables: Set<AnyCancellable> = Set<AnyCancellable>()) {
         self.provider = provider
         self.cancellables = cancellables
     }
@@ -33,6 +34,7 @@ class AccountService: AccountServiceType {
                 return try response.map(EmailVerificationResponseModel.self)
             }
             .mapError { error in
+                print("error: \(error)")
                 // 내부 Publisher에서 발생한 에러를 다른 에러 타입으로 변환
                 return AccountError.emailVerification(.sendEmailConfirmFailed)
             }

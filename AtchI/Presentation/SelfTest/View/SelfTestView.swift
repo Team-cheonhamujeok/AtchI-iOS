@@ -47,7 +47,7 @@ struct SelfTestView: View {
                 Group {
                     // Title
                     HStack {
-                        Text("문제 수")
+                        Text("문항 수")
                             .font(.titleSmall)
                             .foregroundColor(.mainPurple)
                         Spacer()

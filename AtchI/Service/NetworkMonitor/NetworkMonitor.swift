@@ -39,17 +39,17 @@ final class NetworkMonitor: ObservableObject {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
 
-            Task {
-                self?.isConnected = path.status == .satisfied
-            }
-            
-            self?.getConnectionType(path)
-
-            if self?.isConnected == true {
-                print("연결됨!")
-            } else {
-                print("연결안됨!")
-            }
+//            Task {
+//                self?.isConnected = path.status == .satisfied
+//            }
+//            
+//            self?.getConnectionType(path)
+//
+//            if self?.isConnected == true {
+//                print("연결됨!")
+//            } else {
+//                print("연결안됨!")
+//            }
         }
     }
 

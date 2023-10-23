@@ -30,7 +30,7 @@ class PredictionViewModel: ObservableObject {
     
     @Published var isLoading: Bool = true
     @Published var haveLifePattern: Bool = false
-    @Published var haveMMSE: Bool = false
+    @Published var haveMMSE: Bool = true
     
     @Published private var results: [PredictionModel] = []
     
@@ -57,13 +57,13 @@ class PredictionViewModel: ObservableObject {
 
         
         
-        checkHaveMMSE
-            .sink { _ in
-                
-            } receiveValue: { isHave in
-                self.haveMMSE = isHave
-            }
-            .store(in: &cancellables)
+//        checkHaveMMSE
+//            .sink { _ in
+//                
+//            } receiveValue: { isHave in
+//                self.haveMMSE = isHave
+//            }
+//            .store(in: &cancellables)
         
         checkHaveLifePattern
             .sink { _ in
@@ -78,6 +78,7 @@ class PredictionViewModel: ObservableObject {
             .sink(receiveCompletion: { _ in
             
             }, receiveValue: { predictions in
+                debugPrint(predictions)
                 self.results = predictions.sorted { $0.pid > $1.pid }
             })
             .store(in: &cancellables)

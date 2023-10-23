@@ -68,9 +68,15 @@ class LifePatternService: LifePatternServiceType {
                 Publishers.MergeMany($0)
             }
             .collect()
+            .map {
+                debugPrint($0)
+                return $0
+            }
             .flatMap { lifePatternModels in
                 self.provider
-                    .requestPublisher(.saveLifePatterns(lifePatternModels))
+                    .requestPublisher(.saveLifePatterns(lifePatternModels.sorted(
+                        by: { $0.date < $1.date}
+                    )))
                     .filterSuccessfulStatusCodes()
                     .tryMap { response -> SaveLifePatternResponseModel in
                         return try response.map(SaveLifePatternResponseModel.self)
@@ -157,12 +163,13 @@ extension LifePatternService {
                 let rmssdAvg = values.3.count != 0
                 ? values.3.reduce(0.0,+)/Double(values.3.count)
                 : -1.0
+                
                 return SaveLifePatternRequestModel(
                     mid: mid,
                     date: DateHelper.convertDateToString(date),
                     activitySteps: Int(values.0),
                     sleepDuration: values.1,
-                    sleepHrAverage: values.2,
+                    sleepHrAverage: values.2.isNaN ? -1.0: values.2, // FIXME: Double.nan 문제 임시 방편. 아마 부동소숫점 계산으로 0으로 나누거나 할때 발생한듯...ㅎ ㅏ아....
                     sleepRmssd: rmssdAvg)
             }
             .eraseToAnyPublisher()

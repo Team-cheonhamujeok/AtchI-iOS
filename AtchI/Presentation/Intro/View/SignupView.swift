@@ -31,7 +31,6 @@ struct SignupView: View {
         // bind 함수 호출
         self.requestViewModel.bindEvent()
         self.validationViewModel.bindEvent()
-        
     }
     
     var body: some View {
