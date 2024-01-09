@@ -8,7 +8,7 @@
 ![image](https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/41a38f40-e844-43bf-aef6-4e5c32363fe5)
 
 ## 🏛️ 아키텍처
-![image](https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/992f3233-036b-4465-9732-e45c78174a94)
+![image](https://github.com/Team-cheonhamujeok/AtchI-iOS/assets/71880682/3e250365-8aa2-4578-bd49-41a4de5096c4)
 
 ### Main App
 > 사용자와 직접적으로 상호작용하는 앱 타겟입니다.
